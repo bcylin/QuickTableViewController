@@ -25,7 +25,29 @@
 //
 
 import UIKit
+import QuickTableViewController
 
-class ViewController: UIViewController {
+class ViewController: QuickTableViewController {
+
+  // MARK: - UIViewController
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = "QuickTableViewController"
+
+    tableContents = [
+      Section(title: "Cell Styles", rows: [
+        Row(title: "Title", subtitle: nil),
+        Row(title: "Title", subtitle: "Subtitle")
+      ]),
+      Section(title: "Actions", rows: [
+        Row(title: "Tap action", target: self, tapAction: Selector("")),
+        Row(title: "Navigation", subtitle: nil, target: self, navigation: Selector(""))
+      ]),
+      Section(title: nil, rows: [
+        Row(title: "Empty section title", subtitle: nil)
+      ])
+    ]
+  }
 
 }

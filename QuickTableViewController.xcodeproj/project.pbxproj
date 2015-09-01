@@ -11,6 +11,7 @@
 		B5334F1F1B8CC5BD00C64A6D /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */; };
 		B5334F261B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
+		B5EC18231B95FD7F0015C665 /* QuickTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewController.swift; sourceTree = "<group>"; };
+		B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				B5334F161B8CC5BD00C64A6D /* Supporting Files */,
+				B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */,
 				B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */,
 				B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */,
 			);
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EC18231B95FD7F0015C665 /* QuickTableModel.swift in Sources */,
 				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

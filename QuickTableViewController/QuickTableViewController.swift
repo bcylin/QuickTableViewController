@@ -26,13 +26,49 @@
 
 import UIKit
 
-class QuickTableViewController: UITableViewController {
+public class QuickTableViewController: UITableViewController {
+
+  public var tableContents: [Section] = [] {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+
+  // MARK: - Initializer
+
+  convenience init() {
+    self.init(style: .Grouped)
+  }
 
   // MARK: - UIViewController
 
-  override func viewDidLoad() {
+  override public func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = UIColor.whiteColor()
+    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
+  }
+
+  // MARK: - UITableViewDataSource
+
+  public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return tableContents.count
+  }
+
+  public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return tableContents[section].rows.count
+  }
+
+  public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return tableContents[section].title
+  }
+
+  public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    var cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
+    if cell == nil {
+      cell = UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
+    }
+    cell!.textLabel?.text = tableContents[indexPath.section].rows[indexPath.row].title
+
+    return cell!
   }
 
 }
