@@ -44,7 +44,7 @@ public class QuickTableViewController: UITableViewController {
 
   override public func viewDidLoad() {
     super.viewDidLoad()
-    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
+    tableView.registerClass(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
   }
 
   // MARK: - UITableViewDataSource
@@ -62,13 +62,26 @@ public class QuickTableViewController: UITableViewController {
   }
 
   public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
-    if cell == nil {
-      cell = UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
-    }
-    cell!.textLabel?.text = tableContents[indexPath.section].rows[indexPath.row].title
+    let row = tableContents[indexPath.section].rows[indexPath.row]
+    var cell: UITableViewCell!
 
-    return cell!
+    if let subtitle = row.subtitle {
+      cell = tableView.dequeueReusableCellWithIdentifier(".Subtitle") as? UITableViewCell
+      cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: ".Subtitle")
+      cell.detailTextLabel?.text = subtitle
+
+    } else if let tapAction = row.tapAction {
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
+      cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
+
+    } else {
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
+      cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
+    }
+
+    cell.accessoryType = (row.navigation == nil) ? .None : .DisclosureIndicator
+    cell.textLabel?.text = row.title
+    return cell
   }
 
 }
