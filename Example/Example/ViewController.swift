@@ -38,7 +38,9 @@ class ViewController: QuickTableViewController {
     tableContents = [
       Section(title: "Cell Styles", rows: [
         Row(title: "Title", subtitle: nil),
-        Row(title: "Title", subtitle: "Subtitle")
+        Row(title: "Title", subtitle: Subtitle.BelowTitle("Subtitle")),
+        Row(title: "Title", subtitle: Subtitle.RightAligned("Subtitle")),
+        Row(title: "Title", subtitle: Subtitle.LeftAligned("Subtitle"))
       ]),
       Section(title: "Actions", rows: [
         Row(title: "Tap action", tapAction: showAlert),

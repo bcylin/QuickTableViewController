@@ -44,8 +44,9 @@ public struct Section {
 A struct that represents a row in a table view.
 */
 public struct Row {
+
   public var title: String
-  public var subtitle: String?
+  public var subtitle: Subtitle?
 
   /// The action to perfom when the row is selected.
   public var tapAction: (Void -> Void)? {
@@ -63,7 +64,7 @@ public struct Row {
 
   // MARK: - Initializer
 
-  public init(title: String, subtitle: String?, tapAction: (Void -> Void)?, navigation: (Void -> Void)?) {
+  public init(title: String, subtitle: Subtitle?, tapAction: (Void -> Void)?, navigation: (Void -> Void)?) {
     self.title = title
     self.subtitle = subtitle
     self.tapAction = tapAction
@@ -74,7 +75,7 @@ public struct Row {
     self.init(title: "", subtitle: nil, tapAction: nil, navigation: nil)
   }
 
-  public init(title: String, subtitle: String?) {
+  public init(title: String, subtitle: Subtitle?) {
     self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: nil)
   }
 
@@ -82,8 +83,42 @@ public struct Row {
     self.init(title: title, subtitle: nil, tapAction: tapAction, navigation: nil)
   }
 
-  public init(title: String, subtitle: String?, navigation: (Void -> Void)) {
+  public init(title: String, subtitle: Subtitle?, navigation: (Void -> Void)) {
     self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: navigation)
   }
 
+}
+
+
+/**
+An enum that indicates the subtitle text with UITableViewCellStyle.
+
+- BelowTitle:   Represents a subtitle with UITableViewCellStyle.Subtitle.
+- RightAligned: Represents a subtitle with UITableViewCellStyle.Value1.
+- LeftAligned:  Represents a subtitle with UITableViewCellStyle.Value2.
+*/
+public enum Subtitle {
+  case BelowTitle(String)
+  case RightAligned(String)
+  case LeftAligned(String)
+
+  public var style: String {
+    get {
+      switch self {
+      case .BelowTitle(let _): return "Subtitle.BelowTitle"
+      case .RightAligned(let _): return "Subtitle.RightAligned"
+      case .LeftAligned(let _): return "Subtitle.LeftAligned"
+      }
+    }
+  }
+
+  public var text: String {
+    get {
+      switch self {
+      case .BelowTitle(let text): return text
+      case .RightAligned(let text): return text
+      case .LeftAligned(let text): return text
+      }
+    }
+  }
 }

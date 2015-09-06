@@ -66,9 +66,17 @@ public class QuickTableViewController: UITableViewController {
     var cell: UITableViewCell!
 
     if let subtitle = row.subtitle {
-      cell = tableView.dequeueReusableCellWithIdentifier(".Subtitle") as? UITableViewCell
-      cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: ".Subtitle")
-      cell.detailTextLabel?.text = subtitle
+      cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
+      // Match UITableViewCellStyle to each Subtitle.style
+      switch subtitle {
+      case .BelowTitle(let text):
+        cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: subtitle.style)
+      case .RightAligned(let text):
+        cell = cell ?? UITableViewCell(style: .Value1, reuseIdentifier: subtitle.style)
+      case .LeftAligned(let text):
+        cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
+      }
+      cell.detailTextLabel?.text = subtitle.text
 
     } else if let _ = row.tapAction {
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
