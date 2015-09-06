@@ -65,8 +65,10 @@ public class QuickTableViewController: UITableViewController {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell: UITableViewCell!
 
-    if let subtitle = row.subtitle {
+    switch (row.subtitle, row.action) {
+    case (.Some(let subtitle), _):
       cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
+
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
       case .BelowTitle(let text):
@@ -76,18 +78,25 @@ public class QuickTableViewController: UITableViewController {
       case .LeftAligned(let text):
         cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
       }
+
       cell.detailTextLabel?.text = subtitle.text
 
-    } else if let _ = row.tapAction {
+    case (_, .Some(.Tap(let _))):
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
-    } else {
+    default:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
     }
 
-    cell.accessoryType = (row.navigation == nil) ? .None : .DisclosureIndicator
+    switch row.action {
+    case .Some(.Navigation(let _)):
+      cell.accessoryType = .DisclosureIndicator
+    default:
+      cell.accessoryType = .None
+    }
+
     cell.textLabel?.text = row.title
     return cell
   }
@@ -97,12 +106,13 @@ public class QuickTableViewController: UITableViewController {
   public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
-    if let tapAction = row.tapAction {
-      tapAction()
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    } else if let navigation = row.navigation {
-      navigation()
-    } else {
+    switch row.action {
+    case .Some(.Navigation(let action)):
+      action(row)
+    case .Some(.Tap(let action)):
+      action(row)
+      fallthrough
+    default:
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
   }

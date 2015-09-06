@@ -43,8 +43,10 @@ class ViewController: QuickTableViewController {
         Row(title: "Title", subtitle: Subtitle.LeftAligned("Subtitle"))
       ]),
       Section(title: "Actions", rows: [
-        Row(title: "Tap action", tapAction: showAlert),
-        Row(title: "Navigation", subtitle: nil, navigation: showDetail)
+        Row(title: "Tap action", subtitle: nil, action: ActionType.Tap(showAlert)),
+        Row(title: "Navigation", subtitle: nil, action: ActionType.Navigation(showDetail)),
+        Row(title: "Navigation", subtitle: Subtitle.BelowTitle("Subtitle"), action: ActionType.Navigation(showDetail)),
+        Row(title: "Navigation", subtitle: Subtitle.RightAligned("Subtitle"), action: ActionType.Navigation(showDetail))
       ]),
       Section(title: nil, rows: [
         Row(title: "Empty section title", subtitle: nil)
@@ -54,7 +56,7 @@ class ViewController: QuickTableViewController {
 
   // MARK: - Private Methods
 
-  private func showAlert() {
+  private func showAlert(sender: Row) {
     let alert = UIAlertController(title: "Action Triggered", message: nil, preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "OK", style: .Cancel) { [unowned self] _ in
       self.dismissViewControllerAnimated(true, completion: nil)
@@ -62,7 +64,7 @@ class ViewController: QuickTableViewController {
     presentViewController(alert, animated: true, completion: nil)
   }
 
-  private func showDetail() {
+  private func showDetail(sender: Row) {
     let controller = UIViewController()
     controller.view.backgroundColor = UIColor.whiteColor()
     navigationController?.pushViewController(controller, animated: true)

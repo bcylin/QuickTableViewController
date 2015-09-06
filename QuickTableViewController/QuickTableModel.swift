@@ -40,55 +40,55 @@ public struct Section {
 }
 
 
+// MARK: -
+
 /**
 A struct that represents a row in a table view.
 */
 public struct Row {
 
+  // MARK: Properties
+
   public var title: String
   public var subtitle: Subtitle?
 
   /// The action to perfom when the row is selected.
-  public var tapAction: (Void -> Void)? {
-    didSet {
-      if tapAction != nil { self.navigation = nil }
-    }
-  }
+  public var action: ActionType?
 
-  /// The navigation to perform when the row is selected.
-  public var navigation: (Void -> Void)? {
-    didSet {
-      if navigation != nil { self.tapAction = nil }
-    }
-  }
+  // MARK: Initializer
 
-  // MARK: - Initializer
-
-  public init(title: String, subtitle: Subtitle?, tapAction: (Void -> Void)?, navigation: (Void -> Void)?) {
+  public init(title: String, subtitle: Subtitle?, action: ActionType?) {
     self.title = title
     self.subtitle = subtitle
-    self.tapAction = tapAction
-    self.navigation = navigation
+    self.action = action
   }
 
   public init() {
-    self.init(title: "", subtitle: nil, tapAction: nil, navigation: nil)
+    self.init(title: "", subtitle: nil, action: nil)
   }
 
   public init(title: String, subtitle: Subtitle?) {
-    self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: nil)
-  }
-
-  public init(title: String, tapAction: (Void -> Void)) {
-    self.init(title: title, subtitle: nil, tapAction: tapAction, navigation: nil)
-  }
-
-  public init(title: String, subtitle: Subtitle?, navigation: (Void -> Void)) {
-    self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: navigation)
+    self.init(title: title, subtitle: subtitle, action: nil)
   }
 
 }
 
+
+// MARK: -
+
+/**
+An enum that indicates the action type to perfrom when the row is selected.
+
+- Tap:        The selected row responds like a tapped button.
+- Navigation: The selected row triggers a navigation push.
+*/
+public enum ActionType {
+  case Tap((Row) -> Void)
+  case Navigation((Row) -> Void)
+}
+
+
+// MARK: -
 
 /**
 An enum that indicates the subtitle text with UITableViewCellStyle.
