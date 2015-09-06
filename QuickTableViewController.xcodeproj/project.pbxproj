@@ -10,6 +10,9 @@
 		B5334F191B8CC5BD00C64A6D /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5334F1F1B8CC5BD00C64A6D /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */; };
 		B5334F261B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */; };
+		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
+		B5EC18231B95FD7F0015C665 /* QuickTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */; };
+		B595627B1B9758BC00D6DAB1 /* QuickTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595627A1B9758BC00D6DAB1 /* QuickTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTableViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerTests.swift; sourceTree = "<group>"; };
+		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewController.swift; sourceTree = "<group>"; };
+		B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableModel.swift; sourceTree = "<group>"; };
+		B595627A1B9758BC00D6DAB1 /* QuickTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +59,9 @@
 		B5334F091B8CC5BD00C64A6D = {
 			isa = PBXGroup;
 			children = (
+				B5334F141B8CC5BD00C64A6D /* Products */,
 				B5334F151B8CC5BD00C64A6D /* QuickTableViewController */,
 				B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */,
-				B5334F141B8CC5BD00C64A6D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +77,11 @@
 		B5334F151B8CC5BD00C64A6D /* QuickTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */,
 				B5334F161B8CC5BD00C64A6D /* Supporting Files */,
+				B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */,
+				B595627A1B9758BC00D6DAB1 /* QuickTableViewCell.swift */,
+				B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */,
+				B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */,
 			);
 			path = QuickTableViewController;
 			sourceTree = "<group>";
@@ -88,8 +97,8 @@
 		B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */,
 				B5334F231B8CC5BD00C64A6D /* Supporting Files */,
+				B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */,
 			);
 			path = QuickTableViewControllerTests;
 			sourceTree = "<group>";
@@ -209,6 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EC18231B95FD7F0015C665 /* QuickTableModel.swift in Sources */,
+				B595627B1B9758BC00D6DAB1 /* QuickTableViewCell.swift in Sources */,
+				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +335,7 @@
 		B5334F2A1B8CC5BD00C64A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +345,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B5334F2B1B8CC5BD00C64A6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -399,6 +414,7 @@
 				B5334F2B1B8CC5BD00C64A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5334F2C1B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +423,7 @@
 				B5334F2E1B8CC5BD00C64A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
