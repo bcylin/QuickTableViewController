@@ -81,7 +81,7 @@ public class QuickTableViewController: UITableViewController {
 
       cell.detailTextLabel?.text = subtitle.text
 
-    case (_, .Some(.Tap(let _))):
+    case (_, .Some(let action)) where action is Tap:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
@@ -90,10 +90,9 @@ public class QuickTableViewController: UITableViewController {
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
     }
 
-    switch row.action {
-    case .Some(.Navigation(let _)):
+    if let _ = row.action as? Navigation {
       cell.accessoryType = .DisclosureIndicator
-    default:
+    } else {
       cell.accessoryType = .None
     }
 
@@ -107,10 +106,10 @@ public class QuickTableViewController: UITableViewController {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
     switch row.action {
-    case .Some(.Navigation(let action)):
-      action(row)
-    case .Some(.Tap(let action)):
-      action(row)
+    case .Some(let navigation) where navigation is Navigation:
+      navigation.action(row)
+    case .Some(let tap) where tap is Tap:
+      tap.action(row)
       fallthrough
     default:
       tableView.deselectRowAtIndexPath(indexPath, animated: true)

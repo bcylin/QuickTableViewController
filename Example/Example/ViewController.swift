@@ -37,16 +37,18 @@ class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Cell Styles", rows: [
-        Row(title: "Title", subtitle: nil),
-        Row(title: "Title", subtitle: Subtitle.BelowTitle("Subtitle")),
-        Row(title: "Title", subtitle: Subtitle.RightAligned("Subtitle")),
-        Row(title: "Title", subtitle: Subtitle.LeftAligned("Subtitle"))
+        Row(title: "CellStyle.Default", subtitle: nil),
+        Row(title: "CellStyle", subtitle: Subtitle.BelowTitle(".Subtitle")),
+        Row(title: "CellStyle", subtitle: Subtitle.RightAligned(".Value1")),
+        Row(title: "CellStyle", subtitle: Subtitle.LeftAligned(".Value2"))
       ]),
-      Section(title: "Actions", rows: [
-        Row(title: "Tap action", subtitle: nil, action: ActionType.Tap(showAlert)),
-        Row(title: "Navigation", subtitle: nil, action: ActionType.Navigation(showDetail)),
-        Row(title: "Navigation", subtitle: Subtitle.BelowTitle("Subtitle"), action: ActionType.Navigation(showDetail)),
-        Row(title: "Navigation", subtitle: Subtitle.RightAligned("Subtitle"), action: ActionType.Navigation(showDetail))
+      Section(title: "Tap Action", rows: [
+        Row(title: "Tap action", action: Tap(showAlert))
+      ]),
+      Section(title: "Navigation", rows: [
+        Row(title: "Navigation", subtitle: nil, action: Navigation(showDetail)),
+        Row(title: "Navigation", subtitle: Subtitle.BelowTitle("with subtitle"), action: Navigation(showDetail)),
+        Row(title: "Navigation", subtitle: Subtitle.RightAligned("with detail"), action: Navigation(showDetail))
       ]),
       Section(title: nil, rows: [
         Row(title: "Empty section title", subtitle: nil)
@@ -67,6 +69,7 @@ class ViewController: QuickTableViewController {
   private func showDetail(sender: Row) {
     let controller = UIViewController()
     controller.view.backgroundColor = UIColor.whiteColor()
+    controller.title = "\(sender.title) " + (sender.subtitle?.text ?? "")
     navigationController?.pushViewController(controller, animated: true)
   }
 

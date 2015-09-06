@@ -49,7 +49,7 @@ public struct Row {
 
   // MARK: Properties
 
-  public var title: String
+  public var title: String = ""
   public var subtitle: Subtitle?
 
   /// The action to perfom when the row is selected.
@@ -57,19 +57,30 @@ public struct Row {
 
   // MARK: Initializer
 
-  public init(title: String, subtitle: Subtitle?, action: ActionType?) {
+  /// Creates a Row instance with a title and a subtitle, without any selected action.
+  public init(title: String, subtitle: Subtitle?) {
+    self.init(title: title, subtitle: subtitle, action: nil)
+  }
+
+  /// Creates a Row instance with a title and a selected action, without a subtitle.
+  public init(title: String, action: Tap) {
+    self.init(title: title, subtitle: nil, action: action as ActionType)
+  }
+
+  /// Creates a Row instance with a title, a subtitle, and an action that's related to navigation when the row is selected.
+  public init(title: String, subtitle: Subtitle?, action: Navigation) {
+    self.init(title: title, subtitle: subtitle, action: action as ActionType)
+  }
+
+  // MARK: Private
+
+  private init(title: String, subtitle: Subtitle?, action: ActionType?) {
     self.title = title
     self.subtitle = subtitle
     self.action = action
   }
 
-  public init() {
-    self.init(title: "", subtitle: nil, action: nil)
-  }
-
-  public init(title: String, subtitle: Subtitle?) {
-    self.init(title: title, subtitle: subtitle, action: nil)
-  }
+  private init() {}
 
 }
 
@@ -77,14 +88,32 @@ public struct Row {
 // MARK: -
 
 /**
-An enum that indicates the action type to perfrom when the row is selected.
-
-- Tap:        The selected row responds like a tapped button.
-- Navigation: The selected row triggers a navigation push.
+Any type that conforms to this protocol is compatible with the actions attached to Row instances.
 */
-public enum ActionType {
-  case Tap((Row) -> Void)
-  case Navigation((Row) -> Void)
+public protocol ActionType {
+  var action: ((Row) -> Void) { get }
+}
+
+/**
+An action related to Navigation which is performed when the row is selected.
+*/
+public struct Navigation: ActionType {
+  public let action: ((Row) -> Void)
+
+  public init(_ action: ((Row) -> Void)) {
+    self.action = action
+  }
+}
+
+/**
+An action which is performed when the row is selected.
+*/
+public struct Tap: ActionType {
+  public let action: ((Row) -> Void)
+
+  public init(_ action: ((Row) -> Void)) {
+    self.action = action
+  }
 }
 
 
