@@ -100,6 +100,10 @@ public class QuickTableViewController: UITableViewController {
     return cell
   }
 
+  public override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    return tableContents[section].footer
+  }
+
   // MARK: - UITableViewDelegate
 
   public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

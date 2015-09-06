@@ -44,12 +44,12 @@ class ViewController: QuickTableViewController {
       ]),
       Section(title: "Tap Action", rows: [
         Row(title: "Tap action", action: Tap(showAlert))
-      ]),
+      ], footer: "Subtitles are omitted."),
       Section(title: "Navigation", rows: [
         Row(title: "Navigation", subtitle: nil, action: Navigation(showDetail)),
         Row(title: "Navigation", subtitle: Subtitle.BelowTitle("with subtitle"), action: Navigation(showDetail)),
         Row(title: "Navigation", subtitle: Subtitle.RightAligned("with detail"), action: Navigation(showDetail))
-      ]),
+      ], footer: "UITableViewCellStyle.Value2 is not listed here."),
       Section(title: nil, rows: [
         Row(title: "Empty section title", subtitle: nil)
       ])

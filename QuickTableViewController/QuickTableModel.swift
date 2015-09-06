@@ -32,10 +32,12 @@ A struct that represents a section in a table view.
 public struct Section {
   public var title: String?
   public var rows: [Row]
+  public var footer: String?
 
-  public init(title: String?, rows: [Row]) {
+  public init(title: String?, rows: [Row], footer: String? = nil) {
     self.title = title
     self.rows = rows
+    self.footer = footer
   }
 }
 
