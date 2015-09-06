@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.version       = "0.1.0"
 
   s.homepage      = "https://github.com/bcylin/QuickTableViewController"
+  s.license       = { type: "MIT", file: "LICENSE" }
   s.author        = "bcylin"
 
   s.platform      = :ios, "8.0"
