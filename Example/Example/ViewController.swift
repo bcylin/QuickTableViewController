@@ -41,13 +41,29 @@ class ViewController: QuickTableViewController {
         Row(title: "Title", subtitle: "Subtitle")
       ]),
       Section(title: "Actions", rows: [
-        Row(title: "Tap action", target: self, tapAction: Selector("")),
-        Row(title: "Navigation", subtitle: nil, target: self, navigation: Selector(""))
+        Row(title: "Tap action", tapAction: showAlert),
+        Row(title: "Navigation", subtitle: nil, navigation: showDetail)
       ]),
       Section(title: nil, rows: [
         Row(title: "Empty section title", subtitle: nil)
       ])
     ]
+  }
+
+  // MARK: - Private Methods
+
+  private func showAlert() {
+    let alert = UIAlertController(title: "Action Triggered", message: nil, preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .Cancel) { [unowned self] _ in
+      self.dismissViewControllerAnimated(true, completion: nil)
+    })
+    presentViewController(alert, animated: true, completion: nil)
+  }
+
+  private func showDetail() {
+    let controller = UIViewController()
+    controller.view.backgroundColor = UIColor.whiteColor()
+    navigationController?.pushViewController(controller, animated: true)
   }
 
 }

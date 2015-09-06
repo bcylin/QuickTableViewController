@@ -70,7 +70,7 @@ public class QuickTableViewController: UITableViewController {
       cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: ".Subtitle")
       cell.detailTextLabel?.text = subtitle
 
-    } else if let tapAction = row.tapAction {
+    } else if let _ = row.tapAction {
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
@@ -82,6 +82,21 @@ public class QuickTableViewController: UITableViewController {
     cell.accessoryType = (row.navigation == nil) ? .None : .DisclosureIndicator
     cell.textLabel?.text = row.title
     return cell
+  }
+
+  // MARK: - UITableViewDelegate
+
+  public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let row = tableContents[indexPath.section].rows[indexPath.row]
+
+    if let tapAction = row.tapAction {
+      tapAction()
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    } else if let navigation = row.navigation {
+      navigation()
+    } else {
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
   }
 
 }

@@ -47,18 +47,15 @@ public struct Row {
   public var title: String
   public var subtitle: String?
 
-  /// The target to perform selector of either tapAction or navigation.
-  public var target: AnyObject?
-
   /// The action to perfom when the row is selected.
-  public var tapAction: Selector? {
+  public var tapAction: (Void -> Void)? {
     didSet {
       if tapAction != nil { self.navigation = nil }
     }
   }
 
   /// The navigation to perform when the row is selected.
-  public var navigation: Selector? {
+  public var navigation: (Void -> Void)? {
     didSet {
       if navigation != nil { self.tapAction = nil }
     }
@@ -66,28 +63,27 @@ public struct Row {
 
   // MARK: - Initializer
 
-  public init(title: String, subtitle: String?, target: AnyObject?, tapAction: Selector?, navigation: Selector?) {
+  public init(title: String, subtitle: String?, tapAction: (Void -> Void)?, navigation: (Void -> Void)?) {
     self.title = title
     self.subtitle = subtitle
-    self.target = target
     self.tapAction = tapAction
     self.navigation = navigation
   }
 
   public init() {
-    self.init(title: "", subtitle: nil, target: nil, tapAction: nil, navigation: nil)
+    self.init(title: "", subtitle: nil, tapAction: nil, navigation: nil)
   }
 
   public init(title: String, subtitle: String?) {
-    self.init(title: title, subtitle: subtitle, target: nil, tapAction: nil, navigation: nil)
+    self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: nil)
   }
 
-  public init(title: String, target: AnyObject, tapAction: Selector) {
-    self.init(title: title, subtitle: nil, target: target, tapAction: tapAction, navigation: nil)
+  public init(title: String, tapAction: (Void -> Void)) {
+    self.init(title: title, subtitle: nil, tapAction: tapAction, navigation: nil)
   }
 
-  public init(title: String, subtitle: String?, target: AnyObject, navigation: Selector) {
-    self.init(title: title, subtitle: subtitle, target: target, tapAction: nil, navigation: navigation)
+  public init(title: String, subtitle: String?, navigation: (Void -> Void)) {
+    self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: navigation)
   }
 
 }
