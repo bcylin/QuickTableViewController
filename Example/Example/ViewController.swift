@@ -36,22 +36,29 @@ class ViewController: QuickTableViewController {
     title = "QuickTableViewController"
 
     tableContents = [
-      Section(title: "Cell Styles", rows: [
-        Row(title: "CellStyle.Default", subtitle: nil),
-        Row(title: "CellStyle", subtitle: Subtitle.BelowTitle(".Subtitle")),
-        Row(title: "CellStyle", subtitle: Subtitle.RightAligned(".Value1")),
-        Row(title: "CellStyle", subtitle: Subtitle.LeftAligned(".Value2"))
+      Section(title: "Switch", rows: [
+        SwitchRow(title: "Setting", switchValue: true, action: nil),
       ]),
+
       Section(title: "Tap Action", rows: [
-        Row(title: "Tap action", action: Tap(showAlert))
-      ], footer: "Subtitles are omitted."),
+        TextRow(title: "Tap action", action: Tap(showAlert))
+      ]),
+
       Section(title: "Navigation", rows: [
-        Row(title: "Navigation", subtitle: nil, action: Navigation(showDetail)),
-        Row(title: "Navigation", subtitle: Subtitle.BelowTitle("with subtitle"), action: Navigation(showDetail)),
-        Row(title: "Navigation", subtitle: Subtitle.RightAligned("with detail"), action: Navigation(showDetail))
+        TextRow(title: "Navigation", subtitle: nil, action: Navigation(showDetail)),
+        TextRow(title: "Navigation", subtitle: Subtitle.BelowTitle("with subtitle"), action: Navigation(showDetail)),
+        TextRow(title: "Navigation", subtitle: Subtitle.RightAligned("with detail"), action: Navigation(showDetail))
       ], footer: "UITableViewCellStyle.Value2 is not listed here."),
+
+      Section(title: "Cell Styles", rows: [
+        TextRow(title: "CellStyle.Default", subtitle: nil),
+        TextRow(title: "CellStyle", subtitle: Subtitle.BelowTitle(".Subtitle")),
+        TextRow(title: "CellStyle", subtitle: Subtitle.RightAligned(".Value1")),
+        TextRow(title: "CellStyle", subtitle: Subtitle.LeftAligned(".Value2"))
+      ]),
+
       Section(title: nil, rows: [
-        Row(title: "Empty section title", subtitle: nil)
+        TextRow(title: "Empty section title", subtitle: nil)
       ])
     ]
   }

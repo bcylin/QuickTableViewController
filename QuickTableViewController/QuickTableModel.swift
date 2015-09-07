@@ -45,11 +45,19 @@ public struct Section {
 // MARK: -
 
 /**
+Any type that conforms to this protocol is able to represent a row in a table.
+*/
+public protocol Row {
+  var title: String { get }
+  var subtitle: Subtitle? { get }
+  var action: ActionType? { get }
+}
+
+
+/**
 A struct that represents a row in a table view.
 */
-public struct Row {
-
-  // MARK: Properties
+public struct TextRow: Row {
 
   public var title: String = ""
   public var subtitle: Subtitle?
@@ -79,6 +87,33 @@ public struct Row {
   private init(title: String, subtitle: Subtitle?, action: ActionType?) {
     self.title = title
     self.subtitle = subtitle
+    self.action = action
+  }
+
+  private init() {}
+
+}
+
+
+/**
+A struct that represents a row with a switch.
+*/
+public struct SwitchRow: Row {
+
+  public var title: String = ""
+  public var subtitle: Subtitle?
+
+  /// A boolean which represents the toggled state of a switch.
+  public var switchValue: Bool = false
+
+  /// An action to perfom when the switch's value is changed.
+  public var action: ActionType?
+
+  // MARK: Initializer
+
+  public init(title: String, switchValue: Bool, action: ActionType?) {
+    self.title = title
+    self.switchValue = switchValue
     self.action = action
   }
 

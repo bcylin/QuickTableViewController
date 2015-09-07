@@ -45,6 +45,7 @@ public class QuickTableViewController: UITableViewController {
   override public func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerClass(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
+    tableView.registerClass(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
   }
 
   // MARK: - UITableViewDataSource
@@ -65,8 +66,14 @@ public class QuickTableViewController: UITableViewController {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell: UITableViewCell!
 
-    switch (row.subtitle, row.action) {
-    case (.Some(let subtitle), _):
+    switch (row, row.subtitle, row.action) {
+    case (let row, _, _) where row is SwitchRow:
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
+      cell = cell ?? SwitchCell(style: .Default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
+      cell.textLabel?.text = row.title
+      (cell as! SwitchCell).switchControl.on = (row as! SwitchRow).switchValue
+
+    case (_, .Some(let subtitle), _):
       cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
 
       // Match UITableViewCellStyle to each Subtitle.style
@@ -81,7 +88,7 @@ public class QuickTableViewController: UITableViewController {
 
       cell.detailTextLabel?.text = subtitle.text
 
-    case (_, .Some(let action)) where action is Tap:
+    case (_, _, .Some(let action)) where action is Tap:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
