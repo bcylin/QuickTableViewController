@@ -65,23 +65,43 @@ public class QuickTableViewController: UITableViewController {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell: UITableViewCell!
 
-    if let subtitle = row.subtitle {
-      cell = tableView.dequeueReusableCellWithIdentifier(".Subtitle") as? UITableViewCell
-      cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: ".Subtitle")
-      cell.detailTextLabel?.text = subtitle
+    switch (row.subtitle, row.action) {
+    case (.Some(let subtitle), _):
+      cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
 
-    } else if let _ = row.tapAction {
+      // Match UITableViewCellStyle to each Subtitle.style
+      switch subtitle {
+      case .BelowTitle(let text):
+        cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: subtitle.style)
+      case .RightAligned(let text):
+        cell = cell ?? UITableViewCell(style: .Value1, reuseIdentifier: subtitle.style)
+      case .LeftAligned(let text):
+        cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
+      }
+
+      cell.detailTextLabel?.text = subtitle.text
+
+    case (_, .Some(let action)) where action is Tap:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
-    } else {
+    default:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
     }
 
-    cell.accessoryType = (row.navigation == nil) ? .None : .DisclosureIndicator
+    if let _ = row.action as? Navigation {
+      cell.accessoryType = .DisclosureIndicator
+    } else {
+      cell.accessoryType = .None
+    }
+
     cell.textLabel?.text = row.title
     return cell
+  }
+
+  public override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    return tableContents[section].footer
   }
 
   // MARK: - UITableViewDelegate
@@ -89,12 +109,13 @@ public class QuickTableViewController: UITableViewController {
   public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
-    if let tapAction = row.tapAction {
-      tapAction()
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    } else if let navigation = row.navigation {
-      navigation()
-    } else {
+    switch row.action {
+    case .Some(let navigation) where navigation is Navigation:
+      navigation.action(row)
+    case .Some(let tap) where tap is Tap:
+      tap.action(row)
+      fallthrough
+    default:
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
   }

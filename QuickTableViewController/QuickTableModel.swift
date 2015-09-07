@@ -32,58 +32,124 @@ A struct that represents a section in a table view.
 public struct Section {
   public var title: String?
   public var rows: [Row]
+  public var footer: String?
 
-  public init(title: String?, rows: [Row]) {
+  public init(title: String?, rows: [Row], footer: String? = nil) {
     self.title = title
     self.rows = rows
+    self.footer = footer
   }
 }
 
+
+// MARK: -
 
 /**
 A struct that represents a row in a table view.
 */
 public struct Row {
-  public var title: String
-  public var subtitle: String?
+
+  // MARK: Properties
+
+  public var title: String = ""
+  public var subtitle: Subtitle?
 
   /// The action to perfom when the row is selected.
-  public var tapAction: (Void -> Void)? {
-    didSet {
-      if tapAction != nil { self.navigation = nil }
-    }
+  public var action: ActionType?
+
+  // MARK: Initializer
+
+  /// Creates a Row instance with a title and a subtitle, without any selected action.
+  public init(title: String, subtitle: Subtitle?) {
+    self.init(title: title, subtitle: subtitle, action: nil)
   }
 
-  /// The navigation to perform when the row is selected.
-  public var navigation: (Void -> Void)? {
-    didSet {
-      if navigation != nil { self.tapAction = nil }
-    }
+  /// Creates a Row instance with a title and a selected action, without a subtitle.
+  public init(title: String, action: Tap) {
+    self.init(title: title, subtitle: nil, action: action as ActionType)
   }
 
-  // MARK: - Initializer
+  /// Creates a Row instance with a title, a subtitle, and an action that's related to navigation when the row is selected.
+  public init(title: String, subtitle: Subtitle?, action: Navigation) {
+    self.init(title: title, subtitle: subtitle, action: action as ActionType)
+  }
 
-  public init(title: String, subtitle: String?, tapAction: (Void -> Void)?, navigation: (Void -> Void)?) {
+  // MARK: Private
+
+  private init(title: String, subtitle: Subtitle?, action: ActionType?) {
     self.title = title
     self.subtitle = subtitle
-    self.tapAction = tapAction
-    self.navigation = navigation
+    self.action = action
   }
 
-  public init() {
-    self.init(title: "", subtitle: nil, tapAction: nil, navigation: nil)
+  private init() {}
+
+}
+
+
+// MARK: -
+
+/**
+Any type that conforms to this protocol is compatible with the actions attached to Row instances.
+*/
+public protocol ActionType {
+  var action: ((Row) -> Void) { get }
+}
+
+/**
+An action related to Navigation which is performed when the row is selected.
+*/
+public struct Navigation: ActionType {
+  public let action: ((Row) -> Void)
+
+  public init(_ action: ((Row) -> Void)) {
+    self.action = action
+  }
+}
+
+/**
+An action which is performed when the row is selected.
+*/
+public struct Tap: ActionType {
+  public let action: ((Row) -> Void)
+
+  public init(_ action: ((Row) -> Void)) {
+    self.action = action
+  }
+}
+
+
+// MARK: -
+
+/**
+An enum that indicates the subtitle text with UITableViewCellStyle.
+
+- BelowTitle:   Represents a subtitle with UITableViewCellStyle.Subtitle.
+- RightAligned: Represents a subtitle with UITableViewCellStyle.Value1.
+- LeftAligned:  Represents a subtitle with UITableViewCellStyle.Value2.
+*/
+public enum Subtitle {
+  case BelowTitle(String)
+  case RightAligned(String)
+  case LeftAligned(String)
+
+  public var style: String {
+    get {
+      switch self {
+      case .BelowTitle(let _): return "Subtitle.BelowTitle"
+      case .RightAligned(let _): return "Subtitle.RightAligned"
+      case .LeftAligned(let _): return "Subtitle.LeftAligned"
+      }
+    }
   }
 
-  public init(title: String, subtitle: String?) {
-    self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: nil)
+  public var text: String {
+    get {
+      switch self {
+      case .BelowTitle(let text): return text
+      case .RightAligned(let text): return text
+      case .LeftAligned(let text): return text
+      }
+    }
   }
-
-  public init(title: String, tapAction: (Void -> Void)) {
-    self.init(title: title, subtitle: nil, tapAction: tapAction, navigation: nil)
-  }
-
-  public init(title: String, subtitle: String?, navigation: (Void -> Void)) {
-    self.init(title: title, subtitle: subtitle, tapAction: nil, navigation: navigation)
-  }
-
 }
