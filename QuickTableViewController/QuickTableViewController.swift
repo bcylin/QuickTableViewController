@@ -67,13 +67,7 @@ public class QuickTableViewController: UITableViewController {
     var cell: UITableViewCell!
 
     switch (row, row.subtitle, row.action) {
-    case (let row, _, _) where row is SwitchRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
-      cell = cell ?? SwitchCell(style: .Default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
-      cell.textLabel?.text = row.title
-      (cell as! SwitchCell).switchControl.on = (row as! SwitchRow).switchValue
-
-    case (_, .Some(let subtitle), _):
+    case (_, .Some(let subtitle), let action): // NavigationRow with subtitles
       cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
 
       // Match UITableViewCellStyle to each Subtitle.style
@@ -87,20 +81,21 @@ public class QuickTableViewController: UITableViewController {
       }
 
       cell.detailTextLabel?.text = subtitle.text
+      cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
 
-    case (_, _, .Some(let action)) where action is Tap:
+    case (let row, _, _) where row is SwitchRow:
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
+      cell = cell ?? SwitchCell(style: .Default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
+      cell.textLabel?.text = row.title
+      (cell as! SwitchCell).switchControl.on = (row as! SwitchRow).switchValue
+
+    case (let row, _, .Some(let action)) where row is TapActionRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
     default:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
-    }
-
-    if let _ = row.action as? Navigation {
-      cell.accessoryType = .DisclosureIndicator
-    } else {
-      cell.accessoryType = .None
     }
 
     cell.textLabel?.text = row.title
@@ -116,11 +111,11 @@ public class QuickTableViewController: UITableViewController {
   public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
-    switch row.action {
-    case .Some(let navigation) where navigation is Navigation:
-      navigation.action(row)
-    case .Some(let tap) where tap is Tap:
-      tap.action(row)
+    switch (row, row.action) {
+    case (let row, let navigation) where row is NavigationRow:
+      navigation?(row)
+    case (let row, let tap) where row is TapActionRow:
+      tap?(row)
       fallthrough
     default:
       tableView.deselectRowAtIndexPath(indexPath, animated: true)

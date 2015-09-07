@@ -41,24 +41,24 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Tap Action", rows: [
-        TextRow(title: "Tap action", action: Tap(showAlert))
+        TapActionRow(title: "Tap action", action: showAlert)
       ]),
 
       Section(title: "Navigation", rows: [
-        TextRow(title: "Navigation", subtitle: nil, action: Navigation(showDetail)),
-        TextRow(title: "Navigation", subtitle: Subtitle.BelowTitle("with subtitle"), action: Navigation(showDetail)),
-        TextRow(title: "Navigation", subtitle: Subtitle.RightAligned("with detail"), action: Navigation(showDetail))
-      ], footer: "UITableViewCellStyle.Value2 is not listed here."),
+        NavigationRow(title: "Navigation", subtitle: nil, action: showDetail),
+        NavigationRow(title: "Navigation", subtitle: .BelowTitle("with subtitle"), action: showDetail),
+        NavigationRow(title: "Navigation", subtitle: .RightAligned("with detail text"), action: showDetail)
+      ], footer: "UITableViewCellStyle.Value2 is not listed."),
 
       Section(title: "Cell Styles", rows: [
-        TextRow(title: "CellStyle.Default", subtitle: nil),
-        TextRow(title: "CellStyle", subtitle: Subtitle.BelowTitle(".Subtitle")),
-        TextRow(title: "CellStyle", subtitle: Subtitle.RightAligned(".Value1")),
-        TextRow(title: "CellStyle", subtitle: Subtitle.LeftAligned(".Value2"))
-      ]),
+        NavigationRow(title: "CellStyle.Default", subtitle: nil),
+        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle")),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1")),
+        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
+      ], footer: "NavigationRows without action."),
 
       Section(title: nil, rows: [
-        TextRow(title: "Empty section title", subtitle: nil)
+        NavigationRow(title: "Empty section title")
       ])
     ]
   }
