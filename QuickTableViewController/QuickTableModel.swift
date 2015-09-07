@@ -92,9 +92,13 @@ public struct SwitchRow: Row {
   public let subtitle: Subtitle? = nil
 
   /// The state of a switch.
-  public var switchValue: Bool = false
+  public var switchValue: Bool = false {
+    didSet {
+      action?(self)
+    }
+  }
 
-  /// A closure that will be invoked when the switch's value is changed.
+  /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 
   // MARK: Initializer

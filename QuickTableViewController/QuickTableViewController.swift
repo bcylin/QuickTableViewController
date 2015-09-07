@@ -142,7 +142,6 @@ public class QuickTableViewController: UITableViewController {
     if let cell = sender.containerCell, let indexPath = tableView.indexPathForCell(cell) {
       var row = tableContents[indexPath.section].rows[indexPath.row] as! SwitchRow
       row.switchValue = sender.on
-      row.action?(row)
 
       // Replace the original row in tableContents
       tableContents[indexPath.section].rows[indexPath.row] = row
