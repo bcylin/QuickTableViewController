@@ -108,6 +108,11 @@ public class QuickTableViewController: UITableViewController {
 
   // MARK: - UITableViewDelegate
 
+  public override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    let row = tableContents[indexPath.section].rows[indexPath.row]
+    return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
+  }
+
   public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
