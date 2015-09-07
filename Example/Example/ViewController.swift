@@ -37,7 +37,8 @@ class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting", switchValue: true, action: nil),
+        SwitchRow(title: "Setting 1", switchValue: true, action: printValue),
+        SwitchRow(title: "Setting 2", switchValue: false, action: printValue),
       ]),
 
       Section(title: "Tap Action", rows: [
@@ -78,6 +79,12 @@ class ViewController: QuickTableViewController {
     controller.view.backgroundColor = UIColor.whiteColor()
     controller.title = "\(sender.title) " + (sender.subtitle?.text ?? "")
     navigationController?.pushViewController(controller, animated: true)
+  }
+
+  private func printValue(sender: Row) {
+    if let row = sender as? SwitchRow {
+      println("\(row.title) = \(row.switchValue)")
+    }
   }
 
 }

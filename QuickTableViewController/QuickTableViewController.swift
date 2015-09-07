@@ -89,7 +89,13 @@ public class QuickTableViewController: UITableViewController {
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
       cell = cell ?? SwitchCell(style: .Default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
       cell.textLabel?.text = row.title
-      (cell as! SwitchCell).switchControl.on = (row as! SwitchRow).switchValue
+
+      let switchControl = (cell as! SwitchCell).switchControl
+      switchControl.on = (row as! SwitchRow).switchValue
+
+      if switchControl.actionsForTarget(self, forControlEvent: .ValueChanged) == nil {
+        switchControl.addTarget(self, action: Selector("didToggleSwitch:"), forControlEvents: UIControlEvents.ValueChanged)
+      }
 
     case (let row, _, _) where row is TapActionRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
@@ -126,6 +132,38 @@ public class QuickTableViewController: UITableViewController {
       fallthrough
     default:
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+  }
+
+  // MARK: - UIResponder Callbacks
+
+  @objc
+  private func didToggleSwitch(sender: UISwitch) {
+    if let cell = sender.containerCell, let indexPath = tableView.indexPathForCell(cell) {
+      var row = tableContents[indexPath.section].rows[indexPath.row] as! SwitchRow
+      row.switchValue = sender.on
+      row.action?(row)
+
+      // Replace the original row in tableContents
+      tableContents[indexPath.section].rows[indexPath.row] = row
+    }
+  }
+
+}
+
+
+// MARK: -
+
+
+private extension UIView {
+
+  var containerCell: UITableViewCell? {
+    get {
+      if let superview = superview as? UITableViewCell {
+        return superview
+      } else {
+        return superview?.containerCell
+      }
     }
   }
 
