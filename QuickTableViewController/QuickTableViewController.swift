@@ -67,11 +67,13 @@ public class QuickTableViewController: UITableViewController {
     var cell: UITableViewCell!
 
     switch (row, row.subtitle, row.action) {
-    case (_, .Some(let subtitle), let action): // NavigationRow with subtitles
+    case (let row, .Some(let subtitle), let action) where row is NavigationRow:
       cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
 
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
+      case .None:
+        cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: subtitle.style)
       case .BelowTitle(let text):
         cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: subtitle.style)
       case .RightAligned(let text):
@@ -89,7 +91,7 @@ public class QuickTableViewController: UITableViewController {
       cell.textLabel?.text = row.title
       (cell as! SwitchCell).switchControl.on = (row as! SwitchRow).switchValue
 
-    case (let row, _, .Some(let action)) where row is TapActionRow:
+    case (let row, _, _) where row is TapActionRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 

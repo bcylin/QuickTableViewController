@@ -45,20 +45,20 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "Navigation", subtitle: nil, action: showDetail),
+        NavigationRow(title: "Navigation", subtitle: .None, action: showDetail),
         NavigationRow(title: "Navigation", subtitle: .BelowTitle("with subtitle"), action: showDetail),
         NavigationRow(title: "Navigation", subtitle: .RightAligned("with detail text"), action: showDetail)
       ], footer: "UITableViewCellStyle.Value2 is not listed."),
 
       Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: nil),
+        NavigationRow(title: "CellStyle.Default", subtitle: .None),
         NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle")),
         NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1")),
         NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
       ], footer: "NavigationRows without action."),
 
       Section(title: nil, rows: [
-        NavigationRow(title: "Empty section title")
+        NavigationRow(title: "Empty section title", subtitle: .None)
       ])
     ]
   }

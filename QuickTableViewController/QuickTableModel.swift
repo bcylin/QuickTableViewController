@@ -70,7 +70,7 @@ public struct NavigationRow: Row {
 
   // MARK: Initializer
 
-  public init(title: String, subtitle: Subtitle? = nil, action: ((Row) -> Void)? = nil) {
+  public init(title: String, subtitle: Subtitle, action: ((Row) -> Void)? = nil) {
     self.title = title
     self.subtitle = subtitle
     self.action = action
@@ -141,19 +141,23 @@ public struct TapActionRow: Row {
 /**
 An enum that indicates the subtitle text with UITableViewCellStyle.
 
-- BelowTitle:   Represents a subtitle with UITableViewCellStyle.Subtitle.
-- RightAligned: Represents a subtitle with UITableViewCellStyle.Value1.
-- LeftAligned:  Represents a subtitle with UITableViewCellStyle.Value2.
+- None:         Without a subtitle
+- BelowTitle:   Subtitle in UITableViewCellStyle.Subtitle
+- RightAligned: Subtitle in UITableViewCellStyle.Value1
+- LeftAligned:  Subtitle in UITableViewCellStyle.Value2
 */
 public enum Subtitle {
 
+  case None
   case BelowTitle(String)
   case RightAligned(String)
   case LeftAligned(String)
 
+  /// Returns the descriptive name of the style.
   public var style: String {
     get {
       switch self {
+      case .None: return "Subtitle.None"
       case .BelowTitle(let _): return "Subtitle.BelowTitle"
       case .RightAligned(let _): return "Subtitle.RightAligned"
       case .LeftAligned(let _): return "Subtitle.LeftAligned"
@@ -161,12 +165,14 @@ public enum Subtitle {
     }
   }
 
-  public var text: String {
+  /// Returns the associated text of the case.
+  public var text: String? {
     get {
       switch self {
       case .BelowTitle(let text): return text
       case .RightAligned(let text): return text
       case .LeftAligned(let text): return text
+      default: return nil
       }
     }
   }
