@@ -36,22 +36,30 @@ class ViewController: QuickTableViewController {
     title = "QuickTableViewController"
 
     tableContents = [
-      Section(title: "Cell Styles", rows: [
-        Row(title: "CellStyle.Default", subtitle: nil),
-        Row(title: "CellStyle", subtitle: Subtitle.BelowTitle(".Subtitle")),
-        Row(title: "CellStyle", subtitle: Subtitle.RightAligned(".Value1")),
-        Row(title: "CellStyle", subtitle: Subtitle.LeftAligned(".Value2"))
+      Section(title: "Switch", rows: [
+        SwitchRow(title: "Setting 1", switchValue: true, action: printValue),
+        SwitchRow(title: "Setting 2", switchValue: false, action: printValue),
       ]),
+
       Section(title: "Tap Action", rows: [
-        Row(title: "Tap action", action: Tap(showAlert))
-      ], footer: "Subtitles are omitted."),
+        TapActionRow(title: "Tap action", action: showAlert)
+      ]),
+
       Section(title: "Navigation", rows: [
-        Row(title: "Navigation", subtitle: nil, action: Navigation(showDetail)),
-        Row(title: "Navigation", subtitle: Subtitle.BelowTitle("with subtitle"), action: Navigation(showDetail)),
-        Row(title: "Navigation", subtitle: Subtitle.RightAligned("with detail"), action: Navigation(showDetail))
-      ], footer: "UITableViewCellStyle.Value2 is not listed here."),
+        NavigationRow(title: "Navigation", subtitle: .None, action: showDetail),
+        NavigationRow(title: "Navigation", subtitle: .BelowTitle("with subtitle"), action: showDetail),
+        NavigationRow(title: "Navigation", subtitle: .RightAligned("with detail text"), action: showDetail)
+      ], footer: "UITableViewCellStyle.Value2 is not listed."),
+
+      Section(title: "Cell Styles", rows: [
+        NavigationRow(title: "CellStyle.Default", subtitle: .None),
+        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle")),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1")),
+        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
+      ], footer: "NavigationRows without action."),
+
       Section(title: nil, rows: [
-        Row(title: "Empty section title", subtitle: nil)
+        NavigationRow(title: "Empty section title", subtitle: .None)
       ])
     ]
   }
@@ -71,6 +79,12 @@ class ViewController: QuickTableViewController {
     controller.view.backgroundColor = UIColor.whiteColor()
     controller.title = "\(sender.title) " + (sender.subtitle?.text ?? "")
     navigationController?.pushViewController(controller, animated: true)
+  }
+
+  private func printValue(sender: Row) {
+    if let row = sender as? SwitchRow {
+      println("\(row.title) = \(row.switchValue)")
+    }
   }
 
 }

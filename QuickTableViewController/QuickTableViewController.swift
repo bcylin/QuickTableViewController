@@ -45,6 +45,7 @@ public class QuickTableViewController: UITableViewController {
   override public func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerClass(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
+    tableView.registerClass(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
   }
 
   // MARK: - UITableViewDataSource
@@ -65,12 +66,14 @@ public class QuickTableViewController: UITableViewController {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell: UITableViewCell!
 
-    switch (row.subtitle, row.action) {
-    case (.Some(let subtitle), _):
+    switch (row, row.subtitle, row.action) {
+    case (let row, .Some(let subtitle), let action) where row is NavigationRow:
       cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
 
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
+      case .None:
+        cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: subtitle.style)
       case .BelowTitle(let text):
         cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: subtitle.style)
       case .RightAligned(let text):
@@ -80,20 +83,27 @@ public class QuickTableViewController: UITableViewController {
       }
 
       cell.detailTextLabel?.text = subtitle.text
+      cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
 
-    case (_, .Some(let action)) where action is Tap:
+    case (let row, _, _) where row is SwitchRow:
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
+      cell = cell ?? SwitchCell(style: .Default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
+      cell.textLabel?.text = row.title
+
+      let switchControl = (cell as! SwitchCell).switchControl
+      switchControl.on = (row as! SwitchRow).switchValue
+
+      if switchControl.actionsForTarget(self, forControlEvent: .ValueChanged) == nil {
+        switchControl.addTarget(self, action: Selector("didToggleSwitch:"), forControlEvents: UIControlEvents.ValueChanged)
+      }
+
+    case (let row, _, _) where row is TapActionRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
     default:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
-    }
-
-    if let _ = row.action as? Navigation {
-      cell.accessoryType = .DisclosureIndicator
-    } else {
-      cell.accessoryType = .None
     }
 
     cell.textLabel?.text = row.title
@@ -106,17 +116,53 @@ public class QuickTableViewController: UITableViewController {
 
   // MARK: - UITableViewDelegate
 
+  public override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    let row = tableContents[indexPath.section].rows[indexPath.row]
+    return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
+  }
+
   public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
-    switch row.action {
-    case .Some(let navigation) where navigation is Navigation:
-      navigation.action(row)
-    case .Some(let tap) where tap is Tap:
-      tap.action(row)
+    switch (row, row.action) {
+    case (let row, let navigation) where row is NavigationRow:
+      navigation?(row)
+    case (let row, let tap) where row is TapActionRow:
+      tap?(row)
       fallthrough
     default:
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+  }
+
+  // MARK: - UIResponder Callbacks
+
+  @objc
+  private func didToggleSwitch(sender: UISwitch) {
+    if let cell = sender.containerCell, let indexPath = tableView.indexPathForCell(cell) {
+      var row = tableContents[indexPath.section].rows[indexPath.row] as! SwitchRow
+      row.switchValue = sender.on
+
+      // Replace the original row in tableContents
+      tableContents[indexPath.section].rows[indexPath.row] = row
+    }
+  }
+
+}
+
+
+// MARK: -
+
+
+private extension UIView {
+
+  var containerCell: UITableViewCell? {
+    get {
+      if let superview = superview as? UITableViewCell {
+        return superview
+      } else {
+        return superview?.containerCell
+      }
     }
   }
 

@@ -30,6 +30,7 @@ import Foundation
 A struct that represents a section in a table view.
 */
 public struct Section {
+
   public var title: String?
   public var rows: [Row]
   public var footer: String?
@@ -39,44 +40,37 @@ public struct Section {
     self.rows = rows
     self.footer = footer
   }
+
 }
 
 
-// MARK: -
+// MARK: - Row
+
 
 /**
-A struct that represents a row in a table view.
+Any type that conforms to this protocol is capable of representing a row in a table view.
 */
-public struct Row {
+public protocol Row {
+  var title: String { get }
+  var subtitle: Subtitle? { get }
+  var action: ((Row) -> Void)? { get }
+}
 
-  // MARK: Properties
+
+/**
+A struct that represents a row that perfoms navigation when seleced.
+*/
+public struct NavigationRow: Row {
 
   public var title: String = ""
   public var subtitle: Subtitle?
 
-  /// The action to perfom when the row is selected.
-  public var action: ActionType?
+  /// A closure related to the navigation when the row is selected.
+  public var action: ((Row) -> Void)?
 
   // MARK: Initializer
 
-  /// Creates a Row instance with a title and a subtitle, without any selected action.
-  public init(title: String, subtitle: Subtitle?) {
-    self.init(title: title, subtitle: subtitle, action: nil)
-  }
-
-  /// Creates a Row instance with a title and a selected action, without a subtitle.
-  public init(title: String, action: Tap) {
-    self.init(title: title, subtitle: nil, action: action as ActionType)
-  }
-
-  /// Creates a Row instance with a title, a subtitle, and an action that's related to navigation when the row is selected.
-  public init(title: String, subtitle: Subtitle?, action: Navigation) {
-    self.init(title: title, subtitle: subtitle, action: action as ActionType)
-  }
-
-  // MARK: Private
-
-  private init(title: String, subtitle: Subtitle?, action: ActionType?) {
+  public init(title: String, subtitle: Subtitle, action: ((Row) -> Void)? = nil) {
     self.title = title
     self.subtitle = subtitle
     self.action = action
@@ -87,55 +81,87 @@ public struct Row {
 }
 
 
-// MARK: -
-
 /**
-Any type that conforms to this protocol is compatible with the actions attached to Row instances.
+A struct that represents a row with a switch.
 */
-public protocol ActionType {
-  var action: ((Row) -> Void) { get }
-}
+public struct SwitchRow: Row {
 
-/**
-An action related to Navigation which is performed when the row is selected.
-*/
-public struct Navigation: ActionType {
-  public let action: ((Row) -> Void)
+  public var title: String = ""
 
-  public init(_ action: ((Row) -> Void)) {
+  /// Subtitle is disabled in SwitchRow.
+  public let subtitle: Subtitle? = nil
+
+  /// The state of a switch.
+  public var switchValue: Bool = false {
+    didSet {
+      action?(self)
+    }
+  }
+
+  /// A closure that will be invoked when the switchValue is changed.
+  public var action: ((Row) -> Void)?
+
+  // MARK: Initializer
+
+  public init(title: String, switchValue: Bool, action: ((Row) -> Void)?) {
+    self.title = title
+    self.switchValue = switchValue
     self.action = action
   }
+
+  private init() {}
+
 }
+
 
 /**
-An action which is performed when the row is selected.
+A struct that represents a row that triggers certain action when seleced.
 */
-public struct Tap: ActionType {
-  public let action: ((Row) -> Void)
+public struct TapActionRow: Row {
 
-  public init(_ action: ((Row) -> Void)) {
+  public var title: String = ""
+
+  /// Subtitle is disabled in TapActionRow.
+  public let subtitle: Subtitle? = nil
+
+  /// A closure as the tap action when the row is selected.
+  public var action: ((Row) -> Void)?
+
+  // MARK: Initializer
+
+  public init(title: String, action: ((Row) -> Void)?) {
+    self.title = title
     self.action = action
   }
+
+  private init() {}
+
 }
 
 
-// MARK: -
+// MARK: - Subtitle
+
 
 /**
 An enum that indicates the subtitle text with UITableViewCellStyle.
 
-- BelowTitle:   Represents a subtitle with UITableViewCellStyle.Subtitle.
-- RightAligned: Represents a subtitle with UITableViewCellStyle.Value1.
-- LeftAligned:  Represents a subtitle with UITableViewCellStyle.Value2.
+- None:         Without a subtitle
+- BelowTitle:   Subtitle in UITableViewCellStyle.Subtitle
+- RightAligned: Subtitle in UITableViewCellStyle.Value1
+- LeftAligned:  Subtitle in UITableViewCellStyle.Value2
 */
 public enum Subtitle {
+
+  case None
   case BelowTitle(String)
   case RightAligned(String)
   case LeftAligned(String)
 
+  /// Returns the descriptive name of the style.
   public var style: String {
     get {
       switch self {
+      case .None: return "Subtitle.None"
       case .BelowTitle(let _): return "Subtitle.BelowTitle"
       case .RightAligned(let _): return "Subtitle.RightAligned"
       case .LeftAligned(let _): return "Subtitle.LeftAligned"
@@ -143,13 +169,16 @@ public enum Subtitle {
     }
   }
 
-  public var text: String {
+  /// Returns the associated text of the case.
+  public var text: String? {
     get {
       switch self {
       case .BelowTitle(let text): return text
       case .RightAligned(let text): return text
       case .LeftAligned(let text): return text
+      default: return nil
       }
     }
   }
+
 }

@@ -33,7 +33,7 @@ public class TapActionCell: UITableViewCell {
     return _button.tintColor ?? UIColor.blueColor()
   }()
 
-  // MARK: - Initializer
+  // MARK: Initializer
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: .Default, reuseIdentifier: reuseIdentifier)
@@ -45,11 +45,33 @@ public class TapActionCell: UITableViewCell {
     setUpAppearance()
   }
 
-  // MARK: - Private Methods
+  // MARK: Private Methods
 
   private func setUpAppearance() {
     textLabel?.textAlignment = .Center
     textLabel?.textColor = self.dynamicType.systemTintColor
+  }
+
+}
+
+
+// MARK: -
+
+
+public class SwitchCell: UITableViewCell {
+
+  public let switchControl = UISwitch()
+
+  // MARK: Initializer
+
+  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: .Default, reuseIdentifier: reuseIdentifier)
+    accessoryView = switchControl
+  }
+
+  required public init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    accessoryView = switchControl
   }
 
 }
