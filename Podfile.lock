@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  QuickTableViewController: 30ffecb5e6e787aaf0b9ca6b7c9b7019be15925c
+  QuickTableViewController: 46b48f28a024ecbd342822651b6a6d61f8ce7ddb
 
 COCOAPODS: 0.38.2
