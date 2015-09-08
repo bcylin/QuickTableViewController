@@ -92,21 +92,36 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 * Create a `Cartfile` with the following specification and run `carthage bootstrap`.
 
-```
-github "bcylin/QuickTableViewController"
-```
-* Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add the framework to an iOS project.
+  ```
+  github "bcylin/QuickTableViewController"
+  ```
+
+* On your application targets' **General** settings tab, in the **Linked Frameworks and Libraries** section, drag and drop `QuickTableViewController.framework` from the Carthage/Build folder.
+
+* On your application targets’ **Build Phases** settings tab, click the **+** icon and choose **New Run Script Phase**. Create a Run Script with the following contents:
+
+  ```
+  /usr/local/bin/carthage copy-frameworks
+  ```
+
+  and add the following path to **Input Files**:
+
+  ```
+  $(SRCROOT)/Carthage/Build/iOS/QuickTableViewController.framework
+  ```
+
+* For more information, please check out the [Carthage Documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios).
 
 ### Install via [CocoaPods](http://guides.cocoapods.org/)
 
 * Create a `Podfile` with the following specification and run `pod install`.
 
-```rb
-platform :ios, '8.0'
-use_frameworks!
+  ```rb
+  platform :ios, '8.0'
+  use_frameworks!
 
-pod 'QuickTableViewController', git: 'https://github.com/bcylin/QuickTableViewController.git'
-```
+  pod 'QuickTableViewController', git: 'https://github.com/bcylin/QuickTableViewController.git'
+  ```
 
 ### Install Manually
 
