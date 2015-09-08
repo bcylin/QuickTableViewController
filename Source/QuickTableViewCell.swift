@@ -1,8 +1,8 @@
 //
-//  QuickTableViewController.h
+//  TapActionCell.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 25/08/2015.
+//  Created by Ben on 03/09/2015.
 //  Copyright (c) 2015 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,14 +24,54 @@
 //  SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+import UIKit
 
-//! Project version number for QuickTableViewController.
-FOUNDATION_EXPORT double QuickTableViewControllerVersionNumber;
+public class TapActionCell: UITableViewCell {
 
-//! Project version string for QuickTableViewController.
-FOUNDATION_EXPORT const unsigned char QuickTableViewControllerVersionString[];
+  private static var systemTintColor: UIColor = {
+    let _button = UIButton()
+    return _button.tintColor ?? UIColor.blueColor()
+  }()
 
-// In this header, you should import all the public headers of your framework using statements like #import <QuickTableViewController/PublicHeader.h>
+  // MARK: Initializer
+
+  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: .Default, reuseIdentifier: reuseIdentifier)
+    setUpAppearance()
+  }
+
+  required public init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setUpAppearance()
+  }
+
+  // MARK: Private Methods
+
+  private func setUpAppearance() {
+    textLabel?.textAlignment = .Center
+    textLabel?.textColor = self.dynamicType.systemTintColor
+  }
+
+}
 
 
+// MARK: -
+
+
+public class SwitchCell: UITableViewCell {
+
+  public let switchControl = UISwitch()
+
+  // MARK: Initializer
+
+  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: .Default, reuseIdentifier: reuseIdentifier)
+    accessoryView = switchControl
+  }
+
+  required public init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    accessoryView = switchControl
+  }
+
+}
