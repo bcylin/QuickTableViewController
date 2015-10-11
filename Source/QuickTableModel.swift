@@ -162,9 +162,9 @@ public enum Subtitle {
     get {
       switch self {
       case .None: return "Subtitle.None"
-      case .BelowTitle(let _): return "Subtitle.BelowTitle"
-      case .RightAligned(let _): return "Subtitle.RightAligned"
-      case .LeftAligned(let _): return "Subtitle.LeftAligned"
+      case .BelowTitle(_): return "Subtitle.BelowTitle"
+      case .RightAligned(_): return "Subtitle.RightAligned"
+      case .LeftAligned(_): return "Subtitle.LeftAligned"
       }
     }
   }

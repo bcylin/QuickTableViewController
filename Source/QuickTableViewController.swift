@@ -68,17 +68,17 @@ public class QuickTableViewController: UITableViewController {
 
     switch (row, row.subtitle, row.action) {
     case (let row, .Some(let subtitle), let action) where row is NavigationRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
+      cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style)
 
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
       case .None:
         cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: subtitle.style)
-      case .BelowTitle(let text):
+      case .BelowTitle(_):
         cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: subtitle.style)
-      case .RightAligned(let text):
+      case .RightAligned(_):
         cell = cell ?? UITableViewCell(style: .Value1, reuseIdentifier: subtitle.style)
-      case .LeftAligned(let text):
+      case .LeftAligned(_):
         cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
       }
 
@@ -98,11 +98,11 @@ public class QuickTableViewController: UITableViewController {
       }
 
     case (let row, _, _) where row is TapActionRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self))
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
     default:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self))
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
     }
 

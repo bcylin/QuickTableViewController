@@ -122,6 +122,7 @@
 		B599252E1B95FA9100BE63A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = bcylin;
 				TargetAttributes = {
