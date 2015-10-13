@@ -24,16 +24,32 @@ class ViewController: QuickTableViewController {
     super.viewDidLoad()
 
     tableContents = [
-      Section(title: "Section title", rows: [
-        NavigationRow(title: "Cell title", subtitle: .RightAligned("detail text"))
-      ], footer: "Section footer"),
+      Section(title: "Switch", rows: [
+        SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
+        SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
+      ]),
 
-      Section(title: nil, rows: [
-        NavigationRow(title: "Navigation", subtitle: .None, action: aNavigation),
-        SwitchRow(title: "Switch cell", switchValue: true, action: anOptionalAction),
-        TapActionRow(title: "Tap action", action: anAction),
+      Section(title: "Tap Action", rows: [
+        TapActionRow(title: "Tap action", action: showAlert)
+      ]),
+
+      Section(title: "Cell Styles", rows: [
+        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: UIImage(named: "icon")),
+        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), action: showDetail),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1")),
+        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
       ])
     ]
+  }
+
+  // MARK: - Actions
+
+  private func showAlert(sender: Row) {
+    // ...
+  }
+
+  private func showDetail(sender: Row) {
+    // ...
   }
 
 }
@@ -48,6 +64,15 @@ NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .None)
 NavigationRow(title: "UITableViewCellStyle", subtitle: .BelowTitle(".Subtitle")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .RightAligned(".Value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .LeftAligned(".Value2"))
+```
+
+#### Image View
+
+* Images in table view cells can be set by specifying `icon` of each `NavigationRow`.
+* Table view cells in `UITableViewCellStyle.Value2` will hide images.
+
+```swift
+NavigationRow(title: "Cell with image", subtitle: .None, icon: UIImage(named: "icon"))
 ```
 
 #### Disclosure Indicator

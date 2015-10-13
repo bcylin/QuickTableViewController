@@ -82,6 +82,7 @@ public class QuickTableViewController: UITableViewController {
         cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
       }
 
+      cell.imageView?.image = (row as! NavigationRow).icon
       cell.detailTextLabel?.text = subtitle.text
       cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
 
