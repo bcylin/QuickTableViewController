@@ -64,15 +64,17 @@ public struct NavigationRow: Row {
 
   public var title: String = ""
   public var subtitle: Subtitle?
+  public var icon: UIImage?
 
   /// A closure related to the navigation when the row is selected.
   public var action: ((Row) -> Void)?
 
   // MARK: Initializer
 
-  public init(title: String, subtitle: Subtitle, action: ((Row) -> Void)? = nil) {
+  public init(title: String, subtitle: Subtitle, icon: UIImage? = nil, action: ((Row) -> Void)? = nil) {
     self.title = title
     self.subtitle = subtitle
+    self.icon = icon
     self.action = action
   }
 
