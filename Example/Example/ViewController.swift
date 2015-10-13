@@ -83,7 +83,7 @@ class ViewController: QuickTableViewController {
 
   private func printValue(sender: Row) {
     if let row = sender as? SwitchRow {
-      println("\(row.title) = \(row.switchValue)")
+      print("\(row.title) = \(row.switchValue)")
     }
   }
 

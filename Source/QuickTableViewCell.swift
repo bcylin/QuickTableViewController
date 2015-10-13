@@ -40,7 +40,7 @@ public class TapActionCell: UITableViewCell {
     setUpAppearance()
   }
 
-  required public init(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setUpAppearance()
   }
@@ -69,7 +69,7 @@ public class SwitchCell: UITableViewCell {
     accessoryView = switchControl
   }
 
-  required public init(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     accessoryView = switchControl
   }
