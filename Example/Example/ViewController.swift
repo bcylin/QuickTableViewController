@@ -69,6 +69,18 @@ class ViewController: QuickTableViewController {
     ]
   }
 
+  // MARK: - UITableViewDataSource
+
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    if tableContents[indexPath.section].title == nil {
+      // Alter the cells created by QuickTableViewController
+      let symbol = MaterialDesignSymbol(text: MaterialDesignIcon.highlightRemove48px, size:24)
+      cell.imageView?.image = symbol.imageWithSize(CGSize(width: 24, height: 24))
+    }
+    return cell
+  }
+
   // MARK: - Private Methods
 
   private func showAlert(sender: Row) {
