@@ -107,8 +107,7 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 ## Requirements
 
-* iOS 8.0+
-* Xcode 6.4
+* `v0.1.1` requires iOS 8.0+ with Xcode 6.4.
 * Currently QuickTableViewController is written in Swift 1.2, soon will be updated to Swift 2.0.
 
 ## Installation
