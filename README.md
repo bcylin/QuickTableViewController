@@ -24,14 +24,13 @@ class ViewController: QuickTableViewController {
     super.viewDidLoad()
 
     tableContents = [
-      Section(title: "Section title", rows: [
-        NavigationRow(title: "Cell title", subtitle: .RightAligned("detail text"))
-      ], footer: "Section footer"),
+      Section(title: "Switch", rows: [
+        SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
+        SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
+      ]),
 
-      Section(title: nil, rows: [
-        NavigationRow(title: "Navigation", subtitle: .None, action: aNavigation),
-        SwitchRow(title: "Switch cell", switchValue: true, action: anOptionalAction),
-        TapActionRow(title: "Tap action", action: anAction),
+      Section(title: "Tap Action", rows: [
+        TapActionRow(title: "Tap action", action: showAlert)
       ])
     ]
   }
@@ -82,8 +81,7 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 ## Requirements
 
-* iOS 8.0+
-* Xcode 6.4
+* `v0.1.1` requires iOS 8.0+ with Xcode 6.4.
 * Currently QuickTableViewController is written in Swift 1.2, soon will be updated to Swift 2.0.
 
 ## Installation

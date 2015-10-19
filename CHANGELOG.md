@@ -1,6 +1,12 @@
 # Change Log
 
-## 0.1.0
+## v0.1.1
+
+#### Fixed
+
+* Change the deployment target from iOS 8.4 to 8.0
+
+## v0.1.0
 
 #### Added
 
