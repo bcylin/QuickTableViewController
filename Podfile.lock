@@ -1,6 +1,6 @@
 PODS:
   - MaterialDesignSymbol (1.7)
-  - QuickTableViewController (0.1.0)
+  - QuickTableViewController (0.1.1)
 
 DEPENDENCIES:
   - MaterialDesignSymbol
@@ -12,6 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
-  QuickTableViewController: 46b48f28a024ecbd342822651b6a6d61f8ce7ddb
+  QuickTableViewController: 37fc7d51dd547df54318a5c7297565996ec220ef
 
 COCOAPODS: 0.39.0
