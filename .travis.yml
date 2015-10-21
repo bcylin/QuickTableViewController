@@ -1,0 +1,14 @@
+language: objective-c
+osx_image: xcode7
+before_install:
+  - if test -z $(brew list | grep -i xcproj); then brew install xcproj; fi
+  - if test -z $(brew list | grep -i carthage); then brew install carthage; fi
+  - export LANG=en_US.UTF-8
+install:
+  - bundle install --without development --deployment --jobs=3 --retry=3
+  - bundle exec pod install
+script:
+  - xctool -workspace QuickTableViewController.xcworkspace -scheme QuickTableViewController -sdk iphonesimulator clean build
+  - xctool -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator clean build
+notifications:
+  email: false
