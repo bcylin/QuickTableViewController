@@ -152,7 +152,7 @@ An enum that indicates the subtitle text with UITableViewCellStyle.
 - RightAligned: Subtitle in UITableViewCellStyle.Value1
 - LeftAligned:  Subtitle in UITableViewCellStyle.Value2
 */
-public enum Subtitle {
+public enum Subtitle: Equatable {
 
   case None
   case BelowTitle(String)
@@ -183,4 +183,21 @@ public enum Subtitle {
     }
   }
 
+}
+
+// MARK: Equatable
+
+public func ==(lhs: Subtitle, rhs: Subtitle) -> Bool {
+  switch (lhs, rhs) {
+  case (.None, .None):
+    return true
+  case (.BelowTitle(let a), .BelowTitle(let b)):
+    return a == b
+  case (.RightAligned(let a), .RightAligned(let b)):
+    return a == b
+  case (.LeftAligned(let a), .LeftAligned(let b)):
+    return a == b
+  default:
+    return false
+  }
 }
