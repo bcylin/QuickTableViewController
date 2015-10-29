@@ -56,11 +56,20 @@ public protocol Row {
   var action: ((Row) -> Void)? { get }
 }
 
+// MARK: Equatable
+
+public func ==<T: Row>(lhs: T, rhs: T) -> Bool {
+  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+}
+
+
+// MARK: -
+
 
 /**
 A struct that represents a row that perfoms navigation when seleced.
 */
-public struct NavigationRow: Row {
+public struct NavigationRow: Row, Equatable {
 
   public var title: String = ""
   public var subtitle: Subtitle?
@@ -68,8 +77,6 @@ public struct NavigationRow: Row {
 
   /// A closure related to the navigation when the row is selected.
   public var action: ((Row) -> Void)?
-
-  // MARK: Initializer
 
   public init(title: String, subtitle: Subtitle, icon: UIImage? = nil, action: ((Row) -> Void)? = nil) {
     self.title = title
@@ -82,11 +89,20 @@ public struct NavigationRow: Row {
 
 }
 
+// MARK: Equatable
+
+public func ==(lhs: NavigationRow, rhs: NavigationRow) -> Bool {
+  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
+}
+
+
+// MARK: -
+
 
 /**
 A struct that represents a row with a switch.
 */
-public struct SwitchRow: Row {
+public struct SwitchRow: Row, Equatable {
 
   public var title: String = ""
 
@@ -103,8 +119,6 @@ public struct SwitchRow: Row {
   /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 
-  // MARK: Initializer
-
   public init(title: String, switchValue: Bool, action: ((Row) -> Void)?) {
     self.title = title
     self.switchValue = switchValue
@@ -115,11 +129,20 @@ public struct SwitchRow: Row {
 
 }
 
+// MARK: Equatable
+
+public func ==(lhs: SwitchRow, rhs: SwitchRow) -> Bool {
+  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.switchValue == rhs.switchValue
+}
+
+
+// MARK: -
+
 
 /**
 A struct that represents a row that triggers certain action when seleced.
 */
-public struct TapActionRow: Row {
+public struct TapActionRow: Row, Equatable {
 
   public var title: String = ""
 
@@ -128,8 +151,6 @@ public struct TapActionRow: Row {
 
   /// A closure as the tap action when the row is selected.
   public var action: ((Row) -> Void)?
-
-  // MARK: Initializer
 
   public init(title: String, action: ((Row) -> Void)?) {
     self.title = title
@@ -152,7 +173,7 @@ An enum that indicates the subtitle text with UITableViewCellStyle.
 - RightAligned: Subtitle in UITableViewCellStyle.Value1
 - LeftAligned:  Subtitle in UITableViewCellStyle.Value2
 */
-public enum Subtitle {
+public enum Subtitle: Equatable {
 
   case None
   case BelowTitle(String)
@@ -183,4 +204,21 @@ public enum Subtitle {
     }
   }
 
+}
+
+// MARK: Equatable
+
+public func ==(lhs: Subtitle, rhs: Subtitle) -> Bool {
+  switch (lhs, rhs) {
+  case (.None, .None):
+    return true
+  case (.BelowTitle(let a), .BelowTitle(let b)):
+    return a == b
+  case (.RightAligned(let a), .RightAligned(let b)):
+    return a == b
+  case (.LeftAligned(let a), .LeftAligned(let b)):
+    return a == b
+  default:
+    return false
+  }
 }
