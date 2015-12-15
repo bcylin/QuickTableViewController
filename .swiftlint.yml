@@ -1,0 +1,17 @@
+disabled_rules:
+  - force_cast
+included:
+  - Source
+excluded:
+  - Carthage
+  - Pods
+line_length: 128
+type_body_length:
+  - 300 # warning
+  - 400 # error
+function_body_length:
+  - 50 # warning
+  - 70 # error
+variable_name_min_length:
+  - 3 # warning
+  - 2 # error

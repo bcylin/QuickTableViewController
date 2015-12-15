@@ -106,6 +106,7 @@
 				B59925341B95FA9100BE63A4 /* Resources */,
 				2EC7EBFA3F7708FBC74FB415 /* Embed Pods Frameworks */,
 				498881F5F0A8BC841CE52026 /* Copy Pods Resources */,
+				B5C89E7A1C20557600E15F3A /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -191,6 +192,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B5C89E7A1C20557600E15F3A /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint is not installed, run 'brew install swiftlint'\"\nfi";
 		};
 		DEB611CCBA993118C8348124 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
