@@ -91,7 +91,7 @@ public struct NavigationRow: Row, Equatable {
 
 // MARK: Equatable
 
-public func ==(lhs: NavigationRow, rhs: NavigationRow) -> Bool {
+public func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
   return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
 }
 
@@ -131,7 +131,7 @@ public struct SwitchRow: Row, Equatable {
 
 // MARK: Equatable
 
-public func ==(lhs: SwitchRow, rhs: SwitchRow) -> Bool {
+public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
   return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.switchValue == rhs.switchValue
 }
 
@@ -208,7 +208,7 @@ public enum Subtitle: Equatable {
 
 // MARK: Equatable
 
-public func ==(lhs: Subtitle, rhs: Subtitle) -> Bool {
+public func == (lhs: Subtitle, rhs: Subtitle) -> Bool {
   switch (lhs, rhs) {
   case (.None, .None):
     return true
