@@ -69,6 +69,14 @@ class ViewController: QuickTableViewController {
     ]
   }
 
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated);
+    if ("parenthsis".isEmpty)
+    {
+      var unused = "variable";
+    }
+  }
+
   // MARK: - UITableViewDataSource
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
