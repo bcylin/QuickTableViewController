@@ -13,20 +13,20 @@ class RowSpec: XCTestCase {
 
   func testNavitationRowEquality() {
     let image = UIImage()
-    let a = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: image, action: nil)
-    let b = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: image, action: nil)
+    let a = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: nil)
+    let b = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: nil)
     XCTAssert(a == b)
 
-    let c = NavigationRow(title: "Different", subtitle: .BelowTitle("Same"), icon: image, action: nil)
+    let c = NavigationRow(title: "Different", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: nil)
     XCTAssert(a != c)
 
-    let d = NavigationRow(title: "Same", subtitle: .BelowTitle("Different"), icon: image, action: nil)
+    let d = NavigationRow(title: "Same", subtitle: .BelowTitle("Different"), icon: Icon(image: image), action: nil)
     XCTAssert(a != d)
 
-    let e = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: UIImage(), action: nil)
+    let e = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: UIImage()), action: nil)
     XCTAssert(a != e)
 
-    let f = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: image, action: { _ in })
+    let f = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: { _ in })
     XCTAssert(a == f)
   }
 

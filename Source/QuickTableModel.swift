@@ -67,18 +67,58 @@ public func ==<T: Row>(lhs: T, rhs: T) -> Bool {
 
 
 /**
+*  A struct that represents the image used in a row.
+*/
+public struct Icon: Equatable {
+
+  public var imageName: String?
+  public var image: UIImage?
+  public var highlightedImage: UIImage?
+
+  public init(imageName: String) {
+    self.imageName = imageName
+  }
+  public init(image: UIImage, highlightedImage: UIImage? = nil) {
+    self.image = image
+    self.highlightedImage = highlightedImage
+  }
+
+  private init() {}
+
+}
+
+// MARK: Equatable
+
+public func == (lhs: Icon, rhs: Icon) -> Bool {
+  if let left = lhs.image, let right = rhs.image where left != right {
+    return false
+  }
+  if let left = lhs.highlightedImage, let right = rhs.highlightedImage where left != right {
+    return false
+  }
+  if let left = lhs.imageName, let right = rhs.imageName where left != right {
+    return false
+  }
+  return true
+}
+
+
+// MARK: -
+
+
+/**
 A struct that represents a row that perfoms navigation when seleced.
 */
 public struct NavigationRow: Row, Equatable {
 
   public var title: String = ""
   public var subtitle: Subtitle?
-  public var icon: UIImage?
+  public var icon: Icon?
 
   /// A closure related to the navigation when the row is selected.
   public var action: ((Row) -> Void)?
 
-  public init(title: String, subtitle: Subtitle, icon: UIImage? = nil, action: ((Row) -> Void)? = nil) {
+  public init(title: String, subtitle: Subtitle, icon: Icon? = nil, action: ((Row) -> Void)? = nil) {
     self.title = title
     self.subtitle = subtitle
     self.icon = icon

@@ -51,9 +51,9 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: exit),
-        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: language),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: timeMachine),
+        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: exit) ),
+        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: language)),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: timeMachine)),
         NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
       ]),
 
