@@ -11,22 +11,47 @@ import QuickTableViewController
 
 class RowSpec: XCTestCase {
 
-  func testNavitationRowEquality() {
+  func testIconEquality() {
     let image = UIImage()
-    let a = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: image, action: nil)
-    let b = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: image, action: nil)
+    let a = Icon(image: image)
+    let b = Icon(image: image)
     XCTAssert(a == b)
 
-    let c = NavigationRow(title: "Different", subtitle: .BelowTitle("Same"), icon: image, action: nil)
+    let c = Icon(image: UIImage())
     XCTAssert(a != c)
 
-    let d = NavigationRow(title: "Same", subtitle: .BelowTitle("Different"), icon: image, action: nil)
-    XCTAssert(a != d)
+    let d = Icon(image: image, highlightedImage: nil)
+    XCTAssert(a == d)
 
-    let e = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: UIImage(), action: nil)
+    let e = Icon(image: image, highlightedImage: UIImage())
     XCTAssert(a != e)
 
-    let f = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: image, action: { _ in })
+    let f = Icon(imageName: "Same")
+    XCTAssert(a != f)
+
+    let g = Icon(imageName: "Same")
+    XCTAssert(f == g)
+
+    let h = Icon(imageName: "Different")
+    XCTAssert(f != h)
+  }
+
+  func testNavitationRowEquality() {
+    let image = UIImage()
+    let a = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: nil)
+    let b = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: nil)
+    XCTAssert(a == b)
+
+    let c = NavigationRow(title: "Different", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: nil)
+    XCTAssert(a != c)
+
+    let d = NavigationRow(title: "Same", subtitle: .BelowTitle("Different"), icon: Icon(image: image), action: nil)
+    XCTAssert(a != d)
+
+    let e = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: UIImage()), action: nil)
+    XCTAssert(a != e)
+
+    let f = NavigationRow(title: "Same", subtitle: .BelowTitle("Same"), icon: Icon(image: image), action: { _ in })
     XCTAssert(a == f)
   }
 

@@ -139,7 +139,6 @@
 				B5334F0F1B8CC5BD00C64A6D /* Frameworks */,
 				B5334F101B8CC5BD00C64A6D /* Headers */,
 				B5334F111B8CC5BD00C64A6D /* Resources */,
-				B5C89E7B1C20570700E15F3A /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -157,6 +156,7 @@
 				B5334F1A1B8CC5BD00C64A6D /* Sources */,
 				B5334F1B1B8CC5BD00C64A6D /* Frameworks */,
 				B5334F1C1B8CC5BD00C64A6D /* Resources */,
+				B564B1001C33ED4D00C6CC55 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -222,7 +222,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B5C89E7B1C20570700E15F3A /* Swift Lint */ = {
+		B564B1001C33ED4D00C6CC55 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,7 +234,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint is not installed, run 'brew install swiftlint'\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then swiftlint; fi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

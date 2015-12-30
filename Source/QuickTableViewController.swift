@@ -82,9 +82,20 @@ public class QuickTableViewController: UITableViewController {
         cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
       }
 
-      cell.imageView?.image = (row as! NavigationRow).icon
       cell.detailTextLabel?.text = subtitle.text
       cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
+      guard let icon = (row as? NavigationRow)?.icon else { break }
+
+      if let image = icon.image {
+        cell.imageView?.image = image
+      }
+      if let image = icon.highlightedImage {
+        cell.imageView?.highlightedImage = image
+      }
+      if let imageName = icon.imageName {
+        cell.imageView?.image = UIImage(named: imageName)
+        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
+      }
 
     case (let row, _, _) where row is SwitchRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
