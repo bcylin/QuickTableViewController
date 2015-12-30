@@ -84,7 +84,7 @@ public class QuickTableViewController: UITableViewController {
 
       cell.detailTextLabel?.text = subtitle.text
       cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
-      guard let icon = (row as? NavigationRow)?.icon else { return cell }
+      guard let icon = (row as? NavigationRow)?.icon else { break }
 
       if let image = icon.image {
         cell.imageView?.image = image
