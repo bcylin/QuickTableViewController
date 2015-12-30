@@ -183,13 +183,7 @@ public class QuickTableViewController: UIViewController,
 private extension UIView {
 
   var containerCell: UITableViewCell? {
-    get {
-      if let superview = superview as? UITableViewCell {
-        return superview
-      } else {
-        return superview?.containerCell
-      }
-    }
+    return (superview as? UITableViewCell) ?? superview?.containerCell
   }
 
 }
