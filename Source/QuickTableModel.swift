@@ -90,16 +90,7 @@ public struct Icon: Equatable {
 // MARK: Equatable
 
 public func == (lhs: Icon, rhs: Icon) -> Bool {
-  if let left = lhs.image, let right = rhs.image where left != right {
-    return false
-  }
-  if let left = lhs.highlightedImage, let right = rhs.highlightedImage where left != right {
-    return false
-  }
-  if let left = lhs.imageName, let right = rhs.imageName where left != right {
-    return false
-  }
-  return true
+  return lhs.image == rhs.image && lhs.highlightedImage == rhs.highlightedImage && lhs.imageName == rhs.imageName
 }
 
 
