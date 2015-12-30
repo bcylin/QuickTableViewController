@@ -26,7 +26,11 @@
 
 import UIKit
 
-public class QuickTableViewController: UITableViewController {
+public class QuickTableViewController: UIViewController,
+  UITableViewDataSource,
+  UITableViewDelegate {
+
+  public private(set) var tableView = UITableView(frame: CGRect.zero, style: .Grouped)
 
   public var tableContents: [Section] = [] {
     didSet {
@@ -34,35 +38,46 @@ public class QuickTableViewController: UITableViewController {
     }
   }
 
-  // MARK: - Initializer
+  // MARK: - Initialization
 
-  convenience init() {
-    self.init(style: .Grouped)
+  public convenience init(style: UITableViewStyle) {
+    self.init(nibName: nil, bundle: nil)
+    tableView = UITableView(frame: CGRect.zero, style: style)
+  }
+
+  deinit {
+    tableView.dataSource = nil
+    tableView.delegate = nil
   }
 
   // MARK: - UIViewController
 
-  override public func viewDidLoad() {
-    super.viewDidLoad()
+  override public func loadView() {
+    super.loadView()
+    view.addSubview(tableView)
+    tableView.frame = view.bounds
+    tableView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    tableView.dataSource = self
+    tableView.delegate = self
     tableView.registerClass(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
     tableView.registerClass(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
   }
 
   // MARK: - UITableViewDataSource
 
-  public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return tableContents.count
   }
 
-  public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tableContents[section].rows.count
   }
 
-  public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return tableContents[section].title
   }
 
-  public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell: UITableViewCell!
 
@@ -122,18 +137,18 @@ public class QuickTableViewController: UITableViewController {
     return cell
   }
 
-  public override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+  public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     return tableContents[section].footer
   }
 
   // MARK: - UITableViewDelegate
 
-  public override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+  public func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
   }
 
-  public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
     switch (row, row.action) {
@@ -147,10 +162,9 @@ public class QuickTableViewController: UITableViewController {
     }
   }
 
-  // MARK: - UIResponder Callbacks
+  // MARK: - IBAction
 
-  @objc
-  private func didToggleSwitch(sender: UISwitch) {
+  @IBAction private func didToggleSwitch(sender: UISwitch) {
     if let cell = sender.containerCell, let indexPath = tableView.indexPathForCell(cell) {
       var row = tableContents[indexPath.section].rows[indexPath.row] as! SwitchRow
       row.switchValue = sender.on
