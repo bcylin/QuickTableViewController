@@ -30,6 +30,7 @@ public class QuickTableViewController: UIViewController,
   UITableViewDataSource,
   UITableViewDelegate {
 
+  public var clearsSelectionOnViewWillAppear = true
   public private(set) var tableView = UITableView(frame: CGRect.zero, style: .Grouped)
 
   public var tableContents: [Section] = [] {
@@ -61,6 +62,13 @@ public class QuickTableViewController: UIViewController,
     tableView.delegate = self
     tableView.registerClass(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
     tableView.registerClass(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
+  }
+
+  public override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    if let indexPath = tableView.indexPathForSelectedRow where clearsSelectionOnViewWillAppear {
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
   }
 
   // MARK: - UITableViewDataSource
