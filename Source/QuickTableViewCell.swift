@@ -35,7 +35,7 @@ public class TapActionCell: UITableViewCell {
 
   // MARK: Initializer
 
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: .Default, reuseIdentifier: reuseIdentifier)
     setUpAppearance()
   }
