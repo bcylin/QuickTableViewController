@@ -25,6 +25,7 @@
 //
 
 import UIKit
+import MaterialDesignSymbol
 import QuickTableViewController
 
 class ViewController: QuickTableViewController {
@@ -34,6 +35,10 @@ class ViewController: QuickTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "QuickTableViewController"
+
+    let exit = MaterialDesignSymbol(text: MaterialDesignIcon.exitToApp48px, size:24).imageWithSize(CGSize(width: 24, height: 24))
+    let language = MaterialDesignSymbol(text: MaterialDesignIcon.language48px, size:24).imageWithSize(CGSize(width: 24, height: 24))
+    let timeMachine = MaterialDesignSymbol(text: MaterialDesignIcon.history48px, size:24).imageWithSize(CGSize(width: 24, height: 24))
 
     tableContents = [
       Section(title: "Switch", rows: [
@@ -45,23 +50,35 @@ class ViewController: QuickTableViewController {
         TapActionRow(title: "Tap action", action: showAlert)
       ]),
 
+      Section(title: "Cell Styles", rows: [
+        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: exit) ),
+        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: language)),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: timeMachine), action: showDetail),
+        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
+      ]),
+
       Section(title: "Navigation", rows: [
         NavigationRow(title: "Navigation", subtitle: .None, action: showDetail),
         NavigationRow(title: "Navigation", subtitle: .BelowTitle("with subtitle"), action: showDetail),
         NavigationRow(title: "Navigation", subtitle: .RightAligned("with detail text"), action: showDetail)
       ], footer: "UITableViewCellStyle.Value2 is not listed."),
 
-      Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .None),
-        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle")),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1")),
-        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
-      ], footer: "NavigationRows without action."),
-
       Section(title: nil, rows: [
         NavigationRow(title: "Empty section title", subtitle: .None)
       ])
     ]
+  }
+
+  // MARK: - UITableViewDataSource
+
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    if tableContents[indexPath.section].title == nil {
+      // Alter the cells created by QuickTableViewController
+      let symbol = MaterialDesignSymbol(text: MaterialDesignIcon.highlightRemove48px, size:24)
+      cell.imageView?.image = symbol.imageWithSize(CGSize(width: 24, height: 24))
+    }
+    return cell
   }
 
   // MARK: - Private Methods
@@ -83,7 +100,7 @@ class ViewController: QuickTableViewController {
 
   private func printValue(sender: Row) {
     if let row = sender as? SwitchRow {
-      println("\(row.title) = \(row.switchValue)")
+      print("\(row.title) = \(row.switchValue)")
     }
   }
 

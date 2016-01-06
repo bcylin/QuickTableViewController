@@ -35,12 +35,12 @@ public class TapActionCell: UITableViewCell {
 
   // MARK: Initializer
 
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: .Default, reuseIdentifier: reuseIdentifier)
     setUpAppearance()
   }
 
-  required public init(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setUpAppearance()
   }
@@ -69,7 +69,7 @@ public class SwitchCell: UITableViewCell {
     accessoryView = switchControl
   }
 
-  required public init(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     accessoryView = switchControl
   }

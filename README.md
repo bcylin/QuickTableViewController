@@ -1,11 +1,13 @@
 # QuickTableViewController
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Build Status](https://travis-ci.org/bcylin/QuickTableViewController.svg?branch=develop)](https://travis-ci.org/bcylin/QuickTableViewController)
 
 A simple way to create a table view for settings, providing table view cells with:
 
 * UISwitch
 * Center aligned text
+* Table view cell image
 * Disclosure indicator
 * Specified UITableViewCellStyle
 
@@ -31,8 +33,25 @@ class ViewController: QuickTableViewController {
 
       Section(title: "Tap Action", rows: [
         TapActionRow(title: "Tap action", action: showAlert)
+      ]),
+
+      Section(title: "Cell Styles", rows: [
+        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: UIImage(named: "exit"), highlightedImage: UIImage(named: "exit-highlighted"))),
+        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: UIImage(named: "language"))),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(imageName: "timeMachine"), action: showDetail),
+        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
       ])
     ]
+  }
+
+  // MARK: - Actions
+
+  private func showAlert(sender: Row) {
+    // ...
+  }
+
+  private func showDetail(sender: Row) {
+    // ...
   }
 
 }
@@ -47,6 +66,16 @@ NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .None)
 NavigationRow(title: "UITableViewCellStyle", subtitle: .BelowTitle(".Subtitle")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .RightAligned(".Value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .LeftAligned(".Value2"))
+```
+
+#### Image View
+
+* Images in table view cells can be set by specifying `icon` of each `NavigationRow`.
+* The `Icon` struct carries info about images for both normal and highlighted states.
+* Table view cells in `UITableViewCellStyle.Value2` will hide images.
+
+```swift
+NavigationRow(title: "Cell with image", subtitle: .None, icon: Icon(imageName: "icon"))
 ```
 
 #### Disclosure Indicator
@@ -81,8 +110,8 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 ## Requirements
 
-* `v0.1.1` requires iOS 8.0+ with Xcode 6.4.
-* Currently QuickTableViewController is written in Swift 1.2, soon will be updated to Swift 2.0.
+* `v0.1` requires Swift 1.2 and iOS 8.0+ with Xcode 6.4.
+* `v0.2` is now in Swift 2 with Xcode 7.0 or above.
 
 ## Installation
 

@@ -26,7 +26,12 @@
 
 import UIKit
 
-public class QuickTableViewController: UITableViewController {
+public class QuickTableViewController: UIViewController,
+  UITableViewDataSource,
+  UITableViewDelegate {
+
+  public var clearsSelectionOnViewWillAppear = true
+  public private(set) var tableView = UITableView(frame: CGRect.zero, style: .Grouped)
 
   public var tableContents: [Section] = [] {
     didSet {
@@ -34,56 +39,86 @@ public class QuickTableViewController: UITableViewController {
     }
   }
 
-  // MARK: - Initializer
+  // MARK: - Initialization
 
-  convenience init() {
-    self.init(style: .Grouped)
+  public convenience init(style: UITableViewStyle) {
+    self.init(nibName: nil, bundle: nil)
+    tableView = UITableView(frame: CGRect.zero, style: style)
+  }
+
+  deinit {
+    tableView.dataSource = nil
+    tableView.delegate = nil
   }
 
   // MARK: - UIViewController
 
-  override public func viewDidLoad() {
-    super.viewDidLoad()
+  override public func loadView() {
+    super.loadView()
+    view.addSubview(tableView)
+    tableView.frame = view.bounds
+    tableView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    tableView.dataSource = self
+    tableView.delegate = self
     tableView.registerClass(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
     tableView.registerClass(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
   }
 
+  public override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    if let indexPath = tableView.indexPathForSelectedRow where clearsSelectionOnViewWillAppear {
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+  }
+
   // MARK: - UITableViewDataSource
 
-  public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return tableContents.count
   }
 
-  public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tableContents[section].rows.count
   }
 
-  public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return tableContents[section].title
   }
 
-  public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell: UITableViewCell!
 
     switch (row, row.subtitle, row.action) {
     case (let row, .Some(let subtitle), let action) where row is NavigationRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style) as? UITableViewCell
+      cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style)
 
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
       case .None:
         cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: subtitle.style)
-      case .BelowTitle(let text):
+      case .BelowTitle(_):
         cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: subtitle.style)
-      case .RightAligned(let text):
+      case .RightAligned(_):
         cell = cell ?? UITableViewCell(style: .Value1, reuseIdentifier: subtitle.style)
-      case .LeftAligned(let text):
+      case .LeftAligned(_):
         cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
       }
 
       cell.detailTextLabel?.text = subtitle.text
       cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
+      guard let icon = (row as? NavigationRow)?.icon else { break }
+
+      if let image = icon.image {
+        cell.imageView?.image = image
+      }
+      if let image = icon.highlightedImage {
+        cell.imageView?.highlightedImage = image
+      }
+      if let imageName = icon.imageName {
+        cell.imageView?.image = UIImage(named: imageName)
+        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
+      }
 
     case (let row, _, _) where row is SwitchRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
@@ -98,11 +133,11 @@ public class QuickTableViewController: UITableViewController {
       }
 
     case (let row, _, _) where row is TapActionRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self)) as? UITableViewCell
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self))
       cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
     default:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self)) as? UITableViewCell
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self))
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
     }
 
@@ -110,18 +145,18 @@ public class QuickTableViewController: UITableViewController {
     return cell
   }
 
-  public override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+  public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     return tableContents[section].footer
   }
 
   // MARK: - UITableViewDelegate
 
-  public override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+  public func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     let row = tableContents[indexPath.section].rows[indexPath.row]
     return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
   }
 
-  public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
     switch (row, row.action) {
@@ -135,17 +170,18 @@ public class QuickTableViewController: UITableViewController {
     }
   }
 
-  // MARK: - UIResponder Callbacks
+  // MARK: - IBAction
 
-  @objc
-  private func didToggleSwitch(sender: UISwitch) {
-    if let cell = sender.containerCell, let indexPath = tableView.indexPathForCell(cell) {
-      var row = tableContents[indexPath.section].rows[indexPath.row] as! SwitchRow
-      row.switchValue = sender.on
+  @IBAction private func didToggleSwitch(sender: UISwitch) {
+    guard
+      let cell = sender.containerCell,
+      let indexPath = tableView.indexPathForCell(cell),
+      var row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+    else { return }
 
-      // Replace the original row in tableContents
-      tableContents[indexPath.section].rows[indexPath.row] = row
-    }
+    // Replace the original row in tableContents
+    row.switchValue = sender.on
+    tableContents[indexPath.section].rows[indexPath.row] = row
   }
 
 }
@@ -157,13 +193,7 @@ public class QuickTableViewController: UITableViewController {
 private extension UIView {
 
   var containerCell: UITableViewCell? {
-    get {
-      if let superview = superview as? UITableViewCell {
-        return superview
-      } else {
-        return superview?.containerCell
-      }
-    }
+    return (superview as? UITableViewCell) ?? superview?.containerCell
   }
 
 }
