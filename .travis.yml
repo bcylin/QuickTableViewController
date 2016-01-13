@@ -1,14 +1,20 @@
 language: objective-c
 osx_image: xcode7.2
+cache:
+  directories:
+  - vendor/bundle
+  - Pods
 before_install:
   - if test -z $(brew list | grep -i xcproj); then brew install xcproj; fi
   - if test -z $(brew list | grep -i carthage); then brew install carthage; fi
   - export LANG=en_US.UTF-8
 install:
   - bundle install --without development --deployment --jobs=3 --retry=3
-  - bundle exec pod install
+  - bundle exec pod install --no-repo-update
 script:
-  - xctool -workspace QuickTableViewController.xcworkspace -scheme QuickTableViewController-iOS -sdk iphonesimulator clean test
+  - set -o pipefail && xcodebuild -project QuickTableViewController.xcodeproj -scheme QuickTableViewController-iOS -sdk iphonesimulator -destination "name=iPhone 6,OS=latest" -enableCodeCoverage YES clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -c
   - xctool -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator clean build
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   email: false
