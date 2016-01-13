@@ -10,7 +10,7 @@ before_install:
   - export LANG=en_US.UTF-8
 install:
   - bundle install --without development --deployment --jobs=3 --retry=3
-  - bundle exec pod install
+  - bundle exec pod install --no-repo-update
 script:
   - xctool -workspace QuickTableViewController.xcworkspace -scheme QuickTableViewController-iOS -sdk iphonesimulator clean test
   - xctool -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator clean build
