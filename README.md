@@ -2,6 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.org/bcylin/QuickTableViewController.svg?branch=develop)](https://travis-ci.org/bcylin/QuickTableViewController)
+[![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg?branch=develop)](https://codecov.io/github/bcylin/QuickTableViewController?branch=develop)
 
 A simple way to create a table view for settings, providing table view cells with:
 
