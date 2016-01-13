@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
                BuildableName = "QuickTableViewController.framework"
-               BlueprintName = "QuickTableViewController"
+               BlueprintName = "QuickTableViewController-iOS"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5334F1D1B8CC5BD00C64A6D"
                BuildableName = "QuickTableViewControllerTests.xctest"
-               BlueprintName = "QuickTableViewControllerTests"
+               BlueprintName = "QuickTableViewControllerTests-iOS"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,7 +48,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5334F1D1B8CC5BD00C64A6D"
                BuildableName = "QuickTableViewControllerTests.xctest"
-               BlueprintName = "QuickTableViewControllerTests"
+               BlueprintName = "QuickTableViewControllerTests-iOS"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
             BuildableName = "QuickTableViewController.framework"
-            BlueprintName = "QuickTableViewController"
+            BlueprintName = "QuickTableViewController-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +80,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
             BuildableName = "QuickTableViewController.framework"
-            BlueprintName = "QuickTableViewController"
+            BlueprintName = "QuickTableViewController-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,7 +98,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
             BuildableName = "QuickTableViewController.framework"
-            BlueprintName = "QuickTableViewController"
+            BlueprintName = "QuickTableViewController-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

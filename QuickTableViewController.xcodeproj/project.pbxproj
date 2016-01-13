@@ -131,9 +131,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B5334F121B8CC5BD00C64A6D /* QuickTableViewController */ = {
+		B5334F121B8CC5BD00C64A6D /* QuickTableViewController-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5334F291B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewController" */;
+			buildConfigurationList = B5334F291B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewController-iOS" */;
 			buildPhases = (
 				B5334F0E1B8CC5BD00C64A6D /* Sources */,
 				B5334F0F1B8CC5BD00C64A6D /* Frameworks */,
@@ -144,14 +144,14 @@
 			);
 			dependencies = (
 			);
-			name = QuickTableViewController;
+			name = "QuickTableViewController-iOS";
 			productName = QuickTableViewController;
 			productReference = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B5334F1D1B8CC5BD00C64A6D /* QuickTableViewControllerTests */ = {
+		B5334F1D1B8CC5BD00C64A6D /* QuickTableViewControllerTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5334F2C1B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewControllerTests" */;
+			buildConfigurationList = B5334F2C1B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewControllerTests-iOS" */;
 			buildPhases = (
 				B5334F1A1B8CC5BD00C64A6D /* Sources */,
 				B5334F1B1B8CC5BD00C64A6D /* Frameworks */,
@@ -163,7 +163,7 @@
 			dependencies = (
 				B5334F211B8CC5BD00C64A6D /* PBXTargetDependency */,
 			);
-			name = QuickTableViewControllerTests;
+			name = "QuickTableViewControllerTests-iOS";
 			productName = QuickTableViewControllerTests;
 			productReference = B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -198,8 +198,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5334F121B8CC5BD00C64A6D /* QuickTableViewController */,
-				B5334F1D1B8CC5BD00C64A6D /* QuickTableViewControllerTests */,
+				B5334F121B8CC5BD00C64A6D /* QuickTableViewController-iOS */,
+				B5334F1D1B8CC5BD00C64A6D /* QuickTableViewControllerTests-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +264,7 @@
 /* Begin PBXTargetDependency section */
 		B5334F211B8CC5BD00C64A6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B5334F121B8CC5BD00C64A6D /* QuickTableViewController */;
+			target = B5334F121B8CC5BD00C64A6D /* QuickTableViewController-iOS */;
 			targetProxy = B5334F201B8CC5BD00C64A6D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -371,8 +371,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.neuvie.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController;
+				PRODUCT_NAME = QuickTableViewController;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -389,8 +389,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.neuvie.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController;
+				PRODUCT_NAME = QuickTableViewController;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -409,7 +409,7 @@
 				INFOPLIST_FILE = QuickTableViewControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.neuvie.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTableViewControllerTests;
 			};
 			name = Debug;
 		};
@@ -423,7 +423,7 @@
 				INFOPLIST_FILE = QuickTableViewControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.neuvie.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTableViewControllerTests;
 			};
 			name = Release;
 		};
@@ -439,7 +439,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5334F291B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewController" */ = {
+		B5334F291B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewController-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5334F2A1B8CC5BD00C64A6D /* Debug */,
@@ -448,7 +448,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5334F2C1B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewControllerTests" */ = {
+		B5334F2C1B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewControllerTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5334F2D1B8CC5BD00C64A6D /* Debug */,
