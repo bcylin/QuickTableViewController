@@ -12,6 +12,8 @@
 		B5334F261B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
 		B595627B1B9758BC00D6DAB1 /* QuickTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595627A1B9758BC00D6DAB1 /* QuickTableViewCell.swift */; };
+		B5DB7D221C4A4BDC007B84D2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DB7D201C4A4BDC007B84D2 /* Nimble.framework */; };
+		B5DB7D231C4A4BDC007B84D2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DB7D211C4A4BDC007B84D2 /* Quick.framework */; };
 		B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */; };
 		B5DB94371BE11A5700E2CEDE /* RowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB94361BE11A5700E2CEDE /* RowSpec.swift */; };
 		B5EC18231B95FD7F0015C665 /* QuickTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */; };
@@ -36,6 +38,8 @@
 		B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		B595627A1B9758BC00D6DAB1 /* QuickTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewCell.swift; path = Source/QuickTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		B5DB7D201C4A4BDC007B84D2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		B5DB7D211C4A4BDC007B84D2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleSpec.swift; sourceTree = "<group>"; };
 		B5DB94361BE11A5700E2CEDE /* RowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowSpec.swift; sourceTree = "<group>"; };
 		B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableModel.swift; path = Source/QuickTableModel.swift; sourceTree = SOURCE_ROOT; };
@@ -53,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5DB7D221C4A4BDC007B84D2 /* Nimble.framework in Frameworks */,
+				B5DB7D231C4A4BDC007B84D2 /* Quick.framework in Frameworks */,
 				B5334F1F1B8CC5BD00C64A6D /* QuickTableViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +69,7 @@
 		B5334F091B8CC5BD00C64A6D = {
 			isa = PBXGroup;
 			children = (
+				B5DB7D241C4A4BEC007B84D2 /* Frameworks */,
 				B5334F141B8CC5BD00C64A6D /* Products */,
 				B5334F151B8CC5BD00C64A6D /* QuickTableViewController */,
 				B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */,
@@ -117,6 +124,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5DB7D241C4A4BEC007B84D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB7D201C4A4BDC007B84D2 /* Nimble.framework */,
+				B5DB7D211C4A4BDC007B84D2 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -157,6 +173,7 @@
 				B5334F1B1B8CC5BD00C64A6D /* Frameworks */,
 				B5334F1C1B8CC5BD00C64A6D /* Resources */,
 				B564B1001C33ED4D00C6CC55 /* Swift Lint */,
+				B5DB7D1F1C4A4BA3007B84D2 /* Copy Carthage Built Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,6 +252,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then swiftlint; fi";
+		};
+		B5DB7D1F1C4A4BA3007B84D2 /* Copy Carthage Built Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+			);
+			name = "Copy Carthage Built Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -405,6 +438,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -423,6 +457,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = QuickTableViewControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
