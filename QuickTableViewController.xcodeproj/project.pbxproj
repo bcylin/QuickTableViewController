@@ -114,11 +114,10 @@
 		B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */ = {
 			isa = PBXGroup;
 			children = (
+				B5DB7D331C4BA0E8007B84D2 /* Model */,
 				B5DB7D321C4B9FE6007B84D2 /* RowSpec */,
 				B5334F231B8CC5BD00C64A6D /* Supporting Files */,
-				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
 				B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */,
-				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
 			);
 			path = QuickTableViewControllerTests;
 			sourceTree = "<group>";
@@ -148,6 +147,15 @@
 				B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */,
 			);
 			name = RowSpec;
+			sourceTree = "<group>";
+		};
+		B5DB7D331C4BA0E8007B84D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
+				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
