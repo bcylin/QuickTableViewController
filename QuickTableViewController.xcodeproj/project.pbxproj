@@ -17,8 +17,8 @@
 		B5DB7D271C4B7F74007B84D2 /* IconSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */; };
 		B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */; };
 		B5DB7D2F1C4B95D3007B84D2 /* SwitchRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */; };
+		B5DB7D311C4B9ACB007B84D2 /* TapActionRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */; };
 		B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */; };
-		B5DB94371BE11A5700E2CEDE /* RowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB94361BE11A5700E2CEDE /* RowSpec.swift */; };
 		B5EC18231B95FD7F0015C665 /* QuickTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +46,8 @@
 		B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRowSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRowSpec.swift; sourceTree = "<group>"; };
+		B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRowSpec.swift; sourceTree = "<group>"; };
 		B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleSpec.swift; sourceTree = "<group>"; };
-		B5DB94361BE11A5700E2CEDE /* RowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowSpec.swift; sourceTree = "<group>"; };
 		B5EC18221B95FD7F0015C665 /* QuickTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableModel.swift; path = Source/QuickTableModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -114,13 +114,11 @@
 		B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */ = {
 			isa = PBXGroup;
 			children = (
+				B5DB7D321C4B9FE6007B84D2 /* RowSpec */,
 				B5334F231B8CC5BD00C64A6D /* Supporting Files */,
 				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
-				B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */,
 				B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */,
-				B5DB94361BE11A5700E2CEDE /* RowSpec.swift */,
 				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
-				B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */,
 			);
 			path = QuickTableViewControllerTests;
 			sourceTree = "<group>";
@@ -140,6 +138,16 @@
 				B5DB7D211C4A4BDC007B84D2 /* Quick.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5DB7D321C4B9FE6007B84D2 /* RowSpec */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */,
+				B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */,
+				B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */,
+			);
+			name = RowSpec;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,9 +306,9 @@
 				B5DB7D271C4B7F74007B84D2 /* IconSpec.swift in Sources */,
 				B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */,
 				B5334F261B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift in Sources */,
-				B5DB94371BE11A5700E2CEDE /* RowSpec.swift in Sources */,
 				B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */,
 				B5DB7D2F1C4B95D3007B84D2 /* SwitchRowSpec.swift in Sources */,
+				B5DB7D311C4B9ACB007B84D2 /* TapActionRowSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
