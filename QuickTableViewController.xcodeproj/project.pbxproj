@@ -11,6 +11,9 @@
 		B5334F1F1B8CC5BD00C64A6D /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */; };
 		B5334F261B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
+		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
+		B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
+		B57FAA6E1C513454008FF7C7 /* QuickTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */; };
 		B595627B1B9758BC00D6DAB1 /* QuickTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595627A1B9758BC00D6DAB1 /* QuickTableViewCell.swift */; };
 		B5DB7D221C4A4BDC007B84D2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DB7D201C4A4BDC007B84D2 /* Nimble.framework */; };
 		B5DB7D231C4A4BDC007B84D2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DB7D211C4A4BDC007B84D2 /* Quick.framework */; };
@@ -41,6 +44,9 @@
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
+		B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerSpec.swift; sourceTree = "<group>"; };
 		B595627A1B9758BC00D6DAB1 /* QuickTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewCell.swift; path = Source/QuickTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		B5DB7D201C4A4BDC007B84D2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		B5DB7D211C4A4BDC007B84D2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -116,9 +122,9 @@
 		B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B5DB7D331C4BA0E8007B84D2 /* ModelSpec */,
-				B5DB7D321C4B9FE6007B84D2 /* RowSpec */,
+				B5DB7D331C4BA0E8007B84D2 /* ModelSpecs */,
 				B5334F231B8CC5BD00C64A6D /* Supporting Files */,
+				B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */,
 				B5334F251B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift */,
 			);
 			path = QuickTableViewControllerTests;
@@ -127,6 +133,8 @@
 		B5334F231B8CC5BD00C64A6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B578B5081C5673240021F7C3 /* icon-highlighted.png */,
+				B578B5071C5673240021F7C3 /* icon.png */,
 				B5334F241B8CC5BD00C64A6D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -141,24 +149,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B5DB7D321C4B9FE6007B84D2 /* RowSpec */ = {
+		B5DB7D321C4B9FE6007B84D2 /* RowSpecs */ = {
 			isa = PBXGroup;
 			children = (
 				B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */,
 				B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */,
 				B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */,
 			);
-			name = RowSpec;
+			name = RowSpecs;
 			sourceTree = "<group>";
 		};
-		B5DB7D331C4BA0E8007B84D2 /* ModelSpec */ = {
+		B5DB7D331C4BA0E8007B84D2 /* ModelSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				B5DB7D321C4B9FE6007B84D2 /* RowSpecs */,
 				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
 				B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */,
 				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
 			);
-			name = ModelSpec;
+			name = ModelSpecs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */,
+				B578B5091C5673240021F7C3 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +327,7 @@
 			files = (
 				B5DB7D271C4B7F74007B84D2 /* IconSpec.swift in Sources */,
 				B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */,
+				B57FAA6E1C513454008FF7C7 /* QuickTableViewControllerSpec.swift in Sources */,
 				B5334F261B8CC5BD00C64A6D /* QuickTableViewControllerTests.swift in Sources */,
 				B5DB7D351C4CBB74007B84D2 /* SectionSpec.swift in Sources */,
 				B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */,
