@@ -1,13 +1,24 @@
+GIT
+  remote: git://github.com/venmo/slather.git
+  revision: 7a0921b2470b32839e1e2085305d7088b977f6c1
+  ref: 7a0921b
+  specs:
+    slather (1.8.3)
+      clamp (~> 0.6)
+      nokogiri (~> 1.6.3)
+      xcodeproj (~> 0.28.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (4.2.5)
+    activesupport (4.2.5.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     claide (0.9.1)
+    clamp (0.6.5)
     cocoapods (0.39.0)
       activesupport (>= 4.0.2)
       claide (~> 0.9.1)
@@ -41,10 +52,15 @@ GEM
     fuzzy_match (2.0.4)
     i18n (0.7.0)
     json (1.8.3)
-    minitest (5.8.3)
+    mini_portile2 (2.0.0)
+    minitest (5.8.4)
     molinillo (0.4.1)
     nap (1.0.0)
     netrc (0.7.8)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
+    rake (10.5.0)
+    rouge (1.10.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -52,12 +68,17 @@ GEM
       activesupport (>= 3)
       claide (~> 0.9.1)
       colored (~> 1.2)
+    xcpretty (0.2.2)
+      rouge (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cocoapods (~> 0.39.0)
+  rake
+  slather!
+  xcpretty
 
 BUNDLED WITH
    1.11.2

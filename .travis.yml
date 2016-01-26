@@ -17,5 +17,6 @@ script:
   - xctool -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator clean build
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - bundle exec rake coverage
 notifications:
   email: false
