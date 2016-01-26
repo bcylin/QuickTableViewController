@@ -61,6 +61,29 @@ class QuickTableViewControllerSpec: QuickSpec {
       }
     }
 
+    describe("tableView(_:titleForHeaderInSection:") {
+      let controller = QuickTableViewController()
+      controller.tableContents = [
+        Section(title: nil, rows: []),
+        Section(title: "title", rows: [])
+      ]
+      it("should return the title in sections") {
+        expect(controller.tableView(controller.tableView, titleForHeaderInSection: 0)).to(beNil())
+        expect(controller.tableView(controller.tableView, titleForHeaderInSection: 1)) == "title"
+      }
+    }
+
+    describe("tableView(_:titleForFooterInSection:") {
+      let controller = QuickTableViewController()
+      controller.tableContents = [
+        Section(title: nil, rows: []),
+        Section(title: nil, rows: [], footer: "footer")
+      ]
+      it("should return the title in sections") {
+        expect(controller.tableView(controller.tableView, titleForFooterInSection: 0)).to(beNil())
+        expect(controller.tableView(controller.tableView, titleForFooterInSection: 1)) == "footer"
+      }
+    }
 
     describe("tableView(_:cellForRowAtIndexPath:)") {
       context("NavigationRow") {
@@ -115,7 +138,7 @@ class QuickTableViewControllerSpec: QuickSpec {
             ])
           ]
 
-          it("should not work with images in the test bundle") {
+          it("does not work with images in the test bundle") {
             let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
             expect(cell.imageView?.image).to(beNil())
             expect(cell.imageView?.highlightedImage).to(beNil())
