@@ -207,6 +207,63 @@ class QuickTableViewControllerSpec: QuickSpec {
         }
       }
     }
+
+    // MARK: - UITableViewDelegate
+
+    describe("tableView(_:shouldHighlightRowAtIndexPath:") {
+      let controller = QuickTableViewController()
+      controller.tableContents = [
+        Section(title: nil, rows: [
+          NavigationRow(title: "", subtitle: .None),
+          NavigationRow(title: "", subtitle: .None, action: { _ in }),
+          SwitchRow(title: "", switchValue: true, action: nil),
+          TapActionRow(title: "", action: { _ in })
+        ])
+      ]
+
+      it("should not highlight NavigationRow without an action") {
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        expect(highlight) == false
+      }
+
+      it("should highlight NavigationRow with an action") {
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        expect(highlight) == true
+      }
+
+      it("should not highlight SwitchRow") {
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0))
+        expect(highlight) == false
+      }
+
+      it("should highlight TapActionRow") {
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 3, inSection: 0))
+        expect(highlight) == true
+      }
+    }
+
+    describe("tableView(_:didSelectRowAtIndexPath:") {
+      let controller = QuickTableViewController()
+      var navigated = false
+      var tapped = false
+
+      controller.tableContents = [
+        Section(title: nil, rows: [
+          NavigationRow(title: "", subtitle: .None, action: { _ in navigated = true }),
+          TapActionRow(title: "", action: { _ in tapped = true })
+        ])
+      ]
+
+      it("should invoke the action when NavigationRow is selected") {
+        controller.tableView(controller.tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        expect(navigated) == true
+      }
+
+      it("should invoke the action when TapActionRow is selected") {
+        controller.tableView(controller.tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        expect(tapped) == true
+      }
+    }
   }
 
 }
