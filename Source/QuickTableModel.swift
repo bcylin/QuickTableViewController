@@ -27,8 +27,8 @@
 import Foundation
 
 /**
-A struct that represents a section in a table view.
-*/
+ A struct that represents a section in a table view.
+ */
 public struct Section {
 
   public var title: String?
@@ -48,8 +48,8 @@ public struct Section {
 
 
 /**
-Any type that conforms to this protocol is capable of representing a row in a table view.
-*/
+ Any type that conforms to this protocol is capable of representing a row in a table view.
+ */
 public protocol Row {
   var title: String { get }
   var subtitle: Subtitle? { get }
@@ -67,8 +67,8 @@ public func ==<T: Row>(lhs: T, rhs: T) -> Bool {
 
 
 /**
-*  A struct that represents the image used in a row.
-*/
+ A struct that represents the image used in a row.
+ */
 public struct Icon: Equatable {
 
   public var imageName: String?
@@ -98,8 +98,8 @@ public func == (lhs: Icon, rhs: Icon) -> Bool {
 
 
 /**
-A struct that represents a row that perfoms navigation when seleced.
-*/
+ A struct that represents a row that perfoms navigation when seleced.
+ */
 public struct NavigationRow: Row, Equatable {
 
   public var title: String = ""
@@ -131,8 +131,8 @@ public func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
 
 
 /**
-A struct that represents a row with a switch.
-*/
+ A struct that represents a row with a switch.
+ */
 public struct SwitchRow: Row, Equatable {
 
   public var title: String = ""
@@ -171,8 +171,8 @@ public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
 
 
 /**
-A struct that represents a row that triggers certain action when seleced.
-*/
+ A struct that represents a row that triggers certain action when seleced.
+ */
 public struct TapActionRow: Row, Equatable {
 
   public var title: String = ""
@@ -197,13 +197,13 @@ public struct TapActionRow: Row, Equatable {
 
 
 /**
-An enum that indicates the subtitle text with UITableViewCellStyle.
+ An enum that indicates the subtitle text with UITableViewCellStyle.
 
-- None:         Without a subtitle
-- BelowTitle:   Subtitle in UITableViewCellStyle.Subtitle
-- RightAligned: Subtitle in UITableViewCellStyle.Value1
-- LeftAligned:  Subtitle in UITableViewCellStyle.Value2
-*/
+ - None:         Without a subtitle
+ - BelowTitle:   Subtitle in UITableViewCellStyle.Subtitle
+ - RightAligned: Subtitle in UITableViewCellStyle.Value1
+ - LeftAligned:  Subtitle in UITableViewCellStyle.Value2
+ */
 public enum Subtitle: Equatable {
 
   case None
