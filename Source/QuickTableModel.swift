@@ -67,6 +67,13 @@ public func ==<T: Row>(lhs: T, rhs: T) -> Bool {
 
 
 /**
+ Any type that conforms to this protocol is able to show an icon image in a table view.
+ */
+public protocol IconEnabled: Row {
+  var icon: Icon? { get }
+}
+
+/**
  A struct that represents the image used in a row.
  */
 public struct Icon: Equatable {
@@ -78,6 +85,7 @@ public struct Icon: Equatable {
   public init(imageName: String) {
     self.imageName = imageName
   }
+
   public init(image: UIImage, highlightedImage: UIImage? = nil) {
     self.image = image
     self.highlightedImage = highlightedImage
@@ -100,7 +108,7 @@ public func == (lhs: Icon, rhs: Icon) -> Bool {
 /**
  A struct that represents a row that perfoms navigation when seleced.
  */
-public struct NavigationRow: Row, Equatable {
+public struct NavigationRow: Row, Equatable, IconEnabled {
 
   public var title: String = ""
   public var subtitle: Subtitle?
@@ -133,13 +141,14 @@ public func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
 /**
  A struct that represents a row with a switch.
  */
-public struct SwitchRow: Row, Equatable {
+public struct SwitchRow: Row, Equatable, IconEnabled {
 
   public var title: String = ""
-  public var icon: Icon?
 
   /// Subtitle is disabled in SwitchRow.
   public let subtitle: Subtitle? = nil
+
+  public var icon: Icon?
 
   /// The state of a switch.
   public var switchValue: Bool = false {
@@ -151,10 +160,10 @@ public struct SwitchRow: Row, Equatable {
   /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 
-  public init(title: String, icon: Icon? = nil, switchValue: Bool, action: ((Row) -> Void)?) {
+  public init(title: String, switchValue: Bool, icon: Icon? = nil, action: ((Row) -> Void)?) {
     self.title = title
-    self.icon = icon
     self.switchValue = switchValue
+    self.icon = icon
     self.action = action
   }
 
@@ -165,7 +174,7 @@ public struct SwitchRow: Row, Equatable {
 // MARK: Equatable
 
 public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
-  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon && lhs.switchValue == rhs.switchValue
+  return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
 }
 
 

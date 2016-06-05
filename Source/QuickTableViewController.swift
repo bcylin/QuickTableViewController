@@ -107,18 +107,6 @@ public class QuickTableViewController: UIViewController,
 
       cell.detailTextLabel?.text = subtitle.text
       cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
-      guard let icon = (row as? NavigationRow)?.icon else { break }
-
-      if let image = icon.image {
-        cell.imageView?.image = image
-      }
-      if let image = icon.highlightedImage {
-        cell.imageView?.highlightedImage = image
-      }
-      if let imageName = icon.imageName {
-        cell.imageView?.image = UIImage(named: imageName)
-        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
-      }
 
     case (let row, _, _) where row is SwitchRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
@@ -131,8 +119,17 @@ public class QuickTableViewController: UIViewController,
       if switchControl.actionsForTarget(self, forControlEvent: .ValueChanged) == nil {
         switchControl.addTarget(self, action: .didToggleSwitch, forControlEvents: UIControlEvents.ValueChanged)
       }
-      guard let icon = (row as? SwitchRow)?.icon else { break }
 
+    case (let row, _, _) where row is TapActionRow:
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self))
+      cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
+
+    default:
+      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self))
+      cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
+    }
+
+    if let icon = (row as? IconEnabled)?.icon {
       if let image = icon.image {
         cell.imageView?.image = image
       }
@@ -142,15 +139,7 @@ public class QuickTableViewController: UIViewController,
       if let imageName = icon.imageName {
         cell.imageView?.image = UIImage(named: imageName)
         cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
-        }
-
-    case (let row, _, _) where row is TapActionRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self))
-      cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
-
-    default:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self))
-      cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
+      }
     }
 
     cell.textLabel?.text = row.title
