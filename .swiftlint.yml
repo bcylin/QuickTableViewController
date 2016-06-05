@@ -1,6 +1,8 @@
 disabled_rules:
   - force_cast
 included:
+  - Example
+  - QuickTableViewControllerTests
   - Source
 excluded:
   - Carthage
@@ -12,6 +14,3 @@ type_body_length:
 function_body_length:
   - 50 # warning
   - 70 # error
-variable_name_min_length:
-  - 3 # warning
-  - 2 # error

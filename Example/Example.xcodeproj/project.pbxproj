@@ -101,12 +101,12 @@
 			buildConfigurationList = B59925551B95FA9100BE63A4 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				DEB611CCBA993118C8348124 /* 📦 Check Pods Manifest.lock */,
+				B5C89E7A1C20557600E15F3A /* Swift Lint */,
 				B59925321B95FA9100BE63A4 /* Sources */,
 				B59925331B95FA9100BE63A4 /* Frameworks */,
 				B59925341B95FA9100BE63A4 /* Resources */,
 				2EC7EBFA3F7708FBC74FB415 /* 📦 Embed Pods Frameworks */,
 				498881F5F0A8BC841CE52026 /* 📦 Copy Pods Resources */,
-				B5C89E7A1C20557600E15F3A /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -205,7 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint is not installed, run 'brew install swiftlint'\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then swiftlint lint --config $SRCROOT/../.swiftlint.yml; fi";
 		};
 		DEB611CCBA993118C8348124 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
