@@ -1,5 +1,7 @@
 disabled_rules:
+  - cyclomatic_complexity
   - force_cast
+  - function_body_length
 included:
   - Example
   - QuickTableViewControllerTests
@@ -7,10 +9,4 @@ included:
 excluded:
   - Carthage
   - Pods
-line_length: 128
-type_body_length:
-  - 300 # warning
-  - 400 # error
-function_body_length:
-  - 50 # warning
-  - 70 # error
+line_length: 192

@@ -173,13 +173,16 @@ public class QuickTableViewController: UIViewController,
   // MARK: - IBAction
 
   @IBAction private func didToggleSwitch(sender: UISwitch) {
-    guard
-      let cell = sender.containerCell,
-      let indexPath = tableView.indexPathForCell(cell),
-      var row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
-    else { return }
+    guard let
+      cell = sender.containerCell,
+      indexPath = tableView.indexPathForCell(cell),
+      switchRow = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+    else {
+      return
+    }
 
     // Replace the original row in tableContents
+    var row = switchRow
     row.switchValue = sender.on
     tableContents[indexPath.section].rows[indexPath.row] = row
   }

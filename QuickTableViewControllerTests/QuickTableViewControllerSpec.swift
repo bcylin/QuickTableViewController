@@ -129,11 +129,15 @@ class QuickTableViewControllerSpec: QuickSpec {
           let resourcePath: NSString! = NSBundle(forClass: QuickTableViewControllerSpec.self).resourcePath
           let imagePath = resourcePath.stringByAppendingPathComponent("icon.png")
           let highlightedImagePath = resourcePath.stringByAppendingPathComponent("icon.png")
+
+          let image = UIImage(contentsOfFile: imagePath)!
+          let highlightedImage = UIImage(contentsOfFile: highlightedImagePath)!
+
           controller.tableContents = [
             Section(title: "Cell Styles", rows: [
               NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(imageName: "icon")),
-              NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: UIImage(contentsOfFile: imagePath)!)),
-              NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: UIImage(contentsOfFile: imagePath)!, highlightedImage: UIImage(contentsOfFile: highlightedImagePath)!)),
+              NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: image)),
+              NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: image, highlightedImage: highlightedImage)),
               NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"), icon: Icon(imageName: "icon"))
             ])
           ]
