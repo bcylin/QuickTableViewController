@@ -129,7 +129,7 @@ public class QuickTableViewController: UIViewController,
       switchControl.on = (row as! SwitchRow).switchValue
 
       if switchControl.actionsForTarget(self, forControlEvent: .ValueChanged) == nil {
-        switchControl.addTarget(self, action: Selector("didToggleSwitch:"), forControlEvents: UIControlEvents.ValueChanged)
+        switchControl.addTarget(self, action: .didToggleSwitch, forControlEvents: UIControlEvents.ValueChanged)
       }
 
     case (let row, _, _) where row is TapActionRow:
@@ -172,14 +172,17 @@ public class QuickTableViewController: UIViewController,
 
   // MARK: - IBAction
 
-  @IBAction private func didToggleSwitch(sender: UISwitch) {
-    guard
-      let cell = sender.containerCell,
-      let indexPath = tableView.indexPathForCell(cell),
-      var row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
-    else { return }
+  @objc private func didToggleSwitch(sender: UISwitch) {
+    guard let
+      cell = sender.containerCell,
+      indexPath = tableView.indexPathForCell(cell),
+      switchRow = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+    else {
+      return
+    }
 
     // Replace the original row in tableContents
+    var row = switchRow
     row.switchValue = sender.on
     tableContents[indexPath.section].rows[indexPath.row] = row
   }
@@ -195,5 +198,12 @@ private extension UIView {
   var containerCell: UITableViewCell? {
     return (superview as? UITableViewCell) ?? superview?.containerCell
   }
+
+}
+
+
+private extension Selector {
+
+  static let didToggleSwitch = #selector(QuickTableViewController.didToggleSwitch(_:))
 
 }

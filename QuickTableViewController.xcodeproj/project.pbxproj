@@ -206,10 +206,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5334F2C1B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewControllerTests-iOS" */;
 			buildPhases = (
+				B5C335A91D07CBD000C706A4 /* Swift Lint */,
 				B5334F1A1B8CC5BD00C64A6D /* Sources */,
 				B5334F1B1B8CC5BD00C64A6D /* Frameworks */,
 				B5334F1C1B8CC5BD00C64A6D /* Resources */,
-				B564B1001C33ED4D00C6CC55 /* Swift Lint */,
 				B5DB7D1F1C4A4BA3007B84D2 /* Copy Carthage Built Frameworks */,
 			);
 			buildRules = (
@@ -278,7 +278,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B564B1001C33ED4D00C6CC55 /* Swift Lint */ = {
+		B5C335A91D07CBD000C706A4 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

@@ -35,7 +35,7 @@ class TapActionRowSpec: QuickSpec {
       var invoked = false
       let row = TapActionRow(title: "title") { _ in invoked = true }
 
-      it("should initialize with given parameters")  {
+      it("should initialize with given parameters") {
         expect(row.title) == "title"
         expect(row.action).notTo(beNil())
 
