@@ -8,7 +8,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   QuickTableViewController:
-    :path: "./"
+    :path: ./
 
 SPEC CHECKSUMS:
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328

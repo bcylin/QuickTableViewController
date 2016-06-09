@@ -131,6 +131,18 @@ public class QuickTableViewController: UIViewController,
       if switchControl.actionsForTarget(self, forControlEvent: .ValueChanged) == nil {
         switchControl.addTarget(self, action: .didToggleSwitch, forControlEvents: UIControlEvents.ValueChanged)
       }
+      guard let icon = (row as? SwitchRow)?.icon else { break }
+
+      if let image = icon.image {
+        cell.imageView?.image = image
+      }
+      if let image = icon.highlightedImage {
+        cell.imageView?.highlightedImage = image
+      }
+      if let imageName = icon.imageName {
+        cell.imageView?.image = UIImage(named: imageName)
+        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
+        }
 
     case (let row, _, _) where row is TapActionRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self))

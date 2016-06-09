@@ -44,6 +44,7 @@ class ViewController: QuickTableViewController {
       Section(title: "Switch", rows: [
         SwitchRow(title: "Setting 1", switchValue: true, action: printValue),
         SwitchRow(title: "Setting 2", switchValue: false, action: printValue),
+        SwitchRow(title: "Setting with icon", icon: Icon(image: language), switchValue: false, action: printValue)
       ]),
 
       Section(title: "Tap Action", rows: [
