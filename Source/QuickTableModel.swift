@@ -136,6 +136,7 @@ A struct that represents a row with a switch.
 public struct SwitchRow: Row, Equatable {
 
   public var title: String = ""
+  public var icon: Icon?
 
   /// Subtitle is disabled in SwitchRow.
   public let subtitle: Subtitle? = nil
@@ -150,8 +151,9 @@ public struct SwitchRow: Row, Equatable {
   /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 
-  public init(title: String, switchValue: Bool, action: ((Row) -> Void)?) {
+  public init(title: String, icon: Icon? = nil, switchValue: Bool, action: ((Row) -> Void)?) {
     self.title = title
+    self.icon = icon
     self.switchValue = switchValue
     self.action = action
   }
@@ -163,7 +165,7 @@ public struct SwitchRow: Row, Equatable {
 // MARK: Equatable
 
 public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
-  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.switchValue == rhs.switchValue
+  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon && lhs.switchValue == rhs.switchValue
 }
 
 
