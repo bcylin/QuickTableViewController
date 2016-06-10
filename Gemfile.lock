@@ -55,7 +55,6 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     pkg-config (1.1.7)
-    rake (11.1.2)
     rouge (1.11.0)
     slather (2.2.1)
       clamp (~> 0.6)
@@ -77,7 +76,6 @@ PLATFORMS
 DEPENDENCIES
   bundler
   cocoapods (~> 1.0.0)
-  rake
   slather
   xcpretty
 
