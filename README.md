@@ -112,8 +112,11 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 ## Requirements
 
-* `v0.1` requires Swift 1.2 and iOS 8.0+ with Xcode 6.4.
-* `v0.2` is now in Swift 2 with Xcode 7.0 or above.
+QuickTableViewController | iOS  | Xcode | Swift
+------------------------ | :--: | :---: | -----
+`~> v0.1.0`              | 8.0+ | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
+`~> v0.2.0`              | 8.0+ | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
+`~> v0.3.0`              | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
 
 ## Installation
 
