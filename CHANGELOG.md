@@ -1,29 +1,37 @@
 # Change Log
 
+## v0.3.0
+
+#### Changes
+
+* Swift 2.2
+* CocoaPods 1.0.1
+* Calculate code coverage
+* SwiftLint with Hound CI
+* Both `NavigationRow` and `SwitchRow` conform to `IconEnabled`.
+
 ## v0.2.0
 
-#### Added
+#### Changes
 
-* Support Swift 2
+* Swift 2
 * `Row` and `Subtitle` now conform to `Equatable`
 * Run tests on Travis CI
 * Specify table view cell images with `Icon`, which includes highlighted image
 * Separate self.view from self.tableView in QuickTableViewController
 
-#### Fixed
+#### Fixes
 
 * Fix the access control on the overridden initializer
 * Clean up syntax with SwiftLint
 
 ## v0.1.1
 
-#### Fixed
+#### Fixes
 
 * Change the deployment target from iOS 8.4 to 8.0
 
 ## v0.1.0
-
-#### Added
 
 * Initial release written in Swift 1.2
 * Basic layout:

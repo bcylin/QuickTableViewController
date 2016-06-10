@@ -107,18 +107,6 @@ public class QuickTableViewController: UIViewController,
 
       cell.detailTextLabel?.text = subtitle.text
       cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
-      guard let icon = (row as? NavigationRow)?.icon else { break }
-
-      if let image = icon.image {
-        cell.imageView?.image = image
-      }
-      if let image = icon.highlightedImage {
-        cell.imageView?.highlightedImage = image
-      }
-      if let imageName = icon.imageName {
-        cell.imageView?.image = UIImage(named: imageName)
-        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
-      }
 
     case (let row, _, _) where row is SwitchRow:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
@@ -129,7 +117,7 @@ public class QuickTableViewController: UIViewController,
       switchControl.on = (row as! SwitchRow).switchValue
 
       if switchControl.actionsForTarget(self, forControlEvent: .ValueChanged) == nil {
-        switchControl.addTarget(self, action: Selector("didToggleSwitch:"), forControlEvents: UIControlEvents.ValueChanged)
+        switchControl.addTarget(self, action: .didToggleSwitch, forControlEvents: UIControlEvents.ValueChanged)
       }
 
     case (let row, _, _) where row is TapActionRow:
@@ -139,6 +127,19 @@ public class QuickTableViewController: UIViewController,
     default:
       cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self))
       cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
+    }
+
+    if let icon = (row as? IconEnabled)?.icon {
+      if let image = icon.image {
+        cell.imageView?.image = image
+      }
+      if let image = icon.highlightedImage {
+        cell.imageView?.highlightedImage = image
+      }
+      if let imageName = icon.imageName {
+        cell.imageView?.image = UIImage(named: imageName)
+        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
+      }
     }
 
     cell.textLabel?.text = row.title
@@ -172,14 +173,17 @@ public class QuickTableViewController: UIViewController,
 
   // MARK: - IBAction
 
-  @IBAction private func didToggleSwitch(sender: UISwitch) {
-    guard
-      let cell = sender.containerCell,
-      let indexPath = tableView.indexPathForCell(cell),
-      var row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
-    else { return }
+  @objc private func didToggleSwitch(sender: UISwitch) {
+    guard let
+      cell = sender.containerCell,
+      indexPath = tableView.indexPathForCell(cell),
+      switchRow = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+    else {
+      return
+    }
 
     // Replace the original row in tableContents
+    var row = switchRow
     row.switchValue = sender.on
     tableContents[indexPath.section].rows[indexPath.row] = row
   }
@@ -195,5 +199,12 @@ private extension UIView {
   var containerCell: UITableViewCell? {
     return (superview as? UITableViewCell) ?? superview?.containerCell
   }
+
+}
+
+
+private extension Selector {
+
+  static let didToggleSwitch = #selector(QuickTableViewController.didToggleSwitch(_:))
 
 }

@@ -1,3 +1,7 @@
 source "http://rubygems.org"
+ruby "2.3.1"
 
-gem "cocoapods", "~> 0.39.0"
+gem "bundler"
+gem "cocoapods", "~> 1.0.0"
+gem "slather"
+gem "xcpretty"

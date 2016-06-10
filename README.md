@@ -2,6 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.org/bcylin/QuickTableViewController.svg?branch=develop)](https://travis-ci.org/bcylin/QuickTableViewController)
+[![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg?branch=develop)](https://codecov.io/github/bcylin/QuickTableViewController?branch=develop)
 
 A simple way to create a table view for settings, providing table view cells with:
 
@@ -68,9 +69,9 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .RightAligned(".Value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .LeftAligned(".Value2"))
 ```
 
-#### Image View
+#### IconEnabled
 
-* Images in table view cells can be set by specifying `icon` of each `NavigationRow`.
+* Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
 * Table view cells in `UITableViewCellStyle.Value2` will hide images.
 
@@ -92,6 +93,7 @@ NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row)
 * A `SwitchRow` is associated to a table view cell with a `UISwitch` as its `
 accessoryView`.
 * The optional `action` will be invoked when the `switchValue` changes.
+* It also conforms to `IconEnabled`.
 
 ```swift
 SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
@@ -110,8 +112,11 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 ## Requirements
 
-* `v0.1` requires Swift 1.2 and iOS 8.0+ with Xcode 6.4.
-* `v0.2` is now in Swift 2 with Xcode 7.0 or above.
+QuickTableViewController | iOS  | Xcode | Swift
+------------------------ | :--: | :---: | -----
+`~> v0.1.0`              | 8.0+ | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
+`~> v0.2.0`              | 8.0+ | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
+`~> v0.3.0`              | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
 
 ## Installation
 

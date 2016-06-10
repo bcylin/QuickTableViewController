@@ -27,8 +27,8 @@
 import Foundation
 
 /**
-A struct that represents a section in a table view.
-*/
+ A struct that represents a section in a table view.
+ */
 public struct Section {
 
   public var title: String?
@@ -48,8 +48,8 @@ public struct Section {
 
 
 /**
-Any type that conforms to this protocol is capable of representing a row in a table view.
-*/
+ Any type that conforms to this protocol is capable of representing a row in a table view.
+ */
 public protocol Row {
   var title: String { get }
   var subtitle: Subtitle? { get }
@@ -67,8 +67,15 @@ public func ==<T: Row>(lhs: T, rhs: T) -> Bool {
 
 
 /**
-*  A struct that represents the image used in a row.
-*/
+ Any type that conforms to this protocol is able to show an icon image in a table view.
+ */
+public protocol IconEnabled: Row {
+  var icon: Icon? { get }
+}
+
+/**
+ A struct that represents the image used in a row.
+ */
 public struct Icon: Equatable {
 
   public var imageName: String?
@@ -78,6 +85,7 @@ public struct Icon: Equatable {
   public init(imageName: String) {
     self.imageName = imageName
   }
+
   public init(image: UIImage, highlightedImage: UIImage? = nil) {
     self.image = image
     self.highlightedImage = highlightedImage
@@ -98,9 +106,9 @@ public func == (lhs: Icon, rhs: Icon) -> Bool {
 
 
 /**
-A struct that represents a row that perfoms navigation when seleced.
-*/
-public struct NavigationRow: Row, Equatable {
+ A struct that represents a row that perfoms navigation when seleced.
+ */
+public struct NavigationRow: Row, Equatable, IconEnabled {
 
   public var title: String = ""
   public var subtitle: Subtitle?
@@ -131,14 +139,16 @@ public func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
 
 
 /**
-A struct that represents a row with a switch.
-*/
-public struct SwitchRow: Row, Equatable {
+ A struct that represents a row with a switch.
+ */
+public struct SwitchRow: Row, Equatable, IconEnabled {
 
   public var title: String = ""
 
   /// Subtitle is disabled in SwitchRow.
   public let subtitle: Subtitle? = nil
+
+  public var icon: Icon?
 
   /// The state of a switch.
   public var switchValue: Bool = false {
@@ -150,9 +160,10 @@ public struct SwitchRow: Row, Equatable {
   /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 
-  public init(title: String, switchValue: Bool, action: ((Row) -> Void)?) {
+  public init(title: String, switchValue: Bool, icon: Icon? = nil, action: ((Row) -> Void)?) {
     self.title = title
     self.switchValue = switchValue
+    self.icon = icon
     self.action = action
   }
 
@@ -163,7 +174,7 @@ public struct SwitchRow: Row, Equatable {
 // MARK: Equatable
 
 public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
-  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.switchValue == rhs.switchValue
+  return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
 }
 
 
@@ -171,8 +182,8 @@ public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
 
 
 /**
-A struct that represents a row that triggers certain action when seleced.
-*/
+ A struct that represents a row that triggers certain action when seleced.
+ */
 public struct TapActionRow: Row, Equatable {
 
   public var title: String = ""
@@ -197,13 +208,13 @@ public struct TapActionRow: Row, Equatable {
 
 
 /**
-An enum that indicates the subtitle text with UITableViewCellStyle.
+ An enum that indicates the subtitle text with UITableViewCellStyle.
 
-- None:         Without a subtitle
-- BelowTitle:   Subtitle in UITableViewCellStyle.Subtitle
-- RightAligned: Subtitle in UITableViewCellStyle.Value1
-- LeftAligned:  Subtitle in UITableViewCellStyle.Value2
-*/
+ - None:         Without a subtitle
+ - BelowTitle:   Subtitle in UITableViewCellStyle.Subtitle
+ - RightAligned: Subtitle in UITableViewCellStyle.Value1
+ - LeftAligned:  Subtitle in UITableViewCellStyle.Value2
+ */
 public enum Subtitle: Equatable {
 
   case None
