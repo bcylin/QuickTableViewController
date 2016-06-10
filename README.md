@@ -69,9 +69,9 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .RightAligned(".Value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .LeftAligned(".Value2"))
 ```
 
-#### Image View
+#### IconEnabled
 
-* Images in table view cells can be set by specifying `icon` of each `NavigationRow`.
+* Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
 * Table view cells in `UITableViewCellStyle.Value2` will hide images.
 
@@ -93,6 +93,7 @@ NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row)
 * A `SwitchRow` is associated to a table view cell with a `UISwitch` as its `
 accessoryView`.
 * The optional `action` will be invoked when the `switchValue` changes.
+* It also conforms to `IconEnabled`.
 
 ```swift
 SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),

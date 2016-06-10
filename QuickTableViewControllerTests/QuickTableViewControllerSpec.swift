@@ -134,30 +134,47 @@ class QuickTableViewControllerSpec: QuickSpec {
           let highlightedImage = UIImage(contentsOfFile: highlightedImagePath)!
 
           controller.tableContents = [
-            Section(title: "Cell Styles", rows: [
+            Section(title: "NavigationRow", rows: [
               NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(imageName: "icon")),
               NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: image)),
               NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: image, highlightedImage: highlightedImage)),
-              NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"), icon: Icon(imageName: "icon"))
+              NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"), icon: Icon(image: image))
+            ]),
+            Section(title: "SwitchRow", rows: [
+              SwitchRow(title: "imageName", switchValue: true, icon: Icon(imageName: "icon"), action: nil),
+              SwitchRow(title: "image", switchValue: true, icon: Icon(image: image), action: nil),
+              SwitchRow(title: "image + highlightedImage", switchValue: true, icon: Icon(image: image, highlightedImage: highlightedImage), action: nil)
             ])
           ]
 
           it("does not work with images in the test bundle") {
-            let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-            expect(cell.imageView?.image).to(beNil())
-            expect(cell.imageView?.highlightedImage).to(beNil())
+            let navigationCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+            expect(navigationCell.imageView?.image).to(beNil())
+            expect(navigationCell.imageView?.highlightedImage).to(beNil())
+
+            let switchCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 1))
+            expect(switchCell.imageView?.image).to(beNil())
+            expect(switchCell.imageView?.highlightedImage).to(beNil())
           }
 
-          it("should have image with UITableViewCellStyle.Subtitle") {
-            let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
-            expect(cell.imageView?.image).notTo(beNil())
-            expect(cell.imageView?.highlightedImage).to(beNil())
+          it("should have image set") {
+            let navigationCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+            expect(navigationCell.imageView?.image) == image
+            expect(navigationCell.imageView?.highlightedImage).to(beNil())
+
+            let switchCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 1))
+            expect(switchCell.imageView?.image).notTo(beNil())
+            expect(switchCell.imageView?.highlightedImage).to(beNil())
           }
 
-          it("should have image with UITableViewCellStyle.Value1") {
+          it("should have image and highlightedImage set") {
             let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0))
             expect(cell.imageView?.image).notTo(beNil())
             expect(cell.imageView?.highlightedImage).notTo(beNil())
+
+            let switchCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 1))
+            expect(switchCell.imageView?.image).notTo(beNil())
+            expect(switchCell.imageView?.highlightedImage).notTo(beNil())
           }
 
           it("should not have image with UITableViewCellStyle.Value2") {
