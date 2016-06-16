@@ -1,5 +1,9 @@
 language: objective-c
 osx_image: xcode7.3
+env:
+  matrix:
+  - ACTION=test-framework
+  - ACTION=build-example
 cache:
   bundler: true
   directories:
@@ -14,8 +18,7 @@ install:
   - bundle exec pod install --no-repo-update
   - carthage bootstrap --no-use-binaries --platform ios
 script:
-  - bundle exec scan
-  - xctool -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator clean build
+  - make $ACTION
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - make coverage
