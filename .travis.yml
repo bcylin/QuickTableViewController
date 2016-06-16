@@ -14,7 +14,7 @@ install:
   - bundle exec pod install --no-repo-update
   - carthage bootstrap --no-use-binaries --platform ios
 script:
-  - set -o pipefail && xcodebuild -project QuickTableViewController.xcodeproj -scheme QuickTableViewController-iOS -sdk iphonesimulator -destination "name=iPhone 6,OS=latest" -enableCodeCoverage YES clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -c
+  - bundle exec scan
   - xctool -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator clean build
 after_success:
   - bash <(curl -s https://codecov.io/bash)
