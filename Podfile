@@ -7,5 +7,4 @@ project "Example/Example"
 
 target :Example do
   pod "QuickTableViewController", path: "./"
-  pod "MaterialDesignSymbol"
 end
