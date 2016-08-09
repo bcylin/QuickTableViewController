@@ -161,4 +161,6 @@ QuickTableViewController | iOS  | Xcode | Swift
 
 ## License
 
-QuickTableViewController is released under the MIT license. See [LICENSE](https://github.com/bcylin/QuickTableViewController/blob/master/LICENSE) for more info.
+QuickTableViewController is released under the MIT license.
+See [LICENSE](https://github.com/bcylin/QuickTableViewController/blob/master/LICENSE) for more details.
+Image source: [iconmonstr](http://iconmonstr.com/license/).

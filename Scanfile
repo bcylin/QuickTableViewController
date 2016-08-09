@@ -1,0 +1,11 @@
+# For more information about this configuration visit
+# https://github.com/fastlane/scan#scanfile
+
+# In general, you can use the options available
+# scan --help
+
+# Remove the # in front of the line to enable the option
+
+scheme "QuickTableViewController-iOS"
+code_coverage true
+clean true
