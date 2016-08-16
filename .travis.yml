@@ -1,9 +1,11 @@
 language: objective-c
 osx_image: xcode7.3
-env:
-  matrix:
-  - SCHEME=QuickTableViewController-iOS
-  - SCHEME=Example
+matrix:
+  include:
+    - env: SCHEME=Example
+    - env: SCHEME=QuickTableViewController-iOS
+      before_script:
+        - bundle exec danger
 cache:
   bundler: true
   directories:
@@ -17,8 +19,6 @@ install:
   - bundle install --without development --deployment --jobs=3 --retry=3
   - bundle exec pod install --no-repo-update
   - carthage bootstrap --no-use-binaries --platform ios
-before_script:
- - bundle exec danger
 script:
   - bundle exec scan --scheme $SCHEME
 after_success:
