@@ -35,7 +35,7 @@ public class QuickTableViewController: UIViewController,
   public var clearsSelectionOnViewWillAppear = true
 
   /// Returns the table view managed by the controller object.
-  public private(set) var tableView = UITableView(frame: CGRect.zero, style: .Grouped)
+  public private(set) var tableView = UITableView(frame: CGRect.zero, style: .grouped)
 
   /// The layout of sections and rows to display in the table view.
   public var tableContents: [Section] = [] {
@@ -69,76 +69,76 @@ public class QuickTableViewController: UIViewController,
     super.loadView()
     view.addSubview(tableView)
     tableView.frame = view.bounds
-    tableView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.registerClass(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
-    tableView.registerClass(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
+    tableView.register(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
+    tableView.register(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
   }
 
-  public override func viewWillAppear(animated: Bool) {
+  public override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     if let indexPath = tableView.indexPathForSelectedRow where clearsSelectionOnViewWillAppear {
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      tableView.deselectRow(at: indexPath, animated: true)
     }
   }
 
   // MARK: - UITableViewDataSource
 
-  public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  public func numberOfSections(in tableView: UITableView) -> Int {
     return tableContents.count
   }
 
-  public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tableContents[section].rows.count
   }
 
-  public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return tableContents[section].title
   }
 
-  public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let row = tableContents[indexPath.section].rows[indexPath.row]
+  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
     var cell: UITableViewCell!
 
     switch (row, row.subtitle, row.action) {
-    case (let row, .Some(let subtitle), let action) where row is NavigationRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(subtitle.style)
+    case (let row, .some(let subtitle), let action) where row is NavigationRow:
+      cell = tableView.dequeueReusableCell(withIdentifier: subtitle.style)
 
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
-      case .None:
-        cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: subtitle.style)
-      case .BelowTitle(_):
-        cell = cell ?? UITableViewCell(style: .Subtitle, reuseIdentifier: subtitle.style)
-      case .RightAligned(_):
-        cell = cell ?? UITableViewCell(style: .Value1, reuseIdentifier: subtitle.style)
-      case .LeftAligned(_):
-        cell = cell ?? UITableViewCell(style: .Value2, reuseIdentifier: subtitle.style)
+      case .none:
+        cell = cell ?? UITableViewCell(style: .default, reuseIdentifier: subtitle.style)
+      case .belowTitle(_):
+        cell = cell ?? UITableViewCell(style: .subtitle, reuseIdentifier: subtitle.style)
+      case .rightAligned(_):
+        cell = cell ?? UITableViewCell(style: .value1, reuseIdentifier: subtitle.style)
+      case .leftAligned(_):
+        cell = cell ?? UITableViewCell(style: .value2, reuseIdentifier: subtitle.style)
       }
 
       cell.detailTextLabel?.text = subtitle.text
-      cell.accessoryType = (action == nil) ? .None : .DisclosureIndicator
+      cell.accessoryType = (action == nil) ? .none : .disclosureIndicator
 
     case (let row, _, _) where row is SwitchRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(SwitchCell.self)) as? SwitchCell
-      cell = cell ?? SwitchCell(style: .Default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
+      cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(SwitchCell.self)) as? SwitchCell
+      cell = cell ?? SwitchCell(style: .default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
       cell.textLabel?.text = row.title
 
       let switchControl = (cell as! SwitchCell).switchControl
-      switchControl.on = (row as! SwitchRow).switchValue
+      switchControl.isOn = (row as! SwitchRow).switchValue
 
-      if switchControl.actionsForTarget(self, forControlEvent: .ValueChanged) == nil {
-        switchControl.addTarget(self, action: .didToggleSwitch, forControlEvents: UIControlEvents.ValueChanged)
+      if switchControl.actions(forTarget: self, forControlEvent: .valueChanged) == nil {
+        switchControl.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
       }
 
     case (let row, _, _) where row is TapActionRow:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(TapActionCell.self))
-      cell = cell ?? TapActionCell(style: .Default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
+      cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TapActionCell.self))
+      cell = cell ?? TapActionCell(style: .default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
     default:
-      cell = tableView.dequeueReusableCellWithIdentifier(NSStringFromClass(UITableViewCell.self))
-      cell = cell ?? UITableViewCell(style: .Default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
+      cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self))
+      cell = cell ?? UITableViewCell(style: .default, reuseIdentifier: NSStringFromClass(UITableViewCell.self))
     }
 
     if let icon = (row as? IconEnabled)?.icon {
@@ -154,19 +154,19 @@ public class QuickTableViewController: UIViewController,
     return cell
   }
 
-  public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+  public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     return tableContents[section].footer
   }
 
   // MARK: - UITableViewDelegate
 
-  public func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    let row = tableContents[indexPath.section].rows[indexPath.row]
+  public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
     return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
   }
 
-  public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let row = tableContents[indexPath.section].rows[indexPath.row]
+  public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
 
     switch (row, row.action) {
     case (let row, let navigation) where row is NavigationRow:
@@ -175,25 +175,25 @@ public class QuickTableViewController: UIViewController,
       tap?(row)
       fallthrough
     default:
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      tableView.deselectRow(at: indexPath, animated: true)
     }
   }
 
   // MARK: - IBAction
 
-  @objc private func didToggleSwitch(sender: UISwitch) {
+  @objc private func didToggleSwitch(_ sender: UISwitch) {
     guard let
       cell = sender.containerCell,
-      indexPath = tableView.indexPathForCell(cell),
-      switchRow = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+      indexPath = tableView.indexPath(for: cell),
+      switchRow = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row] as? SwitchRow
     else {
       return
     }
 
     // Replace the original row in tableContents
     var row = switchRow
-    row.switchValue = sender.on
-    tableContents[indexPath.section].rows[indexPath.row] = row
+    row.switchValue = sender.isOn
+    tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row] = row
   }
 
 }

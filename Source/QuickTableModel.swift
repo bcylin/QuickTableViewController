@@ -244,22 +244,22 @@ public struct TapActionRow: Row, Equatable {
 public enum Subtitle: Equatable {
 
   /// Does not show a subtitle.
-  case None
+  case none
   /// Shows the associated text in `UITableViewCellStyle.Subtitle`.
-  case BelowTitle(String)
+  case belowTitle(String)
   /// Shows the associated text in `UITableViewCellStyle.Value1`.
-  case RightAligned(String)
+  case rightAligned(String)
   /// Shows the associated text in `UITableViewCellStyle.Value2`.
-  case LeftAligned(String)
+  case leftAligned(String)
 
   /// Returns the descriptive name of the style.
   public var style: String {
     get {
       switch self {
-      case .None: return "Subtitle.None"
-      case .BelowTitle(_): return "Subtitle.BelowTitle"
-      case .RightAligned(_): return "Subtitle.RightAligned"
-      case .LeftAligned(_): return "Subtitle.LeftAligned"
+      case .none: return "Subtitle.None"
+      case .belowTitle(_): return "Subtitle.BelowTitle"
+      case .rightAligned(_): return "Subtitle.RightAligned"
+      case .leftAligned(_): return "Subtitle.LeftAligned"
       }
     }
   }
@@ -268,9 +268,9 @@ public enum Subtitle: Equatable {
   public var text: String? {
     get {
       switch self {
-      case .BelowTitle(let text): return text
-      case .RightAligned(let text): return text
-      case .LeftAligned(let text): return text
+      case .belowTitle(let text): return text
+      case .rightAligned(let text): return text
+      case .leftAligned(let text): return text
       default: return nil
       }
     }
@@ -283,13 +283,13 @@ public enum Subtitle: Equatable {
 /// Returns true iff `lhs` and `rhs` have equal texts in the same `Subtitle`.
 public func == (lhs: Subtitle, rhs: Subtitle) -> Bool {
   switch (lhs, rhs) {
-  case (.None, .None):
+  case (.none, .none):
     return true
-  case (.BelowTitle(let a), .BelowTitle(let b)):
+  case (.belowTitle(let a), .belowTitle(let b)):
     return a == b
-  case (.RightAligned(let a), .RightAligned(let b)):
+  case (.rightAligned(let a), .rightAligned(let b)):
     return a == b
-  case (.LeftAligned(let a), .LeftAligned(let b)):
+  case (.leftAligned(let a), .leftAligned(let b)):
     return a == b
   default:
     return false

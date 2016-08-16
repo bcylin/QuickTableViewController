@@ -31,7 +31,7 @@ public class TapActionCell: UITableViewCell {
 
   private static var systemTintColor: UIColor = {
     let _button = UIButton()
-    return _button.tintColor ?? UIColor.blueColor()
+    return _button.tintColor ?? UIColor.blue
   }()
 
   // MARK: Initializer
@@ -45,7 +45,7 @@ public class TapActionCell: UITableViewCell {
    - returns: An initialized `TapActionCell` object.
    */
   override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: .Default, reuseIdentifier: reuseIdentifier)
+    super.init(style: .default, reuseIdentifier: reuseIdentifier)
     setUpAppearance()
   }
 
@@ -64,7 +64,7 @@ public class TapActionCell: UITableViewCell {
   // MARK: Private Methods
 
   private func setUpAppearance() {
-    textLabel?.textAlignment = .Center
+    textLabel?.textAlignment = .center
     textLabel?.textColor = self.dynamicType.systemTintColor
   }
 
@@ -91,7 +91,7 @@ public class SwitchCell: UITableViewCell {
    - returns: An initialized `SwitchCell` object.
    */
   override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: .Default, reuseIdentifier: reuseIdentifier)
+    super.init(style: .default, reuseIdentifier: reuseIdentifier)
     accessoryView = switchControl
   }
 

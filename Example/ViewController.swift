@@ -50,29 +50,29 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: gear)),
-        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: globe)),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: time), action: showDetail),
-        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
+        NavigationRow(title: "CellStyle.Default", subtitle: .none, icon: Icon(image: gear)),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".Subtitle"), icon: Icon(image: globe)),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1"), icon: Icon(image: time), action: showDetail),
+        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".Value2"))
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "Navigation", subtitle: .None, action: showDetail),
-        NavigationRow(title: "Navigation", subtitle: .BelowTitle("with subtitle"), action: showDetail),
-        NavigationRow(title: "Navigation", subtitle: .RightAligned("with detail text"), action: showDetail)
+        NavigationRow(title: "Navigation", subtitle: .none, action: showDetail),
+        NavigationRow(title: "Navigation", subtitle: .belowTitle("with subtitle"), action: showDetail),
+        NavigationRow(title: "Navigation", subtitle: .rightAligned("with detail text"), action: showDetail)
       ], footer: "UITableViewCellStyle.Value2 is not listed."),
 
       Section(title: nil, rows: [
-        NavigationRow(title: "Empty section title", subtitle: .None)
+        NavigationRow(title: "Empty section title", subtitle: .none)
       ])
     ]
   }
 
   // MARK: - UITableViewDataSource
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-    if tableContents[indexPath.section].title == nil {
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = super.tableView(tableView, cellForRowAt: indexPath)
+    if tableContents[(indexPath as NSIndexPath).section].title == nil {
       // Alter the cells created by QuickTableViewController
       cell.imageView?.image = UIImage(named: "iconmonstr-x-mark")
     }
@@ -81,22 +81,22 @@ class ViewController: QuickTableViewController {
 
   // MARK: - Private Methods
 
-  private func showAlert(sender: Row) {
-    let alert = UIAlertController(title: "Action Triggered", message: nil, preferredStyle: .Alert)
-    alert.addAction(UIAlertAction(title: "OK", style: .Cancel) { [unowned self] _ in
-      self.dismissViewControllerAnimated(true, completion: nil)
+  private func showAlert(_ sender: Row) {
+    let alert = UIAlertController(title: "Action Triggered", message: nil, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .cancel) { [unowned self] _ in
+      self.dismiss(animated: true, completion: nil)
     })
-    presentViewController(alert, animated: true, completion: nil)
+    present(alert, animated: true, completion: nil)
   }
 
-  private func showDetail(sender: Row) {
+  private func showDetail(_ sender: Row) {
     let controller = UIViewController()
-    controller.view.backgroundColor = UIColor.whiteColor()
+    controller.view.backgroundColor = UIColor.white
     controller.title = "\(sender.title) " + (sender.subtitle?.text ?? "")
     navigationController?.pushViewController(controller, animated: true)
   }
 
-  private func printValue(sender: Row) {
+  private func printValue(_ sender: Row) {
     if let row = sender as? SwitchRow {
       print("\(row.title) = \(row.switchValue)")
     }
