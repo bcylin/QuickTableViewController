@@ -78,7 +78,7 @@ public class QuickTableViewController: UIViewController,
 
   public override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    if let indexPath = tableView.indexPathForSelectedRow where clearsSelectionOnViewWillAppear {
+    if let indexPath = tableView.indexPathForSelectedRow, clearsSelectionOnViewWillAppear {
       tableView.deselectRow(at: indexPath, animated: true)
     }
   }
@@ -182,10 +182,10 @@ public class QuickTableViewController: UIViewController,
   // MARK: - IBAction
 
   @objc private func didToggleSwitch(_ sender: UISwitch) {
-    guard let
-      cell = sender.containerCell,
-      indexPath = tableView.indexPath(for: cell),
-      switchRow = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row] as? SwitchRow
+    guard
+      let cell = sender.containerCell,
+      let indexPath = tableView.indexPath(for: cell),
+      let switchRow = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row] as? SwitchRow
     else {
       return
     }
