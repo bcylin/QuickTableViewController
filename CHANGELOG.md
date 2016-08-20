@@ -1,5 +1,12 @@
 # Change Log
 
+## Next Release
+
+#### Changes
+
+* Run tests with fastlane scan
+* Integrate with [danger.systems](https://github.com/danger/danger)
+
 ## v0.3.0
 
 #### Changes
