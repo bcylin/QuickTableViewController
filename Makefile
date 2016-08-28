@@ -12,3 +12,7 @@ test-framework:
 
 build-example:
 	xcodebuild -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator -destination "name=iPhone 6s,OS=latest" clean build | xcpretty -c && exit ${PIPESTATUS[0]}
+
+doc:
+	jazzy --config .jazzy.yaml
+	sh docs/update.sh

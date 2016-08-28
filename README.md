@@ -1,5 +1,6 @@
 # QuickTableViewController
 
+[![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.org/bcylin/QuickTableViewController.svg?branch=develop)](https://travis-ci.org/bcylin/QuickTableViewController)
 [![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg?branch=develop)](https://codecov.io/github/bcylin/QuickTableViewController?branch=develop)
@@ -110,6 +111,10 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ```
 
+## Documentation
+
+<https://bcylin.github.io/QuickTableViewController>
+
 ## Requirements
 
 QuickTableViewController | iOS  | Xcode | Swift
@@ -158,6 +163,11 @@ QuickTableViewController | iOS  | Xcode | Swift
 ### Install Manually
 
 * Copy `*.swift` files in the `Source` directory to an iOS project.
+
+
+## Contact
+
+[![Twitter](https://img.shields.io/badge/twitter-@bcylin-blue.svg?style=flat)](https://twitter.com/bcylin)
 
 ## License
 
