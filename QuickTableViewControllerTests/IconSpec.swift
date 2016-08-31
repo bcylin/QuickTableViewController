@@ -26,7 +26,7 @@
 
 import Nimble
 import Quick
-import QuickTableViewController
+@testable import QuickTableViewController
 
 class IconSpec: QuickSpec {
 

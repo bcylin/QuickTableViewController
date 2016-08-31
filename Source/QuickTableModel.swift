@@ -79,14 +79,27 @@ public protocol IconEnabled: Row {
 /// A struct that represents the image used in a row.
 public struct Icon: Equatable {
 
-  /// The file name to load image from the application’s main bundle.
-  public var imageName: String?
-
   /// The image of the normal state.
-  public var image: UIImage?
+  public var image: UIImage? {
+    return _image ?? UIImage(named: imageName ?? "")
+  }
 
   /// The image of the highlighted state.
-  public var highlightedImage: UIImage?
+  public var highlightedImage: UIImage? {
+    return _highlightedImage ?? UIImage(named: highlightedImageName)
+  }
+
+  private var _image: UIImage?
+  private var _highlightedImage: UIImage?
+
+  internal private(set) var imageName: String?
+  internal var highlightedImageName: String {
+    if let name = imageName {
+      return name + "-highlighted"
+    } else {
+      return ""
+    }
+  }
 
   ///
   public init(imageName: String) {
@@ -95,8 +108,8 @@ public struct Icon: Equatable {
 
   ///
   public init(image: UIImage, highlightedImage: UIImage? = nil) {
-    self.image = image
-    self.highlightedImage = highlightedImage
+    _image = image
+    _highlightedImage = highlightedImage
   }
 
   private init() {}
@@ -107,7 +120,11 @@ public struct Icon: Equatable {
 
 /// Returns true iff `lhs` and `rhs` have equal images, highlighted images and image names.
 public func == (lhs: Icon, rhs: Icon) -> Bool {
-  return lhs.image == rhs.image && lhs.highlightedImage == rhs.highlightedImage && lhs.imageName == rhs.imageName
+  if let lhsName = lhs.imageName, rhsName = rhs.imageName {
+    return lhsName == rhsName
+  } else {
+    return lhs._image == rhs._image && lhs._highlightedImage == rhs._highlightedImage
+  }
 }
 
 

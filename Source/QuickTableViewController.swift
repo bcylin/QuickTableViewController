@@ -148,10 +148,6 @@ public class QuickTableViewController: UIViewController,
       if let image = icon.highlightedImage {
         cell.imageView?.highlightedImage = image
       }
-      if let imageName = icon.imageName {
-        cell.imageView?.image = UIImage(named: imageName)
-        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
-      }
     }
 
     cell.textLabel?.text = row.title
