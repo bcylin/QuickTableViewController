@@ -111,7 +111,7 @@ public func == (lhs: Icon, rhs: Icon) -> Bool {
 }
 
 
-// MARK: -
+// MARK: - NavigationRow
 
 
 /// A struct that represents a row that perfoms navigation when seleced.
@@ -149,7 +149,7 @@ public func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
 }
 
 
-// MARK: -
+// MARK: - SwitchRow
 
 
 /// A struct that represents a row with a switch.
@@ -194,7 +194,7 @@ public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
 }
 
 
-// MARK: -
+// MARK: - TapActionRow
 
 
 /// A struct that represents a row that triggers certain action when seleced.

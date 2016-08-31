@@ -71,7 +71,7 @@ public class TapActionCell: UITableViewCell {
 }
 
 
-// MARK: -
+// MARK: - SwitchCell
 
 
 /// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
