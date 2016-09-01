@@ -1,0 +1,4 @@
+[submodule "docs"]
+	path = docs
+	url = https://github.com/bcylin/QuickTableViewController.git
+	branch = gh-pages
