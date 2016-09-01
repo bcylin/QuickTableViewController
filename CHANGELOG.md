@@ -6,6 +6,8 @@
 
 * Run tests with fastlane scan
 * Integrate with [danger.systems](https://github.com/danger/danger)
+* Improve documentation
+* Make the images of `Icon` readonly
 
 ## v0.3.0
 

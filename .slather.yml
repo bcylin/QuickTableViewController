@@ -6,4 +6,6 @@ source_directory: Source
 output_directory: test_output/xml_report
 ignore:
   - Carthage/*
+  - Example/*
+  - QuickTableViewControllerTests/*
   - Pods/*

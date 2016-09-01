@@ -1,4 +1,9 @@
 coverage:
+  ignore:
+    - Carthage/*
+    - Example/*
+    - QuickTableViewControllerTests/*
+    - Pods/*
   status:
     project:
       default:
