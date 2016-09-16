@@ -21,7 +21,7 @@ install:
   - bundle exec pod repo update
   - bundle exec pod install
 script:
-  - bundle exec scan --scheme $SCHEME
+  - bundle exec rake ci:test[$SCHEME]
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - make coverage
