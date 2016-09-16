@@ -1,6 +1,6 @@
 # QuickTableViewController
 
-[![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
+![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Build Status](https://travis-ci.org/bcylin/QuickTableViewController.svg?branch=develop)](https://travis-ci.org/bcylin/QuickTableViewController)
 [![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg?branch=develop)](https://codecov.io/github/bcylin/QuickTableViewController?branch=develop)
@@ -118,10 +118,12 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ## Requirements
 
 QuickTableViewController | iOS  | Xcode | Swift
------------------------- | :--: | :---: | -----
+------------------------ | :--: | :---: | :---:
 `~> v0.1.0`              | 8.0+ | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
 `~> v0.2.0`              | 8.0+ | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
 `~> v0.3.0`              | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
+`develop` branch         | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
+`feature/swift-3` branch | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
 
 ## Installation
 
