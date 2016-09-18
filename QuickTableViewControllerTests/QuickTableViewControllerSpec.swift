@@ -42,17 +42,17 @@ class QuickTableViewControllerSpec: QuickSpec {
         Section(title: nil, rows: [])
       ]
       it("should return the number of sections") {
-        expect(controller.numberOfSectionsInTableView(controller.tableView)) == 3
+        expect(controller.numberOfSections(in: controller.tableView)) == 3
       }
     }
 
-    describe("tableView(_:numberOfRowsInsection:)") {
+    describe("tableView(_:numberOfRowsInSection:)") {
       let controller = QuickTableViewController()
       controller.tableContents = [
         Section(title: nil, rows: []),
         Section(title: nil, rows: [
-          NavigationRow(title: "", subtitle: .None),
-          NavigationRow(title: "", subtitle: .None)
+          NavigationRow(title: "", subtitle: .none),
+          NavigationRow(title: "", subtitle: .none)
         ])
       ]
       it("should return the number of sections") {
@@ -85,28 +85,28 @@ class QuickTableViewControllerSpec: QuickSpec {
       }
     }
 
-    describe("tableView(_:cellForRowAtIndexPath:)") {
+    describe("tableView(_:cellForRowAt:)") {
       context("NavigationRow") {
         context("style") {
           let controller = QuickTableViewController()
           controller.tableContents = [
             Section(title: "Cell Styles", rows: [
-              NavigationRow(title: "CellStyle.Default", subtitle: .None),
-              NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle")),
-              NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1")),
-              NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
+              NavigationRow(title: "CellStyle.Default", subtitle: .none),
+              NavigationRow(title: "CellStyle", subtitle: .belowTitle(".Subtitle")),
+              NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1")),
+              NavigationRow(title: "CellStyle", subtitle: .leftAligned(".Value2"))
             ])
           ]
-          let a = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-          let b = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
-          let c = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0))
-          let d = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 3, inSection: 0))
+          let a = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+          let b = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 1, section: 0))
+          let c = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 2, section: 0))
+          let d = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 3, section: 0))
 
           it("should match the reusable identifier") {
-            expect(a.reuseIdentifier) == Subtitle.None.style
-            expect(b.reuseIdentifier) == Subtitle.BelowTitle("").style
-            expect(c.reuseIdentifier) == Subtitle.RightAligned("").style
-            expect(d.reuseIdentifier) == Subtitle.LeftAligned("").style
+            expect(a.reuseIdentifier) == Subtitle.none.style
+            expect(b.reuseIdentifier) == Subtitle.belowTitle("").style
+            expect(c.reuseIdentifier) == Subtitle.rightAligned("").style
+            expect(d.reuseIdentifier) == Subtitle.leftAligned("").style
           }
 
           it("should match texts in labels") {
@@ -126,19 +126,19 @@ class QuickTableViewControllerSpec: QuickSpec {
 
         context("icon") {
           let controller = QuickTableViewController()
-          let resourcePath: NSString! = NSBundle(forClass: QuickTableViewControllerSpec.self).resourcePath
-          let imagePath = resourcePath.stringByAppendingPathComponent("icon.png")
-          let highlightedImagePath = resourcePath.stringByAppendingPathComponent("icon.png")
+          let resourcePath = Bundle(for: QuickTableViewControllerSpec.self).resourcePath as NSString?
+          let imagePath = resourcePath?.appendingPathComponent("icon.png") ?? ""
+          let highlightedImagePath = resourcePath?.appendingPathComponent("icon.png") ?? ""
 
           let image = UIImage(contentsOfFile: imagePath)!
           let highlightedImage = UIImage(contentsOfFile: highlightedImagePath)!
 
           controller.tableContents = [
             Section(title: "NavigationRow", rows: [
-              NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(imageName: "icon")),
-              NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: image)),
-              NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: image, highlightedImage: highlightedImage)),
-              NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"), icon: Icon(image: image))
+              NavigationRow(title: "CellStyle.Default", subtitle: .none, icon: Icon(imageName: "icon")),
+              NavigationRow(title: "CellStyle", subtitle: .belowTitle(".Subtitle"), icon: Icon(image: image)),
+              NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1"), icon: Icon(image: image, highlightedImage: highlightedImage)),
+              NavigationRow(title: "CellStyle", subtitle: .leftAligned(".Value2"), icon: Icon(image: image))
             ]),
             Section(title: "SwitchRow", rows: [
               SwitchRow(title: "imageName", switchValue: true, icon: Icon(imageName: "icon"), action: nil),
@@ -148,37 +148,37 @@ class QuickTableViewControllerSpec: QuickSpec {
           ]
 
           it("does not work with images in the test bundle") {
-            let navigationCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+            let navigationCell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
             expect(navigationCell.imageView?.image).to(beNil())
             expect(navigationCell.imageView?.highlightedImage).to(beNil())
 
-            let switchCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 1))
+            let switchCell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 0, section: 1))
             expect(switchCell.imageView?.image).to(beNil())
             expect(switchCell.imageView?.highlightedImage).to(beNil())
           }
 
           it("should have image set") {
-            let navigationCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+            let navigationCell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 1, section: 0))
             expect(navigationCell.imageView?.image) == image
             expect(navigationCell.imageView?.highlightedImage).to(beNil())
 
-            let switchCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 1))
+            let switchCell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 1, section: 1))
             expect(switchCell.imageView?.image).notTo(beNil())
             expect(switchCell.imageView?.highlightedImage).to(beNil())
           }
 
           it("should have image and highlightedImage set") {
-            let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0))
+            let cell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 2, section: 0))
             expect(cell.imageView?.image).notTo(beNil())
             expect(cell.imageView?.highlightedImage).notTo(beNil())
 
-            let switchCell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 1))
+            let switchCell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 2, section: 1))
             expect(switchCell.imageView?.image).notTo(beNil())
             expect(switchCell.imageView?.highlightedImage).notTo(beNil())
           }
 
           it("should not have image with UITableViewCellStyle.Value2") {
-            let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 3, inSection: 0))
+            let cell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 3, section: 0))
             expect(cell.imageView?.image).to(beNil())
             expect(cell.imageView?.highlightedImage).to(beNil())
           }
@@ -188,17 +188,17 @@ class QuickTableViewControllerSpec: QuickSpec {
           let controller = QuickTableViewController()
           controller.tableContents = [
             Section(title: "Navigation", rows: [
-              NavigationRow(title: "Navigation", subtitle: .None, action: { _ in }),
-              NavigationRow(title: "Navigation", subtitle: .BelowTitle("with subtitle"), action: { _ in }),
-              NavigationRow(title: "Navigation", subtitle: .RightAligned("with detail text"), action: { _ in }),
-              NavigationRow(title: "Navigation", subtitle: .LeftAligned("with detail text"), action: { _ in })
+              NavigationRow(title: "Navigation", subtitle: .none, action: { _ in }),
+              NavigationRow(title: "Navigation", subtitle: .belowTitle("with subtitle"), action: { _ in }),
+              NavigationRow(title: "Navigation", subtitle: .rightAligned("with detail text"), action: { _ in }),
+              NavigationRow(title: "Navigation", subtitle: .leftAligned("with detail text"), action: { _ in })
             ])
           ]
 
           it("should have have disclosure indicator") {
             for row in 0...3 {
-              let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: row, inSection: 0))
-              expect(cell.accessoryType) == UITableViewCellAccessoryType.DisclosureIndicator
+              let cell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: row, section: 0))
+              expect(cell.accessoryType) == UITableViewCellAccessoryType.disclosureIndicator
             }
           }
         }
@@ -212,12 +212,12 @@ class QuickTableViewControllerSpec: QuickSpec {
             SwitchRow(title: "Setting 2", switchValue: false, action: nil)
           ])
         ]
-        let a = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-        let b = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        let a = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        let b = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 1, section: 0))
 
         it("should return SwitchCell") {
-          expect(a).to(beAKindOf(SwitchCell))
-          expect(b).to(beAKindOf(SwitchCell))
+          expect(a).to(beAKindOf(SwitchCell.self))
+          expect(b).to(beAKindOf(SwitchCell.self))
         }
 
         it("should have texts in labels") {
@@ -228,8 +228,8 @@ class QuickTableViewControllerSpec: QuickSpec {
         }
 
         it("should match the switch value") {
-          expect((a as? SwitchCell)?.switchControl.on) == true
-          expect((b as? SwitchCell)?.switchControl.on) == false
+          expect((a as? SwitchCell)?.switchControl.isOn) == true
+          expect((b as? SwitchCell)?.switchControl.isOn) == false
         }
       }
 
@@ -240,10 +240,10 @@ class QuickTableViewControllerSpec: QuickSpec {
             TapActionRow(title: "Tap action", action: { _ in })
           ])
         ]
-        let cell = controller.tableView(controller.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        let cell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
 
         it("should return TapActionCell") {
-          expect(cell).to(beAKindOf(TapActionCell))
+          expect(cell).to(beAKindOf(TapActionCell.self))
         }
 
         it("should have text in the label") {
@@ -254,57 +254,57 @@ class QuickTableViewControllerSpec: QuickSpec {
 
     // MARK: - UITableViewDelegate
 
-    describe("tableView(_:shouldHighlightRowAtIndexPath:") {
+    describe("tableView(_:shouldHighlightRowAt:") {
       let controller = QuickTableViewController()
       controller.tableContents = [
         Section(title: nil, rows: [
-          NavigationRow(title: "", subtitle: .None),
-          NavigationRow(title: "", subtitle: .None, action: { _ in }),
+          NavigationRow(title: "", subtitle: .none),
+          NavigationRow(title: "", subtitle: .none, action: { _ in }),
           SwitchRow(title: "", switchValue: true, action: nil),
           TapActionRow(title: "", action: { _ in })
         ])
       ]
 
       it("should not highlight NavigationRow without an action") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 0, section: 0))
         expect(highlight) == false
       }
 
       it("should highlight NavigationRow with an action") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 1, section: 0))
         expect(highlight) == true
       }
 
       it("should not highlight SwitchRow") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0))
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 2, section: 0))
         expect(highlight) == false
       }
 
       it("should highlight TapActionRow") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAtIndexPath: NSIndexPath(forRow: 3, inSection: 0))
+        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 3, section: 0))
         expect(highlight) == true
       }
     }
 
-    describe("tableView(_:didSelectRowAtIndexPath:") {
+    describe("tableView(_:didSelectRowAt:") {
       let controller = QuickTableViewController()
       var navigated = false
       var tapped = false
 
       controller.tableContents = [
         Section(title: nil, rows: [
-          NavigationRow(title: "", subtitle: .None, action: { _ in navigated = true }),
+          NavigationRow(title: "", subtitle: .none, action: { _ in navigated = true }),
           TapActionRow(title: "", action: { _ in tapped = true })
         ])
       ]
 
       it("should invoke the action when NavigationRow is selected") {
-        controller.tableView(controller.tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+        controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
         expect(navigated) == true
       }
 
       it("should invoke the action when TapActionRow is selected") {
-        controller.tableView(controller.tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+        controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: 1, section: 0))
         expect(tapped) == true
       }
     }
