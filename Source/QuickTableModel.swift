@@ -89,8 +89,8 @@ public struct Icon: Equatable {
     return _highlightedImage ?? UIImage(named: highlightedImageName)
   }
 
-  private var _image: UIImage?
-  private var _highlightedImage: UIImage?
+  fileprivate var _image: UIImage?
+  fileprivate var _highlightedImage: UIImage?
 
   internal private(set) var imageName: String?
   internal var highlightedImageName: String {
@@ -120,7 +120,7 @@ public struct Icon: Equatable {
 
 /// Returns true iff `lhs` and `rhs` have equal images, highlighted images and image names.
 public func == (lhs: Icon, rhs: Icon) -> Bool {
-  if let lhsName = lhs.imageName, rhsName = rhs.imageName {
+  if let lhsName = lhs.imageName, let rhsName = rhs.imageName {
     return lhsName == rhsName
   } else {
     return lhs._image == rhs._image && lhs._highlightedImage == rhs._highlightedImage

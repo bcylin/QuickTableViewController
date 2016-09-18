@@ -27,7 +27,7 @@
 import UIKit
 
 /// A table view controller that shows `tableContents` as formatted sections and rows.
-public class QuickTableViewController: UIViewController,
+open class QuickTableViewController: UIViewController,
   UITableViewDataSource,
   UITableViewDelegate {
 
@@ -65,7 +65,7 @@ public class QuickTableViewController: UIViewController,
 
   // MARK: - UIViewController
 
-  public override func loadView() {
+  open override func loadView() {
     super.loadView()
     view.addSubview(tableView)
     tableView.frame = view.bounds
@@ -76,7 +76,7 @@ public class QuickTableViewController: UIViewController,
     tableView.register(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
   }
 
-  public override func viewWillAppear(_ animated: Bool) {
+  open override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     if let indexPath = tableView.indexPathForSelectedRow, clearsSelectionOnViewWillAppear {
       tableView.deselectRow(at: indexPath, animated: true)
@@ -85,19 +85,19 @@ public class QuickTableViewController: UIViewController,
 
   // MARK: - UITableViewDataSource
 
-  public func numberOfSections(in tableView: UITableView) -> Int {
+  open func numberOfSections(in tableView: UITableView) -> Int {
     return tableContents.count
   }
 
-  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tableContents[section].rows.count
   }
 
-  public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return tableContents[section].title
   }
 
-  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
     var cell: UITableViewCell!
 
@@ -154,18 +154,18 @@ public class QuickTableViewController: UIViewController,
     return cell
   }
 
-  public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+  open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     return tableContents[section].footer
   }
 
   // MARK: - UITableViewDelegate
 
-  public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+  open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
     let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
     return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
   }
 
-  public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
 
     switch (row, row.action) {
@@ -181,7 +181,7 @@ public class QuickTableViewController: UIViewController,
 
   // MARK: - IBAction
 
-  @objc private func didToggleSwitch(_ sender: UISwitch) {
+  @objc fileprivate func didToggleSwitch(_ sender: UISwitch) {
     guard
       let cell = sender.containerCell,
       let indexPath = tableView.indexPath(for: cell),

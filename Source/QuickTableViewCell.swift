@@ -65,7 +65,7 @@ public class TapActionCell: UITableViewCell {
 
   private func setUpAppearance() {
     textLabel?.textAlignment = .center
-    textLabel?.textColor = self.dynamicType.systemTintColor
+    textLabel?.textColor = type(of: self).systemTintColor
   }
 
 }
