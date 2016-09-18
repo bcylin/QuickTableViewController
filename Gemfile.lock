@@ -165,6 +165,7 @@ DEPENDENCIES
   cocoapods (~> 1.1.0.rc.2)
   danger (~> 0.10.0)
   jazzy (~> 0.7.0)
+  octokit
   rake
   scan
   slather

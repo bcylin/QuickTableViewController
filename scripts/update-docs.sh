@@ -16,5 +16,5 @@ cp -rfv output/* .
 git --no-pager diff --stat
 git add .
 git commit -m "[CI] Update documentation at $(date +'%Y-%m-%d %H:%M:%S %z')"
-ruby ../scripts/push-gh-pages.rb
+bundle exec ruby ../scripts/push-gh-pages.rb
 cd -
