@@ -2,11 +2,15 @@
 
 ## Next Release
 
+## v0.4.0
+
 #### Changes
 
+* Swift 2.3
+* CocoaPods 1.1.0.rc.2
+* Improved documentation
 * Run tests with fastlane scan
 * Integrate with [danger.systems](https://github.com/danger/danger)
-* Improve documentation
 * Make the images of `Icon` readonly
 
 ## v0.3.0
