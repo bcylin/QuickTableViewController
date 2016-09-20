@@ -1,0 +1,12 @@
+coverage:
+  ignore:
+    - Carthage/*
+    - Example/*
+    - QuickTableViewControllerTests/*
+    - Pods/*
+  status:
+    project:
+      default:
+        enabled: yes
+        target: 80%
+        threshold: 3%

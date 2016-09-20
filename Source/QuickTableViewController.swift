@@ -26,13 +26,18 @@
 
 import UIKit
 
+/// A table view controller that shows `tableContents` as formatted sections and rows.
 public class QuickTableViewController: UIViewController,
   UITableViewDataSource,
   UITableViewDelegate {
 
+  /// A Boolean value indicating if the controller clears the selection when the collection view appears.
   public var clearsSelectionOnViewWillAppear = true
+
+  /// Returns the table view managed by the controller object.
   public private(set) var tableView = UITableView(frame: CGRect.zero, style: .Grouped)
 
+  /// The layout of sections and rows to display in the table view.
   public var tableContents: [Section] = [] {
     didSet {
       tableView.reloadData()
@@ -41,6 +46,13 @@ public class QuickTableViewController: UIViewController,
 
   // MARK: - Initialization
 
+  /**
+   Initializes a table view controller to manage a table view of a given style.
+
+   - parameter style: A constant that specifies the style of table view that the controller object is to manage (UITableViewStylePlain or UITableViewStyleGrouped).
+
+   - returns: An initialized `QuickTableViewController` object.
+   */
   public convenience init(style: UITableViewStyle) {
     self.init(nibName: nil, bundle: nil)
     tableView = UITableView(frame: CGRect.zero, style: style)
@@ -53,7 +65,7 @@ public class QuickTableViewController: UIViewController,
 
   // MARK: - UIViewController
 
-  override public func loadView() {
+  public override func loadView() {
     super.loadView()
     view.addSubview(tableView)
     tableView.frame = view.bounds
@@ -136,10 +148,6 @@ public class QuickTableViewController: UIViewController,
       if let image = icon.highlightedImage {
         cell.imageView?.highlightedImage = image
       }
-      if let imageName = icon.imageName {
-        cell.imageView?.image = UIImage(named: imageName)
-        cell.imageView?.highlightedImage = UIImage(named: imageName + "-highlighted")
-      }
     }
 
     cell.textLabel?.text = row.title
@@ -191,7 +199,7 @@ public class QuickTableViewController: UIViewController,
 }
 
 
-// MARK: -
+////////////////////////////////////////////////////////////////////////////////
 
 
 private extension UIView {

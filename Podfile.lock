@@ -1,9 +1,11 @@
 PODS:
-  - MaterialDesignSymbol (1.7)
-  - QuickTableViewController (0.2.0)
+  - Nimble (4.1.0)
+  - Quick (0.9.3)
+  - QuickTableViewController (0.4.0)
 
 DEPENDENCIES:
-  - MaterialDesignSymbol
+  - Nimble
+  - Quick
   - QuickTableViewController (from `./`)
 
 EXTERNAL SOURCES:
@@ -11,9 +13,10 @@ EXTERNAL SOURCES:
     :path: "./"
 
 SPEC CHECKSUMS:
-  MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
-  QuickTableViewController: 616a175f29ed6d8779f479caf6182e031dfb025a
+  Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
+  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
+  QuickTableViewController: 9c573dec76c41fde4f60e1352593446e3fed4762
 
-PODFILE CHECKSUM: 3369c1b65c2de52660e28ccd2d262e95fa78e9b5
+PODFILE CHECKSUM: 6f6cead9847badc871d00286c0f881523b9c4057
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

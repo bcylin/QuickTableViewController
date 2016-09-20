@@ -25,7 +25,6 @@
 //
 
 import UIKit
-import MaterialDesignSymbol
 import QuickTableViewController
 
 class ViewController: QuickTableViewController {
@@ -36,14 +35,14 @@ class ViewController: QuickTableViewController {
     super.viewDidLoad()
     title = "QuickTableViewController"
 
-    let exit = MaterialDesignSymbol(text: MaterialDesignIcon.exitToApp48px, size:24).imageWithSize(CGSize(width: 24, height: 24))
-    let language = MaterialDesignSymbol(text: MaterialDesignIcon.language48px, size:24).imageWithSize(CGSize(width: 24, height: 24))
-    let timeMachine = MaterialDesignSymbol(text: MaterialDesignIcon.history48px, size:24).imageWithSize(CGSize(width: 24, height: 24))
+    let gear = UIImage(named: "iconmonstr-gear")!
+    let globe = UIImage(named: "iconmonstr-globe")!
+    let time = UIImage(named: "iconmonstr-time")!
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: language), action: printValue),
-        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: timeMachine), action: printValue)
+        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: printValue),
+        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: printValue)
       ]),
 
       Section(title: "Tap Action", rows: [
@@ -51,9 +50,9 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: exit) ),
-        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: language)),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: timeMachine), action: showDetail),
+        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: gear)),
+        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: globe)),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(image: time), action: showDetail),
         NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
       ]),
 
@@ -75,8 +74,7 @@ class ViewController: QuickTableViewController {
     let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
     if tableContents[indexPath.section].title == nil {
       // Alter the cells created by QuickTableViewController
-      let symbol = MaterialDesignSymbol(text: MaterialDesignIcon.highlightRemove48px, size:24)
-      cell.imageView?.image = symbol.imageWithSize(CGSize(width: 24, height: 24))
+      cell.imageView?.image = UIImage(named: "iconmonstr-x-mark")
     }
     return cell
   }

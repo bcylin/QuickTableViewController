@@ -1,5 +1,11 @@
 language: objective-c
-osx_image: xcode7.3
+osx_image: xcode8
+matrix:
+  include:
+    - env: SCHEME=Example
+    - env: SCHEME=QuickTableViewController-iOS
+      before_script:
+        - bundle exec danger
 cache:
   bundler: true
   directories:
@@ -7,17 +13,20 @@ cache:
   - Pods
 before_install:
   - export LANG=en_US.UTF-8
+  - brew update
   - brew tap homebrew/bundle
   - brew bundle
 install:
   - bundle install --without development --deployment --jobs=3 --retry=3
-  - bundle exec pod install --no-repo-update
-  - carthage bootstrap --no-use-binaries --platform ios
+  - bundle exec pod repo update
+  - bundle exec pod install
 script:
-  - set -o pipefail && xcodebuild -project QuickTableViewController.xcodeproj -scheme QuickTableViewController-iOS -sdk iphonesimulator -destination "name=iPhone 6,OS=latest" -enableCodeCoverage YES clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -c
-  - xctool -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator clean build
+  - bundle exec scan --scheme $SCHEME
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - make coverage
 notifications:
   email: false
+  slack:
+    rooms:
+      secure: OBqhJVYItWtvqHFhgpGm0aJBzfiBQpCbP/Ak0/2OH9HZNA0jAWGEFcipdzpsHCSNpDHlsSC2lq8CD+Py1rgQDfG/pgoVSY9Da+OLwXHoSaEA61qQMkAmXFEv5KfMcCXG+L4L5vatIVo3BvKbTWifGfNY4ZgcqGRK6n+emiJLGhkdDvdj8TX+jJ3TbRE7uUCpwjh6tuj0icvz65ve7kRSBTKrMOynxZGpjZ+Ur0gUnilJIV8k8/jdTg0oxzk1BueYsOw3aV33R59Jn8Dwm4IhLFlzkdW8LxfXGbOSV9bvxYSV8ZzD+PecwpSc3j92eZZomLgLLCyOT/ato2X454asMhyE+drtu3dlY6NTiKXuVQYAZ0Zm1kreHwSdUyupO1L8LplHNzF2BIDWqOdr+EtsAsHbQpilA2O/KjDnLiD6EQsWbzi0/Y3Nqeo3adAd+q2LWJAHvdRPcrYJuuC2lE/KW+lnzL4NhCOht95vTnnbCzTsmnPBLzTIYen3DRcu4/jQ/jzhy/qCgdexUIwmam73iGPeH4CVdnyfTV0YIQuJOi2bbllSWm0qIxAJ7P9UGIKCI9nCE5TfmmUP60SW6hm7o4UE1xOfyLaPEf9v9/CZ92EHecStftBbK+wsTrJqy4NmZlRVSw9nsR26mqOm2R9wf5oWxKaMMQTD8dSQ0F293n8=
