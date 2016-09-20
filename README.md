@@ -1,8 +1,10 @@
 # QuickTableViewController
 
-![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
+[![Build Status](https://travis-ci.org/bcylin/QuickTableViewController.svg)](https://travis-ci.org/bcylin/QuickTableViewController)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Build Status](https://travis-ci.org/bcylin/QuickTableViewController.svg?branch=develop)](https://travis-ci.org/bcylin/QuickTableViewController)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
+[![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)](http://cocoadocs.org/docsets/QuickTableViewController)
+![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
 [![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg?branch=develop)](https://codecov.io/github/bcylin/QuickTableViewController?branch=develop)
 
 A simple way to create a table view for settings, providing table view cells with:
@@ -122,7 +124,7 @@ QuickTableViewController | iOS  | Xcode | Swift
 `~> v0.1.0`              | 8.0+ | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
 `~> v0.2.0`              | 8.0+ | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
 `~> v0.3.0`              | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
-`develop` branch         | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
+`~> v0.4.0`              | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
 `feature/swift-3` branch | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
 
 ## Installation
@@ -159,7 +161,7 @@ QuickTableViewController | iOS  | Xcode | Swift
   platform :ios, '8.0'
   use_frameworks!
 
-  pod 'QuickTableViewController', git: 'https://github.com/bcylin/QuickTableViewController.git'
+  pod 'QuickTableViewController', '~> 0.4.0'
   ```
 
 ### Install Manually
