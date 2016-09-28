@@ -61,9 +61,14 @@ public protocol Row {
   var action: ((Row) -> Void)? { get }
 }
 
-/// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
-public func ==<T: Row>(lhs: T, rhs: T) -> Bool {
-  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+
+extension Row {
+
+  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
+  public static func ==(lhs: Self, rhs: Self) -> Bool {
+    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+  }
+
 }
 
 
@@ -116,19 +121,18 @@ public struct Icon: Equatable {
 
   private init() {}
 
-}
+  // MARK: Equatable
 
-// MARK: Equatable
-
-/// Returns true iff `lhs` and `rhs` have equal images, highlighted images and image names.
-public func == (lhs: Icon, rhs: Icon) -> Bool {
-  if let lhsName = lhs.imageName, let rhsName = rhs.imageName {
-    return lhsName == rhsName
-  } else {
-    return lhs._image == rhs._image && lhs._highlightedImage == rhs._highlightedImage
+  /// Returns true iff `lhs` and `rhs` have equal images, highlighted images and image names.
+  public static func ==(lhs: Icon, rhs: Icon) -> Bool {
+    if let lhsName = lhs.imageName, let rhsName = rhs.imageName {
+      return lhsName == rhsName
+    } else {
+      return lhs._image == rhs._image && lhs._highlightedImage == rhs._highlightedImage
+    }
   }
-}
 
+}
 
 // MARK: - NavigationRow
 
@@ -158,13 +162,13 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
 
   private init() {}
 
-}
+  // MARK: Equatable
 
-// MARK: Equatable
+  /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
+  public static func ==(lhs: NavigationRow, rhs: NavigationRow) -> Bool {
+    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
+  }
 
-/// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
-public func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
-  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
 }
 
 
@@ -203,13 +207,13 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
 
   private init() {}
 
-}
+  // MARK: Equatable
 
-// MARK: Equatable
+  /// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
+  public static func ==(lhs: SwitchRow, rhs: SwitchRow) -> Bool {
+    return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
+  }
 
-/// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
-public func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
-  return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
 }
 
 
@@ -278,22 +282,22 @@ public enum Subtitle: Equatable {
     }
   }
 
-}
+  // MARK: Equatable
 
-// MARK: Equatable
-
-/// Returns true iff `lhs` and `rhs` have equal texts in the same `Subtitle`.
-public func == (lhs: Subtitle, rhs: Subtitle) -> Bool {
-  switch (lhs, rhs) {
-  case (.none, .none):
-    return true
-  case (.belowTitle(let a), .belowTitle(let b)):
-    return a == b
-  case (.rightAligned(let a), .rightAligned(let b)):
-    return a == b
-  case (.leftAligned(let a), .leftAligned(let b)):
-    return a == b
-  default:
-    return false
+  /// Returns true iff `lhs` and `rhs` have equal texts in the same `Subtitle`.
+  public static func ==(lhs: Subtitle, rhs: Subtitle) -> Bool {
+    switch (lhs, rhs) {
+    case (.none, .none):
+      return true
+    case (.belowTitle(let a), .belowTitle(let b)):
+      return a == b
+    case (.rightAligned(let a), .rightAligned(let b)):
+      return a == b
+    case (.leftAligned(let a), .leftAligned(let b)):
+      return a == b
+    default:
+      return false
+    }
   }
+
 }
