@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B59925351B95FA9100BE63A4"
+               BlueprintIdentifier = "B5133F2B1D9D550D004DE48D"
                BuildableName = "Example.app"
                BlueprintName = "Example"
                ReferencedContainer = "container:Example.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5C2F2E01D59E9FC00274F27"
+               BlueprintIdentifier = "B5133F3F1D9D550D004DE48D"
                BuildableName = "ExampleUITests.xctest"
                BlueprintName = "ExampleUITests"
                ReferencedContainer = "container:Example.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B59925351B95FA9100BE63A4"
+            BlueprintIdentifier = "B5133F2B1D9D550D004DE48D"
             BuildableName = "Example.app"
             BlueprintName = "Example"
             ReferencedContainer = "container:Example.xcodeproj">
@@ -65,7 +65,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B59925351B95FA9100BE63A4"
+            BlueprintIdentifier = "B5133F2B1D9D550D004DE48D"
             BuildableName = "Example.app"
             BlueprintName = "Example"
             ReferencedContainer = "container:Example.xcodeproj">
@@ -84,7 +84,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B59925351B95FA9100BE63A4"
+            BlueprintIdentifier = "B5133F2B1D9D550D004DE48D"
             BuildableName = "Example.app"
             BlueprintName = "Example"
             ReferencedContainer = "container:Example.xcodeproj">
