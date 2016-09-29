@@ -4,8 +4,11 @@ matrix:
   include:
     - env: SCHEME=Example
     - env: SCHEME=QuickTableViewController-iOS
+    - env: BUILD=Carthage
       before_script:
         - bundle exec danger
+      script:
+        - make carthage
 cache:
   bundler: true
   directories:
