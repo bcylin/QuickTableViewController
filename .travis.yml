@@ -18,7 +18,7 @@ install:
 before_script:
   - bundle exec danger
 script:
-  - bundle exec scan --scheme Example
+  - bundle exec rake ci:build[Example]
   - bundle exec scan --scheme QuickTableViewController-iOS
   - make -B carthage
 after_success:
