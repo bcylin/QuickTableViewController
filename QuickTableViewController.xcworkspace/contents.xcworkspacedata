@@ -5,7 +5,7 @@
       location = "group:QuickTableViewController.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Example/Example.xcodeproj">
+      location = "group:Example.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
