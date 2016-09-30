@@ -4,19 +4,33 @@ PODS:
   - QuickTableViewController (0.4.0)
 
 DEPENDENCIES:
-  - Nimble (~> 5.0.0)
-  - Quick (~> 0.10.0)
+  - Nimble (from `https://github.com/Quick/Nimble.git`, tag `v5.0.0`)
+  - Quick (from `https://github.com/Quick/Quick.git`, tag `v0.10.0`)
   - QuickTableViewController (from `./`)
 
 EXTERNAL SOURCES:
+  Nimble:
+    :git: https://github.com/Quick/Nimble.git
+    :tag: v5.0.0
+  Quick:
+    :git: https://github.com/Quick/Quick.git
+    :tag: v0.10.0
   QuickTableViewController:
     :path: "./"
+
+CHECKOUT OPTIONS:
+  Nimble:
+    :git: https://github.com/Quick/Nimble.git
+    :tag: v5.0.0
+  Quick:
+    :git: https://github.com/Quick/Quick.git
+    :tag: v0.10.0
 
 SPEC CHECKSUMS:
   Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
   QuickTableViewController: 9c573dec76c41fde4f60e1352593446e3fed4762
 
-PODFILE CHECKSUM: 19a2ac2935f76267e6814fcfb48270944dac2e75
+PODFILE CHECKSUM: 700bf6791293c4cd4f5b58d4e2d1c0a00575e529
 
 COCOAPODS: 1.1.0.rc.2
