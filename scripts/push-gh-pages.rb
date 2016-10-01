@@ -5,7 +5,7 @@ require "octokit"
 
 token = ENV["DANGER_GITHUB_API_TOKEN"]
 repo = "bcylin/QuickTableViewController"
-branch = "gh-pages"
+branch = "heads/gh-pages"
 commit = %x(git --no-pager log -1 --pretty="%H")
 
 unless token
@@ -16,3 +16,5 @@ end
 
 github = Octokit::Client.new(access_token: token)
 puts github.update_ref(repo, branch, commit)
+
+exit $?.exitstatus unless $?.success?
