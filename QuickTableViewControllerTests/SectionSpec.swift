@@ -32,7 +32,7 @@ class SectionSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {
-      let row = NavigationRow(title: "", subtitle: .None)
+      let row = NavigationRow(title: "", subtitle: .none)
       let section = Section(title: "title", rows: [row], footer: "footer")
       it("should initialize with given parameters") {
         expect(section.title) == "title"
