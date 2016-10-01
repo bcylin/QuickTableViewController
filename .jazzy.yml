@@ -6,6 +6,5 @@ github_file_prefix: https://github.com/bcylin/QuickTableViewController/blob/deve
 xcodebuild_arguments: [-scheme, QuickTableViewController-iOS]
 module: QuickTableViewController
 module_version: 0.3.0
-swift_version: 2.2
 output: docs/output
 theme: fullwidth

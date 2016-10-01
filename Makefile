@@ -14,4 +14,4 @@ build-example:
 	xcodebuild -workspace QuickTableViewController.xcworkspace -scheme Example -sdk iphonesimulator -destination "name=iPhone 6s,OS=latest" clean build | xcpretty -c && exit ${PIPESTATUS[0]}
 
 docs:
-	jazzy --config .jazzy.yaml
+	bundle exec jazzy --config .jazzy.yml
