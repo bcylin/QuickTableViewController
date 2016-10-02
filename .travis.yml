@@ -21,9 +21,11 @@ script:
   - bundle exec rake ci:build[Example]
   - bundle exec scan --scheme QuickTableViewController-iOS
   - make -B carthage
+  - make -B docs
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - make coverage
+  - sh scripts/update-docs.sh
 notifications:
   email: false
   slack:
