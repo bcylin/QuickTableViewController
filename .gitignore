@@ -31,3 +31,9 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+
+# Docsets
+output
+undocumented.json
+*.docset
+*.tgz
