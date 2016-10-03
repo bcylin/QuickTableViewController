@@ -1,6 +1,19 @@
 default: test
 test: test-framework
 
+bump:
+ifeq (,$(strip $(version)))
+	# Usage: make bump version=<number>
+else
+	mv QuickTableViewController.xcodeproj QuickTableViewController.tmp
+	xcrun agvtool new-marketing-version $(version)
+	mv QuickTableViewController.tmp QuickTableViewController.xcodeproj
+
+	mv Example.xcodeproj Example.tmp
+	xcrun agvtool new-marketing-version $(version)
+	mv Example.tmp Example.xcodeproj
+endif
+
 carthage:
 	set -o pipefail && carthage build --no-skip-current --verbose | xcpretty -c
 
