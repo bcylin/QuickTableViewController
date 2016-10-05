@@ -1,6 +1,13 @@
 default: test
 test: test-framework
 
+bump:
+ifeq (,$(strip $(version)))
+	# Usage: make bump version=<number>
+else
+	bundle exec rake bump[$(version)]
+endif
+
 carthage:
 	set -o pipefail && carthage build --no-skip-current --verbose | xcpretty -c
 

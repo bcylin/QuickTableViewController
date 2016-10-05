@@ -122,11 +122,11 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 QuickTableViewController | iOS  | Xcode | Swift
 ------------------------ | :--: | :---: | :---:
-`~> v0.1.0`              | 8.0+ | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
-`~> v0.2.0`              | 8.0+ | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
-`~> v0.3.0`              | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
-`~> v0.4.0`              | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
-`develop` branch         | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
+`~> 0.1.0`               | 8.0+ | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
+`~> 0.2.0`               | 8.0+ | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
+`~> 0.3.0`               | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
+`~> 0.4.0`               | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
+`~> 0.5.0`               | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
 
 ## Installation
 
@@ -162,7 +162,7 @@ QuickTableViewController | iOS  | Xcode | Swift
   platform :ios, '8.0'
   use_frameworks!
 
-  pod 'QuickTableViewController', '~> 0.4.0'
+  pod 'QuickTableViewController', '~> 0.5.0'
   ```
 
 ### Install Manually

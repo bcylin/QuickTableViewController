@@ -1,6 +1,6 @@
 # Change Log
 
-## Next Release
+## v0.5.0
 
 * Swift 3.0
 
