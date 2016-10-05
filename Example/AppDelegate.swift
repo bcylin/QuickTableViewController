@@ -1,9 +1,9 @@
 //
-//  ExampleUITests.swift
-//  ExampleUITests
+//  AppDelegate.swift
+//  Example
 //
-//  Created by Ben on 09/08/2016.
-//  Copyright © 2016 bcylin.
+//  Created by Ben on 01/09/2015.
+//  Copyright (c) 2015 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,18 +24,19 @@
 //  SOFTWARE.
 //
 
-import XCTest
+import UIKit
 
-class ExampleUITests: XCTestCase {
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
-  override func setUp() {
-    super.setUp()
-    continueAfterFailure = false
-    XCUIApplication().launch()
-  }
+  var window: UIWindow?
 
-  func testExample() {
-    XCTAssert(true)
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.backgroundColor = UIColor.white
+    window?.rootViewController = UINavigationController(rootViewController: ViewController())
+    window?.makeKeyAndVisible()
+    return true
   }
 
 }

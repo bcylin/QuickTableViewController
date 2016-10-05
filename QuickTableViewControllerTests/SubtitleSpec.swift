@@ -33,18 +33,18 @@ class SubtitleSpec: QuickSpec {
   override func spec() {
     describe("subtitle style") {
       it("should return the descriptive name of the style") {
-        expect(Subtitle.None.style) == "Subtitle.None"
-        expect(Subtitle.BelowTitle("text").style) == "Subtitle.BelowTitle"
-        expect(Subtitle.RightAligned("text").style) == "Subtitle.RightAligned"
-        expect(Subtitle.LeftAligned("text").style) == "Subtitle.LeftAligned"
+        expect(Subtitle.none.style) == "Subtitle.None"
+        expect(Subtitle.belowTitle("text").style) == "Subtitle.BelowTitle"
+        expect(Subtitle.rightAligned("text").style) == "Subtitle.RightAligned"
+        expect(Subtitle.leftAligned("text").style) == "Subtitle.LeftAligned"
       }
     }
 
     describe("associtated value") {
-      let none = Subtitle.None
-      let belowTitle = Subtitle.BelowTitle("text")
-      let rightAligned = Subtitle.RightAligned("text")
-      let leftAligned = Subtitle.LeftAligned("text")
+      let none = Subtitle.none
+      let belowTitle = Subtitle.belowTitle("text")
+      let rightAligned = Subtitle.rightAligned("text")
+      let leftAligned = Subtitle.leftAligned("text")
 
       it("should return the associated text") {
         expect(none.text).to(beNil())
@@ -57,18 +57,18 @@ class SubtitleSpec: QuickSpec {
     describe("equatable") {
       context(".None") {
         it("should be equal when both are .None") {
-          let a = Subtitle.None
-          let b = Subtitle.None
+          let a = Subtitle.none
+          let b = Subtitle.none
           expect(a) == b
         }
       }
 
       context(".BelowTitle") {
-        let a = Subtitle.BelowTitle("Same")
-        let b = Subtitle.BelowTitle("Same")
-        let c = Subtitle.BelowTitle("Different")
-        let d = Subtitle.RightAligned("Same")
-        let e = Subtitle.None
+        let a = Subtitle.belowTitle("Same")
+        let b = Subtitle.belowTitle("Same")
+        let c = Subtitle.belowTitle("Different")
+        let d = Subtitle.rightAligned("Same")
+        let e = Subtitle.none
 
         it("should be equal only when type and associated value match") {
           expect(a) == b
@@ -79,11 +79,11 @@ class SubtitleSpec: QuickSpec {
       }
 
       context(".RightAligned") {
-        let a = Subtitle.RightAligned("Same")
-        let b = Subtitle.RightAligned("Same")
-        let c = Subtitle.RightAligned("Different")
-        let d = Subtitle.LeftAligned("Same")
-        let e = Subtitle.None
+        let a = Subtitle.rightAligned("Same")
+        let b = Subtitle.rightAligned("Same")
+        let c = Subtitle.rightAligned("Different")
+        let d = Subtitle.leftAligned("Same")
+        let e = Subtitle.none
 
         it("should be equal only when type and associated value match") {
           expect(a) == b
@@ -94,11 +94,11 @@ class SubtitleSpec: QuickSpec {
       }
 
       context(".LeftAligned") {
-        let a = Subtitle.LeftAligned("Same")
-        let b = Subtitle.LeftAligned("Same")
-        let c = Subtitle.LeftAligned("Different")
-        let d = Subtitle.BelowTitle("Same")
-        let e = Subtitle.None
+        let a = Subtitle.leftAligned("Same")
+        let b = Subtitle.leftAligned("Same")
+        let c = Subtitle.leftAligned("Different")
+        let d = Subtitle.belowTitle("Same")
+        let e = Subtitle.none
 
         it("should be equal only when type and associated value match") {
           expect(a) == b

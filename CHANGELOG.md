@@ -1,16 +1,15 @@
 # Change Log
 
-## Next Release
+## v0.5.0
+
+* Swift 3.0
 
 ## v0.4.0
 
 #### Changes
 
 * Swift 2.3
-* CocoaPods 1.1.0.rc.2
 * Improved documentation
-* Run tests with fastlane scan
-* Integrate with [danger.systems](https://github.com/danger/danger)
 * Make the images of `Icon` readonly
 
 ## v0.3.0
@@ -18,25 +17,20 @@
 #### Changes
 
 * Swift 2.2
-* CocoaPods 1.0.1
-* Calculate code coverage
-* SwiftLint with Hound CI
 * Both `NavigationRow` and `SwitchRow` conform to `IconEnabled`.
 
 ## v0.2.0
 
 #### Changes
 
-* Swift 2
+* Swift 2.0
 * `Row` and `Subtitle` now conform to `Equatable`
-* Run tests on Travis CI
 * Specify table view cell images with `Icon`, which includes highlighted image
 * Separate self.view from self.tableView in QuickTableViewController
 
 #### Fixes
 
 * Fix the access control on the overridden initializer
-* Clean up syntax with SwiftLint
 
 ## v0.1.1
 
