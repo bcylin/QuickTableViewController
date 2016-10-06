@@ -102,9 +102,8 @@ open class QuickTableViewController: UIViewController,
     var cell: UITableViewCell!
 
     switch (row, row.subtitle, row.action) {
-    case (let row, .some(let subtitle), let action) where row is NavigationRow:
+    case let (_ as NavigationRow, .some(subtitle), action):
       cell = tableView.dequeueReusableCell(withIdentifier: subtitle.style)
-
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
       case .none:
@@ -120,19 +119,19 @@ open class QuickTableViewController: UIViewController,
       cell.detailTextLabel?.text = subtitle.text
       cell.accessoryType = (action == nil) ? .none : .disclosureIndicator
 
-    case (let row, _, _) where row is SwitchRow:
+    case let (row as SwitchRow, _, _):
       cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(SwitchCell.self)) as? SwitchCell
       cell = cell ?? SwitchCell(style: .default, reuseIdentifier: NSStringFromClass(SwitchCell.self))
       cell.textLabel?.text = row.title
 
-      let switchControl = (cell as! SwitchCell).switchControl
-      switchControl.isOn = (row as! SwitchRow).switchValue
+      let switchControl = (cell as? SwitchCell)?.switchControl
+      switchControl?.isOn = row.switchValue
 
-      if switchControl.actions(forTarget: self, forControlEvent: .valueChanged) == nil {
-        switchControl.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
+      if switchControl?.actions(forTarget: self, forControlEvent: .valueChanged) == nil {
+        switchControl?.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
       }
 
-    case (let row, _, _) where row is TapActionRow:
+    case let (row as TapActionRow, _, _):
       cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TapActionCell.self))
       cell = cell ?? TapActionCell(style: .default, reuseIdentifier: NSStringFromClass(TapActionCell.self))
 
@@ -169,9 +168,9 @@ open class QuickTableViewController: UIViewController,
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
     switch (row, row.action) {
-    case (let row, let navigation) where row is NavigationRow:
+    case let (row as NavigationRow, navigation):
       navigation?(row)
-    case (let row, let tap) where row is TapActionRow:
+    case let (row as TapActionRow, tap):
       tap?(row)
       fallthrough
     default:

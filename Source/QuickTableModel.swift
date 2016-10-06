@@ -65,7 +65,7 @@ public protocol Row {
 extension Row {
 
   /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
-  public static func ==(lhs: Self, rhs: Self) -> Bool {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
   }
 
@@ -124,7 +124,7 @@ public struct Icon: Equatable {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal images, highlighted images and image names.
-  public static func ==(lhs: Icon, rhs: Icon) -> Bool {
+  public static func == (lhs: Icon, rhs: Icon) -> Bool {
     if let lhsName = lhs.imageName, let rhsName = rhs.imageName {
       return lhsName == rhsName
     } else {
@@ -165,7 +165,7 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
-  public static func ==(lhs: NavigationRow, rhs: NavigationRow) -> Bool {
+  public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
     return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
   }
 
@@ -210,7 +210,7 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
-  public static func ==(lhs: SwitchRow, rhs: SwitchRow) -> Bool {
+  public static func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
     return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
   }
 
@@ -274,9 +274,9 @@ public enum Subtitle: Equatable {
   public var text: String? {
     get {
       switch self {
-      case .belowTitle(let text): return text
-      case .rightAligned(let text): return text
-      case .leftAligned(let text): return text
+      case let .belowTitle(text): return text
+      case let .rightAligned(text): return text
+      case let .leftAligned(text): return text
       default: return nil
       }
     }
@@ -285,15 +285,15 @@ public enum Subtitle: Equatable {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal texts in the same `Subtitle`.
-  public static func ==(lhs: Subtitle, rhs: Subtitle) -> Bool {
+  public static func == (lhs: Subtitle, rhs: Subtitle) -> Bool {
     switch (lhs, rhs) {
     case (.none, .none):
       return true
-    case (.belowTitle(let a), .belowTitle(let b)):
+    case let (.belowTitle(a), .belowTitle(b)):
       return a == b
-    case (.rightAligned(let a), .rightAligned(let b)):
+    case let (.rightAligned(a), .rightAligned(b)):
       return a == b
-    case (.leftAligned(let a), .leftAligned(let b)):
+    case let (.leftAligned(a), .leftAligned(b)):
       return a == b
     default:
       return false
