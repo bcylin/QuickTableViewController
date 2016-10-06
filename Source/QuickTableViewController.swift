@@ -98,7 +98,7 @@ open class QuickTableViewController: UIViewController,
   }
 
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
+    let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell: UITableViewCell!
 
     switch (row, row.subtitle, row.action) {
@@ -161,12 +161,12 @@ open class QuickTableViewController: UIViewController,
   // MARK: - UITableViewDelegate
 
   open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-    let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
+    let row = tableContents[indexPath.section].rows[indexPath.row]
     return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
   }
 
   open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let row = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row]
+    let row = tableContents[indexPath.section].rows[indexPath.row]
 
     switch (row, row.action) {
     case (let row, let navigation) where row is NavigationRow:
@@ -185,7 +185,7 @@ open class QuickTableViewController: UIViewController,
     guard
       let cell = sender.containerCell,
       let indexPath = tableView.indexPath(for: cell),
-      let switchRow = tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row] as? SwitchRow
+      let switchRow = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
     else {
       return
     }
@@ -193,7 +193,7 @@ open class QuickTableViewController: UIViewController,
     // Replace the original row in tableContents
     var row = switchRow
     row.switchValue = sender.isOn
-    tableContents[(indexPath as NSIndexPath).section].rows[(indexPath as NSIndexPath).row] = row
+    tableContents[indexPath.section].rows[indexPath.row] = row
   }
 
 }
