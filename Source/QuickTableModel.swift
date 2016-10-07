@@ -57,6 +57,8 @@ public protocol Row {
   var title: String { get }
   /// The subtitle text of the row.
   var subtitle: Subtitle? { get }
+  /// The reuse identifier of the table view cell to display the row.
+  var cellReuseIdentifier: String { get }
   /// A closure related to the action of the row.
   var action: ((Row) -> Void)? { get }
 }
@@ -149,6 +151,11 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
   /// The icon of the row.
   public var icon: Icon?
 
+  /// Returns `subtitle.style` as the reuse identifier of the table view cell to display the row.
+  public var cellReuseIdentifier: String {
+    return subtitle?.style ?? String(describing: UITableViewCell.self)
+  }
+
   /// A closure related to the navigation when the row is selected.
   public var action: ((Row) -> Void)?
 
@@ -194,6 +201,9 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
     }
   }
 
+  /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = String(describing: SwitchCell.self)
+
   /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 
@@ -229,6 +239,9 @@ public struct TapActionRow: Row, Equatable {
   /// Subtitle is disabled in TapActionRow.
   public let subtitle: Subtitle? = nil
 
+  /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = String(describing: TapActionCell.self)
+
   /// A closure as the tap action when the row is selected.
   public var action: ((Row) -> Void)?
 
@@ -249,13 +262,13 @@ public struct TapActionRow: Row, Equatable {
 /// An enum that represents a subtitle text with `UITableViewCellStyle`.
 public enum Subtitle: Equatable {
 
-  /// Does not show a subtitle.
+  /// Does not show a subtitle as `UITableViewCellStyle.default`.
   case none
-  /// Shows the associated text in `UITableViewCellStyle.Subtitle`.
+  /// Shows the associated text in `UITableViewCellStyle.subtitle`.
   case belowTitle(String)
-  /// Shows the associated text in `UITableViewCellStyle.Value1`.
+  /// Shows the associated text in `UITableViewCellStyle.value1`.
   case rightAligned(String)
-  /// Shows the associated text in `UITableViewCellStyle.Value2`.
+  /// Shows the associated text in `UITableViewCellStyle.value2`.
   case leftAligned(String)
 
   /// Returns the descriptive name of the style.
