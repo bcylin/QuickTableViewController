@@ -36,13 +36,7 @@ open class QuickTableViewController: UIViewController,
 
   /// Returns the table view managed by the controller object.
   /// To override the cell type to display certain rows, register a different type with `row.cellReuseIdentifier`.
-  public private(set) lazy var tableView: UITableView = {
-    let _tableView = UITableView(frame: CGRect.zero, style: .grouped)
-    _tableView.register(SwitchCell.self, forCellReuseIdentifier: String(describing: SwitchCell.self))
-    _tableView.register(TapActionCell.self, forCellReuseIdentifier: String(describing: TapActionCell.self))
-    _tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
-    return _tableView
-  }()
+  public private(set) var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
   /// The layout of sections and rows to display in the table view.
   public var tableContents: [Section] = [] {
@@ -79,6 +73,9 @@ open class QuickTableViewController: UIViewController,
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     tableView.dataSource = self
     tableView.delegate = self
+    tableView.register(SwitchCell.self, forCellReuseIdentifier: String(describing: SwitchCell.self))
+    tableView.register(TapActionCell.self, forCellReuseIdentifier: String(describing: TapActionCell.self))
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
   }
 
   open override func viewWillAppear(_ animated: Bool) {
@@ -212,7 +209,5 @@ private extension UIView {
 
 
 private extension Selector {
-
   static let didToggleSwitch = #selector(QuickTableViewController.didToggleSwitch(_:))
-
 }
