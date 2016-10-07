@@ -114,6 +114,22 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ```
 
+### Use Custom Cell Classes
+
+```swift
+// NavigationRow
+tableView.register(CustomCell.self, forCellReuseIdentifier: "Subtitle.None")
+tableView.register(CustomSubtitleCell.self, forCellReuseIdentifier: "Subtitle.BelowTitle")
+tableView.register(CustomValue1StyleCell.self, forCellReuseIdentifier: "Subtitle.RightAligned")
+tableView.register(CustomValue2StyleCell.self, forCellReuseIdentifier: "Subtitle.LeftAligned")
+
+// SwitchRow
+tableView.register(CustomSwitchCell.self, forCellReuseIdentifier: "SwitchCell")
+
+// TapActionRow
+tableView.register(CustomTapActionCell.self, forCellReuseIdentifier: "TapActionCell")
+```
+
 ### Full Documentation
 
 <https://bcylin.github.io/QuickTableViewController>
