@@ -1,6 +1,15 @@
 # Change Log
 
+## v0.5.1
+
+#### Changes
+
+* Specify table view cell reuse identifier on each type of row
+* Update Swift syntax
+
 ## v0.5.0
+
+#### Changes
 
 * Swift 3.0
 
