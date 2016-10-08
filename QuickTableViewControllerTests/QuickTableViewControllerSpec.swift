@@ -28,9 +28,47 @@ import Nimble
 import Quick
 import QuickTableViewController
 
+// swiftlint:disable type_body_length
 class QuickTableViewControllerSpec: QuickSpec {
 
   override func spec() {
+
+    // MARK: - Initializer
+
+    describe("init(style:)") {
+      it("should set up table view with style") {
+        expect(QuickTableViewController().tableView.style) == UITableViewStyle.grouped
+        expect(QuickTableViewController(style: .plain).tableView.style) == UITableViewStyle.plain
+      }
+    }
+
+    // MARK: - UIViewController
+
+    describe("lifecycle") {
+      var tableView: UITableView!
+
+      it("should set up table view") {
+        let controller = QuickTableViewController(style: .grouped)
+        let view = controller.view
+        tableView = controller.tableView
+
+        expect(view?.subviews).to(contain(tableView))
+        expect(tableView.dataSource as? QuickTableViewController) == controller
+        expect(tableView.delegate as? QuickTableViewController) == controller
+      }
+
+      it("should register table view cell classes") {
+        expect(tableView.dequeueReusableCell(withIdentifier: "SwitchCell")).to(beAnInstanceOf(SwitchCell.self))
+        expect(tableView.dequeueReusableCell(withIdentifier: "TapActionCell")).to(beAnInstanceOf(TapActionCell.self))
+        expect(tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")).to(beAnInstanceOf(UITableViewCell.self))
+      }
+
+      it("should nullify the references after controller is gone") {
+        expect(tableView).notTo(beNil())
+        expect(tableView.dataSource).toEventually(beNil())
+        expect(tableView.delegate).toEventually(beNil())
+      }
+    }
 
     // MARK: - UITableViewDataSource
 

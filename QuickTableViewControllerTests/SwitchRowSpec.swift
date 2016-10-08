@@ -38,6 +38,7 @@ class SwitchRowSpec: QuickSpec {
       it("should initialize with given parameters") {
         expect(row.title) == "title"
         expect(row.switchValue) == true
+        expect(row.cellReuseIdentifier) == "SwitchCell"
         expect(row.action).notTo(beNil())
 
         row.action?(row)

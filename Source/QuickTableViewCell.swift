@@ -27,7 +27,7 @@
 import UIKit
 
 /// A `UITableViewCell` subclass with the title text center aligned.
-public class TapActionCell: UITableViewCell {
+open class TapActionCell: UITableViewCell {
 
   private static var systemTintColor: UIColor = {
     let _button = UIButton()
@@ -75,7 +75,7 @@ public class TapActionCell: UITableViewCell {
 
 
 /// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
-public class SwitchCell: UITableViewCell {
+open class SwitchCell: UITableViewCell {
 
   /// A `UISwitch` as the `accessoryView`.
   public let switchControl = UISwitch()

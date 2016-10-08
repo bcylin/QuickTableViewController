@@ -57,6 +57,8 @@ public protocol Row {
   var title: String { get }
   /// The subtitle text of the row.
   var subtitle: Subtitle? { get }
+  /// The reuse identifier of the table view cell to display the row.
+  var cellReuseIdentifier: String { get }
   /// A closure related to the action of the row.
   var action: ((Row) -> Void)? { get }
 }
@@ -65,7 +67,7 @@ public protocol Row {
 extension Row {
 
   /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
-  public static func ==(lhs: Self, rhs: Self) -> Bool {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
     return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
   }
 
@@ -124,7 +126,7 @@ public struct Icon: Equatable {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal images, highlighted images and image names.
-  public static func ==(lhs: Icon, rhs: Icon) -> Bool {
+  public static func == (lhs: Icon, rhs: Icon) -> Bool {
     if let lhsName = lhs.imageName, let rhsName = rhs.imageName {
       return lhsName == rhsName
     } else {
@@ -149,6 +151,11 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
   /// The icon of the row.
   public var icon: Icon?
 
+  /// Returns `subtitle.style` as the reuse identifier of the table view cell to display the row.
+  public var cellReuseIdentifier: String {
+    return subtitle?.style ?? String(describing: UITableViewCell.self)
+  }
+
   /// A closure related to the navigation when the row is selected.
   public var action: ((Row) -> Void)?
 
@@ -165,7 +172,7 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
-  public static func ==(lhs: NavigationRow, rhs: NavigationRow) -> Bool {
+  public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
     return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
   }
 
@@ -194,6 +201,9 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
     }
   }
 
+  /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = String(describing: SwitchCell.self)
+
   /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 
@@ -210,7 +220,7 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
-  public static func ==(lhs: SwitchRow, rhs: SwitchRow) -> Bool {
+  public static func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
     return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
   }
 
@@ -228,6 +238,9 @@ public struct TapActionRow: Row, Equatable {
 
   /// Subtitle is disabled in TapActionRow.
   public let subtitle: Subtitle? = nil
+
+  /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = String(describing: TapActionCell.self)
 
   /// A closure as the tap action when the row is selected.
   public var action: ((Row) -> Void)?
@@ -249,13 +262,13 @@ public struct TapActionRow: Row, Equatable {
 /// An enum that represents a subtitle text with `UITableViewCellStyle`.
 public enum Subtitle: Equatable {
 
-  /// Does not show a subtitle.
+  /// Does not show a subtitle as `UITableViewCellStyle.default`.
   case none
-  /// Shows the associated text in `UITableViewCellStyle.Subtitle`.
+  /// Shows the associated text in `UITableViewCellStyle.subtitle`.
   case belowTitle(String)
-  /// Shows the associated text in `UITableViewCellStyle.Value1`.
+  /// Shows the associated text in `UITableViewCellStyle.value1`.
   case rightAligned(String)
-  /// Shows the associated text in `UITableViewCellStyle.Value2`.
+  /// Shows the associated text in `UITableViewCellStyle.value2`.
   case leftAligned(String)
 
   /// Returns the descriptive name of the style.
@@ -274,9 +287,9 @@ public enum Subtitle: Equatable {
   public var text: String? {
     get {
       switch self {
-      case .belowTitle(let text): return text
-      case .rightAligned(let text): return text
-      case .leftAligned(let text): return text
+      case let .belowTitle(text): return text
+      case let .rightAligned(text): return text
+      case let .leftAligned(text): return text
       default: return nil
       }
     }
@@ -285,15 +298,15 @@ public enum Subtitle: Equatable {
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal texts in the same `Subtitle`.
-  public static func ==(lhs: Subtitle, rhs: Subtitle) -> Bool {
+  public static func == (lhs: Subtitle, rhs: Subtitle) -> Bool {
     switch (lhs, rhs) {
     case (.none, .none):
       return true
-    case (.belowTitle(let a), .belowTitle(let b)):
+    case let (.belowTitle(a), .belowTitle(b)):
       return a == b
-    case (.rightAligned(let a), .rightAligned(let b)):
+    case let (.rightAligned(a), .rightAligned(b)):
       return a == b
-    case (.leftAligned(let a), .leftAligned(let b)):
+    case let (.leftAligned(a), .leftAligned(b)):
       return a == b
     default:
       return false

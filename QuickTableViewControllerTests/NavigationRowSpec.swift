@@ -42,6 +42,7 @@ class NavigationRowSpec: QuickSpec {
         expect(row.title) == "title"
         expect(row.subtitle) == subtitle
         expect(row.icon) == icon
+        expect(row.cellReuseIdentifier) == subtitle.style
         expect(row.action).notTo(beNil())
 
         row.action?(row)

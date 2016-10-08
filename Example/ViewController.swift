@@ -72,7 +72,7 @@ class ViewController: QuickTableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
-    if tableContents[(indexPath as NSIndexPath).section].title == nil {
+    if tableContents[indexPath.section].title == nil {
       // Alter the cells created by QuickTableViewController
       cell.imageView?.image = UIImage(named: "iconmonstr-x-mark")
     }
