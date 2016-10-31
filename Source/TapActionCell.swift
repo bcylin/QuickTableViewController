@@ -1,5 +1,5 @@
 //
-//  QuickTableViewCell.swift
+//  TapActionCell.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 03/09/2015.
@@ -66,45 +66,6 @@ open class TapActionCell: UITableViewCell {
   private func setUpAppearance() {
     textLabel?.textAlignment = .center
     textLabel?.textColor = type(of: self).systemTintColor
-  }
-
-}
-
-
-// MARK: - SwitchCell
-
-
-/// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
-open class SwitchCell: UITableViewCell {
-
-  /// A `UISwitch` as the `accessoryView`.
-  public let switchControl = UISwitch()
-
-  // MARK: Initializer
-
-  /**
-   Overrides `UITableViewCell`'s designated initializer.
-
-   - parameter style:           Unused. It always uses `UITableViewCellStyle.Default`.
-   - parameter reuseIdentifier: A string used to identify the cell object if it is to be reused for drawing multiple rows of a table view.
-
-   - returns: An initialized `SwitchCell` object.
-   */
-  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: .default, reuseIdentifier: reuseIdentifier)
-    accessoryView = switchControl
-  }
-
-  /**
-   Overrides the designated initializer that returns an object initialized from data in a given unarchiver.
-
-   - parameter aDecoder: An unarchiver object.
-
-   - returns: `self`, initialized using the data in decoder.
-   */
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    accessoryView = switchControl
   }
 
 }
