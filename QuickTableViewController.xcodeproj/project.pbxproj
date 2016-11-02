@@ -237,7 +237,7 @@
 		B5334F0A1B8CC5BD00C64A6D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = bcylin;
 				TargetAttributes = {
 					B5334F121B8CC5BD00C64A6D = {
