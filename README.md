@@ -51,11 +51,11 @@ class ViewController: QuickTableViewController {
 
   // MARK: - Actions
 
-  private func showAlert(sender: Row) {
+  private func showAlert(_ sender: Row) {
     // ...
   }
 
-  private func showDetail(sender: Row) {
+  private func showDetail(_ sender: Row) {
     // ...
   }
 
@@ -146,45 +146,34 @@ QuickTableViewController | iOS  | Xcode | Swift
 
 ## Installation
 
-### Install via [Carthage](https://github.com/Carthage/Carthage)
+### Use [CocoaPods](http://guides.cocoapods.org/)
 
-* Create a `Cartfile` with the following specification and run `carthage bootstrap`.
+Create a `Podfile` with the following specification and run `pod install`.
 
-  ```
-  github "bcylin/QuickTableViewController"
-  ```
+```rb
+platform :ios, '8.0'
+use_frameworks!
 
-* On your application targets' **General** settings tab, in the **Linked Frameworks and Libraries** section, drag and drop `QuickTableViewController.framework` from the Carthage/Build folder.
+pod 'QuickTableViewController', '~> 0.5.0'
+```
 
-* On your application targets’ **Build Phases** settings tab, click the **+** icon and choose **New Run Script Phase**. Create a Run Script with the following contents:
+### Use [Carthage](https://github.com/Carthage/Carthage)
 
-  ```
-  /usr/local/bin/carthage copy-frameworks
-  ```
+Create a `Cartfile` with the following specification and run `carthage update QuickTableViewController`.
+Follow the [instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the framework to your project.
 
-  and add the following path to **Input Files**:
+```
+github "bcylin/QuickTableViewController" ~> 0.5.0
+```
 
-  ```
-  $(SRCROOT)/Carthage/Build/iOS/QuickTableViewController.framework
-  ```
+### Use Git Submodule
 
-* For more information, please check out the [Carthage Documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios).
+```
+git submodule add -b master git@github.com:bcylin/QuickTableViewController.git Dependencies/QuickTableViewController
+```
 
-### Install via [CocoaPods](http://guides.cocoapods.org/)
-
-* Create a `Podfile` with the following specification and run `pod install`.
-
-  ```rb
-  platform :ios, '8.0'
-  use_frameworks!
-
-  pod 'QuickTableViewController', '~> 0.5.0'
-  ```
-
-### Install Manually
-
-* Copy `*.swift` files in the `Source` directory to an iOS project.
-
+* Drag **QuickTableViewController.xcodeproj** to your app project as a subproject.
+* On your application target's **Build Phases** settings tab, add **QuickTableViewController-iOS** to **Target Dependencies**.
 
 ## Contact
 
