@@ -93,7 +93,11 @@
 				B5334F151B8CC5BD00C64A6D /* QuickTableViewController */,
 				B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
+			wrapsLines = 0;
 		};
 		B5334F141B8CC5BD00C64A6D /* Products */ = {
 			isa = PBXGroup;
@@ -233,7 +237,7 @@
 		B5334F0A1B8CC5BD00C64A6D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = bcylin;
 				TargetAttributes = {
 					B5334F121B8CC5BD00C64A6D = {
