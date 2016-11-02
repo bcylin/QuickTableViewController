@@ -3,7 +3,7 @@ ruby "2.3.1"
 
 gem "bundler"
 gem "cocoapods", "~> 1.1.0"
-gem "danger", "~> 0.10.0"
+gem "danger", "~> 4.0.0"
 gem "jazzy", "~> 0.7.0"
 gem "rake"
 gem "scan"
