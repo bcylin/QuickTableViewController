@@ -9,3 +9,4 @@
 scheme "QuickTableViewController-iOS"
 code_coverage true
 clean true
+device "iPhone SE"
