@@ -3,6 +3,7 @@ disabled_rules:
   - force_cast
   - function_body_length
   - valid_docs
+  - vertical_whitespace
 included:
   - Example
   - QuickTableViewControllerTests
