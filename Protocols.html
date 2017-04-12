@@ -8,6 +8,9 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
 
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -20,6 +23,12 @@
           QuickTableViewController Docs
         </a>
          (87% documented)
+      </p>
+
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
 
         <p class="header-col header-col--secondary">
@@ -108,55 +117,6 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Row"></a>
-                <a name="//apple_ref/swift/Section/Row" class="dashAnchor"></a>
-                <a href="#/Row">
-                  <h3 class="section-name">Row</h3>
-                </a>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:P24QuickTableViewController3Row"></a>
-                    <a name="//apple_ref/swift/Protocol/Row" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P24QuickTableViewController3Row">Row</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Any type that conforms to this protocol is capable of representing a row in a table view.</p>
-
-                        <a href="Protocols/Row.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Row</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableModel.swift#L55-L64">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Icon"></a>
-                <a name="//apple_ref/swift/Section/Icon" class="dashAnchor"></a>
-                <a href="#/Icon">
-                  <h3 class="section-name">Icon</h3>
-                </a>
-              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -184,7 +144,42 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableModel.swift#L81-L84">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Icon.swift#L30-L33">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P24QuickTableViewController3Row"></a>
+                    <a name="//apple_ref/swift/Protocol/Row" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P24QuickTableViewController3Row">Row</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Any type that conforms to this protocol is capable of representing a row in a table view.</p>
+
+                        <a href="Protocols/Row.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Row</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Row.swift#L30-L39">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -197,8 +192,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2016-11-02)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-04-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

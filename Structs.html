@@ -8,6 +8,9 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
 
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -20,6 +23,12 @@
           QuickTableViewController Docs
         </a>
          (87% documented)
+      </p>
+
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
 
         <p class="header-col header-col--secondary">
@@ -112,48 +121,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V24QuickTableViewController7Section"></a>
-                    <a name="//apple_ref/swift/Struct/Section" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V24QuickTableViewController7Section">Section</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A struct that represents a section in a table view.</p>
-
-                        <a href="Structs/Section.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Section</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableModel.swift#L30-L48">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Icon"></a>
-                <a name="//apple_ref/swift/Section/Icon" class="dashAnchor"></a>
-                <a href="#/Icon">
-                  <h3 class="section-name">Icon</h3>
-                </a>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:V24QuickTableViewController4Icon"></a>
                     <a name="//apple_ref/swift/Struct/Icon" class="dashAnchor"></a>
                     <a class="token" href="#/s:V24QuickTableViewController4Icon">Icon</a>
@@ -177,7 +144,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableModel.swift#L87-L137">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Icon.swift#L37-L87">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -185,13 +152,6 @@
               </ul>
             </div>
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/NavigationRow"></a>
-                <a name="//apple_ref/swift/Section/NavigationRow" class="dashAnchor"></a>
-                <a href="#/NavigationRow">
-                  <h3 class="section-name">NavigationRow</h3>
-                </a>
-              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -219,7 +179,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableModel.swift#L143-L179">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/NavigationRow.swift#L30-L66">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -227,13 +187,41 @@
               </ul>
             </div>
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/SwitchRow"></a>
-                <a name="//apple_ref/swift/Section/SwitchRow" class="dashAnchor"></a>
-                <a href="#/SwitchRow">
-                  <h3 class="section-name">SwitchRow</h3>
-                </a>
-              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V24QuickTableViewController7Section"></a>
+                    <a name="//apple_ref/swift/Struct/Section" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V24QuickTableViewController7Section">Section</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A struct that represents a section in a table view.</p>
+
+                        <a href="Structs/Section.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Section</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Section.swift#L30-L48">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -261,7 +249,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableModel.swift#L186-L227">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/SwitchRow.swift#L30-L71">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -269,13 +257,6 @@
               </ul>
             </div>
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TapActionRow"></a>
-                <a name="//apple_ref/swift/Section/TapActionRow" class="dashAnchor"></a>
-                <a href="#/TapActionRow">
-                  <h3 class="section-name">TapActionRow</h3>
-                </a>
-              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
@@ -303,7 +284,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableModel.swift#L234-L256">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/TapActionRow.swift#L30-L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -316,8 +297,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2016-11-02)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-04-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
