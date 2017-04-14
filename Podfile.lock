@@ -1,7 +1,7 @@
 PODS:
   - Nimble (6.1.0)
   - Quick (1.1.0)
-  - QuickTableViewController (0.5.1)
+  - QuickTableViewController (0.5.2)
 
 DEPENDENCIES:
   - Nimble (from `https://github.com/Quick/Nimble.git`, tag `v6.1.0`)
@@ -29,7 +29,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Nimble: 46fc2a2c3f2f5bb5e2d7e89756fb710c1457f27a
   Quick: 4700beb8056662b579facd79eaca7f04fb3d48e6
-  QuickTableViewController: 7f984b4af21e9f2fc7ef840e40a7f46a0198039a
+  QuickTableViewController: cbaacea5a467f2e1bf83d13a716c5bbd6bc9f6b2
 
 PODFILE CHECKSUM: a12ebb981507415ad7c19091d127cf3c2f6c6af0
 
