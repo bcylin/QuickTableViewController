@@ -1,5 +1,12 @@
 # Change Log
 
+## v0.5.2
+
+#### Changes
+
+* Xcode 8.3
+* Make the image name and highlighted image name of `Icon` public readonly
+
 ## v0.5.1
 
 #### Changes
