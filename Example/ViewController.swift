@@ -26,6 +26,7 @@
 
 import UIKit
 import QuickTableViewController
+import Weakify
 
 class ViewController: QuickTableViewController {
 
@@ -41,25 +42,25 @@ class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: printValue),
-        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: printValue)
+        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).printValue)),
+        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).printValue))
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: showAlert)
+        TapActionRow(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Cell Styles", rows: [
         NavigationRow(title: "CellStyle.Default", subtitle: .none, icon: Icon(image: gear)),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".Subtitle"), icon: Icon(image: globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1"), icon: Icon(image: time), action: showDetail),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".Value2"))
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "Navigation", subtitle: .none, action: showDetail),
-        NavigationRow(title: "Navigation", subtitle: .belowTitle("with subtitle"), action: showDetail),
-        NavigationRow(title: "Navigation", subtitle: .rightAligned("with detail text"), action: showDetail)
+        NavigationRow(title: "Navigation", subtitle: .none, action: weakify(self, type(of: self).showDetail)),
+        NavigationRow(title: "Navigation", subtitle: .belowTitle("with subtitle"), action: weakify(self, type(of: self).showDetail)),
+        NavigationRow(title: "Navigation", subtitle: .rightAligned("with detail text"), action: weakify(self, type(of: self).showDetail))
       ], footer: "UITableViewCellStyle.Value2 is not listed."),
 
       Section(title: nil, rows: [
