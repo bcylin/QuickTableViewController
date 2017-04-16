@@ -37,13 +37,13 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: showAlert)
+        TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
       ]),
 
       Section(title: "Cell Styles", rows: [
         NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: UIImage(named: "exit"), highlightedImage: UIImage(named: "exit-highlighted"))),
         NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: UIImage(named: "language"))),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(imageName: "timeMachine"), action: showDetail),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(imageName: "timeMachine"), action: { [weak self] in self?.showDetail($0) }),
         NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
       ])
     ]
