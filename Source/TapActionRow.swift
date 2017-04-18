@@ -36,7 +36,7 @@ public struct TapActionRow: Row, Equatable {
   public let subtitle: Subtitle? = nil
 
   /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
-  public let cellReuseIdentifier: String = String(describing: TapActionCell.self)
+  public let cellReuseIdentifier: String = NSStringFromClass(TapActionCell.self)
 
   /// A closure as the tap action when the row is selected.
   public var action: ((Row) -> Void)?

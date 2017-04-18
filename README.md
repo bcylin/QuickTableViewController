@@ -124,10 +124,10 @@ tableView.register(CustomValue1StyleCell.self, forCellReuseIdentifier: "Subtitle
 tableView.register(CustomValue2StyleCell.self, forCellReuseIdentifier: "Subtitle.LeftAligned")
 
 // SwitchRow
-tableView.register(CustomSwitchCell.self, forCellReuseIdentifier: "SwitchCell")
+tableView.register(CustomSwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
 
 // TapActionRow
-tableView.register(CustomTapActionCell.self, forCellReuseIdentifier: "TapActionCell")
+tableView.register(CustomTapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
 ```
 
 ### Full Documentation

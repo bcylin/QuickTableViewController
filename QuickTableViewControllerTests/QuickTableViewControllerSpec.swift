@@ -58,8 +58,8 @@ class QuickTableViewControllerSpec: QuickSpec {
       }
 
       it("should register table view cell classes") {
-        expect(tableView.dequeueReusableCell(withIdentifier: "SwitchCell")).to(beAnInstanceOf(SwitchCell.self))
-        expect(tableView.dequeueReusableCell(withIdentifier: "TapActionCell")).to(beAnInstanceOf(TapActionCell.self))
+        expect(tableView.dequeueReusableCell(withIdentifier: "QuickTableViewController.SwitchCell")).to(beAnInstanceOf(SwitchCell.self))
+        expect(tableView.dequeueReusableCell(withIdentifier: "QuickTableViewController.TapActionCell")).to(beAnInstanceOf(TapActionCell.self))
         expect(tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")).to(beAnInstanceOf(UITableViewCell.self))
       }
 
