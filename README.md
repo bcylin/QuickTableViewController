@@ -122,13 +122,17 @@ tableView.register(CustomCell.self, forCellReuseIdentifier: "Subtitle.None")
 tableView.register(CustomSubtitleCell.self, forCellReuseIdentifier: "Subtitle.BelowTitle")
 tableView.register(CustomValue1StyleCell.self, forCellReuseIdentifier: "Subtitle.RightAligned")
 tableView.register(CustomValue2StyleCell.self, forCellReuseIdentifier: "Subtitle.LeftAligned")
+```
 
+```swift
 // SwitchRow
 tableView.register(CustomSwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
 
 // TapActionRow
 tableView.register(CustomTapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
 ```
+
+> Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
 
 ### Full Documentation
 
