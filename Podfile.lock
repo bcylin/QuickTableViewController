@@ -1,7 +1,7 @@
 PODS:
   - Nimble (6.1.0)
   - Quick (1.1.0)
-  - QuickTableViewController (0.5.2)
+  - QuickTableViewController (0.5.3)
   - Weakify (0.4.0)
 
 DEPENDENCIES:
@@ -37,7 +37,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Nimble: 46fc2a2c3f2f5bb5e2d7e89756fb710c1457f27a
   Quick: 4700beb8056662b579facd79eaca7f04fb3d48e6
-  QuickTableViewController: cbaacea5a467f2e1bf83d13a716c5bbd6bc9f6b2
+  QuickTableViewController: 245898ed807cd025e5fe6882402e5b9d54c6309f
   Weakify: 77be86c462237baa373e97fcf57d4d8637c2e614
 
 PODFILE CHECKSUM: b520bcde1e1651aa7c27f37788849ebe65f1c362
