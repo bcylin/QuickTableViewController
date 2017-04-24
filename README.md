@@ -37,13 +37,13 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: showAlert)
+        TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
       ]),
 
       Section(title: "Cell Styles", rows: [
         NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: UIImage(named: "exit"), highlightedImage: UIImage(named: "exit-highlighted"))),
         NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: UIImage(named: "language"))),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(imageName: "timeMachine"), action: showDetail),
+        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(imageName: "timeMachine"), action: { [weak self] in self?.showDetail($0) }),
         NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
       ])
     ]
@@ -122,13 +122,17 @@ tableView.register(CustomCell.self, forCellReuseIdentifier: "Subtitle.None")
 tableView.register(CustomSubtitleCell.self, forCellReuseIdentifier: "Subtitle.BelowTitle")
 tableView.register(CustomValue1StyleCell.self, forCellReuseIdentifier: "Subtitle.RightAligned")
 tableView.register(CustomValue2StyleCell.self, forCellReuseIdentifier: "Subtitle.LeftAligned")
+```
 
+```swift
 // SwitchRow
-tableView.register(CustomSwitchCell.self, forCellReuseIdentifier: "SwitchCell")
+tableView.register(CustomSwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
 
 // TapActionRow
-tableView.register(CustomTapActionCell.self, forCellReuseIdentifier: "TapActionCell")
+tableView.register(CustomTapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
 ```
+
+> Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
 
 ### Full Documentation
 

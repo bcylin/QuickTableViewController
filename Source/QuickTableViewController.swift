@@ -73,9 +73,9 @@ open class QuickTableViewController: UIViewController,
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.register(SwitchCell.self, forCellReuseIdentifier: String(describing: SwitchCell.self))
-    tableView.register(TapActionCell.self, forCellReuseIdentifier: String(describing: TapActionCell.self))
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+    tableView.register(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
+    tableView.register(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
   }
 
   open override func viewWillAppear(_ animated: Bool) {
@@ -148,7 +148,7 @@ open class QuickTableViewController: UIViewController,
     }
 
     cell?.textLabel?.text = row.title
-    return cell ?? tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
+    return cell ?? tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
   }
 
   open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

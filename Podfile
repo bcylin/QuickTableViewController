@@ -12,4 +12,5 @@ end
 target :Example do
   project "Example"
   pod "QuickTableViewController", path: "./"
+  pod "Weakify", git: "https://github.com/klundberg/Weakify.git", tag: "v0.4.0"
 end

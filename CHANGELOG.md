@@ -1,5 +1,16 @@
 # Change Log
 
+## v0.5.3
+
+* Fix the cell reuse identifier of `SwitchRow` and `TapActionRow` to be compatible with `0.5.x`
+
+Cell Reuse identifier | SwitchRow                            | TapActionRow
+--------------------- | ------------------------------------ | ---------------------------------------
+`<= 0.5.0`            | `NSStringFromClass(SwitchRow.self)`  | `NSStringFromClass(TapActionRow.self)`
+`== 0.5.1`            | `String(describing: SwitchRow.self)` | `String(describing: TapActionRow.self)`
+`== 0.5.2`            | `String(describing: SwitchRow.self)` | `String(describing: TapActionRow.self)`
+`== 0.5.3`            | `NSStringFromClass(SwitchRow.self)`  | `NSStringFromClass(TapActionRow.self)`
+
 ## v0.5.2
 
 #### Changes

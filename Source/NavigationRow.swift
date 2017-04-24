@@ -40,7 +40,7 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
 
   /// Returns `subtitle.style` as the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
-    return subtitle?.style ?? String(describing: UITableViewCell.self)
+    return subtitle?.style ?? NSStringFromClass(UITableViewCell.self)
   }
 
   /// A closure related to the navigation when the row is selected.
