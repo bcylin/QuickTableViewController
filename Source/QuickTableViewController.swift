@@ -109,11 +109,11 @@ open class QuickTableViewController: UIViewController,
       switch subtitle {
       case .none:
         cell = cell ?? UITableViewCell(style: .default, reuseIdentifier: subtitle.style)
-      case .belowTitle(_):
+      case .belowTitle:
         cell = cell ?? UITableViewCell(style: .subtitle, reuseIdentifier: subtitle.style)
-      case .rightAligned(_):
+      case .rightAligned:
         cell = cell ?? UITableViewCell(style: .value1, reuseIdentifier: subtitle.style)
-      case .leftAligned(_):
+      case .leftAligned:
         cell = cell ?? UITableViewCell(style: .value2, reuseIdentifier: subtitle.style)
       }
 
