@@ -4,10 +4,8 @@ matrix:
   include:
     - env: VERSION=latest
 cache:
-  bundler: true
-  directories:
-  - vendor/bundle
-  - Pods
+  - bundler
+  - cocoapods
 before_install:
   - export LANG=en_US.UTF-8
 install:

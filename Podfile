@@ -12,5 +12,6 @@ end
 target :Example do
   project "Example"
   pod "QuickTableViewController", path: "./"
+  pod "SwiftLint", podspec: "https://raw.githubusercontent.com/bcylin/Specs/master/Specs/SwiftLint/0.19.0/SwiftLint.podspec"
   pod "Weakify", git: "https://github.com/klundberg/Weakify.git", tag: "v0.4.0"
 end
