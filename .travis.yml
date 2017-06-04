@@ -15,7 +15,7 @@ before_script:
   - if [ -n "$DANGER_GITHUB_API_TOKEN" ]; then bundle exec danger; fi
 script:
   - bundle exec rake ci:build[Example]
-  - bundle exec fastlane scan --scheme QuickTableViewController-iOS
+  - bundle exec rake ci:test[QuickTableViewController-iOS]
   - make -B carthage
   - make -B docs
 after_success:

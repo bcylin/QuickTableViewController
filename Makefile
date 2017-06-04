@@ -1,8 +1,8 @@
 default: test
 
 test:
-	bundle exec rake ci:build[Example]
-	bundle exec fastlane scan --scheme QuickTableViewController-iOS
+	bundle exec rake 'ci:build[Example]'
+	bundle exec rake 'ci:test[QuickTableViewController-iOS]'
 	make -B carthage
 	make -B docs
 
