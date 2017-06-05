@@ -4,6 +4,9 @@ disabled_rules:
   - function_body_length
   - valid_docs
   - vertical_whitespace
+opt_in_rules:
+  - explicit_init
+  - operator_usage_whitespace
 included:
   - Example
   - QuickTableViewControllerTests

@@ -41,10 +41,10 @@ public enum Subtitle: Equatable {
   /// Returns the descriptive name of the style.
   public var style: String {
     switch self {
-    case .none:             return "Subtitle.None"
-    case .belowTitle(_):    return "Subtitle.BelowTitle"
-    case .rightAligned(_):  return "Subtitle.RightAligned"
-    case .leftAligned(_):   return "Subtitle.LeftAligned"
+    case .none:          return "Subtitle.None"
+    case .belowTitle:    return "Subtitle.BelowTitle"
+    case .rightAligned:  return "Subtitle.RightAligned"
+    case .leftAligned:   return "Subtitle.LeftAligned"
     }
   }
 

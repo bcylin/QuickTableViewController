@@ -2,12 +2,14 @@ PODS:
   - Nimble (6.1.0)
   - Quick (1.1.0)
   - QuickTableViewController (0.5.3)
+  - SwiftLint (0.19.0)
   - Weakify (0.4.0)
 
 DEPENDENCIES:
   - Nimble (from `https://github.com/Quick/Nimble.git`, tag `v6.1.0`)
   - Quick (from `https://github.com/Quick/Quick.git`, tag `v1.1.0`)
   - QuickTableViewController (from `./`)
+  - SwiftLint (from `https://raw.githubusercontent.com/bcylin/Specs/master/Specs/SwiftLint/0.19.0/SwiftLint.podspec`)
   - Weakify (from `https://github.com/klundberg/Weakify.git`, tag `v0.4.0`)
 
 EXTERNAL SOURCES:
@@ -19,6 +21,8 @@ EXTERNAL SOURCES:
     :tag: v1.1.0
   QuickTableViewController:
     :path: "./"
+  SwiftLint:
+    :podspec: https://raw.githubusercontent.com/bcylin/Specs/master/Specs/SwiftLint/0.19.0/SwiftLint.podspec
   Weakify:
     :git: https://github.com/klundberg/Weakify.git
     :tag: v0.4.0
@@ -38,8 +42,9 @@ SPEC CHECKSUMS:
   Nimble: 46fc2a2c3f2f5bb5e2d7e89756fb710c1457f27a
   Quick: 4700beb8056662b579facd79eaca7f04fb3d48e6
   QuickTableViewController: 245898ed807cd025e5fe6882402e5b9d54c6309f
+  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   Weakify: 77be86c462237baa373e97fcf57d4d8637c2e614
 
-PODFILE CHECKSUM: b520bcde1e1651aa7c27f37788849ebe65f1c362
+PODFILE CHECKSUM: 8a36ebef331d39c98f2756b72fd9b19ace48fe20
 
 COCOAPODS: 1.2.1
