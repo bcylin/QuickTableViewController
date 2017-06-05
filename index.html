@@ -109,7 +109,7 @@
         <section class="section">
           <div class="section-content">
 
-            <a href='#quicktableviewcontroller' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='quicktableviewcontroller'>QuickTableViewController</h1>
+            <h1 id='quicktableviewcontroller' class='heading'>QuickTableViewController</h1>
 
 <p><a href="https://travis-ci.org/bcylin/QuickTableViewController"><img src="https://travis-ci.org/bcylin/QuickTableViewController.svg" alt="Build Status"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
@@ -130,7 +130,7 @@
 </ul>
 
 <p><img src="https://bcylin.github.io/QuickTableViewController/img/screenshot.png" width="50%"></img></p>
-<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<h2 id='usage' class='heading'>Usage</h2>
 
 <p>Set up <code>tableContents</code> in <code>viewDidLoad</code>:</p>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">QuickTableViewController</span>
@@ -171,14 +171,14 @@
 
 <span class="p">}</span>
 </code></pre>
-<a href='#navigationrow' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='navigationrow'>NavigationRow</h3>
-<a href='#subtitle-styles' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='subtitle-styles'>Subtitle Styles</h4>
+<h3 id='navigationrow' class='heading'>NavigationRow</h3>
+<h4 id='subtitle-styles' class='heading'>Subtitle Styles</h4>
 <pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle.Default"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">)</span>
 <span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">BelowTitle</span><span class="p">(</span><span class="s">".Subtitle"</span><span class="p">)</span>
 <span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">RightAligned</span><span class="p">(</span><span class="s">".Value1"</span><span class="p">)</span>
 <span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">LeftAligned</span><span class="p">(</span><span class="s">".Value2"</span><span class="p">))</span>
 </code></pre>
-<a href='#iconenabled' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='iconenabled'>IconEnabled</h4>
+<h4 id='iconenabled' class='heading'>IconEnabled</h4>
 
 <ul>
 <li>Images in table view cells can be set by specifying the <code>icon</code> of each <code>IconEnabled</code> row.</li>
@@ -187,7 +187,7 @@
 </ul>
 <pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell with image"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"icon"</span><span class="p">))</span>
 </code></pre>
-<a href='#disclosure-indicator' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='disclosure-indicator'>Disclosure Indicator</h4>
+<h4 id='disclosure-indicator' class='heading'>Disclosure Indicator</h4>
 
 <ul>
 <li>A <code>NavigationRow</code> with an <code>action</code> will be displayed in a table view cell whose <code>accessoryType</code> is <code>.DisclosureIndicator</code>.</li>
@@ -195,7 +195,7 @@
 </ul>
 <pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation cell"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
-<a href='#switchrow' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='switchrow'>SwitchRow</h3>
+<h3 id='switchrow' class='heading'>SwitchRow</h3>
 
 <ul>
 <li>A <code>SwitchRow</code> is associated to a table view cell with a <code>UISwitch</code> as its <code>
@@ -209,7 +209,7 @@ accessoryView</code>.</li>
 <blockquote>
 <p>The original <code>SwitchRow</code> in the <code>tableContents</code> will be replaced by an updated one after the <code>switchValue</code> changed.</p>
 </blockquote>
-<a href='#tapactionrow' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='tapactionrow'>TapActionRow</h3>
+<h3 id='tapactionrow' class='heading'>TapActionRow</h3>
 
 <ul>
 <li>A <code>TapActionRow</code> is associated to a button-like table view cell.</li>
@@ -217,7 +217,7 @@ accessoryView</code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
-<a href='#use-custom-cell-classes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='use-custom-cell-classes'>Use Custom Cell Classes</h3>
+<h3 id='use-custom-cell-classes' class='heading'>Use Custom Cell Classes</h3>
 <pre class="highlight swift"><code><span class="c1">// NavigationRow</span>
 <span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="s">"Subtitle.None"</span><span class="p">)</span>
 <span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomSubtitleCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="s">"Subtitle.BelowTitle"</span><span class="p">)</span>
@@ -234,10 +234,10 @@ accessoryView</code>.</li>
 <blockquote>
 <p>Note: in <code>0.5.1</code> &amp; <code>0.5.2</code>, <strong>SwitchRow</strong> and <strong>TapActionRow</strong> were using <code>String(describing: SwitchCell.self)</code> and <code>String(describing: TapActionCell.self)</code> as reuse identifiers. Fixed in <code>0.5.3</code> for backward compatibility.</p>
 </blockquote>
-<a href='#full-documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='full-documentation'>Full Documentation</h3>
+<h3 id='full-documentation' class='heading'>Full Documentation</h3>
 
 <p><a href="https://bcylin.github.io/QuickTableViewController">https://bcylin.github.io/QuickTableViewController</a></p>
-<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+<h2 id='requirements' class='heading'>Requirements</h2>
 
 <table><thead>
 <tr>
@@ -278,8 +278,8 @@ accessoryView</code>.</li>
 <td style="text-align: center"><img src="https://img.shields.io/badge/Swift-3.0-orange.svg" alt="Swift 3.0"></td>
 </tr>
 </tbody></table>
-<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
-<a href='#use-a-href-http-guides-cocoapods-org-cocoapods-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='use-a-href-http-guides-cocoapods-org-cocoapods-a'>Use <a href="http://guides.cocoapods.org/">CocoaPods</a></h3>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='use-a-href-http-guides-cocoapods-org-cocoapods-a' class='heading'>Use <a href="http://guides.cocoapods.org/">CocoaPods</a></h3>
 
 <p>Create a <code>Podfile</code> with the following specification and run <code>pod install</code>.</p>
 <pre class="highlight ruby"><code><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'8.0'</span>
@@ -287,13 +287,13 @@ accessoryView</code>.</li>
 
 <span class="n">pod</span> <span class="s1">'QuickTableViewController'</span><span class="p">,</span> <span class="s1">'~&gt; 0.5.0'</span>
 </code></pre>
-<a href='#use-a-href-https-github-com-carthage-carthage-carthage-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='use-a-href-https-github-com-carthage-carthage-carthage-a'>Use <a href="https://github.com/Carthage/Carthage">Carthage</a></h3>
+<h3 id='use-a-href-https-github-com-carthage-carthage-carthage-a' class='heading'>Use <a href="https://github.com/Carthage/Carthage">Carthage</a></h3>
 
 <p>Create a <code>Cartfile</code> with the following specification and run <code>carthage update QuickTableViewController</code>.
 Follow the <a href="https://github.com/Carthage/Carthage#adding-frameworks-to-an-application">instructions</a> to add the framework to your project.</p>
 <pre class="highlight plaintext"><code>github "bcylin/QuickTableViewController" ~&gt; 0.5.0
 </code></pre>
-<a href='#use-git-submodule' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='use-git-submodule'>Use Git Submodule</h3>
+<h3 id='use-git-submodule' class='heading'>Use Git Submodule</h3>
 <pre class="highlight plaintext"><code>git submodule add -b master git@github.com:bcylin/QuickTableViewController.git Dependencies/QuickTableViewController
 </code></pre>
 
@@ -301,10 +301,10 @@ Follow the <a href="https://github.com/Carthage/Carthage#adding-frameworks-to-an
 <li>Drag <strong>QuickTableViewController.xcodeproj</strong> to your app project as a subproject.</li>
 <li>On your application target&rsquo;s <strong>Build Phases</strong> settings tab, add <strong>QuickTableViewController-iOS</strong> to <strong>Target Dependencies</strong>.</li>
 </ul>
-<a href='#contact' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contact'>Contact</h2>
+<h2 id='contact' class='heading'>Contact</h2>
 
 <p><a href="https://twitter.com/bcylin"><img src="https://img.shields.io/badge/twitter-@bcylin-blue.svg?style=flat" alt="Twitter"></a></p>
-<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+<h2 id='license' class='heading'>License</h2>
 
 <p>QuickTableViewController is released under the MIT license.
 See <a href="https://github.com/bcylin/QuickTableViewController/blob/master/LICENSE">LICENSE</a> for more details.
@@ -317,8 +317,8 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-04-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-06-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
