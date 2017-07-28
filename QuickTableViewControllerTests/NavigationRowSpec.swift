@@ -26,7 +26,7 @@
 
 import Nimble
 import Quick
-import QuickTableViewController
+@testable import QuickTableViewController
 
 class NavigationRowSpec: QuickSpec {
 
@@ -42,11 +42,25 @@ class NavigationRowSpec: QuickSpec {
         expect(row.title) == "title"
         expect(row.subtitle) == subtitle
         expect(row.icon) == icon
-        expect(row.cellReuseIdentifier) == subtitle.style
+        expect(row.cellReuseIdentifier) == "Subtitle.BelowTitle"
         expect(row.action).notTo(beNil())
 
         row.action?(row)
         expect(invoked) == true
+      }
+    }
+
+    describe("cellReuseIdentifier") {
+      let a = NavigationRow(title: "", subtitle: .none)
+      let b = NavigationRow(title: "", subtitle: .belowTitle(""))
+      let c = NavigationRow(title: "", subtitle: .rightAligned(""))
+      let d = NavigationRow(title: "", subtitle: .leftAligned(""))
+
+      it("should return the backward compatible strings") {
+        expect(a.cellReuseIdentifier) == "Subtitle.None"
+        expect(b.cellReuseIdentifier) == "Subtitle.BelowTitle"
+        expect(c.cellReuseIdentifier) == "Subtitle.RightAligned"
+        expect(d.cellReuseIdentifier) == "Subtitle.LeftAligned"
       }
     }
 

@@ -32,6 +32,8 @@ public protocol Row {
   var title: String { get }
   /// The subtitle text of the row.
   var subtitle: Subtitle? { get }
+  /// The style of the table view cell to display the row.
+  var cellStyle: UITableViewCellStyle { get }
   /// The reuse identifier of the table view cell to display the row.
   var cellReuseIdentifier: String { get }
   /// A closure related to the action of the row.

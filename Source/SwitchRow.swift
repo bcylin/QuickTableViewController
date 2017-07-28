@@ -41,6 +41,9 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   /// The state of the switch.
   public var switchValue: Bool = false
 
+  /// The cell style is UITableViewCellStyle.default.
+  public let cellStyle: UITableViewCellStyle = .default
+
   /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
   public let cellReuseIdentifier: String = NSStringFromClass(SwitchCell.self)
 

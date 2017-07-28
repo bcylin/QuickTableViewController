@@ -38,9 +38,23 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
   /// The icon of the row.
   public var icon: Icon?
 
-  /// Returns `subtitle.style` as the reuse identifier of the table view cell to display the row.
+  /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
-    return subtitle?.style ?? NSStringFromClass(UITableViewCell.self)
+    guard let style = subtitle?.style else {
+      return NSStringFromClass(UITableViewCell.self)
+    }
+    // Use backward compatible strings instead of `subtitle.style.stringValue`.
+    switch style {
+    case .default:  return "Subtitle.None"
+    case .subtitle: return "Subtitle.BelowTitle"
+    case .value1:   return "Subtitle.RightAligned"
+    case .value2:   return "Subtitle.LeftAligned"
+    }
+  }
+
+  /// Returns the table view cell style for the specified subtitle.
+  public var cellStyle: UITableViewCellStyle {
+    return subtitle?.style ?? .default
   }
 
   /// A closure related to the navigation when the row is selected.

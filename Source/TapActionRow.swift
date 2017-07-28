@@ -35,6 +35,9 @@ public struct TapActionRow: Row, Equatable {
   /// Subtitle is disabled in TapActionRow.
   public let subtitle: Subtitle? = nil
 
+  /// The cell style is UITableViewCellStyle.default.
+  public let cellStyle: UITableViewCellStyle = .default
+
   /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
   public let cellReuseIdentifier: String = NSStringFromClass(TapActionCell.self)
 

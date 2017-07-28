@@ -108,13 +108,13 @@ open class QuickTableViewController: UIViewController,
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
       case .none:
-        cell = cell ?? UITableViewCell(style: .default, reuseIdentifier: subtitle.style)
+        cell = cell ?? UITableViewCell(style: .default, reuseIdentifier: subtitle.style.stringValue)
       case .belowTitle:
-        cell = cell ?? UITableViewCell(style: .subtitle, reuseIdentifier: subtitle.style)
+        cell = cell ?? UITableViewCell(style: .subtitle, reuseIdentifier: subtitle.style.stringValue)
       case .rightAligned:
-        cell = cell ?? UITableViewCell(style: .value1, reuseIdentifier: subtitle.style)
+        cell = cell ?? UITableViewCell(style: .value1, reuseIdentifier: subtitle.style.stringValue)
       case .leftAligned:
-        cell = cell ?? UITableViewCell(style: .value2, reuseIdentifier: subtitle.style)
+        cell = cell ?? UITableViewCell(style: .value2, reuseIdentifier: subtitle.style.stringValue)
       }
 
       cell?.detailTextLabel?.text = subtitle.text
