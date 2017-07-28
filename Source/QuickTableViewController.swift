@@ -165,11 +165,11 @@ open class QuickTableViewController: UIViewController,
   open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
 
-    switch (row, row.action) {
-    case let (row as NavigationRow, navigation):
-      navigation?(row)
-    case let (row as TapActionRow, tap):
-      tap?(row)
+    switch row {
+    case let navigation as NavigationRow:
+      navigation.action?(navigation)
+    case let tap as TapActionRow:
+      tap.action?(tap)
       fallthrough
     default:
       tableView.deselectRow(at: indexPath, animated: true)
@@ -190,6 +190,7 @@ open class QuickTableViewController: UIViewController,
     // Replace the original row in tableContents
     var row = switchRow
     row.switchValue = sender.isOn
+    row.action?(row)
     tableContents[indexPath.section].rows[indexPath.row] = row
   }
 

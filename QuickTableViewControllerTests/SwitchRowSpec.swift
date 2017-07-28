@@ -82,9 +82,10 @@ class SwitchRowSpec: QuickSpec {
       var toggled = false
       var row = SwitchRow(title: "", switchValue: false) { _ in toggled = !toggled }
 
-      it("should invoke the action closure when the value changes") {
+      // The action invocation has moved to the view controller.
+      it("should not invoke the action closure when the value changes") {
         row.switchValue = true
-        expect(toggled) == true
+        expect(toggled) == false
       }
     }
   }

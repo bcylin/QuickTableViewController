@@ -39,11 +39,7 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   public var icon: Icon?
 
   /// The state of the switch.
-  public var switchValue: Bool = false {
-    didSet {
-      action?(self)
-    }
-  }
+  public var switchValue: Bool = false
 
   /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
   public let cellReuseIdentifier: String = NSStringFromClass(SwitchCell.self)
