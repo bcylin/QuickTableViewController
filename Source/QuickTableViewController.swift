@@ -103,8 +103,8 @@ open class QuickTableViewController: UIViewController,
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell = tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier)
 
-    switch (row, row.subtitle, row.action) {
-    case let (_ as NavigationRow, .some(subtitle), action):
+    switch (row, row.subtitle) {
+    case let (row as NavigationRow, .some(subtitle)):
       // Match UITableViewCellStyle to each Subtitle.style
       switch subtitle {
       case .none:
@@ -118,9 +118,9 @@ open class QuickTableViewController: UIViewController,
       }
 
       cell?.detailTextLabel?.text = subtitle.text
-      cell?.accessoryType = (action == nil) ? .none : .disclosureIndicator
+      cell?.accessoryType = row.isSelectable ? .disclosureIndicator : .none
 
-    case let (row as SwitchRow, _, _):
+    case let (row as SwitchRow, _):
       cell = cell ?? SwitchCell(style: .default, reuseIdentifier: row.cellReuseIdentifier)
       cell?.textLabel?.text = row.title
 
@@ -131,7 +131,7 @@ open class QuickTableViewController: UIViewController,
         switchControl?.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
       }
 
-    case let (row as TapActionRow, _, _):
+    case let (row as TapActionRow, _):
       cell = cell ?? TapActionCell(style: .default, reuseIdentifier: row.cellReuseIdentifier)
 
     default:
@@ -158,20 +158,15 @@ open class QuickTableViewController: UIViewController,
   // MARK: - UITableViewDelegate
 
   open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-    let row = tableContents[indexPath.section].rows[indexPath.row]
-    return (row is TapActionRow || row is NavigationRow) && (row.action != nil)
+    return tableContents[indexPath.section].rows[indexPath.row].isSelectable
   }
 
   open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let row = tableContents[indexPath.section].rows[indexPath.row]
-
-    switch row {
-    case let navigation as NavigationRow:
-      navigation.action?(navigation)
-    case let tap as TapActionRow:
-      tap.action?(tap)
-      fallthrough
-    default:
+    if row.isSelectable {
+      row.action?(row)
+    }
+    if row is TapActionRow {
       tableView.deselectRow(at: indexPath, animated: true)
     }
   }

@@ -47,6 +47,9 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
   public let cellReuseIdentifier: String = NSStringFromClass(SwitchCell.self)
 
+  /// The SwitchRow should not be selectable.
+  public let isSelectable: Bool = false
+
   /// A closure that will be invoked when the switchValue is changed.
   public var action: ((Row) -> Void)?
 

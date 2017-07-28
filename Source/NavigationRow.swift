@@ -57,6 +57,11 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
     return subtitle?.style ?? .default
   }
 
+  /// The TapActionRow is selectable when action is not nil.
+  public var isSelectable: Bool {
+    return action != nil
+  }
+
   /// A closure related to the navigation when the row is selected.
   public var action: ((Row) -> Void)?
 

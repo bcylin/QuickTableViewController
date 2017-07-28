@@ -41,6 +41,11 @@ public struct TapActionRow: Row, Equatable {
   /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
   public let cellReuseIdentifier: String = NSStringFromClass(TapActionCell.self)
 
+  /// The TapActionRow is selectable when action is not nil.
+  public var isSelectable: Bool {
+    return action != nil
+  }
+
   /// A closure as the tap action when the row is selected.
   public var action: ((Row) -> Void)?
 
