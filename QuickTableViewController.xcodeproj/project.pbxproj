@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6FEC7AFD957FDD634E547C82 /* Pods_QuickTableViewControllerTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */; };
+		B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73821F2E1B4B00481910 /* IconEnabled.swift */; };
 		B5334F191B8CC5BD00C64A6D /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickTableViewControllerTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332BB2E7F8C766C8BC0D5B5B /* Pods-QuickTableViewControllerTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewControllerTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewControllerTests-iOS/Pods-QuickTableViewControllerTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B50E73821F2E1B4B00481910 /* IconEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconEnabled.swift; path = Source/Protocol/IconEnabled.swift; sourceTree = SOURCE_ROOT; };
 		B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickTableViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F171B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = QuickTableViewController/Info.plist; sourceTree = SOURCE_ROOT; };
 		B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuickTableViewController.h; path = QuickTableViewController/QuickTableViewController.h; sourceTree = SOURCE_ROOT; };
@@ -52,21 +54,21 @@
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
 		B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerSpec.swift; sourceTree = "<group>"; };
-		B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapActionCell.swift; path = Source/TapActionCell.swift; sourceTree = SOURCE_ROOT; };
+		B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapActionCell.swift; path = Source/View/TapActionCell.swift; sourceTree = SOURCE_ROOT; };
 		B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRowSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRowSpec.swift; sourceTree = "<group>"; };
 		B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRowSpec.swift; sourceTree = "<group>"; };
 		B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionSpec.swift; sourceTree = "<group>"; };
 		B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleSpec.swift; sourceTree = "<group>"; };
-		B5E029201DC7A39200B5C90E /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Section.swift; sourceTree = SOURCE_ROOT; };
-		B5E029221DC8B3EC00B5C90E /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Source/Icon.swift; sourceTree = SOURCE_ROOT; };
-		B5EC18221B95FD7F0015C665 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Row.swift; sourceTree = SOURCE_ROOT; };
-		B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = Source/SwitchCell.swift; sourceTree = SOURCE_ROOT; };
-		B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationRow.swift; path = Source/NavigationRow.swift; sourceTree = SOURCE_ROOT; };
-		B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/SwitchRow.swift; sourceTree = SOURCE_ROOT; };
-		B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapActionRow.swift; path = Source/TapActionRow.swift; sourceTree = SOURCE_ROOT; };
-		B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subtitle.swift; path = Source/Subtitle.swift; sourceTree = SOURCE_ROOT; };
+		B5E029201DC7A39200B5C90E /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Model/Section.swift; sourceTree = SOURCE_ROOT; };
+		B5E029221DC8B3EC00B5C90E /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Source/Model/Icon.swift; sourceTree = SOURCE_ROOT; };
+		B5EC18221B95FD7F0015C665 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Protocol/Row.swift; sourceTree = SOURCE_ROOT; };
+		B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = Source/View/SwitchCell.swift; sourceTree = SOURCE_ROOT; };
+		B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationRow.swift; path = Source/Model/NavigationRow.swift; sourceTree = SOURCE_ROOT; };
+		B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/Model/SwitchRow.swift; sourceTree = SOURCE_ROOT; };
+		B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapActionRow.swift; path = Source/Model/TapActionRow.swift; sourceTree = SOURCE_ROOT; };
+		B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subtitle.swift; path = Source/Model/Subtitle.swift; sourceTree = SOURCE_ROOT; };
 		F45E7695B97DC7347A2C89EF /* Pods-QuickTableViewControllerTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewControllerTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewControllerTests-iOS/Pods-QuickTableViewControllerTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B50E73801F2E193400481910 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */,
+				B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */,
+				B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */,
+			);
+			name = Row;
+			sourceTree = "<group>";
+		};
+		B50E73811F2E1B2C00481910 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B50E73821F2E1B4B00481910 /* IconEnabled.swift */,
+				B5EC18221B95FD7F0015C665 /* Row.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		B5334F091B8CC5BD00C64A6D = {
 			isa = PBXGroup;
 			children = (
@@ -125,17 +146,12 @@
 		B5334F151B8CC5BD00C64A6D /* QuickTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B55475721F2DC29B0027F7C1 /* Model */,
+				B50E73811F2E1B2C00481910 /* Protocol */,
+				B50E73801F2E193400481910 /* Row */,
 				B5334F161B8CC5BD00C64A6D /* Supporting Files */,
-				B5E029221DC8B3EC00B5C90E /* Icon.swift */,
-				B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */,
+				B55475731F2DC2BC0027F7C1 /* View */,
 				B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */,
-				B5EC18221B95FD7F0015C665 /* Row.swift */,
-				B5E029201DC7A39200B5C90E /* Section.swift */,
-				B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */,
-				B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */,
-				B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */,
-				B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */,
-				B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */,
 			);
 			path = QuickTableViewController;
 			sourceTree = "<group>";
@@ -153,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B5DB7D331C4BA0E8007B84D2 /* ModelSpecs */,
+				B5DB7D321C4B9FE6007B84D2 /* RowSpecs */,
 				B5334F231B8CC5BD00C64A6D /* Supporting Files */,
 				B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */,
 			);
@@ -167,6 +184,25 @@
 				B5334F241B8CC5BD00C64A6D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B55475721F2DC29B0027F7C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5E029221DC8B3EC00B5C90E /* Icon.swift */,
+				B5E029201DC7A39200B5C90E /* Section.swift */,
+				B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B55475731F2DC2BC0027F7C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */,
+				B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		B5DB7D241C4A4BEC007B84D2 /* Frameworks */ = {
@@ -190,7 +226,6 @@
 		B5DB7D331C4BA0E8007B84D2 /* ModelSpecs */ = {
 			isa = PBXGroup;
 			children = (
-				B5DB7D321C4B9FE6007B84D2 /* RowSpecs */,
 				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
 				B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */,
 				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
@@ -376,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */,
+				B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */,
 				B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */,
 				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 				B5EC18231B95FD7F0015C665 /* Row.swift in Sources */,

@@ -26,13 +26,6 @@
 
 import Foundation
 
-/// Any type that conforms to this protocol is able to show an icon image in a table view.
-public protocol IconEnabled: Row {
-  /// The icon of the row.
-  var icon: Icon? { get }
-}
-
-
 /// A struct that represents the image used in a row.
 public struct Icon: Equatable {
 
