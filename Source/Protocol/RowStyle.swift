@@ -1,9 +1,9 @@
 //
-//  Section.swift
+//  RowStyle.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,23 +26,16 @@
 
 import Foundation
 
-/// A struct that represents a section in a table view.
-public struct Section {
-
-  /// The text of the section title.
-  public var title: String?
-
-  /// The array of rows in the section.
-  public var rows: [Row & RowStyle]
-
-  /// The text of the section footer.
-  public var footer: String?
-
-  ///
-  public init(title: String?, rows: [Row & RowStyle], footer: String? = nil) {
-    self.title = title
-    self.rows = rows
-    self.footer = footer
-  }
-
+/// Any type that conforms to this protocol carries the info for the UI.
+public protocol RowStyle {
+  /// The type of the table view cell to display the row.
+  var cellType: UITableViewCell.Type { get }
+  /// The reuse identifier of the table view cell to display the row.
+  var cellReuseIdentifier: String { get }
+  /// The style of the table view cell to display the row.
+  var cellStyle: UITableViewCellStyle { get }
+  /// The flag that indicates whether the table view cell should trigger the action when selected.
+  var isSelectable: Bool { get }
+  /// Additional customization during cell configuration.
+  var customize: ((UITableViewCell, Row & RowStyle) -> Void)? { get }
 }

@@ -27,23 +27,32 @@
 import Foundation
 import QuickTableViewController
 
-struct OptionRow<T: UITableViewCell>: Row {
+struct OptionRow<T: UITableViewCell>: Row, RowStyle {
 
-  let title: String
-  let subtitle: Subtitle? = nil
-  let cellType: UITableViewCell.Type = T.self
-  let cellReuseIdentifier: String = String(describing: T.self)
-  let cellStyle: UITableViewCellStyle = .default
-  let isSelectable: Bool = true
+  // MARK: - Initializer
 
-  var isSelected: Bool = false
-  let customize: ((UITableViewCell, Row) -> Void)?
-  let action: ((Row) -> Void)?
-
-  init(title: String, configuration: ((UITableViewCell, Row) -> Void)? = nil, action: ((Row) -> Void)?) {
+  init(title: String, configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil, action: ((Row) -> Void)?) {
     self.title = title
     self.customize = configuration
     self.action = action
   }
+
+  // MARK: - Row
+
+  let title: String
+  let subtitle: Subtitle? = nil
+  let action: ((Row) -> Void)?
+
+  // MARK: - OptionRow
+
+  var isSelected: Bool = false
+
+  // MARK: - RowStyle
+
+  let cellType: UITableViewCell.Type = T.self
+  let cellReuseIdentifier: String = String(describing: T.self)
+  let cellStyle: UITableViewCellStyle = .default
+  let isSelectable: Bool = true
+  let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
 }

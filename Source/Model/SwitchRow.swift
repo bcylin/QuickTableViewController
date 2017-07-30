@@ -27,41 +27,16 @@
 import Foundation
 
 /// A struct that represents a row with a switch.
-public struct SwitchRow<T: SwitchCell>: Row, Equatable, IconEnabled {
+public struct SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
 
-  /// The title text of the row.
-  public var title: String = ""
-
-  /// Subtitle is disabled in SwitchRow.
-  public let subtitle: Subtitle? = nil
-
-  /// The state of the switch.
-  public var switchValue: Bool = false
-
-  /// The type of the table view cell to display the row.
-  public let cellType: UITableViewCell.Type = T.self
-
-  /// The cell style is UITableViewCellStyle.default.
-  public let cellStyle: UITableViewCellStyle = .default
-
-  /// The value is **QuickTableViewController.SwitchCell**, as the reuse identifier of the table view cell to display the row.
-  public let cellReuseIdentifier: String = NSStringFromClass(T.self)
-
-  /// The SwitchRow should not be selectable.
-  public let isSelectable: Bool = false
-
-  /// Additional customization during cell configuration.
-  public let customize: ((UITableViewCell, Row) -> Void)?
-
-  /// A closure that will be invoked when the switchValue is changed.
-  public let action: ((Row) -> Void)?
+  // MARK: - Initializer
 
   ///
   public init(
     title: String,
     switchValue: Bool,
     icon: Icon? = nil,
-    configuration: ((UITableViewCell, Row) -> Void)? = nil,
+    configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
     self.title = title
@@ -74,6 +49,39 @@ public struct SwitchRow<T: SwitchCell>: Row, Equatable, IconEnabled {
   private init() {
     fatalError("init without any argument is not supported")
   }
+
+  // MARK: - Row
+
+  /// The title text of the row.
+  public let title: String
+
+  /// Subtitle is disabled in SwitchRow.
+  public let subtitle: Subtitle? = nil
+
+  /// A closure that will be invoked when the switchValue is changed.
+  public let action: ((Row) -> Void)?
+
+  // MARK: - SwitchRow
+
+  /// The state of the switch.
+  public var switchValue: Bool = false
+
+  // MARK: - RowStyle
+
+  /// The type of the table view cell to display the row.
+  public let cellType: UITableViewCell.Type = T.self
+
+  /// The value is **QuickTableViewController.SwitchCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = NSStringFromClass(T.self)
+
+  /// The cell style is UITableViewCellStyle.default.
+  public let cellStyle: UITableViewCellStyle = .default
+
+  /// The SwitchRow should not be selectable.
+  public let isSelectable: Bool = false
+
+  /// Additional customization during cell configuration.
+  public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
   // MARK: Equatable
 

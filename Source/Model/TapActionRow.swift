@@ -27,38 +27,14 @@
 import Foundation
 
 /// A struct that represents a row that triggers certain action when seleced.
-public struct TapActionRow<T: TapActionCell>: Row, Equatable {
+public struct TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
 
-  /// The title text of the row.
-  public var title: String = ""
-
-  /// Subtitle is disabled in TapActionRow.
-  public let subtitle: Subtitle? = nil
-
-  /// The type of the table view cell to display the row.
-  public let cellType: UITableViewCell.Type = T.self
-
-  /// The cell style is UITableViewCellStyle.default.
-  public let cellStyle: UITableViewCellStyle = .default
-
-  /// The value is **QuickTableViewController.TapActionCell**, as the reuse identifier of the table view cell to display the row.
-  public let cellReuseIdentifier: String = NSStringFromClass(T.self)
-
-  /// The TapActionRow is selectable when action is not nil.
-  public var isSelectable: Bool {
-    return action != nil
-  }
-
-  /// Additional customization during cell configuration.
-  public let customize: ((UITableViewCell, Row) -> Void)?
-
-  /// A closure as the tap action when the row is selected.
-  public let action: ((Row) -> Void)?
+  // MARK: - Initializer
 
   ///
   public init(
     title: String,
-    configuration: ((UITableViewCell, Row) -> Void)? = nil,
+    configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
     self.title = title
@@ -69,5 +45,35 @@ public struct TapActionRow<T: TapActionCell>: Row, Equatable {
   private init() {
     fatalError("init without any argument is not supported")
   }
+
+  // MARK: - Row
+
+  /// The title text of the row.
+  public let title: String
+
+  /// Subtitle is disabled in TapActionRow.
+  public let subtitle: Subtitle? = nil
+
+  /// A closure as the tap action when the row is selected.
+  public let action: ((Row) -> Void)?
+
+  // MARK: - RowStyle
+
+  /// The type of the table view cell to display the row.
+  public let cellType: UITableViewCell.Type = T.self
+
+  /// The value is **QuickTableViewController.TapActionCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = NSStringFromClass(T.self)
+
+  /// The cell style is UITableViewCellStyle.default.
+  public let cellStyle: UITableViewCellStyle = .default
+
+  /// The TapActionRow is selectable when action is not nil.
+  public var isSelectable: Bool {
+    return action != nil
+  }
+
+  /// Additional customization during cell configuration.
+  public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
 }

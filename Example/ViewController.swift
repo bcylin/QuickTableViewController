@@ -68,7 +68,7 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Options", rows: {
-        let block: (UITableViewCell, Row) -> Void = { cell, row in
+        let block: (UITableViewCell, Row & RowStyle) -> Void = { cell, row in
           if let option = row as? OptionRow {
             cell.accessoryType = option.isSelected ? .checkmark : .none
           }

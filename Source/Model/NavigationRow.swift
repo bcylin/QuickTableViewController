@@ -27,13 +27,41 @@
 import Foundation
 
 /// A struct that represents a row that perfoms navigation when seleced.
-public struct NavigationRow<T: UITableViewCell>: Row, Equatable, IconEnabled, AccessoryEnabled {
+public struct NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconEnabled, AccessoryEnabled {
+
+  // MARK: - Initializer
+
+  ///
+  public init(
+    title: String,
+    subtitle: Subtitle,
+    icon: Icon? = nil,
+    configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    action: ((Row) -> Void)? = nil
+  ) {
+    self.title = title
+    self.subtitle = subtitle
+    self.icon = icon
+    self.customize = configuration
+    self.action = action
+  }
+
+  private init() {
+    fatalError("init without any argument is not supported")
+  }
+
+  // MARK: - Row
 
   /// The title text of the row.
-  public var title: String = ""
+  public let title: String
 
   /// The subtitle text of the row.
-  public var subtitle: Subtitle?
+  public let subtitle: Subtitle?
+
+  /// A closure related to the navigation when the row is selected.
+  public let action: ((Row) -> Void)?
+
+  // MARK: - RowStyle
 
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
@@ -63,31 +91,7 @@ public struct NavigationRow<T: UITableViewCell>: Row, Equatable, IconEnabled, Ac
   }
 
   /// Additional customization during cell configuration.
-  public let customize: ((UITableViewCell, Row) -> Void)?
-
-  /// A closure related to the navigation when the row is selected.
-  public let action: ((Row) -> Void)?
-
-  // MARK: - Initializer
-
-  ///
-  public init(
-    title: String,
-    subtitle: Subtitle,
-    icon: Icon? = nil,
-    configuration: ((UITableViewCell, Row) -> Void)? = nil,
-    action: ((Row) -> Void)? = nil
-  ) {
-    self.title = title
-    self.subtitle = subtitle
-    self.icon = icon
-    self.customize = configuration
-    self.action = action
-  }
-
-  private init() {
-    fatalError("init without any argument is not supported")
-  }
+  public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
   // MARK: Equatable
 
