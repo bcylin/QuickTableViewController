@@ -65,7 +65,20 @@ class ViewController: QuickTableViewController {
 
       Section(title: nil, rows: [
         NavigationRow(title: "Empty section title", subtitle: .none)
-      ])
+      ]),
+
+      Section(title: "Options", rows: {
+        let block: (UITableViewCell, Row) -> Void = { cell, row in
+          if let option = row as? OptionRow {
+            cell.accessoryType = option.isSelected ? .checkmark : .none
+          }
+        }
+        return [
+          OptionRow(title: "Option 1", configuration: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 2", configuration: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 3", configuration: block, action: weakify(self, type(of: self).toggleSelection))
+        ]
+      }(), footer: "Customized OptionRow")
     ]
   }
 
@@ -100,6 +113,18 @@ class ViewController: QuickTableViewController {
   private func printValue(_ sender: Row) {
     if let row = sender as? SwitchRow {
       print("\(row.title) = \(row.switchValue)")
+    }
+  }
+
+  private func toggleSelection(_ sender: Row) {
+    guard let indexPath = tableView.indexPathForSelectedRow else {
+      tableView.reloadData()
+      return
+    }
+
+    if var row = sender as? OptionRow {
+      row.isSelected = !row.isSelected
+      tableContents[indexPath.section].rows[indexPath.row] = row
     }
   }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F1F1CA3C0EBCD64C2602EA1 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8C5590816FA5A84CBCC906 /* Pods_Example.framework */; };
+		B50E737F1F2E125000481910 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E737E1F2E125000481910 /* OptionRow.swift */; };
 		B5133F301D9D550D004DE48D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5133F2F1D9D550D004DE48D /* AppDelegate.swift */; };
 		B5133F321D9D550D004DE48D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5133F311D9D550D004DE48D /* ViewController.swift */; };
 		B5133F371D9D550D004DE48D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5133F361D9D550D004DE48D /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 		1E8C5590816FA5A84CBCC906 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC7D4E6AB04C46BA1E83D5D /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		B210B15629AAA59EA1559FDA /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B50E737E1F2E125000481910 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
 		B5133F2C1D9D550D004DE48D /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5133F2F1D9D550D004DE48D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5133F311D9D550D004DE48D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				B5133F361D9D550D004DE48D /* Assets.xcassets */,
 				B5133F3B1D9D550D004DE48D /* Info.plist */,
 				B545957A1D9D5C3A004D1EDA /* LaunchScreen.xib */,
+				B50E737E1F2E125000481910 /* OptionRow.swift */,
 				B5133F311D9D550D004DE48D /* ViewController.swift */,
 			);
 			path = Example;
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5133F301D9D550D004DE48D /* AppDelegate.swift in Sources */,
+				B50E737F1F2E125000481910 /* OptionRow.swift in Sources */,
 				B5133F321D9D550D004DE48D /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
