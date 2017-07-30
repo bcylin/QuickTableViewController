@@ -49,15 +49,25 @@ public struct TapActionRow<T: TapActionCell>: Row, Equatable {
     return action != nil
   }
 
+  /// Additional customization during cell configuration.
+  public let customize: ((UITableViewCell, Row) -> Void)?
+
   /// A closure as the tap action when the row is selected.
-  public var action: ((Row) -> Void)?
+  public let action: ((Row) -> Void)?
 
   ///
-  public init(title: String, action: ((Row) -> Void)?) {
+  public init(
+    title: String,
+    configuration: ((UITableViewCell, Row) -> Void)? = nil,
+    action: ((Row) -> Void)?
+  ) {
     self.title = title
+    self.customize = configuration
     self.action = action
   }
 
-  private init() {}
+  private init() {
+    fatalError("init without any argument is not supported")
+  }
 
 }

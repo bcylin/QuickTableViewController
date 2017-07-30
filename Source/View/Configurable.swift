@@ -41,6 +41,7 @@ internal extension UITableView {
       row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
 
     cell.configure(with: row)
+    row.customize?(cell, row)
     return cell
   }
 

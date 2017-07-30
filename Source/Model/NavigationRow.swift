@@ -62,20 +62,32 @@ public struct NavigationRow<T: UITableViewCell>: Row, Equatable, IconEnabled, Ac
     return action != nil
   }
 
+  /// Additional customization during cell configuration.
+  public let customize: ((UITableViewCell, Row) -> Void)?
+
   /// A closure related to the navigation when the row is selected.
-  public var action: ((Row) -> Void)?
+  public let action: ((Row) -> Void)?
 
   // MARK: - Initializer
 
   ///
-  public init(title: String, subtitle: Subtitle, icon: Icon? = nil, action: ((Row) -> Void)? = nil) {
+  public init(
+    title: String,
+    subtitle: Subtitle,
+    icon: Icon? = nil,
+    configuration: ((UITableViewCell, Row) -> Void)? = nil,
+    action: ((Row) -> Void)? = nil
+  ) {
     self.title = title
     self.subtitle = subtitle
     self.icon = icon
+    self.customize = configuration
     self.action = action
   }
 
-  private init() {}
+  private init() {
+    fatalError("init without any argument is not supported")
+  }
 
   // MARK: Equatable
 
@@ -87,7 +99,7 @@ public struct NavigationRow<T: UITableViewCell>: Row, Equatable, IconEnabled, Ac
   // MARK: - IconEnabled
 
   /// The icon of the row.
-  public var icon: Icon?
+  public let icon: Icon?
 
   // MARK: - AccessoryEnabled
 

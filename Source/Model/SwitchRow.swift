@@ -50,18 +50,30 @@ public struct SwitchRow<T: SwitchCell>: Row, Equatable, IconEnabled {
   /// The SwitchRow should not be selectable.
   public let isSelectable: Bool = false
 
+  /// Additional customization during cell configuration.
+  public let customize: ((UITableViewCell, Row) -> Void)?
+
   /// A closure that will be invoked when the switchValue is changed.
-  public var action: ((Row) -> Void)?
+  public let action: ((Row) -> Void)?
 
   ///
-  public init(title: String, switchValue: Bool, icon: Icon? = nil, action: ((Row) -> Void)?) {
+  public init(
+    title: String,
+    switchValue: Bool,
+    icon: Icon? = nil,
+    configuration: ((UITableViewCell, Row) -> Void)? = nil,
+    action: ((Row) -> Void)?
+  ) {
     self.title = title
     self.switchValue = switchValue
     self.icon = icon
+    self.customize = configuration
     self.action = action
   }
 
-  private init() {}
+  private init() {
+    fatalError("init without any argument is not supported")
+  }
 
   // MARK: Equatable
 
@@ -73,6 +85,6 @@ public struct SwitchRow<T: SwitchCell>: Row, Equatable, IconEnabled {
   // MARK: - IconEnabled
 
   /// The icon of the row.
-  public var icon: Icon?
+  public let icon: Icon?
 
 }

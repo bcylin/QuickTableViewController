@@ -40,6 +40,8 @@ public protocol Row {
   var cellReuseIdentifier: String { get }
   /// The flag that indicates whether the table view cell should trigger the action when selected.
   var isSelectable: Bool { get }
+  /// Additional customization during cell configuration.
+  var customize: ((UITableViewCell, Row) -> Void)? { get }
   /// A closure related to the action of the row.
   var action: ((Row) -> Void)? { get }
 }
