@@ -35,9 +35,6 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   /// Subtitle is disabled in SwitchRow.
   public let subtitle: Subtitle? = nil
 
-  /// The icon of the row.
-  public var icon: Icon?
-
   /// The state of the switch.
   public var switchValue: Bool = false
 
@@ -69,5 +66,10 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   public static func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
     return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
   }
+
+  // MARK: - IconEnabled
+
+  /// The icon of the row.
+  public var icon: Icon?
 
 }

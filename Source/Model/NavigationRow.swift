@@ -27,16 +27,13 @@
 import Foundation
 
 /// A struct that represents a row that perfoms navigation when seleced.
-public struct NavigationRow: Row, Equatable, IconEnabled {
+public struct NavigationRow: Row, Equatable, IconEnabled, AccessoryEnabled {
 
   /// The title text of the row.
   public var title: String = ""
 
   /// The subtitle text of the row.
   public var subtitle: Subtitle?
-
-  /// The icon of the row.
-  public var icon: Icon?
 
   /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
@@ -65,6 +62,8 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
   /// A closure related to the navigation when the row is selected.
   public var action: ((Row) -> Void)?
 
+  // MARK: - Initializer
+
   ///
   public init(title: String, subtitle: Subtitle, icon: Icon? = nil, action: ((Row) -> Void)? = nil) {
     self.title = title
@@ -81,5 +80,20 @@ public struct NavigationRow: Row, Equatable, IconEnabled {
   public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
     return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
   }
+
+  // MARK: - IconEnabled
+
+  /// The icon of the row.
+  public var icon: Icon?
+
+  // MARK: - AccessoryEnabled
+
+  /// Returns .disclosureIndicator when action is not nil, otherwise returns .none.
+  public var accessoryType: UITableViewCellAccessoryType {
+    return (action == nil) ? .none : .disclosureIndicator
+  }
+
+  /// Nil by default.
+  public let accessoryView: UIView? = nil
 
 }

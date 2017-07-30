@@ -106,7 +106,6 @@ open class QuickTableViewController: UIViewController,
     switch row {
     case let row as NavigationRow:
       cell = cell ?? UITableViewCell(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
-      cell?.accessoryType = row.isSelectable ? .disclosureIndicator : .none
 
     case let row as SwitchRow:
       cell = cell ?? SwitchCell(style: .default, reuseIdentifier: row.cellReuseIdentifier)

@@ -1,5 +1,5 @@
 //
-//  Configurable.swift
+//  AccessoryEnabled.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 30/07/2017.
@@ -26,36 +26,10 @@
 
 import UIKit
 
-/// Any type that conforms to this protocol is able to take a Row as the configuration.
-public protocol Configurable {
-  /// Configure the receiver with the Row.
-  func configure(with row: Row)
-}
-
-
-internal extension UITableViewCell {
-
-  /// Configure the table view cell with the Row.
-  internal func configure(with row: Row) {
-    textLabel?.text = row.title
-    detailTextLabel?.text = row.subtitle?.text
-
-    if let icon = (row as? IconEnabled)?.icon {
-      if let image = icon.image {
-        imageView?.image = image
-      }
-      if let image = icon.highlightedImage {
-        imageView?.highlightedImage = image
-      }
-    }
-
-    if let enabled = row as? AccessoryEnabled {
-      if let view = enabled.accessoryView {
-        accessoryView = view
-      } else {
-        accessoryType = enabled.accessoryType
-      }
-    }
-  }
-
+/// Any type that conforms to this protocol is able to provide accessory info for a cell.
+public protocol AccessoryEnabled {
+  /// The type of standard accessory view the cell should use (normal state).
+  var accessoryType: UITableViewCellAccessoryType { get }
+  /// A view that is used, typically as a control, on the right side of the cell (normal state).
+  var accessoryView: UIView? { get }
 }
