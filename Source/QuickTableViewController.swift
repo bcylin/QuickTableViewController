@@ -103,26 +103,13 @@ open class QuickTableViewController: UIViewController,
     let row = tableContents[indexPath.section].rows[indexPath.row]
     var cell = tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier)
 
-    switch (row, row.subtitle) {
-    case let (row as NavigationRow, .some(subtitle)):
-      // Match UITableViewCellStyle to each Subtitle.style
-      switch subtitle {
-      case .none:
-        cell = cell ?? UITableViewCell(style: .default, reuseIdentifier: subtitle.style.stringValue)
-      case .belowTitle:
-        cell = cell ?? UITableViewCell(style: .subtitle, reuseIdentifier: subtitle.style.stringValue)
-      case .rightAligned:
-        cell = cell ?? UITableViewCell(style: .value1, reuseIdentifier: subtitle.style.stringValue)
-      case .leftAligned:
-        cell = cell ?? UITableViewCell(style: .value2, reuseIdentifier: subtitle.style.stringValue)
-      }
-
-      cell?.detailTextLabel?.text = subtitle.text
+    switch row {
+    case let row as NavigationRow:
+      cell = cell ?? UITableViewCell(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
       cell?.accessoryType = row.isSelectable ? .disclosureIndicator : .none
 
-    case let (row as SwitchRow, _):
+    case let row as SwitchRow:
       cell = cell ?? SwitchCell(style: .default, reuseIdentifier: row.cellReuseIdentifier)
-      cell?.textLabel?.text = row.title
 
       let switchControl = (cell as? SwitchCell)?.switchControl
       switchControl?.isOn = row.switchValue
@@ -131,23 +118,14 @@ open class QuickTableViewController: UIViewController,
         switchControl?.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
       }
 
-    case let (row as TapActionRow, _):
+    case let row as TapActionRow:
       cell = cell ?? TapActionCell(style: .default, reuseIdentifier: row.cellReuseIdentifier)
 
     default:
       break
     }
 
-    if let icon = (row as? IconEnabled)?.icon {
-      if let image = icon.image {
-        cell?.imageView?.image = image
-      }
-      if let image = icon.highlightedImage {
-        cell?.imageView?.highlightedImage = image
-      }
-    }
-
-    cell?.textLabel?.text = row.title
+    cell?.configure(with: row)
     return cell ?? tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
   }
 

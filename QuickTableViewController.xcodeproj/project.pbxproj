@@ -11,6 +11,7 @@
 		B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73821F2E1B4B00481910 /* IconEnabled.swift */; };
 		B5334F191B8CC5BD00C64A6D /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
+		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
 		B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
 		B57FAA6E1C513454008FF7C7 /* QuickTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */; };
@@ -51,6 +52,7 @@
 		B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTableViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/View/Configurable.swift; sourceTree = SOURCE_ROOT; };
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
 		B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerSpec.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		B55475731F2DC2BC0027F7C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B55475741F2DC3C00027F7C1 /* Configurable.swift */,
 				B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */,
 				B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */,
 			);
@@ -410,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */,
 				B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */,
 				B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */,
 				B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */,
