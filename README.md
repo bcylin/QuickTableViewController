@@ -13,8 +13,7 @@ A simple way to create a table view for settings, providing table view cells wit
 * UISwitch
 * Center aligned text
 * Table view cell image
-* Disclosure indicator
-* Specified UITableViewCellStyle
+* Customizable UITableViewCellStyle and UITableViewCellAccessoryType
 
 <img src="https://bcylin.github.io/QuickTableViewController/img/screenshot.png" width="50%"></img>
 
@@ -116,21 +115,20 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 
 ### Use Custom Cell Classes
 
-```swift
-// NavigationRow
-tableView.register(CustomCell.self, forCellReuseIdentifier: "Subtitle.None")
-tableView.register(CustomSubtitleCell.self, forCellReuseIdentifier: "Subtitle.BelowTitle")
-tableView.register(CustomValue1StyleCell.self, forCellReuseIdentifier: "Subtitle.RightAligned")
-tableView.register(CustomValue2StyleCell.self, forCellReuseIdentifier: "Subtitle.LeftAligned")
-```
+A customized table view cell type can be specified to rows during initialization.
 
 ```swift
-// SwitchRow
-tableView.register(CustomSwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
+// NavigationRow, using UITableViewCell if not specified.
+NavigationRow<CustomCell>(title: "Navigation", subtitle: .none)
 
-// TapActionRow
-tableView.register(CustomTapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
+// SwitchRow, using SwitchCell if not specified.
+SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in })
+
+// TapActionRow, using TapActionCell if not specified.
+TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 ```
+
+The customization using `register(_:forCellReuseIdentifier:)` is deprecated due to the inconsistant reuse identifiers in the previous versions.
 
 > Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
 

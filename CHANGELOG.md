@@ -1,5 +1,12 @@
 # Change Log
 
+## Next Release
+
+* Specify table view cell types to rows during initialization
+* Deprecate the customization using table view `register(_:forCellReuseIdentifier:)`
+* Separate `RowStyle` from the original `Row` protocol
+* Add an additional cell customization `((UITableViewCell, Row & RowStyle) -> Void)?` for each row
+
 ## v0.5.3
 
 * Fix the cell reuse identifier of `SwitchRow` and `TapActionRow` to be compatible with `0.5.x`

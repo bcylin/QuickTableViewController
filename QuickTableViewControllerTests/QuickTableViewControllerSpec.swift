@@ -57,12 +57,6 @@ final class QuickTableViewControllerSpec: QuickSpec {
         expect(tableView.delegate as? QuickTableViewController) == controller
       }
 
-      it("should register table view cell classes") {
-        expect(tableView.dequeueReusableCell(withIdentifier: "QuickTableViewController.SwitchCell")).to(beAnInstanceOf(SwitchCell.self))
-        expect(tableView.dequeueReusableCell(withIdentifier: "QuickTableViewController.TapActionCell")).to(beAnInstanceOf(TapActionCell.self))
-        expect(tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")).to(beAnInstanceOf(UITableViewCell.self))
-      }
-
       it("should nullify the references after controller is gone") {
         expect(tableView).notTo(beNil())
         expect(tableView.dataSource).toEventually(beNil())

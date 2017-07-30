@@ -73,9 +73,6 @@ open class QuickTableViewController: UIViewController,
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.register(SwitchCell.self, forCellReuseIdentifier: NSStringFromClass(SwitchCell.self))
-    tableView.register(TapActionCell.self, forCellReuseIdentifier: NSStringFromClass(TapActionCell.self))
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
   }
 
   open override func viewWillAppear(_ animated: Bool) {
