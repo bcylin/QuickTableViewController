@@ -27,7 +27,7 @@
 import Foundation
 
 /// A struct that represents a row that perfoms navigation when seleced.
-public struct NavigationRow: Row, Equatable, IconEnabled, AccessoryEnabled {
+public struct NavigationRow<T: UITableViewCell>: Row, Equatable, IconEnabled, AccessoryEnabled {
 
   /// The title text of the row.
   public var title: String = ""
@@ -35,10 +35,13 @@ public struct NavigationRow: Row, Equatable, IconEnabled, AccessoryEnabled {
   /// The subtitle text of the row.
   public var subtitle: Subtitle?
 
+  /// The type of the table view cell to display the row.
+  public let cellType: UITableViewCell.Type = T.self
+
   /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
     guard let style = subtitle?.style else {
-      return NSStringFromClass(UITableViewCell.self)
+      return NSStringFromClass(T.self)
     }
     // Use backward compatible strings instead of `subtitle.style.stringValue`.
     switch style {

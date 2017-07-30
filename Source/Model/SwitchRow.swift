@@ -27,7 +27,7 @@
 import Foundation
 
 /// A struct that represents a row with a switch.
-public struct SwitchRow: Row, Equatable, IconEnabled {
+public struct SwitchRow<T: SwitchCell>: Row, Equatable, IconEnabled {
 
   /// The title text of the row.
   public var title: String = ""
@@ -38,11 +38,14 @@ public struct SwitchRow: Row, Equatable, IconEnabled {
   /// The state of the switch.
   public var switchValue: Bool = false
 
+  /// The type of the table view cell to display the row.
+  public let cellType: UITableViewCell.Type = T.self
+
   /// The cell style is UITableViewCellStyle.default.
   public let cellStyle: UITableViewCellStyle = .default
 
-  /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
-  public let cellReuseIdentifier: String = NSStringFromClass(SwitchCell.self)
+  /// The value is **QuickTableViewController.SwitchCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = NSStringFromClass(T.self)
 
   /// The SwitchRow should not be selectable.
   public let isSelectable: Bool = false

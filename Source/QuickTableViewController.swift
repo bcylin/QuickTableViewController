@@ -101,31 +101,20 @@ open class QuickTableViewController: UIViewController,
 
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let row = tableContents[indexPath.section].rows[indexPath.row]
-    var cell = tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier)
+    let cell = tableView.cell(for: row)
 
-    switch row {
-    case let row as NavigationRow:
-      cell = cell ?? UITableViewCell(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
-
-    case let row as SwitchRow:
-      cell = cell ?? SwitchCell(style: .default, reuseIdentifier: row.cellReuseIdentifier)
-
-      let switchControl = (cell as? SwitchCell)?.switchControl
-      switchControl?.isOn = row.switchValue
-
-      if switchControl?.actions(forTarget: self, forControlEvent: .valueChanged) == nil {
-        switchControl?.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
+    switch (cell, row) {
+    case let (cell as SwitchCell, row as SwitchRow<SwitchCell>):
+      cell.switchControl.isOn = row.switchValue
+      if cell.switchControl.actions(forTarget: self, forControlEvent: .valueChanged) == nil {
+        cell.switchControl.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
       }
-
-    case let row as TapActionRow:
-      cell = cell ?? TapActionCell(style: .default, reuseIdentifier: row.cellReuseIdentifier)
 
     default:
       break
     }
 
-    cell?.configure(with: row)
-    return cell ?? tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
+    return cell
   }
 
   open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

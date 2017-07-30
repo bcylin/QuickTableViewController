@@ -27,7 +27,7 @@
 import Foundation
 
 /// A struct that represents a row that triggers certain action when seleced.
-public struct TapActionRow: Row, Equatable {
+public struct TapActionRow<T: TapActionCell>: Row, Equatable {
 
   /// The title text of the row.
   public var title: String = ""
@@ -35,11 +35,14 @@ public struct TapActionRow: Row, Equatable {
   /// Subtitle is disabled in TapActionRow.
   public let subtitle: Subtitle? = nil
 
+  /// The type of the table view cell to display the row.
+  public let cellType: UITableViewCell.Type = T.self
+
   /// The cell style is UITableViewCellStyle.default.
   public let cellStyle: UITableViewCellStyle = .default
 
-  /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
-  public let cellReuseIdentifier: String = NSStringFromClass(TapActionCell.self)
+  /// The value is **QuickTableViewController.TapActionCell**, as the reuse identifier of the table view cell to display the row.
+  public let cellReuseIdentifier: String = NSStringFromClass(T.self)
 
   /// The TapActionRow is selectable when action is not nil.
   public var isSelectable: Bool {

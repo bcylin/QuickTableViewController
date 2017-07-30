@@ -33,6 +33,20 @@ public protocol Configurable {
 }
 
 
+internal extension UITableView {
+
+  internal func cell(for row: Row) -> UITableViewCell {
+    let cell =
+      dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
+      row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
+
+    cell.configure(with: row)
+    return cell
+  }
+
+}
+
+
 internal extension UITableViewCell {
 
   /// Configure the table view cell with the Row.
