@@ -28,7 +28,7 @@ import Nimble
 import Quick
 import QuickTableViewController
 
-class SwitchRowSpec: QuickSpec {
+final class SwitchRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {

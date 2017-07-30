@@ -28,7 +28,7 @@ import Nimble
 import Quick
 import QuickTableViewController
 
-class TapActionRowSpec: QuickSpec {
+final class TapActionRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {

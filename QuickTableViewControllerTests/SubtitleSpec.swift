@@ -28,7 +28,7 @@ import Nimble
 import Quick
 @testable import QuickTableViewController
 
-class SubtitleSpec: QuickSpec {
+final class SubtitleSpec: QuickSpec {
 
   override func spec() {
     describe("subtitle style") {

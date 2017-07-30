@@ -28,7 +28,7 @@ import Nimble
 import Quick
 @testable import QuickTableViewController
 
-class NavigationRowSpec: QuickSpec {
+final class NavigationRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {
