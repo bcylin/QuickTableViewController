@@ -31,7 +31,8 @@ public struct NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconE
 
   // MARK: - Initializer
 
-  ///
+  /// Initializes a navigation row with a title and a subtitle.
+  /// The icon, customization and action blocks are optional.
   public init(
     title: String,
     subtitle: Subtitle,

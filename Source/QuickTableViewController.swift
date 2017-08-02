@@ -35,7 +35,6 @@ open class QuickTableViewController: UIViewController,
   public var clearsSelectionOnViewWillAppear = true
 
   /// Returns the table view managed by the controller object.
-  /// To override the cell type to display certain rows, register a different type with `row.cellReuseIdentifier`.
   public private(set) var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
   /// The layout of sections and rows to display in the table view.
@@ -98,7 +97,12 @@ open class QuickTableViewController: UIViewController,
 
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let row = tableContents[indexPath.section].rows[indexPath.row]
-    let cell = tableView.cell(for: row)
+    let cell =
+      tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
+      row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
+
+    cell.configure(with: row)
+    row.customize?(cell, row)
 
     switch (cell, row) {
     case let (cell as SwitchCell, row as SwitchRow<SwitchCell>):

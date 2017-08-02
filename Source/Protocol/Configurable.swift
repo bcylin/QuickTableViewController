@@ -28,30 +28,17 @@ import UIKit
 
 /// Any type that conforms to this protocol is able to take a Row as the configuration.
 public protocol Configurable {
-  /// Configure the receiver with the Row.
+  /// Configure the receiver with a Row.
   func configure(with row: Row)
 }
 
 
-internal extension UITableView {
-
-  internal func cell(for row: Row & RowStyle) -> UITableViewCell {
-    let cell =
-      dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
-      row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
-
-    cell.configure(with: row)
-    row.customize?(cell, row)
-    return cell
-  }
-
-}
+extension UITableViewCell: Configurable {}
 
 
-internal extension UITableViewCell {
+extension Configurable where Self: UITableViewCell {
 
-  /// Configure the table view cell with the Row.
-  internal func configure(with row: Row) {
+  public func configure(with row: Row) {
     textLabel?.text = row.title
     detailTextLabel?.text = row.subtitle?.text
 

@@ -55,7 +55,7 @@
 		B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTableViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
-		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/View/Configurable.swift; sourceTree = SOURCE_ROOT; };
+		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/Protocol/Configurable.swift; sourceTree = SOURCE_ROOT; };
 		B554757A1F2DD0010027F7C1 /* AccessoryEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryEnabled.swift; path = Source/Protocol/AccessoryEnabled.swift; sourceTree = SOURCE_ROOT; };
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				B554757A1F2DD0010027F7C1 /* AccessoryEnabled.swift */,
+				B55475741F2DC3C00027F7C1 /* Configurable.swift */,
 				B50E73821F2E1B4B00481910 /* IconEnabled.swift */,
 				B5EC18221B95FD7F0015C665 /* Row.swift */,
 				B50E73841F2E1BC900481910 /* RowStyle.swift */,
@@ -207,7 +208,6 @@
 		B55475731F2DC2BC0027F7C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B55475741F2DC3C00027F7C1 /* Configurable.swift */,
 				B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */,
 				B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */,
 			);
@@ -421,12 +421,12 @@
 			files = (
 				B554757B1F2DD0010027F7C1 /* AccessoryEnabled.swift in Sources */,
 				B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */,
-				B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */,
 				B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */,
 				B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */,
 				B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */,
 				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 				B5EC18231B95FD7F0015C665 /* Row.swift in Sources */,
+				B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */,
 				B5E029211DC7A39200B5C90E /* Section.swift in Sources */,
 				B5F0FFEE1E9CC73D007BF1C9 /* Subtitle.swift in Sources */,
 				B5F0FFE61E9CC69C007BF1C9 /* SwitchCell.swift in Sources */,

@@ -31,7 +31,8 @@ public struct SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
 
   // MARK: - Initializer
 
-  ///
+  /// Initializes a navigation row with a title, a switch state and an action block.
+  /// The icon and the customization block are optional.
   public init(
     title: String,
     switchValue: Bool,
@@ -71,7 +72,7 @@ public struct SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
 
-  /// The value is **QuickTableViewController.SwitchCell**, as the reuse identifier of the table view cell to display the row.
+  /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
   public let cellReuseIdentifier: String = String(describing: T.self)
 
   /// The cell style is UITableViewCellStyle.default.

@@ -31,7 +31,8 @@ public struct TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
-  ///
+  /// Initializes a navigation row with a title, an action block,
+  /// and an optional customization block.
   public init(
     title: String,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
@@ -62,7 +63,7 @@ public struct TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
 
-  /// The value is **QuickTableViewController.TapActionCell**, as the reuse identifier of the table view cell to display the row.
+  /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
   public let cellReuseIdentifier: String = String(describing: T.self)
 
   /// The cell style is UITableViewCellStyle.default.
