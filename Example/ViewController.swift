@@ -93,6 +93,16 @@ class ViewController: QuickTableViewController {
     return cell
   }
 
+  // MARK: - UITableViewDelegate
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if var row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
+      row.isSelected = !row.isSelected
+      row.action?(row)
+      tableContents[indexPath.section].rows[indexPath.row] = row
+    }
+  }
+
   // MARK: - Private Methods
 
   private func showAlert(_ sender: Row) {
@@ -117,14 +127,8 @@ class ViewController: QuickTableViewController {
   }
 
   private func toggleSelection(_ sender: Row) {
-    guard let indexPath = tableView.indexPathForSelectedRow else {
-      tableView.reloadData()
-      return
-    }
-
-    if var row = sender as? OptionRow {
-      row.isSelected = !row.isSelected
-      tableContents[indexPath.section].rows[indexPath.row] = row
+    if let row = sender as? OptionRow {
+      print("\(row.title) is selected = \(row.isSelected)")
     }
   }
 
