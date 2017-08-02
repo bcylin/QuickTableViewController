@@ -42,7 +42,7 @@ final class NavigationRowSpec: QuickSpec {
         expect(row.title) == "title"
         expect(row.subtitle) == subtitle
         expect(row.icon) == icon
-        expect(row.cellReuseIdentifier) == "Subtitle.BelowTitle"
+        expect(row.cellReuseIdentifier) == "UITableViewCellStyleSubtitle"
         expect(row.action).notTo(beNil())
 
         row.action?(row)
@@ -57,10 +57,10 @@ final class NavigationRowSpec: QuickSpec {
       let d = NavigationRow(title: "", subtitle: .leftAligned(""))
 
       it("should return the backward compatible strings") {
-        expect(a.cellReuseIdentifier) == "Subtitle.None"
-        expect(b.cellReuseIdentifier) == "Subtitle.BelowTitle"
-        expect(c.cellReuseIdentifier) == "Subtitle.RightAligned"
-        expect(d.cellReuseIdentifier) == "Subtitle.LeftAligned"
+        expect(a.cellReuseIdentifier) == "UITableViewCellStyleDefault"
+        expect(b.cellReuseIdentifier) == "UITableViewCellStyleSubtitle"
+        expect(c.cellReuseIdentifier) == "UITableViewCellStyleValue1"
+        expect(d.cellReuseIdentifier) == "UITableViewCellStyleValue2"
       }
     }
 

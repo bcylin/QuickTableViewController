@@ -68,16 +68,7 @@ public struct NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconE
 
   /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
-    guard let style = subtitle?.style else {
-      return NSStringFromClass(T.self)
-    }
-    // Use backward compatible strings instead of `subtitle.style.stringValue`.
-    switch style {
-    case .default:  return "Subtitle.None"
-    case .subtitle: return "Subtitle.BelowTitle"
-    case .value1:   return "Subtitle.RightAligned"
-    case .value2:   return "Subtitle.LeftAligned"
-    }
+    return subtitle?.style.stringValue ?? String(describing: T.self)
   }
 
   /// Returns the table view cell style for the specified subtitle.
