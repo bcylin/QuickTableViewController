@@ -34,11 +34,11 @@ public struct TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   ///
   public init(
     title: String,
-    configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
     self.title = title
-    self.customize = configuration
+    self.customize = customization
     self.action = action
   }
 

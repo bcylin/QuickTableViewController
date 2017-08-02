@@ -36,6 +36,6 @@ public protocol RowStyle {
   var cellStyle: UITableViewCellStyle { get }
   /// The flag that indicates whether the table view cell should trigger the action when selected.
   var isSelectable: Bool { get }
-  /// Additional customization during cell configuration.
+  /// The additional customization during cell configuration.
   var customize: ((UITableViewCell, Row & RowStyle) -> Void)? { get }
 }

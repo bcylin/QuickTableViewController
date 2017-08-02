@@ -31,9 +31,15 @@ struct OptionRow<T: UITableViewCell>: Row, RowStyle {
 
   // MARK: - Initializer
 
-  init(title: String, configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil, action: ((Row) -> Void)?) {
+  init(
+    title: String,
+    isSelected: Bool = false,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    action: ((Row) -> Void)?
+  ) {
     self.title = title
-    self.customize = configuration
+    self.isSelected = isSelected
+    self.customize = customization
     self.action = action
   }
 

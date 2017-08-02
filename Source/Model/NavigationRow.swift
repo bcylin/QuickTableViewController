@@ -36,13 +36,13 @@ public struct NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconE
     title: String,
     subtitle: Subtitle,
     icon: Icon? = nil,
-    configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)? = nil
   ) {
     self.title = title
     self.subtitle = subtitle
     self.icon = icon
-    self.customize = configuration
+    self.customize = customization
     self.action = action
   }
 

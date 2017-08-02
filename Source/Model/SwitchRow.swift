@@ -36,13 +36,13 @@ public struct SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
     title: String,
     switchValue: Bool,
     icon: Icon? = nil,
-    configuration: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
     self.title = title
     self.switchValue = switchValue
     self.icon = icon
-    self.customize = configuration
+    self.customize = customization
     self.action = action
   }
 

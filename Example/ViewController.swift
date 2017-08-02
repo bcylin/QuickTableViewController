@@ -74,9 +74,9 @@ class ViewController: QuickTableViewController {
           }
         }
         return [
-          OptionRow(title: "Option 1", configuration: block, action: weakify(self, type(of: self).toggleSelection)),
-          OptionRow(title: "Option 2", configuration: block, action: weakify(self, type(of: self).toggleSelection)),
-          OptionRow(title: "Option 3", configuration: block, action: weakify(self, type(of: self).toggleSelection))
+          OptionRow(title: "Option 1", isSelected: true, customization: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 2", customization: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 3", customization: block, action: weakify(self, type(of: self).toggleSelection))
         ]
       }(), footer: "Customized OptionRow")
     ]
