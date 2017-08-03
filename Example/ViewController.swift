@@ -50,24 +50,18 @@ class ViewController: QuickTableViewController {
         TapActionRow(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
-      Section(title: "Cell Styles", rows: [
+      Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.Default", subtitle: .none, icon: Icon(image: gear)),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".Subtitle"), icon: Icon(image: globe)),
         NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".Value2"))
-      ]),
-
-      Section(title: "Navigation", rows: [
-        NavigationRow(title: "Navigation", subtitle: .none, action: weakify(self, type(of: self).showDetail)),
-        NavigationRow(title: "Navigation", subtitle: .belowTitle("with subtitle"), action: weakify(self, type(of: self).showDetail)),
-        NavigationRow(title: "Navigation", subtitle: .rightAligned("with detail text"), action: weakify(self, type(of: self).showDetail))
-      ], footer: "UITableViewCellStyle.Value2 is not listed."),
+      ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       Section(title: nil, rows: [
         NavigationRow(title: "Empty section title", subtitle: .none)
       ]),
 
-      Section(title: "Options", rows: {
+      Section(title: "Customized", rows: {
         let block: (UITableViewCell, Row & RowStyle) -> Void = { cell, row in
           if let option = row as? OptionRow {
             cell.accessoryType = option.isSelected ? .checkmark : .none
@@ -78,7 +72,7 @@ class ViewController: QuickTableViewController {
           OptionRow(title: "Option 2", customization: block, action: weakify(self, type(of: self).toggleSelection)),
           OptionRow(title: "Option 3", customization: block, action: weakify(self, type(of: self).toggleSelection))
         ]
-      }(), footer: "Customized OptionRow")
+      }(), footer: "See OptionRow for more details.")
     ]
   }
 
