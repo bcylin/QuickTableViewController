@@ -10,6 +10,8 @@ opt_in_rules:
   - explicit_top_level_acl
   - object_literal
   - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
 included:
   - Example
   - QuickTableViewControllerTests

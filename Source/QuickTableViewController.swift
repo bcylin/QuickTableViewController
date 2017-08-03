@@ -65,8 +65,8 @@ open class QuickTableViewController: UIViewController,
 
   // MARK: - UIViewController
 
-  open override func loadView() {
-    super.loadView()
+  open override func viewDidLoad() {
+    super.viewDidLoad()
     view.addSubview(tableView)
     tableView.frame = view.bounds
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
