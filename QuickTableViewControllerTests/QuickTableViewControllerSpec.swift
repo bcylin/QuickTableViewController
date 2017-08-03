@@ -29,7 +29,7 @@ import Quick
 @testable import QuickTableViewController
 
 // swiftlint:disable type_body_length
-final class QuickTableViewControllerSpec: QuickSpec {
+internal final class QuickTableViewControllerSpec: QuickSpec {
 
   override func spec() {
 

@@ -7,6 +7,7 @@ disabled_rules:
 opt_in_rules:
   - attributes
   - explicit_init
+  - explicit_top_level_acl
   - operator_usage_whitespace
 included:
   - Example

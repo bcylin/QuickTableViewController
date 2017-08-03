@@ -28,7 +28,7 @@ import UIKit
 import QuickTableViewController
 import Weakify
 
-class ViewController: QuickTableViewController {
+internal final class ViewController: QuickTableViewController {
 
   // MARK: - UIViewController
 
