@@ -22,7 +22,7 @@
 <a class="header-link" href="index.html">
 QuickTableViewController Docs
 </a>
-(85% documented)
+(89% documented)
 </p>
 
 <p class="header-col--secondary">
@@ -75,10 +75,19 @@ QuickTableViewController  Reference
 <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/AccessoryEnabled.html">AccessoryEnabled</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/IconEnabled.html">IconEnabled</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Row.html">Row</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/RowStyle.html">RowStyle</a>
 </li>
 </ul>
 </li>
@@ -125,8 +134,7 @@ QuickTableViewController  Reference
 <li>UISwitch</li>
 <li>Center aligned text</li>
 <li>Table view cell image</li>
-<li>Disclosure indicator</li>
-<li>Specified UITableViewCellStyle</li>
+<li>Customizable UITableViewCellStyle and UITableViewCellAccessoryType</li>
 </ul>
 
 <p><img src="https://bcylin.github.io/QuickTableViewController/img/screenshot.png" width="50%"></img></p>
@@ -218,18 +226,19 @@ accessoryView</code>.</li>
 <pre class="highlight swift"><code><span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 <h3 id='use-custom-cell-classes' class='heading'>Use Custom Cell Classes</h3>
-<pre class="highlight swift"><code><span class="c1">// NavigationRow</span>
-<span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="s">"Subtitle.None"</span><span class="p">)</span>
-<span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomSubtitleCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="s">"Subtitle.BelowTitle"</span><span class="p">)</span>
-<span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomValue1StyleCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="s">"Subtitle.RightAligned"</span><span class="p">)</span>
-<span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomValue2StyleCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="s">"Subtitle.LeftAligned"</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight swift"><code><span class="c1">// SwitchRow</span>
-<span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomSwitchCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="kt">NSStringFromClass</span><span class="p">(</span><span class="kt">SwitchCell</span><span class="o">.</span><span class="k">self</span><span class="p">))</span>
 
-<span class="c1">// TapActionRow</span>
-<span class="n">tableView</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="kt">CustomTapActionCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="kt">NSStringFromClass</span><span class="p">(</span><span class="kt">TapActionCell</span><span class="o">.</span><span class="k">self</span><span class="p">))</span>
+<p>A customized table view cell type can be specified to rows during initialization.</p>
+<pre class="highlight swift"><code><span class="c1">// NavigationRow, using UITableViewCell if not specified.</span>
+<span class="kt">NavigationRow</span><span class="o">&lt;</span><span class="kt">CustomCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">)</span>
+
+<span class="c1">// SwitchRow, using SwitchCell if not specified.</span>
+<span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">CustomSwitchCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
+
+<span class="c1">// TapActionRow, using TapActionCell if not specified.</span>
+<span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">CustomTapActionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
+
+<p>The customization using <code>register(_:forCellReuseIdentifier:)</code> is deprecated due to the inconsistant reuse identifiers in the previous versions.</p>
 
 <blockquote>
 <p>Note: in <code>0.5.1</code> &amp; <code>0.5.2</code>, <strong>SwitchRow</strong> and <strong>TapActionRow</strong> were using <code>String(describing: SwitchCell.self)</code> and <code>String(describing: TapActionCell.self)</code> as reuse identifiers. Fixed in <code>0.5.3</code> for backward compatibility.</p>
@@ -317,7 +326,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-06-28)</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-03)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
