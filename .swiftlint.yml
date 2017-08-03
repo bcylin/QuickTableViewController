@@ -5,6 +5,7 @@ disabled_rules:
   - valid_docs
   - vertical_whitespace
 opt_in_rules:
+  - attributes
   - explicit_init
   - operator_usage_whitespace
 included:

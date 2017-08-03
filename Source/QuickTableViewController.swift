@@ -140,7 +140,8 @@ open class QuickTableViewController: UIViewController,
 
   // MARK: - IBAction
 
-  @objc fileprivate func didToggleSwitch(_ sender: UISwitch) {
+  @objc
+  fileprivate func didToggleSwitch(_ sender: UISwitch) {
     guard
       let cell = sender.containerCell,
       let indexPath = tableView.indexPath(for: cell),
