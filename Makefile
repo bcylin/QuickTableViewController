@@ -39,6 +39,7 @@ docs:
 	cp -rfv docs/output/* docs
 	cd docs && \
 	git add . && \
+	git diff-index --quiet HEAD || \
 	git commit -m "[CI] Update documentation at $(shell date +'%Y-%m-%d %H:%M:%S %z')"
 
 update-docs:
