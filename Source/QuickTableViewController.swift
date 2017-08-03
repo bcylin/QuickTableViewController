@@ -99,7 +99,7 @@ open class QuickTableViewController: UIViewController,
     let row = tableContents[indexPath.section].rows[indexPath.row]
     let cell =
       tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
-      row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellStyle.stringValue)
+      row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellReuseIdentifier)
 
     cell.configure(with: row)
     row.customize?(cell, row)
