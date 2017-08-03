@@ -100,6 +100,8 @@ class ViewController: QuickTableViewController {
       row.isSelected = !row.isSelected
       row.action?(row)
       tableContents[indexPath.section].rows[indexPath.row] = row
+    } else {
+      super.tableView(tableView, didSelectRowAt: indexPath)
     }
   }
 
