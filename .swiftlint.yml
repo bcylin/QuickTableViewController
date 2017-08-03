@@ -8,6 +8,7 @@ opt_in_rules:
   - attributes
   - explicit_init
   - explicit_top_level_acl
+  - object_literal
   - operator_usage_whitespace
 included:
   - Example

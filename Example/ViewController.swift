@@ -36,9 +36,9 @@ internal final class ViewController: QuickTableViewController {
     super.viewDidLoad()
     title = "QuickTableViewController"
 
-    let gear = UIImage(named: "iconmonstr-gear")!
-    let globe = UIImage(named: "iconmonstr-globe")!
-    let time = UIImage(named: "iconmonstr-time")!
+    let gear = #imageLiteral(resourceName: "iconmonstr-gear")
+    let globe = #imageLiteral(resourceName: "iconmonstr-globe")
+    let time = #imageLiteral(resourceName: "iconmonstr-time")
 
     tableContents = [
       Section(title: "Switch", rows: [
@@ -82,7 +82,7 @@ internal final class ViewController: QuickTableViewController {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
     if tableContents[indexPath.section].title == nil {
       // Alter the cells created by QuickTableViewController
-      cell.imageView?.image = UIImage(named: "iconmonstr-x-mark")
+      cell.imageView?.image = #imageLiteral(resourceName: "iconmonstr-x-mark")
     }
     return cell
   }
