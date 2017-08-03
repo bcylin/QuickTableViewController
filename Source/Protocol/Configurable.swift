@@ -1,9 +1,9 @@
 //
-//  Section.swift
+//  Configurable.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,25 +24,40 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-/// A struct that represents a section in a table view.
-public struct Section {
+/// Any type that conforms to this protocol is able to take a Row as the configuration.
+public protocol Configurable {
+  /// Configure the receiver with a Row.
+  func configure(with row: Row)
+}
 
-    /// The text of the section title.
-    public var title: String?
 
-    /// The array of rows in the section.
-    public var rows: [Row]
+extension UITableViewCell: Configurable {}
 
-    /// The text of the section footer.
-    public var footer: String?
 
-    ///
-    public init(title: String?, rows: [Row], footer: String? = nil) {
-        self.title = title
-        self.rows = rows
-        self.footer = footer
+extension Configurable where Self: UITableViewCell {
+
+  public func configure(with row: Row) {
+    textLabel?.text = row.title
+    detailTextLabel?.text = row.subtitle?.text
+
+    if let icon = (row as? IconEnabled)?.icon {
+      if let image = icon.image {
+        imageView?.image = image
+      }
+      if let image = icon.highlightedImage {
+        imageView?.highlightedImage = image
+      }
     }
+
+    if let enabled = row as? AccessoryEnabled {
+      if let view = enabled.accessoryView {
+        accessoryView = view
+      } else {
+        accessoryType = enabled.accessoryType
+      }
+    }
+  }
 
 }

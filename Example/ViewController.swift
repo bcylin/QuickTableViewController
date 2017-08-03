@@ -65,7 +65,20 @@ class ViewController: QuickTableViewController {
 
       Section(title: nil, rows: [
         NavigationRow(title: "Empty section title", subtitle: .none)
-      ])
+      ]),
+
+      Section(title: "Options", rows: {
+        let block: (UITableViewCell, Row & RowStyle) -> Void = { cell, row in
+          if let option = row as? OptionRow {
+            cell.accessoryType = option.isSelected ? .checkmark : .none
+          }
+        }
+        return [
+          OptionRow(title: "Option 1", isSelected: true, customization: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 2", customization: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 3", customization: block, action: weakify(self, type(of: self).toggleSelection))
+        ]
+      }(), footer: "Customized OptionRow")
     ]
   }
 
@@ -78,6 +91,16 @@ class ViewController: QuickTableViewController {
       cell.imageView?.image = UIImage(named: "iconmonstr-x-mark")
     }
     return cell
+  }
+
+  // MARK: - UITableViewDelegate
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if var row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
+      row.isSelected = !row.isSelected
+      row.action?(row)
+      tableContents[indexPath.section].rows[indexPath.row] = row
+    }
   }
 
   // MARK: - Private Methods
@@ -100,6 +123,12 @@ class ViewController: QuickTableViewController {
   private func printValue(_ sender: Row) {
     if let row = sender as? SwitchRow {
       print("\(row.title) = \(row.switchValue)")
+    }
+  }
+
+  private func toggleSelection(_ sender: Row) {
+    if let row = sender as? OptionRow {
+      print("\(row.title) is selected = \(row.isSelected)")
     }
   }
 

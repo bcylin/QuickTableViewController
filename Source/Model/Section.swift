@@ -1,5 +1,5 @@
 //
-//  NavigationRow.swift
+//  Section.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 01/09/2015.
@@ -26,41 +26,23 @@
 
 import Foundation
 
-/// A struct that represents a row that perfoms navigation when seleced.
-public struct NavigationRow: Row, Equatable, IconEnabled {
+/// A struct that represents a section in a table view.
+public struct Section {
 
-  /// The title text of the row.
-  public var title: String = ""
+  /// The text of the section title.
+  public var title: String?
 
-  /// The subtitle text of the row.
-  public var subtitle: Subtitle?
+  /// The array of rows in the section.
+  public var rows: [Row & RowStyle]
 
-  /// The icon of the row.
-  public var icon: Icon?
-
-  /// Returns `subtitle.style` as the reuse identifier of the table view cell to display the row.
-  public var cellReuseIdentifier: String {
-    return subtitle?.style ?? NSStringFromClass(UITableViewCell.self)
-  }
-
-  /// A closure related to the navigation when the row is selected.
-  public var action: ((Row) -> Void)?
+  /// The text of the section footer.
+  public var footer: String?
 
   ///
-  public init(title: String, subtitle: Subtitle, icon: Icon? = nil, action: ((Row) -> Void)? = nil) {
+  public init(title: String?, rows: [Row & RowStyle], footer: String? = nil) {
     self.title = title
-    self.subtitle = subtitle
-    self.icon = icon
-    self.action = action
-  }
-
-  private init() {}
-
-  // MARK: Equatable
-
-  /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
-  public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
-    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
+    self.rows = rows
+    self.footer = footer
   }
 
 }

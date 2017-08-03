@@ -1,5 +1,5 @@
 //
-//  SwitchRow.swift
+//  Icon.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 01/09/2015.
@@ -26,46 +26,55 @@
 
 import Foundation
 
-/// A struct that represents a row with a switch.
-public struct SwitchRow: Row, Equatable, IconEnabled {
+/// A struct that represents the image used in a row.
+public struct Icon: Equatable {
 
-  /// The title text of the row.
-  public var title: String = ""
+  /// The image of the normal state.
+  public var image: UIImage? {
+    return _image ?? UIImage(named: imageName ?? "")
+  }
 
-  /// Subtitle is disabled in SwitchRow.
-  public let subtitle: Subtitle? = nil
+  /// The image of the highlighted state.
+  public var highlightedImage: UIImage? {
+    return _highlightedImage ?? UIImage(named: highlightedImageName)
+  }
 
-  /// The icon of the row.
-  public var icon: Icon?
+  // swiftlint:disable variable_name
+  fileprivate var _image: UIImage?
+  fileprivate var _highlightedImage: UIImage?
+  // swiftlint:eable variable_name
 
-  /// The state of the switch.
-  public var switchValue: Bool = false {
-    didSet {
-      action?(self)
+  public private(set) var imageName: String?
+  public var highlightedImageName: String {
+    if let name = imageName {
+      return name + "-highlighted"
+    } else {
+      return ""
     }
   }
 
-  /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
-  public let cellReuseIdentifier: String = NSStringFromClass(SwitchCell.self)
-
-  /// A closure that will be invoked when the switchValue is changed.
-  public var action: ((Row) -> Void)?
+  ///
+  public init(imageName: String) {
+    self.imageName = imageName
+  }
 
   ///
-  public init(title: String, switchValue: Bool, icon: Icon? = nil, action: ((Row) -> Void)?) {
-    self.title = title
-    self.switchValue = switchValue
-    self.icon = icon
-    self.action = action
+  public init(image: UIImage, highlightedImage: UIImage? = nil) {
+    _image = image
+    _highlightedImage = highlightedImage
   }
 
   private init() {}
 
   // MARK: Equatable
 
-  /// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
-  public static func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
-    return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
+  /// Returns true iff `lhs` and `rhs` have equal images, highlighted images and image names.
+  public static func == (lhs: Icon, rhs: Icon) -> Bool {
+    if let lhsName = lhs.imageName, let rhsName = rhs.imageName {
+      return lhsName == rhsName
+    } else {
+      return lhs._image == rhs._image && lhs._highlightedImage == rhs._highlightedImage
+    }
   }
 
 }

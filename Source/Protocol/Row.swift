@@ -1,9 +1,9 @@
 //
-//  SectionSpec.swift
+//  Row.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 18/01/2016.
-//  Copyright © 2016 bcylin.
+//  Created by Ben on 01/09/2015.
+//  Copyright (c) 2015 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,24 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
-import QuickTableViewController
+import Foundation
 
-final class SectionSpec: QuickSpec {
+/// Any type that conforms to this protocol is capable of representing a row in a table view.
+public protocol Row {
+  /// The title text of the row.
+  var title: String { get }
+  /// The subtitle text of the row.
+  var subtitle: Subtitle? { get }
+  /// A closure related to the action of the row.
+  var action: ((Row) -> Void)? { get }
+}
 
-  override func spec() {
-    describe("initialization") {
-      let row = NavigationRow(title: "", subtitle: .none)
-      let section = Section(title: "title", rows: [row], footer: "footer")
-      it("should initialize with given parameters") {
-        expect(section.title) == "title"
-        expect(section.rows).to(haveCount(1))
-        expect(section.rows.first as? NavigationRow) == row
-        expect(section.footer) == "footer"
-      }
-    }
+
+extension Row {
+
+  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
   }
 
 }

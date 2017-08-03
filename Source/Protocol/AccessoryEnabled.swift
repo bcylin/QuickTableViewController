@@ -1,9 +1,9 @@
 //
-//  SectionSpec.swift
+//  AccessoryEnabled.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 18/01/2016.
-//  Copyright © 2016 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,12 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
-import QuickTableViewController
+import UIKit
 
-final class SectionSpec: QuickSpec {
-
-  override func spec() {
-    describe("initialization") {
-      let row = NavigationRow(title: "", subtitle: .none)
-      let section = Section(title: "title", rows: [row], footer: "footer")
-      it("should initialize with given parameters") {
-        expect(section.title) == "title"
-        expect(section.rows).to(haveCount(1))
-        expect(section.rows.first as? NavigationRow) == row
-        expect(section.footer) == "footer"
-      }
-    }
-  }
-
+/// Any type that conforms to this protocol is able to provide accessory info for a cell.
+public protocol AccessoryEnabled {
+  /// The type of standard accessory view the cell should use (normal state).
+  var accessoryType: UITableViewCellAccessoryType { get }
+  /// A view that is used, typically as a control, on the right side of the cell (normal state).
+  var accessoryView: UIView? { get }
 }

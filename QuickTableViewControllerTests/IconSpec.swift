@@ -28,7 +28,7 @@ import Nimble
 import Quick
 @testable import QuickTableViewController
 
-class IconSpec: QuickSpec {
+final class IconSpec: QuickSpec {
 
   override func spec() {
 

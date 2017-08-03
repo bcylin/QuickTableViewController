@@ -1,9 +1,9 @@
 //
-//  SectionSpec.swift
-//  QuickTableViewController
+//  OptionRow.swift
+//  Example
 //
-//  Created by Ben on 18/01/2016.
-//  Copyright © 2016 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,41 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
+import Foundation
 import QuickTableViewController
 
-final class SectionSpec: QuickSpec {
+struct OptionRow<T: UITableViewCell>: Row, RowStyle {
 
-  override func spec() {
-    describe("initialization") {
-      let row = NavigationRow(title: "", subtitle: .none)
-      let section = Section(title: "title", rows: [row], footer: "footer")
-      it("should initialize with given parameters") {
-        expect(section.title) == "title"
-        expect(section.rows).to(haveCount(1))
-        expect(section.rows.first as? NavigationRow) == row
-        expect(section.footer) == "footer"
-      }
-    }
+  // MARK: - Initializer
+
+  init(
+    title: String,
+    isSelected: Bool = false,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    action: ((Row) -> Void)?
+  ) {
+    self.title = title
+    self.isSelected = isSelected
+    self.customize = customization
+    self.action = action
   }
+
+  // MARK: - Row
+
+  let title: String
+  let subtitle: Subtitle? = nil
+  let action: ((Row) -> Void)?
+
+  // MARK: - OptionRow
+
+  var isSelected: Bool = false
+
+  // MARK: - RowStyle
+
+  let cellType: UITableViewCell.Type = T.self
+  let cellReuseIdentifier: String = String(describing: T.self)
+  let cellStyle: UITableViewCellStyle = .default
+  let isSelectable: Bool = true
+  let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
 }

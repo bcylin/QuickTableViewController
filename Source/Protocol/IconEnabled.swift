@@ -1,9 +1,9 @@
 //
-//  Row.swift
+//  IconEnabled.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,24 +26,8 @@
 
 import Foundation
 
-/// Any type that conforms to this protocol is capable of representing a row in a table view.
-public protocol Row {
-  /// The title text of the row.
-  var title: String { get }
-  /// The subtitle text of the row.
-  var subtitle: Subtitle? { get }
-  /// The reuse identifier of the table view cell to display the row.
-  var cellReuseIdentifier: String { get }
-  /// A closure related to the action of the row.
-  var action: ((Row) -> Void)? { get }
-}
-
-
-extension Row {
-
-  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
-  public static func == (lhs: Self, rhs: Self) -> Bool {
-    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
-  }
-
+/// Any type that conforms to this protocol is able to show an icon image in a table view.
+public protocol IconEnabled: Row {
+  /// The icon of the row.
+  var icon: Icon? { get }
 }
