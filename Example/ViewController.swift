@@ -42,19 +42,19 @@ internal final class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).printValue)),
-        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).printValue))
+        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).printValue)),
+        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).printValue))
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: weakify(self, type(of: self).showAlert))
+        TapActionRow<TapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .none, icon: Icon(image: gear)),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".Subtitle"), icon: Icon(image: globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
-        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".Value2"))
+        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
+        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       Section(title: nil, rows: [

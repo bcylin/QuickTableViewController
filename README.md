@@ -31,19 +31,19 @@ class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
-        SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
+        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, action: { _ in }),
+        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, action: { _ in }),
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+        TapActionRow<TapActionCell>(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
       ]),
 
-      Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: UIImage(named: "exit"), highlightedImage: UIImage(named: "exit-highlighted"))),
-        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: UIImage(named: "language"))),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(imageName: "timeMachine"), action: { [weak self] in self?.showDetail($0) }),
-        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
+      Section(title: "Navigation", rows: [
+        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: UIImage(named: "globe"), highlightedImage: UIImage(named: "globe-highlighted"))),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: UIImage(named: "gear"))),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(imageName: "time"), action: { [weak self] in self?.showDetail($0) }),
+        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ])
     ]
   }
@@ -66,25 +66,25 @@ class ViewController: QuickTableViewController {
 #### Subtitle Styles
 
 ```swift
-NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .None)
-NavigationRow(title: "UITableViewCellStyle", subtitle: .BelowTitle(".Subtitle")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .RightAligned(".Value1")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .LeftAligned(".Value2"))
+NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .none)
+NavigationRow(title: "UITableViewCellStyle", subtitle: .belowTitle(".subtitle")
+NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
+NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 ```
 
 #### IconEnabled
 
 * Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
-* Table view cells in `UITableViewCellStyle.Value2` will hide images.
+* Table view cells in `UITableViewCellStyle.value2` will hide images.
 
 ```swift
-NavigationRow(title: "Cell with image", subtitle: .None, icon: Icon(imageName: "icon"))
+NavigationRow(title: "Cell with image", subtitle: .none, icon: Icon(imageName: "icon"))
 ```
 
 #### Disclosure Indicator
 
-* A `NavigationRow` with an `action` will be displayed in a table view cell whose `accessoryType` is `.DisclosureIndicator`.
+* A `NavigationRow` with an `action` will be displayed in a table view cell whose `accessoryType` is `.disclosureIndicator`.
 * The `action` will be invoked when the related table view cell is selected.
 
 ```swift
