@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
 [![CocoaDocs](https://img.shields.io/cocoapods/metrics/doc-percent/QuickTableViewController.svg)](http://cocoadocs.org/docsets/QuickTableViewController)
 [![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg)](https://codecov.io/github/bcylin/QuickTableViewController)
-![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
+![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
 A simple way to create a table view for settings, providing table view cells with:
 
@@ -150,6 +150,7 @@ QuickTableViewController | iOS  | Xcode | Swift
 `~> 0.3.0`               | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
 `~> 0.4.0`               | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
 `~> 0.5.0`               | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
+`~> 0.6.0`               | 8.0+ | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
 ## Installation
 
@@ -161,7 +162,7 @@ Create a `Podfile` with the following specification and run `pod install`.
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'QuickTableViewController', '~> 0.5.0'
+pod 'QuickTableViewController', '~> 0.6.0'
 ```
 
 ### Use [Carthage](https://github.com/Carthage/Carthage)
@@ -170,7 +171,7 @@ Create a `Cartfile` with the following specification and run `carthage update Qu
 Follow the [instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the framework to your project.
 
 ```
-github "bcylin/QuickTableViewController" ~> 0.5.0
+github "bcylin/QuickTableViewController" ~> 0.6.0
 ```
 
 ### Use Git Submodule

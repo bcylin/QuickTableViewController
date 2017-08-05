@@ -1,7 +1,7 @@
 PODS:
   - Nimble (6.1.0)
   - Quick (1.1.0)
-  - QuickTableViewController (0.5.3)
+  - QuickTableViewController (0.6.0)
   - SwiftLint (0.19.0)
   - Weakify (0.4.0)
 
@@ -39,7 +39,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Nimble: 46fc2a2c3f2f5bb5e2d7e89756fb710c1457f27a
   Quick: 4700beb8056662b579facd79eaca7f04fb3d48e6
-  QuickTableViewController: eaa38a28457820e9be30ec3043f5eccbe8187fdb
+  QuickTableViewController: 2271ad3e6480cc971027d79dc3235081288fa0c3
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   Weakify: 77be86c462237baa373e97fcf57d4d8637c2e614
 
