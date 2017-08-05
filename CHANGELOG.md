@@ -2,8 +2,14 @@
 
 ## Next Release
 
-* Specify table view cell types to rows during initialization
+#### Breaking
+
 * Deprecate the customization using table view `register(_:forCellReuseIdentifier:)`
+* Move the `tableView` configuration from `loadView()` to `viewDidLoad()`
+
+#### Enhancements
+
+* Specify table view cell types to rows during initialization
 * Separate `RowStyle` from the original `Row` protocol
 * Add an additional cell customization `((UITableViewCell, Row & RowStyle) -> Void)?` for each row
 

@@ -28,7 +28,7 @@ import Nimble
 import Quick
 import QuickTableViewController
 
-final class SectionSpec: QuickSpec {
+internal final class SectionSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {

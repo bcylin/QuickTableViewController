@@ -65,8 +65,8 @@ open class QuickTableViewController: UIViewController,
 
   // MARK: - UIViewController
 
-  open override func loadView() {
-    super.loadView()
+  open override func viewDidLoad() {
+    super.viewDidLoad()
     view.addSubview(tableView)
     tableView.frame = view.bounds
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -140,7 +140,8 @@ open class QuickTableViewController: UIViewController,
 
   // MARK: - IBAction
 
-  @objc fileprivate func didToggleSwitch(_ sender: UISwitch) {
+  @objc
+  fileprivate func didToggleSwitch(_ sender: UISwitch) {
     guard
       let cell = sender.containerCell,
       let indexPath = tableView.indexPath(for: cell),
