@@ -72,7 +72,7 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 ```
 
-#### IconEnabled
+#### Icon
 
 * Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
@@ -93,9 +93,8 @@ NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row)
 
 ### SwitchRow
 
-* A `SwitchRow` is associated to a table view cell with a `UISwitch` as its `
-accessoryView`.
-* The optional `action` will be invoked when the `switchValue` changes.
+* A `SwitchRow` is representing a table view cell with a `UISwitch` as its `accessoryView`.
+* The `action` will be invoked when the switch value changes.
 * It also conforms to `IconEnabled`.
 
 ```swift
@@ -106,14 +105,20 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 
 ### TapActionRow
 
-* A `TapActionRow` is associated to a button-like table view cell.
+* A `TapActionRow` is representing a button-like table view cell.
 * The `action` will be invoked when the related table view cell is selected.
 
 ```swift
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ```
 
-### Use Custom Cell Classes
+### Full Documentation
+
+<https://bcylin.github.io/QuickTableViewController>
+
+## Customization
+
+### Cell Classes
 
 A customized table view cell type can be specified to rows during initialization.
 
@@ -128,13 +133,13 @@ SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in }
 TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 ```
 
-The customization using `register(_:forCellReuseIdentifier:)` is deprecated due to the inconsistant reuse identifiers in the previous versions.
+The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 
 > Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
 
-### Full Documentation
+### Rows
 
-<https://bcylin.github.io/QuickTableViewController>
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
 
 ## Requirements
 
