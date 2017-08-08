@@ -72,7 +72,7 @@ public struct SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
 
-  /// The value is **SwitchCell**, as the reuse identifier of the table view cell to display the row.
+  /// The reuse identifier of the table view cell to display the row. The default value is **SwitchCell**.
   public let cellReuseIdentifier: String = String(describing: T.self)
 
   /// The cell style is UITableViewCellStyle.default.

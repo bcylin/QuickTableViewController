@@ -6,7 +6,7 @@
 ![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
 [![CocoaDocs](https://img.shields.io/cocoapods/metrics/doc-percent/QuickTableViewController.svg)](http://cocoadocs.org/docsets/QuickTableViewController)
 [![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg)](https://codecov.io/github/bcylin/QuickTableViewController)
-![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
+![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
 A simple way to create a table view for settings, providing table view cells with:
 
@@ -31,19 +31,19 @@ class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
-        SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
+        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, action: { _ in }),
+        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, action: { _ in }),
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+        TapActionRow<TapActionCell>(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
       ]),
 
-      Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .None, icon: Icon(image: UIImage(named: "exit"), highlightedImage: UIImage(named: "exit-highlighted"))),
-        NavigationRow(title: "CellStyle", subtitle: .BelowTitle(".Subtitle"), icon: Icon(image: UIImage(named: "language"))),
-        NavigationRow(title: "CellStyle", subtitle: .RightAligned(".Value1"), icon: Icon(imageName: "timeMachine"), action: { [weak self] in self?.showDetail($0) }),
-        NavigationRow(title: "CellStyle", subtitle: .LeftAligned(".Value2"))
+      Section(title: "Navigation", rows: [
+        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: UIImage(named: "globe"), highlightedImage: UIImage(named: "globe-highlighted"))),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: UIImage(named: "gear"))),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(imageName: "time"), action: { [weak self] in self?.showDetail($0) }),
+        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ])
     ]
   }
@@ -66,25 +66,25 @@ class ViewController: QuickTableViewController {
 #### Subtitle Styles
 
 ```swift
-NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .None)
-NavigationRow(title: "UITableViewCellStyle", subtitle: .BelowTitle(".Subtitle")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .RightAligned(".Value1")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .LeftAligned(".Value2"))
+NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .none)
+NavigationRow(title: "UITableViewCellStyle", subtitle: .belowTitle(".subtitle")
+NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
+NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 ```
 
-#### IconEnabled
+#### Icon
 
 * Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
-* Table view cells in `UITableViewCellStyle.Value2` will hide images.
+* Table view cells in `UITableViewCellStyle.value2` will hide images.
 
 ```swift
-NavigationRow(title: "Cell with image", subtitle: .None, icon: Icon(imageName: "icon"))
+NavigationRow(title: "Cell with image", subtitle: .none, icon: Icon(imageName: "icon"))
 ```
 
 #### Disclosure Indicator
 
-* A `NavigationRow` with an `action` will be displayed in a table view cell whose `accessoryType` is `.DisclosureIndicator`.
+* A `NavigationRow` with an `action` will be displayed in a table view cell whose `accessoryType` is `.disclosureIndicator`.
 * The `action` will be invoked when the related table view cell is selected.
 
 ```swift
@@ -93,9 +93,8 @@ NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row)
 
 ### SwitchRow
 
-* A `SwitchRow` is associated to a table view cell with a `UISwitch` as its `
-accessoryView`.
-* The optional `action` will be invoked when the `switchValue` changes.
+* A `SwitchRow` is representing a table view cell with a `UISwitch` as its `accessoryView`.
+* The `action` will be invoked when the switch value changes.
 * It also conforms to `IconEnabled`.
 
 ```swift
@@ -106,14 +105,20 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 
 ### TapActionRow
 
-* A `TapActionRow` is associated to a button-like table view cell.
+* A `TapActionRow` is representing a button-like table view cell.
 * The `action` will be invoked when the related table view cell is selected.
 
 ```swift
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ```
 
-### Use Custom Cell Classes
+### Full Documentation
+
+<https://bcylin.github.io/QuickTableViewController>
+
+## Customization
+
+### Cell Classes
 
 A customized table view cell type can be specified to rows during initialization.
 
@@ -128,13 +133,13 @@ SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in }
 TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 ```
 
-The customization using `register(_:forCellReuseIdentifier:)` is deprecated due to the inconsistant reuse identifiers in the previous versions.
+The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 
 > Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
 
-### Full Documentation
+### Rows
 
-<https://bcylin.github.io/QuickTableViewController>
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
 
 ## Requirements
 
@@ -145,6 +150,7 @@ QuickTableViewController | iOS  | Xcode | Swift
 `~> 0.3.0`               | 8.0+ | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
 `~> 0.4.0`               | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
 `~> 0.5.0`               | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
+`~> 0.6.0`               | 8.0+ | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
 ## Installation
 
@@ -156,7 +162,7 @@ Create a `Podfile` with the following specification and run `pod install`.
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'QuickTableViewController', '~> 0.5.0'
+pod 'QuickTableViewController', '~> 0.6.0'
 ```
 
 ### Use [Carthage](https://github.com/Carthage/Carthage)
@@ -165,7 +171,7 @@ Create a `Cartfile` with the following specification and run `carthage update Qu
 Follow the [instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the framework to your project.
 
 ```
-github "bcylin/QuickTableViewController" ~> 0.5.0
+github "bcylin/QuickTableViewController" ~> 0.6.0
 ```
 
 ### Use Git Submodule

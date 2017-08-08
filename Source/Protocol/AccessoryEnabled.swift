@@ -28,8 +28,9 @@ import UIKit
 
 /// Any type that conforms to this protocol is able to provide accessory info for a cell.
 public protocol AccessoryEnabled {
-  /// The type of standard accessory view the cell should use (normal state).
+  /// The type of standard accessory view the cell should use.
   var accessoryType: UITableViewCellAccessoryType { get }
-  /// A view that is used, typically as a control, on the right side of the cell (normal state).
+  /// An optional view that is used on the right side of the cell.
+  /// When the `accessoryView` is provided, the `accessoryType` is ignored.
   var accessoryView: UIView? { get }
 }

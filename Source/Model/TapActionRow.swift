@@ -63,7 +63,7 @@ public struct TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
 
-  /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
+  /// The reuse identifier of the table view cell to display the row. The default value is **TapActionCell**.
   public let cellReuseIdentifier: String = String(describing: T.self)
 
   /// The cell style is UITableViewCellStyle.default.
