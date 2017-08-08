@@ -27,7 +27,7 @@
 import Foundation
 
 /// A struct that represents a row with a switch.
-public struct SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
+public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
 
   // MARK: - Initializer
 

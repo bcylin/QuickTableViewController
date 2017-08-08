@@ -145,16 +145,13 @@ open class QuickTableViewController: UIViewController,
     guard
       let cell = sender.containerCell,
       let indexPath = tableView.indexPath(for: cell),
-      let switchRow = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+      let row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
     else {
       return
     }
 
-    // Replace the original row in tableContents
-    var row = switchRow
     row.switchValue = sender.isOn
     row.action?(row)
-    tableContents[indexPath.section].rows[indexPath.row] = row
   }
 
 }
