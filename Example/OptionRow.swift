@@ -1,9 +1,9 @@
 //
-//  AppDelegate.swift
+//  OptionRow.swift
 //  Example
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,19 +24,41 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
+import QuickTableViewController
 
-@UIApplicationMain
-internal final class AppDelegate: UIResponder, UIApplicationDelegate {
+internal struct OptionRow<T: UITableViewCell>: Row, RowStyle {
 
-  var window: UIWindow?
+  // MARK: - Initializer
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window?.backgroundColor = UIColor.white
-    window?.rootViewController = UINavigationController(rootViewController: ViewController())
-    window?.makeKeyAndVisible()
-    return true
+  init(
+    title: String,
+    isSelected: Bool = false,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    action: ((Row) -> Void)?
+  ) {
+    self.title = title
+    self.isSelected = isSelected
+    self.customize = customization
+    self.action = action
   }
+
+  // MARK: - Row
+
+  let title: String
+  let subtitle: Subtitle? = nil
+  let action: ((Row) -> Void)?
+
+  // MARK: - OptionRow
+
+  var isSelected: Bool = false
+
+  // MARK: - RowStyle
+
+  let cellType: UITableViewCell.Type = T.self
+  let cellReuseIdentifier: String = String(describing: T.self)
+  let cellStyle: UITableViewCellStyle = .default
+  let isSelectable: Bool = true
+  let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
 }

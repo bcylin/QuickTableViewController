@@ -28,7 +28,7 @@ import UIKit
 import QuickTableViewController
 import Weakify
 
-class ViewController: QuickTableViewController {
+internal final class ViewController: QuickTableViewController {
 
   // MARK: - UIViewController
 
@@ -36,36 +36,43 @@ class ViewController: QuickTableViewController {
     super.viewDidLoad()
     title = "QuickTableViewController"
 
-    let gear = UIImage(named: "iconmonstr-gear")!
-    let globe = UIImage(named: "iconmonstr-globe")!
-    let time = UIImage(named: "iconmonstr-time")!
+    let gear = #imageLiteral(resourceName: "iconmonstr-gear")
+    let globe = #imageLiteral(resourceName: "iconmonstr-globe")
+    let time = #imageLiteral(resourceName: "iconmonstr-time")
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).printValue)),
-        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).printValue))
+        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).printValue)),
+        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).printValue))
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: weakify(self, type(of: self).showAlert))
-      ]),
-
-      Section(title: "Cell Styles", rows: [
-        NavigationRow(title: "CellStyle.Default", subtitle: .none, icon: Icon(image: gear)),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".Subtitle"), icon: Icon(image: globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".Value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
-        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".Value2"))
+        TapActionRow<TapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "Navigation", subtitle: .none, action: weakify(self, type(of: self).showDetail)),
-        NavigationRow(title: "Navigation", subtitle: .belowTitle("with subtitle"), action: weakify(self, type(of: self).showDetail)),
-        NavigationRow(title: "Navigation", subtitle: .rightAligned("with detail text"), action: weakify(self, type(of: self).showDetail))
-      ], footer: "UITableViewCellStyle.Value2 is not listed."),
+        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
+        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+      ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       Section(title: nil, rows: [
         NavigationRow(title: "Empty section title", subtitle: .none)
-      ])
+      ]),
+
+      Section(title: "Customized", rows: {
+        let block: (UITableViewCell, Row & RowStyle) -> Void = { cell, row in
+          if let option = row as? OptionRow {
+            cell.accessoryType = option.isSelected ? .checkmark : .none
+          }
+        }
+        return [
+          OptionRow(title: "Option 1", isSelected: true, customization: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 2", customization: block, action: weakify(self, type(of: self).toggleSelection)),
+          OptionRow(title: "Option 3", customization: block, action: weakify(self, type(of: self).toggleSelection))
+        ]
+      }(), footer: "See OptionRow for more details.")
     ]
   }
 
@@ -75,9 +82,21 @@ class ViewController: QuickTableViewController {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
     if tableContents[indexPath.section].title == nil {
       // Alter the cells created by QuickTableViewController
-      cell.imageView?.image = UIImage(named: "iconmonstr-x-mark")
+      cell.imageView?.image = #imageLiteral(resourceName: "iconmonstr-x-mark")
     }
     return cell
+  }
+
+  // MARK: - UITableViewDelegate
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if var row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
+      row.isSelected = !row.isSelected
+      row.action?(row)
+      tableContents[indexPath.section].rows[indexPath.row] = row
+    } else {
+      super.tableView(tableView, didSelectRowAt: indexPath)
+    }
   }
 
   // MARK: - Private Methods
@@ -100,6 +119,12 @@ class ViewController: QuickTableViewController {
   private func printValue(_ sender: Row) {
     if let row = sender as? SwitchRow {
       print("\(row.title) = \(row.switchValue)")
+    }
+  }
+
+  private func toggleSelection(_ sender: Row) {
+    if let row = sender as? OptionRow {
+      print("\(row.title) is selected = \(row.isSelected)")
     }
   }
 

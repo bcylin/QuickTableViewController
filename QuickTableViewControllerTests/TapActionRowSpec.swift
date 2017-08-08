@@ -28,7 +28,7 @@ import Nimble
 import Quick
 import QuickTableViewController
 
-class TapActionRowSpec: QuickSpec {
+internal final class TapActionRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {
@@ -37,7 +37,7 @@ class TapActionRowSpec: QuickSpec {
 
       it("should initialize with given parameters") {
         expect(row.title) == "title"
-        expect(row.cellReuseIdentifier) == "QuickTableViewController.TapActionCell"
+        expect(row.cellReuseIdentifier) == "TapActionCell"
         expect(row.action).notTo(beNil())
 
         row.action?(row)

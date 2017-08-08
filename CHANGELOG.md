@@ -1,6 +1,21 @@
 # Change Log
 
+## v0.6.0
+
+#### Breaking
+
+* Deprecate the customization using table view `register(_:forCellReuseIdentifier:)`
+* Move the `tableView` configuration from `loadView()` to `viewDidLoad()`
+
+#### Enhancements
+
+* Specify table view cell types to rows during initialization
+* Separate `RowStyle` from the original `Row` protocol
+* Add an additional cell customization `((UITableViewCell, Row & RowStyle) -> Void)?` for each row
+
 ## v0.5.3
+
+#### Fixes
 
 * Fix the cell reuse identifier of `SwitchRow` and `TapActionRow` to be compatible with `0.5.x`
 
@@ -13,27 +28,27 @@ Cell Reuse identifier | SwitchRow                            | TapActionRow
 
 ## v0.5.2
 
-#### Changes
+#### Enhancements
 
 * Xcode 8.3
 * Make the image name and highlighted image name of `Icon` public readonly
 
 ## v0.5.1
 
-#### Changes
+#### Enhancements
 
-* Specify table view cell reuse identifier on each type of row
+* Specify table view cell reuse identifier for each type of row
 * Update Swift syntax
 
 ## v0.5.0
 
-#### Changes
+#### Breaking
 
 * Swift 3.0
 
 ## v0.4.0
 
-#### Changes
+#### Enhancements
 
 * Swift 2.3
 * Improved documentation
@@ -41,16 +56,19 @@ Cell Reuse identifier | SwitchRow                            | TapActionRow
 
 ## v0.3.0
 
-#### Changes
+#### Enhancements
 
 * Swift 2.2
 * Both `NavigationRow` and `SwitchRow` conform to `IconEnabled`.
 
 ## v0.2.0
 
-#### Changes
+#### Breaking
 
 * Swift 2.0
+
+#### Enhancements
+
 * `Row` and `Subtitle` now conform to `Equatable`
 * Specify table view cell images with `Icon`, which includes highlighted image
 * Separate self.view from self.tableView in QuickTableViewController

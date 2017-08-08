@@ -26,17 +26,17 @@
 
 import Nimble
 import Quick
-import QuickTableViewController
+@testable import QuickTableViewController
 
-class SubtitleSpec: QuickSpec {
+internal final class SubtitleSpec: QuickSpec {
 
   override func spec() {
     describe("subtitle style") {
       it("should return the descriptive name of the style") {
-        expect(Subtitle.none.style) == "Subtitle.None"
-        expect(Subtitle.belowTitle("text").style) == "Subtitle.BelowTitle"
-        expect(Subtitle.rightAligned("text").style) == "Subtitle.RightAligned"
-        expect(Subtitle.leftAligned("text").style) == "Subtitle.LeftAligned"
+        expect(Subtitle.none.style.stringValue) == "UITableViewCellStyleDefault"
+        expect(Subtitle.belowTitle("text").style.stringValue) == "UITableViewCellStyleSubtitle"
+        expect(Subtitle.rightAligned("text").style.stringValue) == "UITableViewCellStyleValue1"
+        expect(Subtitle.leftAligned("text").style.stringValue) == "UITableViewCellStyleValue2"
       }
     }
 

@@ -1,6 +1,6 @@
 //
-//  AppDelegate.swift
-//  Example
+//  Row.swift
+//  QuickTableViewController
 //
 //  Created by Ben on 01/09/2015.
 //  Copyright (c) 2015 bcylin.
@@ -24,19 +24,24 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-@UIApplicationMain
-internal final class AppDelegate: UIResponder, UIApplicationDelegate {
+/// Any type that conforms to this protocol is capable of representing a row in a table view.
+public protocol Row {
+  /// The title text of the row.
+  var title: String { get }
+  /// The subtitle text of the row.
+  var subtitle: Subtitle? { get }
+  /// A closure related to the action of the row.
+  var action: ((Row) -> Void)? { get }
+}
 
-  var window: UIWindow?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window?.backgroundColor = UIColor.white
-    window?.rootViewController = UINavigationController(rootViewController: ViewController())
-    window?.makeKeyAndVisible()
-    return true
+extension Row {
+
+  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
   }
 
 }

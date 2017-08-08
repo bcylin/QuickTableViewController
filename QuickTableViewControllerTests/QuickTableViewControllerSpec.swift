@@ -26,10 +26,10 @@
 
 import Nimble
 import Quick
-import QuickTableViewController
+@testable import QuickTableViewController
 
 // swiftlint:disable type_body_length
-class QuickTableViewControllerSpec: QuickSpec {
+internal final class QuickTableViewControllerSpec: QuickSpec {
 
   override func spec() {
 
@@ -55,12 +55,6 @@ class QuickTableViewControllerSpec: QuickSpec {
         expect(view?.subviews).to(contain(tableView))
         expect(tableView.dataSource as? QuickTableViewController) == controller
         expect(tableView.delegate as? QuickTableViewController) == controller
-      }
-
-      it("should register table view cell classes") {
-        expect(tableView.dequeueReusableCell(withIdentifier: "QuickTableViewController.SwitchCell")).to(beAnInstanceOf(SwitchCell.self))
-        expect(tableView.dequeueReusableCell(withIdentifier: "QuickTableViewController.TapActionCell")).to(beAnInstanceOf(TapActionCell.self))
-        expect(tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")).to(beAnInstanceOf(UITableViewCell.self))
       }
 
       it("should nullify the references after controller is gone") {
@@ -141,10 +135,10 @@ class QuickTableViewControllerSpec: QuickSpec {
           let d = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 3, section: 0))
 
           it("should match the reusable identifier") {
-            expect(a.reuseIdentifier) == Subtitle.none.style
-            expect(b.reuseIdentifier) == Subtitle.belowTitle("").style
-            expect(c.reuseIdentifier) == Subtitle.rightAligned("").style
-            expect(d.reuseIdentifier) == Subtitle.leftAligned("").style
+            expect(a.reuseIdentifier) == UITableViewCellStyle.default.stringValue
+            expect(b.reuseIdentifier) == UITableViewCellStyle.subtitle.stringValue
+            expect(c.reuseIdentifier) == UITableViewCellStyle.value1.stringValue
+            expect(d.reuseIdentifier) == UITableViewCellStyle.value2.stringValue
           }
 
           it("should match texts in labels") {

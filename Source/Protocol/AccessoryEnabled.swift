@@ -1,9 +1,9 @@
 //
-//  AppDelegate.swift
-//  Example
+//  AccessoryEnabled.swift
+//  QuickTableViewController
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,17 +26,11 @@
 
 import UIKit
 
-@UIApplicationMain
-internal final class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  var window: UIWindow?
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window?.backgroundColor = UIColor.white
-    window?.rootViewController = UINavigationController(rootViewController: ViewController())
-    window?.makeKeyAndVisible()
-    return true
-  }
-
+/// Any type that conforms to this protocol is able to provide accessory info for a cell.
+public protocol AccessoryEnabled {
+  /// The type of standard accessory view the cell should use.
+  var accessoryType: UITableViewCellAccessoryType { get }
+  /// An optional view that is used on the right side of the cell.
+  /// When the `accessoryView` is provided, the `accessoryType` is ignored.
+  var accessoryView: UIView? { get }
 }

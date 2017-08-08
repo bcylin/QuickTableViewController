@@ -38,13 +38,13 @@ public enum Subtitle: Equatable {
   /// Shows the associated text in `UITableViewCellStyle.value2`.
   case leftAligned(String)
 
-  /// Returns the descriptive name of the style.
-  public var style: String {
+  /// Returns the corresponding table view cell style.
+  public var style: UITableViewCellStyle {
     switch self {
-    case .none:             return "Subtitle.None"
-    case .belowTitle(_):    return "Subtitle.BelowTitle"
-    case .rightAligned(_):  return "Subtitle.RightAligned"
-    case .leftAligned(_):   return "Subtitle.LeftAligned"
+    case .none:          return .default
+    case .belowTitle:    return .subtitle
+    case .rightAligned:  return .value1
+    case .leftAligned:   return .value2
     }
   }
 
@@ -73,6 +73,20 @@ public enum Subtitle: Equatable {
       return a == b
     default:
       return false
+    }
+  }
+
+}
+
+
+internal extension UITableViewCellStyle {
+
+  var stringValue: String {
+    switch self {
+    case .default:  return "UITableViewCellStyleDefault"
+    case .subtitle: return "UITableViewCellStyleSubtitle"
+    case .value1:   return "UITableViewCellStyleValue1"
+    case .value2:   return "UITableViewCellStyleValue2"
     }
   }
 

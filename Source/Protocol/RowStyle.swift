@@ -1,9 +1,9 @@
 //
-//  TapActionRow.swift
+//  RowStyle.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,27 +26,16 @@
 
 import Foundation
 
-/// A struct that represents a row that triggers certain action when seleced.
-public struct TapActionRow: Row, Equatable {
-
-  /// The title text of the row.
-  public var title: String = ""
-
-  /// Subtitle is disabled in TapActionRow.
-  public let subtitle: Subtitle? = nil
-
-  /// The value is **TapActionCell**, as the reuse identifier of the table view cell to display the row.
-  public let cellReuseIdentifier: String = NSStringFromClass(TapActionCell.self)
-
-  /// A closure as the tap action when the row is selected.
-  public var action: ((Row) -> Void)?
-
-  ///
-  public init(title: String, action: ((Row) -> Void)?) {
-    self.title = title
-    self.action = action
-  }
-
-  private init() {}
-
+/// Any type that conforms to this protocol carries the info for the UI.
+public protocol RowStyle {
+  /// The type of the table view cell to display the row.
+  var cellType: UITableViewCell.Type { get }
+  /// The reuse identifier of the table view cell to display the row.
+  var cellReuseIdentifier: String { get }
+  /// The style of the table view cell to display the row.
+  var cellStyle: UITableViewCellStyle { get }
+  /// The flag that indicates whether the table view cell should trigger the action when selected.
+  var isSelectable: Bool { get }
+  /// The additional customization during cell configuration.
+  var customize: ((UITableViewCell, Row & RowStyle) -> Void)? { get }
 }
