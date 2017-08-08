@@ -126,7 +126,7 @@ QuickTableViewController  Reference
 <img src="https://img.shields.io/cocoapods/p/QuickTableViewController.svg" alt="Platform">
 <a href="http://cocoadocs.org/docsets/QuickTableViewController"><img src="https://img.shields.io/cocoapods/metrics/doc-percent/QuickTableViewController.svg" alt="CocoaDocs"></a>
 <a href="https://codecov.io/github/bcylin/QuickTableViewController"><img src="https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg" alt="codecov.io"></a>
-<img src="https://img.shields.io/badge/Swift-3.0-orange.svg" alt="Swift 3.0"></p>
+<img src="https://img.shields.io/badge/Swift-3.1-orange.svg" alt="Swift 3.1"></p>
 
 <p>A simple way to create a table view for settings, providing table view cells with:</p>
 
@@ -150,19 +150,19 @@ QuickTableViewController  Reference
 
 <span class="n">tableContents</span> <span class="o">=</span> <span class="p">[</span>
 <span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
-<span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 1"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
-<span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 2"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
+<span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">SwitchCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 1"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
+<span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">SwitchCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 2"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
 <span class="p">]),</span>
 
 <span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap Action"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
-<span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showAlert</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">})</span>
+<span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">TapActionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showAlert</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">})</span>
 <span class="p">]),</span>
 
-<span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell Styles"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle.Default"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"exit"</span><span class="p">),</span> <span class="nv">highlightedImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"exit-highlighted"</span><span class="p">))),</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">BelowTitle</span><span class="p">(</span><span class="s">".Subtitle"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"language"</span><span class="p">))),</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">RightAligned</span><span class="p">(</span><span class="s">".Value1"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"timeMachine"</span><span class="p">),</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showDetail</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}),</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">LeftAligned</span><span class="p">(</span><span class="s">".Value2"</span><span class="p">))</span>
+<span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle.default"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"globe"</span><span class="p">),</span> <span class="nv">highlightedImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"globe-highlighted"</span><span class="p">))),</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">belowTitle</span><span class="p">(</span><span class="s">".subtitle"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"gear"</span><span class="p">))),</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">rightAligned</span><span class="p">(</span><span class="s">".value1"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"time"</span><span class="p">),</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showDetail</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}),</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">leftAligned</span><span class="p">(</span><span class="s">".value2"</span><span class="p">))</span>
 <span class="p">])</span>
 <span class="p">]</span>
 <span class="p">}</span>
@@ -181,24 +181,24 @@ QuickTableViewController  Reference
 </code></pre>
 <h3 id='navigationrow' class='heading'>NavigationRow</h3>
 <h4 id='subtitle-styles' class='heading'>Subtitle Styles</h4>
-<pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle.Default"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">)</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">BelowTitle</span><span class="p">(</span><span class="s">".Subtitle"</span><span class="p">)</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">RightAligned</span><span class="p">(</span><span class="s">".Value1"</span><span class="p">)</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">LeftAligned</span><span class="p">(</span><span class="s">".Value2"</span><span class="p">))</span>
+<pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle.Default"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">)</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">belowTitle</span><span class="p">(</span><span class="s">".subtitle"</span><span class="p">)</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">rightAligned</span><span class="p">(</span><span class="s">".value1"</span><span class="p">)</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">leftAligned</span><span class="p">(</span><span class="s">".value2"</span><span class="p">))</span>
 </code></pre>
-<h4 id='iconenabled' class='heading'>IconEnabled</h4>
+<h4 id='icon' class='heading'>Icon</h4>
 
 <ul>
 <li>Images in table view cells can be set by specifying the <code>icon</code> of each <code>IconEnabled</code> row.</li>
 <li>The <code>Icon</code> struct carries info about images for both normal and highlighted states.</li>
-<li>Table view cells in <code>UITableViewCellStyle.Value2</code> will hide images.</li>
+<li>Table view cells in <code>UITableViewCellStyle.value2</code> will hide images.</li>
 </ul>
-<pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell with image"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"icon"</span><span class="p">))</span>
+<pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell with image"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"icon"</span><span class="p">))</span>
 </code></pre>
 <h4 id='disclosure-indicator' class='heading'>Disclosure Indicator</h4>
 
 <ul>
-<li>A <code>NavigationRow</code> with an <code>action</code> will be displayed in a table view cell whose <code>accessoryType</code> is <code>.DisclosureIndicator</code>.</li>
+<li>A <code>NavigationRow</code> with an <code>action</code> will be displayed in a table view cell whose <code>accessoryType</code> is <code>.disclosureIndicator</code>.</li>
 <li>The <code>action</code> will be invoked when the related table view cell is selected.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation cell"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
@@ -206,9 +206,8 @@ QuickTableViewController  Reference
 <h3 id='switchrow' class='heading'>SwitchRow</h3>
 
 <ul>
-<li>A <code>SwitchRow</code> is associated to a table view cell with a <code>UISwitch</code> as its <code>
-accessoryView</code>.</li>
-<li>The optional <code>action</code> will be invoked when the <code>switchValue</code> changes.</li>
+<li>A <code>SwitchRow</code> is representing a table view cell with a <code>UISwitch</code> as its <code>accessoryView</code>.</li>
+<li>The <code>action</code> will be invoked when the switch value changes.</li>
 <li>It also conforms to <code>IconEnabled</code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">}),</span>
@@ -220,12 +219,16 @@ accessoryView</code>.</li>
 <h3 id='tapactionrow' class='heading'>TapActionRow</h3>
 
 <ul>
-<li>A <code>TapActionRow</code> is associated to a button-like table view cell.</li>
+<li>A <code>TapActionRow</code> is representing a button-like table view cell.</li>
 <li>The <code>action</code> will be invoked when the related table view cell is selected.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
-<h3 id='use-custom-cell-classes' class='heading'>Use Custom Cell Classes</h3>
+<h3 id='full-documentation' class='heading'>Full Documentation</h3>
+
+<p><a href="https://bcylin.github.io/QuickTableViewController">https://bcylin.github.io/QuickTableViewController</a></p>
+<h2 id='customization' class='heading'>Customization</h2>
+<h3 id='cell-classes' class='heading'>Cell Classes</h3>
 
 <p>A customized table view cell type can be specified to rows during initialization.</p>
 <pre class="highlight swift"><code><span class="c1">// NavigationRow, using UITableViewCell if not specified.</span>
@@ -238,14 +241,14 @@ accessoryView</code>.</li>
 <span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">CustomTapActionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 
-<p>The customization using <code>register(_:forCellReuseIdentifier:)</code> is deprecated due to the inconsistant reuse identifiers in the previous versions.</p>
+<p>The customization using <code>register(_:forCellReuseIdentifier:)</code> is deprecated.</p>
 
 <blockquote>
 <p>Note: in <code>0.5.1</code> &amp; <code>0.5.2</code>, <strong>SwitchRow</strong> and <strong>TapActionRow</strong> were using <code>String(describing: SwitchCell.self)</code> and <code>String(describing: TapActionCell.self)</code> as reuse identifiers. Fixed in <code>0.5.3</code> for backward compatibility.</p>
 </blockquote>
-<h3 id='full-documentation' class='heading'>Full Documentation</h3>
+<h3 id='rows' class='heading'>Rows</h3>
 
-<p><a href="https://bcylin.github.io/QuickTableViewController">https://bcylin.github.io/QuickTableViewController</a></p>
+<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code>Row</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code>RowStyle</code></a>. Optional conformation <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift"><code>IconEnabled</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift"><code>AccessoryEnabled</code></a> are available for customizing the cell image and accessory view.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <table><thead>
@@ -286,6 +289,12 @@ accessoryView</code>.</li>
 <td style="text-align: center">8.0</td>
 <td style="text-align: center"><img src="https://img.shields.io/badge/Swift-3.0-orange.svg" alt="Swift 3.0"></td>
 </tr>
+<tr>
+<td><code>~&gt; 0.6.0</code></td>
+<td style="text-align: center">8.0+</td>
+<td style="text-align: center">8.3</td>
+<td style="text-align: center"><img src="https://img.shields.io/badge/Swift-3.1-orange.svg" alt="Swift 3.1"></td>
+</tr>
 </tbody></table>
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='use-a-href-http-guides-cocoapods-org-cocoapods-a' class='heading'>Use <a href="http://guides.cocoapods.org/">CocoaPods</a></h3>
@@ -294,13 +303,13 @@ accessoryView</code>.</li>
 <pre class="highlight ruby"><code><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'8.0'</span>
 <span class="n">use_frameworks!</span>
 
-<span class="n">pod</span> <span class="s1">'QuickTableViewController'</span><span class="p">,</span> <span class="s1">'~&gt; 0.5.0'</span>
+<span class="n">pod</span> <span class="s1">'QuickTableViewController'</span><span class="p">,</span> <span class="s1">'~&gt; 0.6.0'</span>
 </code></pre>
 <h3 id='use-a-href-https-github-com-carthage-carthage-carthage-a' class='heading'>Use <a href="https://github.com/Carthage/Carthage">Carthage</a></h3>
 
 <p>Create a <code>Cartfile</code> with the following specification and run <code>carthage update QuickTableViewController</code>.
 Follow the <a href="https://github.com/Carthage/Carthage#adding-frameworks-to-an-application">instructions</a> to add the framework to your project.</p>
-<pre class="highlight plaintext"><code>github "bcylin/QuickTableViewController" ~&gt; 0.5.0
+<pre class="highlight plaintext"><code>github "bcylin/QuickTableViewController" ~&gt; 0.6.0
 </code></pre>
 <h3 id='use-git-submodule' class='heading'>Use Git Submodule</h3>
 <pre class="highlight plaintext"><code>git submodule add -b master git@github.com:bcylin/QuickTableViewController.git Dependencies/QuickTableViewController
@@ -326,7 +335,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-05)</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-08)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
