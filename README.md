@@ -4,7 +4,6 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
 ![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
-[![CocoaDocs](https://img.shields.io/cocoapods/metrics/doc-percent/QuickTableViewController.svg)](http://cocoadocs.org/docsets/QuickTableViewController)
 [![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg)](https://codecov.io/github/bcylin/QuickTableViewController)
 ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
@@ -72,7 +71,7 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 ```
 
-#### Icon
+#### Images
 
 * Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
@@ -100,8 +99,6 @@ NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row)
 ```swift
 SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 ```
-
-> The original `SwitchRow` in the `tableContents` will be replaced by an updated one after the `switchValue` changed.
 
 ### TapActionRow
 
@@ -139,7 +136,7 @@ The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 
 ### Rows
 
-All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation to [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
 
 ## Requirements
 

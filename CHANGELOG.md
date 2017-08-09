@@ -1,5 +1,11 @@
 # Change Log
 
+## Next Release
+
+#### Enhancements
+
+* Change predefined rows from structs to classes to preserve UISwitch animation [#9](https://github.com/bcylin/QuickTableViewController/issues/9)
+
 ## v0.6.0
 
 #### Breaking
@@ -11,7 +17,7 @@
 
 * Specify table view cell types to rows during initialization
 * Separate `RowStyle` from the original `Row` protocol
-* Add an additional cell customization `((UITableViewCell, Row & RowStyle) -> Void)?` for each row
+* Add an additional cell customization `((UITableViewCell, Row & RowStyle) -> Void)?` for each row [#8](https://github.com/bcylin/QuickTableViewController/issues/8)
 
 ## v0.5.3
 
@@ -59,7 +65,7 @@ Cell Reuse identifier | SwitchRow                            | TapActionRow
 #### Enhancements
 
 * Swift 2.2
-* Both `NavigationRow` and `SwitchRow` conform to `IconEnabled`.
+* Both `NavigationRow` and `SwitchRow` conform to `IconEnabled` [#2](https://github.com/bcylin/QuickTableViewController/issues/2)
 
 ## v0.2.0
 
