@@ -90,10 +90,9 @@ internal final class ViewController: QuickTableViewController {
   // MARK: - UITableViewDelegate
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if var row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
+    if let row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
       row.isSelected = !row.isSelected
       row.action?(row)
-      tableContents[indexPath.section].rows[indexPath.row] = row
     } else {
       super.tableView(tableView, didSelectRowAt: indexPath)
     }

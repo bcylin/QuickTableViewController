@@ -27,7 +27,7 @@
 import Foundation
 
 /// A struct that represents a row that triggers certain action when seleced.
-public struct TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
+public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 

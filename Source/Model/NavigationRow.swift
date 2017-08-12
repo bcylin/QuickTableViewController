@@ -27,7 +27,7 @@
 import Foundation
 
 /// A struct that represents a row that perfoms navigation when seleced.
-public struct NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconEnabled, AccessoryEnabled {
+public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconEnabled, AccessoryEnabled {
 
   // MARK: - Initializer
 

@@ -27,7 +27,7 @@
 import Foundation
 import QuickTableViewController
 
-internal struct OptionRow<T: UITableViewCell>: Row, RowStyle {
+internal final class OptionRow<T: UITableViewCell>: Row, RowStyle {
 
   // MARK: - Initializer
 
