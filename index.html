@@ -53,13 +53,22 @@ QuickTableViewController  Reference
 <a class="nav-group-name-link" href="Classes.html">Classes</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Classes/NavigationRow.html">NavigationRow</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Classes/QuickTableViewController.html">QuickTableViewController</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Classes/SwitchCell.html">SwitchCell</a>
 </li>
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Classes/SwitchRow.html">SwitchRow</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Classes/TapActionCell.html">TapActionCell</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Classes/TapActionRow.html">TapActionRow</a>
 </li>
 </ul>
 </li>
@@ -98,16 +107,7 @@ QuickTableViewController  Reference
 <a class="nav-group-task-link" href="Structs/Icon.html">Icon</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Structs/NavigationRow.html">NavigationRow</a>
-</li>
-<li class="nav-group-task">
 <a class="nav-group-task-link" href="Structs/Section.html">Section</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="Structs/SwitchRow.html">SwitchRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="Structs/TapActionRow.html">TapActionRow</a>
 </li>
 </ul>
 </li>
@@ -124,7 +124,6 @@ QuickTableViewController  Reference
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
 <a href="https://cocoapods.org/pods/QuickTableViewController"><img src="https://img.shields.io/cocoapods/v/QuickTableViewController.svg" alt="CocoaPods Compatible"></a>
 <img src="https://img.shields.io/cocoapods/p/QuickTableViewController.svg" alt="Platform">
-<a href="http://cocoadocs.org/docsets/QuickTableViewController"><img src="https://img.shields.io/cocoapods/metrics/doc-percent/QuickTableViewController.svg" alt="CocoaDocs"></a>
 <a href="https://codecov.io/github/bcylin/QuickTableViewController"><img src="https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg" alt="codecov.io"></a>
 <img src="https://img.shields.io/badge/Swift-3.1-orange.svg" alt="Swift 3.1"></p>
 
@@ -186,7 +185,7 @@ QuickTableViewController  Reference
 <span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">rightAligned</span><span class="p">(</span><span class="s">".value1"</span><span class="p">)</span>
 <span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"UITableViewCellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">leftAligned</span><span class="p">(</span><span class="s">".value2"</span><span class="p">))</span>
 </code></pre>
-<h4 id='icon' class='heading'>Icon</h4>
+<h4 id='images' class='heading'>Images</h4>
 
 <ul>
 <li>Images in table view cells can be set by specifying the <code>icon</code> of each <code>IconEnabled</code> row.</li>
@@ -212,10 +211,6 @@ QuickTableViewController  Reference
 </ul>
 <pre class="highlight swift"><code><span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">}),</span>
 </code></pre>
-
-<blockquote>
-<p>The original <code>SwitchRow</code> in the <code>tableContents</code> will be replaced by an updated one after the <code>switchValue</code> changed.</p>
-</blockquote>
 <h3 id='tapactionrow' class='heading'>TapActionRow</h3>
 
 <ul>
@@ -248,7 +243,7 @@ QuickTableViewController  Reference
 </blockquote>
 <h3 id='rows' class='heading'>Rows</h3>
 
-<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code>Row</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code>RowStyle</code></a>. Optional conformation <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift"><code>IconEnabled</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift"><code>AccessoryEnabled</code></a> are available for customizing the cell image and accessory view.</p>
+<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code>Row</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code>RowStyle</code></a>. Optional conformation to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift"><code>IconEnabled</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift"><code>AccessoryEnabled</code></a> are available for customizing the cell image and accessory view.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <table><thead>
@@ -335,7 +330,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-08)</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-12)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
