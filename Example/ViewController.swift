@@ -93,6 +93,8 @@ internal final class ViewController: QuickTableViewController {
     if let row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
       row.isSelected = !row.isSelected
       row.action?(row)
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+      tableView.deselectRow(at: indexPath, animated: true)
     } else {
       super.tableView(tableView, didSelectRowAt: indexPath)
     }
