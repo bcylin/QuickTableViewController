@@ -80,7 +80,7 @@ internal final class SwitchRowSpec: QuickSpec {
 
     describe("action invocation") {
       var toggled = false
-      var row = SwitchRow(title: "", switchValue: false) { _ in toggled = !toggled }
+      let row = SwitchRow(title: "", switchValue: false) { _ in toggled = !toggled }
 
       // The action invocation has moved to the view controller.
       it("should not invoke the action closure when the value changes") {

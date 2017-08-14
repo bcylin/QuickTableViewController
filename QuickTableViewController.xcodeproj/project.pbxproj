@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6FEC7AFD957FDD634E547C82 /* Pods_QuickTableViewControllerTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */; };
+		B25D5B851E9D987AFEB96BB4 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA13E27E7B47A3F6F9FFE5B /* Pods_Example.framework */; };
 		B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73821F2E1B4B00481910 /* IconEnabled.swift */; };
 		B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73841F2E1BC900481910 /* RowStyle.swift */; };
+		B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A41F417037009BC2C9 /* AppDelegate.swift */; };
+		B51F21A71F417037009BC2C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* ViewController.swift */; };
+		B51F21AC1F417037009BC2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51F21AB1F417037009BC2C9 /* Assets.xcassets */; };
+		B51F21B61F41709B009BC2C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51F21B41F41709B009BC2C9 /* LaunchScreen.xib */; };
+		B51F21B81F4170A4009BC2C9 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21B71F4170A4009BC2C9 /* OptionRow.swift */; };
 		B5334F191B8CC5BD00C64A6D /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
 		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
@@ -35,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B51F21B91F41712E009BC2C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5334F0A1B8CC5BD00C64A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5334F121B8CC5BD00C64A6D;
+			remoteInfo = "QuickTableViewController-iOS";
+		};
 		B5334F201B8CC5BD00C64A6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5334F0A1B8CC5BD00C64A6D /* Project object */;
@@ -45,10 +58,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CA13E27E7B47A3F6F9FFE5B /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickTableViewControllerTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332BB2E7F8C766C8BC0D5B5B /* Pods-QuickTableViewControllerTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewControllerTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewControllerTests-iOS/Pods-QuickTableViewControllerTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		965EA9FBCB752A21189A0BC0 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B50E73821F2E1B4B00481910 /* IconEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconEnabled.swift; path = Source/Protocol/IconEnabled.swift; sourceTree = SOURCE_ROOT; };
 		B50E73841F2E1BC900481910 /* RowStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowStyle.swift; path = Source/Protocol/RowStyle.swift; sourceTree = SOURCE_ROOT; };
+		B51F21A21F417037009BC2C9 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B51F21A41F417037009BC2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B51F21A61F417037009BC2C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B51F21AB1F417037009BC2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B51F21B01F417037009BC2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B51F21B51F41709B009BC2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B51F21B71F4170A4009BC2C9 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
 		B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickTableViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F171B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = QuickTableViewController/Info.plist; sourceTree = SOURCE_ROOT; };
 		B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuickTableViewController.h; path = QuickTableViewController/QuickTableViewController.h; sourceTree = SOURCE_ROOT; };
@@ -61,6 +83,7 @@
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
 		B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerSpec.swift; sourceTree = "<group>"; };
 		B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapActionCell.swift; path = Source/View/TapActionCell.swift; sourceTree = SOURCE_ROOT; };
+		B5C29201F434E855A1E9A3E9 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRowSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRowSpec.swift; sourceTree = "<group>"; };
@@ -79,6 +102,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B51F219F1F417037009BC2C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B25D5B851E9D987AFEB96BB4 /* Pods_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5334F0F1B8CC5BD00C64A6D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,6 +131,8 @@
 		942C1FAD68407A74DB056C2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				965EA9FBCB752A21189A0BC0 /* Pods-Example.debug.xcconfig */,
+				B5C29201F434E855A1E9A3E9 /* Pods-Example.release.xcconfig */,
 				332BB2E7F8C766C8BC0D5B5B /* Pods-QuickTableViewControllerTests-iOS.debug.xcconfig */,
 				F45E7695B97DC7347A2C89EF /* Pods-QuickTableViewControllerTests-iOS.release.xcconfig */,
 			);
@@ -128,9 +161,23 @@
 			name = Protocol;
 			sourceTree = "<group>";
 		};
+		B51F21A31F417037009BC2C9 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				B51F21A41F417037009BC2C9 /* AppDelegate.swift */,
+				B51F21AB1F417037009BC2C9 /* Assets.xcassets */,
+				B51F21B01F417037009BC2C9 /* Info.plist */,
+				B51F21B41F41709B009BC2C9 /* LaunchScreen.xib */,
+				B51F21B71F4170A4009BC2C9 /* OptionRow.swift */,
+				B51F21A61F417037009BC2C9 /* ViewController.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		B5334F091B8CC5BD00C64A6D = {
 			isa = PBXGroup;
 			children = (
+				B51F21A31F417037009BC2C9 /* Example */,
 				B5DB7D241C4A4BEC007B84D2 /* Frameworks */,
 				942C1FAD68407A74DB056C2B /* Pods */,
 				B5334F141B8CC5BD00C64A6D /* Products */,
@@ -146,6 +193,7 @@
 		B5334F141B8CC5BD00C64A6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				B51F21A21F417037009BC2C9 /* Example.app */,
 				B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */,
 				B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */,
 			);
@@ -217,6 +265,7 @@
 		B5DB7D241C4A4BEC007B84D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CA13E27E7B47A3F6F9FFE5B /* Pods_Example.framework */,
 				25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */,
 			);
 			name = Frameworks;
@@ -256,6 +305,28 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		B51F21A11F417037009BC2C9 /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B51F21B31F417037009BC2C9 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				9773859B01B559D1E7FEC36A /* [CP] Check Pods Manifest.lock */,
+				B51F21BB1F417269009BC2C9 /* SwiftLint */,
+				B51F219E1F417037009BC2C9 /* Sources */,
+				B51F219F1F417037009BC2C9 /* Frameworks */,
+				B51F21A01F417037009BC2C9 /* Resources */,
+				C57ED08E45623928E1F82168 /* [CP] Embed Pods Frameworks */,
+				D080B9179C49F538425D9877 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B51F21BA1F41712E009BC2C9 /* PBXTargetDependency */,
+			);
+			name = Example;
+			productName = Example;
+			productReference = B51F21A21F417037009BC2C9 /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B5334F121B8CC5BD00C64A6D /* QuickTableViewController-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5334F291B8CC5BD00C64A6D /* Build configuration list for PBXNativeTarget "QuickTableViewController-iOS" */;
@@ -302,9 +373,14 @@
 		B5334F0A1B8CC5BD00C64A6D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = bcylin;
 				TargetAttributes = {
+					B51F21A11F417037009BC2C9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Manual;
+					};
 					B5334F121B8CC5BD00C64A6D = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0800;
@@ -321,6 +397,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = B5334F091B8CC5BD00C64A6D;
 			productRefGroup = B5334F141B8CC5BD00C64A6D /* Products */;
@@ -329,11 +406,21 @@
 			targets = (
 				B5334F121B8CC5BD00C64A6D /* QuickTableViewController-iOS */,
 				B5334F1D1B8CC5BD00C64A6D /* QuickTableViewControllerTests-iOS */,
+				B51F21A11F417037009BC2C9 /* Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B51F21A01F417037009BC2C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B51F21AC1F417037009BC2C9 /* Assets.xcassets in Resources */,
+				B51F21B61F41709B009BC2C9 /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5334F111B8CC5BD00C64A6D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +475,38 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickTableViewControllerTests-iOS/Pods-QuickTableViewControllerTests-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9773859B01B559D1E7FEC36A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B51F21BB1F417269009BC2C9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+		};
 		B5C335A91D07CBD000C706A4 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,6 +520,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then swiftlint; fi";
+		};
+		C57ED08E45623928E1F82168 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Weakify/Weakify.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Weakify.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D080B9179C49F538425D9877 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D6A5837800B2AEA91500816C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -423,6 +575,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B51F219E1F417037009BC2C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */,
+				B51F21B81F4170A4009BC2C9 /* OptionRow.swift in Sources */,
+				B51F21A71F417037009BC2C9 /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5334F0E1B8CC5BD00C64A6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +623,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B51F21BA1F41712E009BC2C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5334F121B8CC5BD00C64A6D /* QuickTableViewController-iOS */;
+			targetProxy = B51F21B91F41712E009BC2C9 /* PBXContainerItemProxy */;
+		};
 		B5334F211B8CC5BD00C64A6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5334F121B8CC5BD00C64A6D /* QuickTableViewController-iOS */;
@@ -468,7 +635,61 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		B51F21B41F41709B009BC2C9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B51F21B51F41709B009BC2C9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		B51F21B11F417037009BC2C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 965EA9FBCB752A21189A0BC0 /* Pods-Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController.Example.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B51F21B21F417037009BC2C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C29201F434E855A1E9A3E9 /* Pods-Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController.Example.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		B5334F271B8CC5BD00C64A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -655,6 +876,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B51F21B31F417037009BC2C9 /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B51F21B11F417037009BC2C9 /* Debug */,
+				B51F21B21F417037009BC2C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5334F0D1B8CC5BD00C64A6D /* Build configuration list for PBXProject "QuickTableViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
