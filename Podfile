@@ -9,9 +9,8 @@ target "QuickTableViewControllerTests-iOS" do
   pod "Quick", git: "https://github.com/Quick/Quick.git", tag: "v1.1.0"
 end
 
-target :Example do
+target "Example" do
   project "Example"
-  pod "QuickTableViewController", path: "./"
   pod "SwiftLint", "0.19.0"
   pod "Weakify", git: "https://github.com/klundberg/Weakify.git", tag: "v0.4.0"
 end

@@ -15,6 +15,30 @@
 		B545957C1D9D5C3A004D1EDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B545957A1D9D5C3A004D1EDA /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B51F21981F416E6C009BC2C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B51F21931F416E6C009BC2C9 /* QuickTableViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5334F131B8CC5BD00C64A6D;
+			remoteInfo = "QuickTableViewController-iOS";
+		};
+		B51F219A1F416E6C009BC2C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B51F21931F416E6C009BC2C9 /* QuickTableViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5334F1E1B8CC5BD00C64A6D;
+			remoteInfo = "QuickTableViewControllerTests-iOS";
+		};
+		B51F219C1F416E8B009BC2C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B51F21931F416E6C009BC2C9 /* QuickTableViewController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B5334F121B8CC5BD00C64A6D;
+			remoteInfo = "QuickTableViewController-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1E8C5590816FA5A84CBCC906 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC7D4E6AB04C46BA1E83D5D /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -25,6 +49,7 @@
 		B5133F311D9D550D004DE48D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5133F361D9D550D004DE48D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5133F3B1D9D550D004DE48D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B51F21931F416E6C009BC2C9 /* QuickTableViewController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = QuickTableViewController.xcodeproj; sourceTree = "<group>"; };
 		B545957B1D9D5C3A004D1EDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +85,7 @@
 		B5133F231D9D550D004DE48D = {
 			isa = PBXGroup;
 			children = (
+				B51F21931F416E6C009BC2C9 /* QuickTableViewController.xcodeproj */,
 				B5133F2E1D9D550D004DE48D /* Example */,
 				3AC4FFDF171F337077560B2B /* Frameworks */,
 				A08429DFE9677455AFFC14F2 /* Pods */,
@@ -92,6 +118,15 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		B51F21941F416E6C009BC2C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B51F21991F416E6C009BC2C9 /* QuickTableViewController.framework */,
+				B51F219B1F416E6C009BC2C9 /* QuickTableViewControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +145,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B51F219D1F416E8B009BC2C9 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -143,12 +179,35 @@
 			mainGroup = B5133F231D9D550D004DE48D;
 			productRefGroup = B5133F2D1D9D550D004DE48D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B51F21941F416E6C009BC2C9 /* Products */;
+					ProjectRef = B51F21931F416E6C009BC2C9 /* QuickTableViewController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B5133F2B1D9D550D004DE48D /* Example */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B51F21991F416E6C009BC2C9 /* QuickTableViewController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = QuickTableViewController.framework;
+			remoteRef = B51F21981F416E6C009BC2C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51F219B1F416E6C009BC2C9 /* QuickTableViewControllerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = QuickTableViewControllerTests.xctest;
+			remoteRef = B51F219A1F416E6C009BC2C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B5133F2A1D9D550D004DE48D /* Resources */ = {
@@ -188,12 +247,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/QuickTableViewController/QuickTableViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Weakify/Weakify.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickTableViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Weakify.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +301,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B51F219D1F416E8B009BC2C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "QuickTableViewController-iOS";
+			targetProxy = B51F219C1F416E8B009BC2C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B545957A1D9D5C3A004D1EDA /* LaunchScreen.xib */ = {

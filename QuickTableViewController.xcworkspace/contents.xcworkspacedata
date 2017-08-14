@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:QuickTableViewController.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Example.xcodeproj">
    </FileRef>
    <FileRef
