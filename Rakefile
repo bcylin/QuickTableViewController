@@ -35,13 +35,7 @@ task :bump, [:version] do |t, args|
     next
   end
 
-  FileUtils.mv "QuickTableViewController.xcodeproj", "QuickTableViewController.tmp"
   sh %(xcrun agvtool new-marketing-version #{version})
-  FileUtils.mv "QuickTableViewController.tmp", "QuickTableViewController.xcodeproj"
-
-  FileUtils.mv "Example.xcodeproj", "Example.tmp"
-  sh %(xcrun agvtool new-marketing-version #{version})
-  FileUtils.mv "Example.tmp", "Example.xcodeproj"
 
   podspec = "QuickTableViewController.podspec"
   text = File.read podspec
@@ -52,6 +46,4 @@ task :bump, [:version] do |t, args|
   text = File.read jazzy
   File.write jazzy, text.gsub(%r(:\s\d+\.\d+\.\d+), ": #{version}")
   puts "Updated #{jazzy} to #{version}"
-
-  sh %(bundle exec pod install)
 end
