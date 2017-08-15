@@ -26,7 +26,7 @@
 
 import Foundation
 
-/// A struct that represents a section in a table view.
+/// A class that represents a section in a table view.
 public final class Section {
 
   /// The text of the section title.

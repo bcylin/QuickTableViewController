@@ -130,6 +130,14 @@ SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in }
 TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 ```
 
+Table view cell classes that conform to `Configurable` can implement the additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
+
+```swift
+public protocol Configurable {
+  func configure(with row: Row & RowStyle)
+}
+```
+
 The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 
 > Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
