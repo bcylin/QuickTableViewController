@@ -61,18 +61,11 @@ internal final class ViewController: QuickTableViewController {
         NavigationRow(title: "Empty section title", subtitle: .none)
       ]),
 
-      Section(title: "Customized", rows: {
-        let block: (UITableViewCell, Row & RowStyle) -> Void = { cell, row in
-          if let option = row as? OptionRow {
-            cell.accessoryType = option.isSelected ? .checkmark : .none
-          }
-        }
-        return [
-          OptionRow(title: "Option 1", isSelected: true, customization: block, action: weakify(self, type(of: self).toggleSelection)),
-          OptionRow(title: "Option 2", customization: block, action: weakify(self, type(of: self).toggleSelection)),
-          OptionRow(title: "Option 3", customization: block, action: weakify(self, type(of: self).toggleSelection))
-        ]
-      }(), footer: "See OptionRow for more details.")
+      Section(title: "Customized", rows: [
+        OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).toggleSelection)),
+        OptionRow(title: "Option 2", action: weakify(self, type(of: self).toggleSelection)),
+        OptionRow(title: "Option 3", action: weakify(self, type(of: self).toggleSelection))
+      ], footer: "See OptionRow for more details.")
     ]
   }
 
@@ -80,7 +73,8 @@ internal final class ViewController: QuickTableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
-    if tableContents[indexPath.section].title == nil {
+    let row = tableContents[indexPath.section].rows[indexPath.row]
+    if row.title == "Empty section title" {
       // Alter the cells created by QuickTableViewController
       cell.imageView?.image = #imageLiteral(resourceName: "iconmonstr-x-mark")
     }
