@@ -109,10 +109,6 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ```
 
-### Full Documentation
-
-<https://bcylin.github.io/QuickTableViewController>
-
 ## Customization
 
 ### Cell Classes
@@ -145,6 +141,11 @@ The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 ### Rows
 
 All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation to [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
+
+## Documentation
+
+* [QuickTableViewController Reference](https://bcylin.github.io/QuickTableViewController)
+* [Example Project](https://github.com/bcylin/QuickTableViewController/tree/develop/Example)
 
 ## Requirements
 

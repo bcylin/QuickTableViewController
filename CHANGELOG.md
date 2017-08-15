@@ -1,11 +1,12 @@
 # Change Log
 
-## Next Release
+## v0.6.1
 
 #### Enhancements
 
 * UI testing
 * Change sections and rows from structs to classes
+* Allow customized cell classes to implement the `Configurable` method in addition to the default setup
 
 #### Fixes
 
