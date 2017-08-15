@@ -60,6 +60,9 @@ QuickTableViewController Class Reference
 <a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
 </li>
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="../Classes/SwitchCell.html">SwitchCell</a>
 </li>
 <li class="nav-group-task">
@@ -99,6 +102,9 @@ QuickTableViewController Class Reference
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="../Protocols/RowStyle.html">RowStyle</a>
 </li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
+</li>
 </ul>
 </li>
 <li class="nav-group-name">
@@ -106,9 +112,6 @@ QuickTableViewController Class Reference
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="../Structs/Icon.html">Icon</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Structs/Section.html">Section</a>
 </li>
 </ul>
 </li>
@@ -123,7 +126,8 @@ QuickTableViewController Class Reference
 <div class="language">
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
@@ -161,7 +165,7 @@ QuickTableViewController Class Reference
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L35">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L36">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -191,7 +195,7 @@ QuickTableViewController Class Reference
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L38">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L39">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -199,9 +203,9 @@ QuickTableViewController Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController24QuickTableViewController13tableContentsGSaVS_7Section_"></a>
+<a name="/s:vC24QuickTableViewController24QuickTableViewController13tableContentsGSaCS_7Section_"></a>
 <a name="//apple_ref/swift/Property/tableContents" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController24QuickTableViewController13tableContentsGSaVS_7Section_">tableContents</a>
+<a class="token" href="#/s:vC24QuickTableViewController24QuickTableViewController13tableContentsGSaCS_7Section_">tableContents</a>
 </code>
 </div>
 <div class="height-container">
@@ -216,12 +220,12 @@ QuickTableViewController Class Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tableContents</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Section.html">Section</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tableContents</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Section.html">Section</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L41-L45">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L42-L46">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -285,7 +289,7 @@ QuickTableViewController Class Reference
 <p>An initialized <code>QuickTableViewController</code> object.</p>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L56-L59">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L57-L60">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -323,12 +327,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L68-L75">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L69-L76">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -355,12 +360,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L77-L82">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L78-L83">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -398,12 +404,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L86-L88">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L87-L89">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -430,12 +437,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L90-L92">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L91-L93">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -462,12 +470,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L94-L96">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L95-L97">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -494,12 +503,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L98-L119">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L99-L117">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -526,12 +536,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L121-L123">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L119-L121">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -569,12 +580,13 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L127-L129">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L125-L127">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -601,12 +613,53 @@ QuickTableViewController Class Reference
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
 <span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span></code></pre>
+<span class="kt">UITableViewDelegate</span><span class="p">,</span>
+<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L131-L139">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L129-L137">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+</ul>
+</div>
+<div class="task-group">
+<div class="task-name-container">
+<a name="/SwitchCellDelegate"></a>
+<a name="//apple_ref/swift/Section/SwitchCellDelegate" class="dashAnchor"></a>
+<a href="#/SwitchCellDelegate">
+<h3 class="section-name">SwitchCellDelegate</h3>
+</a>
+</div>
+<ul class="item-container">
+<li class="item">
+<div>
+<code>
+<a name="/s:FP24QuickTableViewController18SwitchCellDelegate10switchCellFTCS_10SwitchCell15didToggleSwitchSb_T_"></a>
+<a name="//apple_ref/swift/Method/switchCell(_:didToggleSwitch:)" class="dashAnchor"></a>
+<a class="token" href="#/s:FP24QuickTableViewController18SwitchCellDelegate10switchCellFTCS_10SwitchCell15didToggleSwitchSb_T_">switchCell(_:didToggleSwitch:)</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">switchCell</span><span class="p">(</span><span class="n">_</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/SwitchCell.html">SwitchCell</a></span><span class="p">,</span> <span class="n">didToggleSwitch</span> <span class="nv">isOn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L141-L151">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -619,7 +672,7 @@ QuickTableViewController Class Reference
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-14)</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-15)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>

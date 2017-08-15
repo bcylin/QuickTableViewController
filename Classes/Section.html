@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>SwitchCell Class Reference</title>
+<title>Section Class Reference</title>
 <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
 <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
 <meta charset="utf-8">
@@ -14,9 +14,9 @@
 </head>
 <body>
 
-<a name="//apple_ref/swift/Class/SwitchCell" class="dashAnchor"></a>
+<a name="//apple_ref/swift/Class/Section" class="dashAnchor"></a>
 
-<a title="SwitchCell Class Reference"></a>
+<a title="Section Class Reference"></a>
 
 <header class="header">
 <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@ View on GitHub
 <p class="breadcrumbs">
 <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
 <img class="carat" src="../img/carat.png" />
-SwitchCell Class Reference
+Section Class Reference
 </p>
 
 <div class="content-wrapper">
@@ -121,14 +121,14 @@ SwitchCell Class Reference
 
 <section class="section">
 <div class="section-content">
-<h1>SwitchCell</h1>
+<h1>Section</h1>
 <div class="declaration">
 <div class="language">
-<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">SwitchCell</span><span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Section</span></code></pre>
 
 </div>
 </div>
-<p>A <code>UITableViewCell</code> subclass that shows a <code>UISwitch</code> as the <code>accessoryView</code>.</p>
+<p>A struct that represents a section in a table view.</p>
 
 </div>
 </section>
@@ -140,9 +140,9 @@ SwitchCell Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController10SwitchCell13switchControlCSo8UISwitch"></a>
-<a name="//apple_ref/swift/Property/switchControl" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController10SwitchCell13switchControlCSo8UISwitch">switchControl</a>
+<a name="/s:vC24QuickTableViewController7Section5titleGSqSS_"></a>
+<a name="//apple_ref/swift/Property/title" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController7Section5titleGSqSS_">title</a>
 </code>
 </div>
 <div class="height-container">
@@ -150,19 +150,19 @@ SwitchCell Class Reference
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>A <code>UISwitch</code> as the <code>accessoryView</code>.</p>
+<p>The text of the section title.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">switchControl</span><span class="p">:</span> <span class="kt">UISwitch</span> <span class="o">=</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/View/SwitchCell.swift#L40">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L33">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -170,9 +170,9 @@ SwitchCell Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController10SwitchCell8delegateXwGSqPS_18SwitchCellDelegate__"></a>
-<a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController10SwitchCell8delegateXwGSqPS_18SwitchCellDelegate__">delegate</a>
+<a name="/s:vC24QuickTableViewController7Section4rowsGSaPS_3RowS_8RowStyle__"></a>
+<a name="//apple_ref/swift/Property/rows" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController7Section4rowsGSaPS_3RowS_8RowStyle__">rows</a>
 </code>
 </div>
 <div class="height-container">
@@ -180,95 +180,19 @@ SwitchCell Class Reference
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>The switch cell&rsquo;s delegate object, which should conform to SwitchCellDelegate.</p>
+<p>The array of rows in the section.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span><span class="p">?</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">]</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/View/SwitchCell.swift#L47">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-<div class="task-group">
-<div class="task-name-container">
-<a name="/Initializer"></a>
-<a name="//apple_ref/swift/Section/Initializer" class="dashAnchor"></a>
-<a href="#/Initializer">
-<h3 class="section-name">Initializer</h3>
-</a>
-</div>
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:FC24QuickTableViewController10SwitchCellcFT5styleOSC20UITableViewCellStyle15reuseIdentifierGSqSS__S0_"></a>
-<a name="//apple_ref/swift/Method/init(style:reuseIdentifier:)" class="dashAnchor"></a>
-<a class="token" href="#/s:FC24QuickTableViewController10SwitchCellcFT5styleOSC20UITableViewCellStyle15reuseIdentifierGSqSS__S0_">init(style:reuseIdentifier:)</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>Overrides <code>UITableViewCell</code>&lsquo;s designated initializer.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewCellStyle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
-
-</div>
-</div>
-<div>
-<h4>Parameters</h4>
-<table class="graybox">
-<tbody>
-<tr>
-<td>
-<code>
-<em>style</em>
-</code>
-</td>
-<td>
-<div>
-<p>Unused. It always uses <code>UITableViewCellStyle.Default</code>.</p>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<code>
-<em>reuseIdentifier</em>
-</code>
-</td>
-<td>
-<div>
-<p>A string used to identify the cell object if it is to be reused for drawing multiple rows of a table view.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div>
-<h4>Return Value</h4>
-<p>An initialized <code>SwitchCell</code> object.</p>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/View/SwitchCell.swift#L59-L62">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L36">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -276,9 +200,9 @@ SwitchCell Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:FC24QuickTableViewController10SwitchCellcFT5coderCSo7NSCoder_GSqS0__"></a>
-<a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
-<a class="token" href="#/s:FC24QuickTableViewController10SwitchCellcFT5coderCSo7NSCoder_GSqS0__">init(coder:)</a>
+<a name="/s:vC24QuickTableViewController7Section6footerGSqSS_"></a>
+<a name="//apple_ref/swift/Property/footer" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController7Section6footerGSqSS_">footer</a>
 </code>
 </div>
 <div class="height-container">
@@ -286,42 +210,48 @@ SwitchCell Class Reference
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>Overrides the designated initializer that returns an object initialized from data in a given unarchiver.</p>
+<p>The text of the section footer.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">footer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
 </div>
 </div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L39">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+<li class="item">
 <div>
-<h4>Parameters</h4>
-<table class="graybox">
-<tbody>
-<tr>
-<td>
 <code>
-<em>aDecoder</em>
+<a name="/s:FC24QuickTableViewController7SectioncFT5titleGSqSS_4rowsGSaPS_3RowS_8RowStyle__6footerGSqSS__S0_"></a>
+<a name="//apple_ref/swift/Method/init(title:rows:footer:)" class="dashAnchor"></a>
+<a class="token" href="#/s:FC24QuickTableViewController7SectioncFT5titleGSqSS_4rowsGSaPS_3RowS_8RowStyle__6footerGSqSS__S0_">init(title:rows:footer:)</a>
 </code>
-</td>
-<td>
-<div>
-<p>An unarchiver object.</p>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+
 </div>
-<div>
-<h4>Return Value</h4>
-<p><code>self</code>, initialized using the data in decoder.</p>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">],</span> <span class="nv">footer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+</div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/View/SwitchCell.swift#L71-L74">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L42-L46">Show on GitHub</a>
 </div>
 </section>
 </div>
