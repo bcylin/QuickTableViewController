@@ -4,7 +4,12 @@
 
 #### Enhancements
 
-* Change predefined rows from structs to classes to preserve UISwitch animation [#9](https://github.com/bcylin/QuickTableViewController/issues/9)
+* UI testing
+* Change sections and rows from structs to classes
+
+#### Fixes
+
+* UISwitch animation [#9](https://github.com/bcylin/QuickTableViewController/issues/9)
 
 ## v0.6.0
 

@@ -26,11 +26,25 @@
 
 import UIKit
 
+/// The SwitchCellDelegate protocol allows the adopting delegate to respond to the UI interaction.
+public protocol SwitchCellDelegate: class {
+  /// Tells the delegate that the switch is toggled.
+  func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool)
+}
+
+
 /// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
 open class SwitchCell: UITableViewCell {
 
   /// A `UISwitch` as the `accessoryView`.
-  public let switchControl = UISwitch()
+  public private(set) lazy var switchControl: UISwitch = {
+    let control = UISwitch()
+    control.addTarget(self, action: .didToggleSwitch, for: .valueChanged)
+    return control
+  }()
+
+  /// The switch cell's delegate object, which should conform to SwitchCellDelegate.
+  public weak var delegate: SwitchCellDelegate?
 
   // MARK: Initializer
 
@@ -59,4 +73,16 @@ open class SwitchCell: UITableViewCell {
     accessoryView = switchControl
   }
 
+  // MARK: - Private
+
+  @objc
+  fileprivate func didToggleSwitch(_ sender: UISwitch) {
+    delegate?.switchCell(self, didToggleSwitch: sender.isOn)
+  }
+
+}
+
+
+private extension Selector {
+  static let didToggleSwitch = #selector(SwitchCell.didToggleSwitch(_:))
 }

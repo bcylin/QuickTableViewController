@@ -30,6 +30,10 @@ import Weakify
 
 internal final class ViewController: QuickTableViewController {
 
+  // MARK: - Properties
+
+  let debuggingSection = Section(title: nil, rows: [])
+
   // MARK: - UIViewController
 
   override func viewDidLoad() {
@@ -42,8 +46,8 @@ internal final class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).printValue)),
-        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).printValue))
+        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
+        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
       ]),
 
       Section(title: "Tap Action", rows: [
@@ -61,18 +65,13 @@ internal final class ViewController: QuickTableViewController {
         NavigationRow(title: "Empty section title", subtitle: .none)
       ]),
 
-      Section(title: "Customized", rows: {
-        let block: (UITableViewCell, Row & RowStyle) -> Void = { cell, row in
-          if let option = row as? OptionRow {
-            cell.accessoryType = option.isSelected ? .checkmark : .none
-          }
-        }
-        return [
-          OptionRow(title: "Option 1", isSelected: true, customization: block, action: weakify(self, type(of: self).toggleSelection)),
-          OptionRow(title: "Option 2", customization: block, action: weakify(self, type(of: self).toggleSelection)),
-          OptionRow(title: "Option 3", customization: block, action: weakify(self, type(of: self).toggleSelection))
-        ]
-      }(), footer: "See OptionRow for more details.")
+      Section(title: "Customized", rows: [
+        OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow(title: "Option 2", action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow(title: "Option 3", action: weakify(self, type(of: self).didToggleSelection))
+      ], footer: "See OptionRow for more details."),
+
+      debuggingSection
     ]
   }
 
@@ -80,7 +79,8 @@ internal final class ViewController: QuickTableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
-    if tableContents[indexPath.section].title == nil {
+    let row = tableContents[indexPath.section].rows[indexPath.row]
+    if row.title == "Empty section title" {
       // Alter the cells created by QuickTableViewController
       cell.imageView?.image = #imageLiteral(resourceName: "iconmonstr-x-mark")
     }
@@ -93,12 +93,30 @@ internal final class ViewController: QuickTableViewController {
     if let row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
       row.isSelected = !row.isSelected
       row.action?(row)
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+      tableView.deselectRow(at: indexPath, animated: true)
     } else {
       super.tableView(tableView, didSelectRowAt: indexPath)
     }
   }
 
   // MARK: - Private Methods
+
+  private func didToggleSelection(_ sender: Row) {
+    if let row = sender as? OptionRow {
+      let state = "\(row.title) is toggled = \(row.isSelected)"
+      print(state)
+      showDebuggingText(state)
+    }
+  }
+
+  private func didToggleSwitch(_ sender: Row) {
+    if let row = sender as? SwitchRow {
+      let state = "\(row.title) = \(row.switchValue)"
+      print(state)
+      showDebuggingText(state)
+    }
+  }
 
   private func showAlert(_ sender: Row) {
     let alert = UIAlertController(title: "Action Triggered", message: nil, preferredStyle: .alert)
@@ -109,22 +127,17 @@ internal final class ViewController: QuickTableViewController {
   }
 
   private func showDetail(_ sender: Row) {
+    let detail = "\(sender.title)\(sender.subtitle?.text ?? "")"
     let controller = UIViewController()
     controller.view.backgroundColor = UIColor.white
-    controller.title = "\(sender.title) " + (sender.subtitle?.text ?? "")
+    controller.title = detail
     navigationController?.pushViewController(controller, animated: true)
+    showDebuggingText(detail + " is selected")
   }
 
-  private func printValue(_ sender: Row) {
-    if let row = sender as? SwitchRow {
-      print("\(row.title) = \(row.switchValue)")
-    }
-  }
-
-  private func toggleSelection(_ sender: Row) {
-    if let row = sender as? OptionRow {
-      print("\(row.title) is selected = \(row.isSelected)")
-    }
+  private func showDebuggingText(_ text: String) {
+    debuggingSection.footer = text
+    tableView.reloadSections([tableContents.count - 1], with: .automatic)
   }
 
 }

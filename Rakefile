@@ -9,7 +9,14 @@ namespace :ci do
       next
     end
 
-    sh %(xcodebuild -workspace QuickTableViewController.xcworkspace -scheme #{scheme} -sdk iphonesimulator -destination "name=iPhone 6,OS=latest" clean test | xcpretty -c && exit ${PIPESTATUS[0]})
+    sh [
+      %(xcodebuild),
+      %(-workspace QuickTableViewController.xcworkspace),
+      %(-scheme #{scheme}),
+      %(-sdk iphonesimulator),
+      %(-destination "name=iPhone 7,OS=latest"),
+      %(clean test | xcpretty -c && exit ${PIPESTATUS[0]})
+    ].join " "
     exit $?.exitstatus if not $?.success?
   end
 
@@ -21,7 +28,14 @@ namespace :ci do
       next
     end
 
-    sh %(xcodebuild -workspace QuickTableViewController.xcworkspace -scheme #{scheme} -sdk iphonesimulator -destination "name=iPhone 6,OS=latest" clean build | xcpretty -c && exit ${PIPESTATUS[0]})
+    sh [
+      %(xcodebuild -workspace),
+      %(QuickTableViewController.xcworkspace),
+      %(-scheme #{scheme}),
+      %(-sdk iphonesimulator),
+      %(-destination "name=iPhone 7,OS=latest"),
+      %(clean build | xcpretty -c && exit ${PIPESTATUS[0]})
+    ].join " "
     exit $?.exitstatus if not $?.success?
   end
 end

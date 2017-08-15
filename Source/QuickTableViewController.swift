@@ -29,7 +29,8 @@ import UIKit
 /// A table view controller that shows `tableContents` as formatted sections and rows.
 open class QuickTableViewController: UIViewController,
   UITableViewDataSource,
-  UITableViewDelegate {
+  UITableViewDelegate,
+  SwitchCellDelegate {
 
   /// A Boolean value indicating if the controller clears the selection when the collection view appears.
   public var clearsSelectionOnViewWillAppear = true
@@ -107,10 +108,7 @@ open class QuickTableViewController: UIViewController,
     switch (cell, row) {
     case let (cell as SwitchCell, row as SwitchRow<SwitchCell>):
       cell.switchControl.isOn = row.switchValue
-      if cell.switchControl.actions(forTarget: self, forControlEvent: .valueChanged) == nil {
-        cell.switchControl.addTarget(self, action: .didToggleSwitch, for: UIControlEvents.valueChanged)
-      }
-
+      cell.delegate = self
     default:
       break
     }
@@ -138,37 +136,18 @@ open class QuickTableViewController: UIViewController,
     }
   }
 
-  // MARK: - IBAction
+  // MARK: - SwitchCellDelegate
 
-  @objc
-  fileprivate func didToggleSwitch(_ sender: UISwitch) {
+  open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard
-      let cell = sender.containerCell,
       let indexPath = tableView.indexPath(for: cell),
       let row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
     else {
       return
     }
 
-    row.switchValue = sender.isOn
+    row.switchValue = isOn
     row.action?(row)
   }
 
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-
-private extension UIView {
-
-  var containerCell: UITableViewCell? {
-    return (superview as? UITableViewCell) ?? superview?.containerCell
-  }
-
-}
-
-
-private extension Selector {
-  static let didToggleSwitch = #selector(QuickTableViewController.didToggleSwitch(_:))
 }
