@@ -28,14 +28,25 @@ import Foundation
 
 /// Any type that conforms to this protocol carries the info for the UI.
 public protocol RowStyle {
+
   /// The type of the table view cell to display the row.
   var cellType: UITableViewCell.Type { get }
+
   /// The reuse identifier of the table view cell to display the row.
   var cellReuseIdentifier: String { get }
+
   /// The style of the table view cell to display the row.
   var cellStyle: UITableViewCellStyle { get }
+
+  /// The icon of the row.
+  var icon: Icon? { get }
+
+  /// The type of standard accessory view the cell should use.
+  var accessoryType: UITableViewCellAccessoryType { get }
+
   /// The flag that indicates whether the table view cell should trigger the action when selected.
   var isSelectable: Bool { get }
+
   /// The additional customization during cell configuration.
   var customize: ((UITableViewCell, Row & RowStyle) -> Void)? { get }
 }

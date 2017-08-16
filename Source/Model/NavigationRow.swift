@@ -27,7 +27,7 @@
 import Foundation
 
 /// A struct that represents a row that perfoms navigation when seleced.
-public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconEnabled, AccessoryEnabled {
+public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
@@ -77,6 +77,14 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
     return subtitle?.style ?? .default
   }
 
+  /// The icon of the row.
+  public let icon: Icon?
+
+  /// Returns .disclosureIndicator when action is not nil, otherwise returns .none.
+  public var accessoryType: UITableViewCellAccessoryType {
+    return (action == nil) ? .none : .disclosureIndicator
+  }
+
   /// The TapActionRow is selectable when action is not nil.
   public var isSelectable: Bool {
     return action != nil
@@ -90,18 +98,6 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
   /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
   public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
     return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
-  }
-
-  // MARK: - IconEnabled
-
-  /// The icon of the row.
-  public let icon: Icon?
-
-  // MARK: - AccessoryEnabled
-
-  /// Returns .disclosureIndicator when action is not nil, otherwise returns .none.
-  public var accessoryType: UITableViewCellAccessoryType {
-    return (action == nil) ? .none : .disclosureIndicator
   }
 
 }

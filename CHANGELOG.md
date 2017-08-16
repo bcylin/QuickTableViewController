@@ -1,5 +1,12 @@
 # Change Log
 
+## Next Release
+
+#### Breaking
+
+* Remove the accessory view from the `AccessoryEnabled` protocol
+* Merge `IconEnabled` and `AccessoryEnabled` properties into the `RowStyle` protocol
+
 ## v0.6.1
 
 #### Enhancements

@@ -35,11 +35,12 @@ public protocol Configurable {
 
 extension UITableViewCell {
 
-  internal func defaultSetUp(with row: Row) {
+  internal func defaultSetUp(with row: Row & RowStyle) {
     textLabel?.text = row.title
     detailTextLabel?.text = row.subtitle?.text
+    accessoryType = row.accessoryType
 
-    if let icon = (row as? IconEnabled)?.icon {
+    if let icon = row.icon {
       if let image = icon.image {
         imageView?.image = image
       }
@@ -50,8 +51,6 @@ extension UITableViewCell {
       imageView?.image = nil
       imageView?.highlightedImage = nil
     }
-
-    accessoryType = (row as? AccessoryEnabled)?.accessoryType ?? .none
   }
 
 }

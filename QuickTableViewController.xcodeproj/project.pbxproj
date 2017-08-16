@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6FEC7AFD957FDD634E547C82 /* Pods_QuickTableViewControllerTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */; };
 		B25D5B851E9D987AFEB96BB4 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA13E27E7B47A3F6F9FFE5B /* Pods_Example.framework */; };
-		B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73821F2E1B4B00481910 /* IconEnabled.swift */; };
 		B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73841F2E1BC900481910 /* RowStyle.swift */; };
 		B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A41F417037009BC2C9 /* AppDelegate.swift */; };
 		B51F21A71F417037009BC2C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* ViewController.swift */; };
@@ -22,7 +21,6 @@
 		B5334F191B8CC5BD00C64A6D /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
 		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
-		B554757B1F2DD0010027F7C1 /* AccessoryEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B554757A1F2DD0010027F7C1 /* AccessoryEnabled.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
 		B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
 		B57FAA6E1C513454008FF7C7 /* QuickTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */; };
@@ -86,7 +84,6 @@
 		25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickTableViewControllerTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332BB2E7F8C766C8BC0D5B5B /* Pods-QuickTableViewControllerTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewControllerTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewControllerTests-iOS/Pods-QuickTableViewControllerTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		965EA9FBCB752A21189A0BC0 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B50E73821F2E1B4B00481910 /* IconEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconEnabled.swift; path = Source/Protocol/IconEnabled.swift; sourceTree = SOURCE_ROOT; };
 		B50E73841F2E1BC900481910 /* RowStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowStyle.swift; path = Source/Protocol/RowStyle.swift; sourceTree = SOURCE_ROOT; };
 		B51F21A21F417037009BC2C9 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51F21A41F417037009BC2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +102,6 @@
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/Protocol/Configurable.swift; sourceTree = SOURCE_ROOT; };
-		B554757A1F2DD0010027F7C1 /* AccessoryEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryEnabled.swift; path = Source/Protocol/AccessoryEnabled.swift; sourceTree = SOURCE_ROOT; };
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
 		B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerSpec.swift; sourceTree = "<group>"; };
@@ -187,9 +183,7 @@
 		B50E73811F2E1B2C00481910 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B554757A1F2DD0010027F7C1 /* AccessoryEnabled.swift */,
 				B55475741F2DC3C00027F7C1 /* Configurable.swift */,
-				B50E73821F2E1B4B00481910 /* IconEnabled.swift */,
 				B5EC18221B95FD7F0015C665 /* Row.swift */,
 				B50E73841F2E1BC900481910 /* RowStyle.swift */,
 			);
@@ -675,10 +669,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B554757B1F2DD0010027F7C1 /* AccessoryEnabled.swift in Sources */,
 				B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */,
 				B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */,
-				B50E73831F2E1B4B00481910 /* IconEnabled.swift in Sources */,
 				B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */,
 				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 				B5EC18231B95FD7F0015C665 /* Row.swift in Sources */,
