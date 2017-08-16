@@ -30,7 +30,4 @@ import UIKit
 public protocol AccessoryEnabled {
   /// The type of standard accessory view the cell should use.
   var accessoryType: UITableViewCellAccessoryType { get }
-  /// An optional view that is used on the right side of the cell.
-  /// When the `accessoryView` is provided, the `accessoryType` is ignored.
-  var accessoryView: UIView? { get }
 }

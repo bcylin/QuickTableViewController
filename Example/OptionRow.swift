@@ -67,6 +67,4 @@ internal final class OptionRow<T: UITableViewCell>: Row, RowStyle, AccessoryEnab
     return isSelected ? .checkmark : .none
   }
 
-  let accessoryView: UIView? = nil
-
 }

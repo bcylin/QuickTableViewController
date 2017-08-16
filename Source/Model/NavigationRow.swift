@@ -104,7 +104,4 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
     return (action == nil) ? .none : .disclosureIndicator
   }
 
-  /// Nil by default.
-  public let accessoryView: UIView? = nil
-
 }

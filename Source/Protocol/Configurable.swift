@@ -46,15 +46,12 @@ extension UITableViewCell {
       if let image = icon.highlightedImage {
         imageView?.highlightedImage = image
       }
+    } else {
+      imageView?.image = nil
+      imageView?.highlightedImage = nil
     }
 
-    if let enabled = row as? AccessoryEnabled {
-      if let view = enabled.accessoryView {
-        accessoryView = view
-      } else {
-        accessoryType = enabled.accessoryType
-      }
-    }
+    accessoryType = (row as? AccessoryEnabled)?.accessoryType ?? .none
   }
 
 }
