@@ -1,5 +1,17 @@
 # Change Log
 
+## v0.6.1
+
+#### Enhancements
+
+* UI testing
+* Change sections and rows from structs to classes
+* Allow customized cell classes to implement the `Configurable` method in addition to the default setup
+
+#### Fixes
+
+* UISwitch animation [#9](https://github.com/bcylin/QuickTableViewController/issues/9)
+
 ## v0.6.0
 
 #### Breaking
@@ -11,7 +23,11 @@
 
 * Specify table view cell types to rows during initialization
 * Separate `RowStyle` from the original `Row` protocol
-* Add an additional cell customization `((UITableViewCell, Row & RowStyle) -> Void)?` for each row
+* Add an additional cell customization `((UITableViewCell, Row & RowStyle) -> Void)?` for each row [#8](https://github.com/bcylin/QuickTableViewController/issues/8)
+
+#### Project Updates
+
+* CocoaPods 1.3.0
 
 ## v0.5.3
 
@@ -30,8 +46,12 @@ Cell Reuse identifier | SwitchRow                            | TapActionRow
 
 #### Enhancements
 
-* Xcode 8.3
 * Make the image name and highlighted image name of `Icon` public readonly
+
+#### Project Updates
+
+* Xcode 8.3
+* CocoaPods 1.2.1
 
 ## v0.5.1
 
@@ -46,6 +66,11 @@ Cell Reuse identifier | SwitchRow                            | TapActionRow
 
 * Swift 3.0
 
+#### Project Updates
+
+* Auto generated docs
+* Move the example to the project root directory
+
 ## v0.4.0
 
 #### Enhancements
@@ -54,12 +79,24 @@ Cell Reuse identifier | SwitchRow                            | TapActionRow
 * Improved documentation
 * Make the images of `Icon` readonly
 
+#### Project Updates
+
+* CocoaPods 1.1.0.rc.2
+* Run tests with fastlane scan
+* Integrate with [danger.systems](https://github.com/danger/danger)
+
 ## v0.3.0
 
 #### Enhancements
 
 * Swift 2.2
-* Both `NavigationRow` and `SwitchRow` conform to `IconEnabled`.
+* Both `NavigationRow` and `SwitchRow` conform to `IconEnabled` [#2](https://github.com/bcylin/QuickTableViewController/issues/2)
+
+#### Project Updates
+
+* CocoaPods 1.0.1
+* Calculate code coverage
+* SwiftLint with Hound CI
 
 ## v0.2.0
 
@@ -76,6 +113,11 @@ Cell Reuse identifier | SwitchRow                            | TapActionRow
 #### Fixes
 
 * Fix the access control on the overridden initializer
+
+#### Project Updates
+
+* Run tests on Travis CI
+* Clean up syntax with SwiftLint
 
 ## v0.1.1
 

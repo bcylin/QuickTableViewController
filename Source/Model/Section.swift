@@ -26,11 +26,11 @@
 
 import Foundation
 
-/// A struct that represents a section in a table view.
-public struct Section {
+/// A class that represents a section in a table view.
+public final class Section {
 
   /// The text of the section title.
-  public var title: String?
+  public let title: String?
 
   /// The array of rows in the section.
   public var rows: [Row & RowStyle]
@@ -38,7 +38,7 @@ public struct Section {
   /// The text of the section footer.
   public var footer: String?
 
-  ///
+  /// Initializes a section with a title, containing rows and an optional footer.
   public init(title: String?, rows: [Row & RowStyle], footer: String? = nil) {
     self.title = title
     self.rows = rows

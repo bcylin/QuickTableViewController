@@ -32,6 +32,7 @@ opt_in_rules:
   - vertical_parameter_alignment_on_call
 included:
   - Example
+  - ExampleUITests
   - QuickTableViewControllerTests
   - Source
 excluded:

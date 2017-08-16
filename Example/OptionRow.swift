@@ -27,7 +27,7 @@
 import Foundation
 import QuickTableViewController
 
-internal struct OptionRow<T: UITableViewCell>: Row, RowStyle {
+internal final class OptionRow<T: UITableViewCell>: Row, RowStyle, AccessoryEnabled {
 
   // MARK: - Initializer
 
@@ -60,5 +60,13 @@ internal struct OptionRow<T: UITableViewCell>: Row, RowStyle {
   let cellStyle: UITableViewCellStyle = .default
   let isSelectable: Bool = true
   let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
+
+  // MARK: - AccessoryEnabled
+
+  var accessoryType: UITableViewCellAccessoryType {
+    return isSelected ? .checkmark : .none
+  }
+
+  let accessoryView: UIView? = nil
 
 }

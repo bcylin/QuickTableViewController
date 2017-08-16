@@ -26,19 +26,16 @@
 
 import UIKit
 
-/// Any type that conforms to this protocol is able to take a Row as the configuration.
+/// Any type that conforms to this protocol is able to take `Row & RowStyle` as the configuration.
 public protocol Configurable {
-  /// Configure the receiver with a Row.
-  func configure(with row: Row)
+  /// Configure the receiver with an instance that conforms to Row & RowStyle.
+  func configure(with row: Row & RowStyle)
 }
 
 
-extension UITableViewCell: Configurable {}
+extension UITableViewCell {
 
-
-extension Configurable where Self: UITableViewCell {
-
-  public func configure(with row: Row) {
+  internal func defaultSetUp(with row: Row) {
     textLabel?.text = row.title
     detailTextLabel?.text = row.subtitle?.text
 

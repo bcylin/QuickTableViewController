@@ -1,8 +1,8 @@
 default: test
 
 test:
-	bundle exec rake 'ci:build[Example]'
 	bundle exec rake 'ci:test[QuickTableViewController-iOS]'
+	bundle exec rake 'ci:test[Example]'
 	make -B carthage
 	make -B docs
 
@@ -10,7 +10,9 @@ bump:
 ifeq (,$(strip $(version)))
 	# Usage: make bump version=<number>
 else
-	bundle exec rake bump[$(version)]
+	ruby -pi -e "gsub(/\d+\.\d+\.\d+/i, \""$(version)"\")" QuickTableViewController.podspec
+	ruby -pi -e "gsub(/:\s\d+\.\d+\.\d+/i, \": "$(version)"\")" .jazzy.yml
+	xcrun agvtool new-marketing-version $(version)
 endif
 
 carthage:

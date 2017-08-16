@@ -9,7 +9,14 @@ namespace :ci do
       next
     end
 
-    sh %(xcodebuild -workspace QuickTableViewController.xcworkspace -scheme #{scheme} -sdk iphonesimulator -destination "name=iPhone 6,OS=latest" clean test | xcpretty -c && exit ${PIPESTATUS[0]})
+    sh [
+      %(xcodebuild),
+      %(-workspace QuickTableViewController.xcworkspace),
+      %(-scheme #{scheme}),
+      %(-sdk iphonesimulator),
+      %(-destination "name=iPhone 7,OS=latest"),
+      %(clean test | xcpretty -c && exit ${PIPESTATUS[0]})
+    ].join " "
     exit $?.exitstatus if not $?.success?
   end
 
@@ -21,7 +28,14 @@ namespace :ci do
       next
     end
 
-    sh %(xcodebuild -workspace QuickTableViewController.xcworkspace -scheme #{scheme} -sdk iphonesimulator -destination "name=iPhone 6,OS=latest" clean build | xcpretty -c && exit ${PIPESTATUS[0]})
+    sh [
+      %(xcodebuild -workspace),
+      %(QuickTableViewController.xcworkspace),
+      %(-scheme #{scheme}),
+      %(-sdk iphonesimulator),
+      %(-destination "name=iPhone 7,OS=latest"),
+      %(clean build | xcpretty -c && exit ${PIPESTATUS[0]})
+    ].join " "
     exit $?.exitstatus if not $?.success?
   end
 end
@@ -35,13 +49,7 @@ task :bump, [:version] do |t, args|
     next
   end
 
-  FileUtils.mv "QuickTableViewController.xcodeproj", "QuickTableViewController.tmp"
   sh %(xcrun agvtool new-marketing-version #{version})
-  FileUtils.mv "QuickTableViewController.tmp", "QuickTableViewController.xcodeproj"
-
-  FileUtils.mv "Example.xcodeproj", "Example.tmp"
-  sh %(xcrun agvtool new-marketing-version #{version})
-  FileUtils.mv "Example.tmp", "Example.xcodeproj"
 
   podspec = "QuickTableViewController.podspec"
   text = File.read podspec
@@ -52,6 +60,4 @@ task :bump, [:version] do |t, args|
   text = File.read jazzy
   File.write jazzy, text.gsub(%r(:\s\d+\.\d+\.\d+), ": #{version}")
   puts "Updated #{jazzy} to #{version}"
-
-  sh %(bundle exec pod install)
 end
