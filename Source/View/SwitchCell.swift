@@ -34,7 +34,7 @@ public protocol SwitchCellDelegate: class {
 
 
 /// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
-open class SwitchCell: UITableViewCell {
+open class SwitchCell: UITableViewCell, Configurable {
 
   /// A `UISwitch` as the `accessoryView`.
   public private(set) lazy var switchControl: UISwitch = {
@@ -71,6 +71,15 @@ open class SwitchCell: UITableViewCell {
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     accessoryView = switchControl
+  }
+
+  // MARK: - Configurable
+
+  /// Set up the switch control with the provided row.
+  public func configure(with row: Row & RowStyle) {
+    if let row = row as? SwitchRow {
+      switchControl.isOn = row.switchValue
+    }
   }
 
   // MARK: - Private

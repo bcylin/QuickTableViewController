@@ -109,10 +109,6 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ```
 
-### Full Documentation
-
-<https://bcylin.github.io/QuickTableViewController>
-
 ## Customization
 
 ### Cell Classes
@@ -130,6 +126,14 @@ SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in }
 TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 ```
 
+Table view cell classes that conform to `Configurable` can implement the additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
+
+```swift
+public protocol Configurable {
+  func configure(with row: Row & RowStyle)
+}
+```
+
 The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 
 > Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
@@ -137,6 +141,11 @@ The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 ### Rows
 
 All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation to [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
+
+## Documentation
+
+* [QuickTableViewController Reference](https://bcylin.github.io/QuickTableViewController)
+* [Example Project](https://github.com/bcylin/QuickTableViewController/tree/develop/Example)
 
 ## Requirements
 

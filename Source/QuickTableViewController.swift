@@ -102,16 +102,10 @@ open class QuickTableViewController: UIViewController,
       tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
       row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellReuseIdentifier)
 
-    cell.configure(with: row)
+    cell.defaultSetUp(with: row)
+    (cell as? Configurable)?.configure(with: row)
+    (cell as? SwitchCell)?.delegate = self
     row.customize?(cell, row)
-
-    switch (cell, row) {
-    case let (cell as SwitchCell, row as SwitchRow<SwitchCell>):
-      cell.switchControl.isOn = row.switchValue
-      cell.delegate = self
-    default:
-      break
-    }
 
     return cell
   }
