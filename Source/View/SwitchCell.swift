@@ -43,8 +43,8 @@ open class SwitchCell: UITableViewCell, Configurable {
     return control
   }()
 
-  /// The switch cell's delegate object, which should conform to SwitchCellDelegate.
-  public weak var delegate: SwitchCellDelegate?
+  /// The switch cell's delegate object, which should conform to `SwitchCellDelegate`.
+  open weak var delegate: SwitchCellDelegate?
 
   // MARK: Initializer
 
@@ -56,7 +56,7 @@ open class SwitchCell: UITableViewCell, Configurable {
 
    - returns: An initialized `SwitchCell` object.
    */
-  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: .default, reuseIdentifier: reuseIdentifier)
     accessoryView = switchControl
   }
@@ -68,7 +68,7 @@ open class SwitchCell: UITableViewCell, Configurable {
 
    - returns: `self`, initialized using the data in decoder.
    */
-  required public init?(coder aDecoder: NSCoder) {
+  public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     accessoryView = switchControl
   }
@@ -76,7 +76,7 @@ open class SwitchCell: UITableViewCell, Configurable {
   // MARK: - Configurable
 
   /// Set up the switch control with the provided row.
-  public func configure(with row: Row & RowStyle) {
+  open func configure(with row: Row & RowStyle) {
     if let row = row as? SwitchRow {
       switchControl.isOn = row.switchValue
     }

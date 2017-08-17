@@ -33,13 +33,13 @@ open class QuickTableViewController: UIViewController,
   SwitchCellDelegate {
 
   /// A Boolean value indicating if the controller clears the selection when the collection view appears.
-  public var clearsSelectionOnViewWillAppear = true
+  open var clearsSelectionOnViewWillAppear = true
 
   /// Returns the table view managed by the controller object.
-  public private(set) var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
+  open private(set) var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
   /// The layout of sections and rows to display in the table view.
-  public var tableContents: [Section] = [] {
+  open var tableContents: [Section] = [] {
     didSet {
       tableView.reloadData()
     }
@@ -50,7 +50,7 @@ open class QuickTableViewController: UIViewController,
   /**
    Initializes a table view controller to manage a table view of a given style.
 
-   - parameter style: A constant that specifies the style of table view that the controller object is to manage (UITableViewStylePlain or UITableViewStyleGrouped).
+   - parameter style: A constant that specifies the style of table view that the controller object is to manage (`.plain` or `.grouped`).
 
    - returns: An initialized `QuickTableViewController` object.
    */
