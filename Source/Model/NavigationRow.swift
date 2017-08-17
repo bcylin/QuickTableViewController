@@ -26,13 +26,13 @@
 
 import Foundation
 
-/// A struct that represents a row that perfoms navigation when seleced.
+/// A class that represents a row that triggers certain navigation when selected.
 public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconEnabled, AccessoryEnabled {
 
   // MARK: - Initializer
 
-  /// Initializes a navigation row with a title and a subtitle.
-  /// The icon, customization and action blocks are optional.
+  /// Initializes a `NavigationRow` with a title and a subtitle.
+  /// The icon, customization and action closures are optional.
   public init(
     title: String,
     subtitle: Subtitle,
@@ -59,7 +59,7 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
   /// The subtitle text of the row.
   public let subtitle: Subtitle?
 
-  /// A closure related to the navigation when the row is selected.
+  /// A closure that will be invoked when the row is selected.
   public let action: ((Row) -> Void)?
 
   // MARK: - RowStyle
@@ -77,19 +77,22 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
     return subtitle?.style ?? .default
   }
 
-  /// The TapActionRow is selectable when action is not nil.
+  /// The `NavigationRow` is selectable when action is not nil.
   public var isSelectable: Bool {
     return action != nil
   }
 
-  /// Additional customization during cell configuration.
+  /// The additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
   public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
-    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle && lhs.icon == rhs.icon
+    return
+      lhs.title == rhs.title &&
+      lhs.subtitle == rhs.subtitle &&
+      lhs.icon == rhs.icon
   }
 
   // MARK: - IconEnabled
@@ -99,7 +102,7 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
 
   // MARK: - AccessoryEnabled
 
-  /// Returns .disclosureIndicator when action is not nil, otherwise returns .none.
+  /// Returns `.disclosureIndicator` when action is not nil, otherwise returns `.none`.
   public var accessoryType: UITableViewCellAccessoryType {
     return (action == nil) ? .none : .disclosureIndicator
   }

@@ -26,13 +26,13 @@
 
 import Foundation
 
-/// A struct that represents a row with a switch.
+/// A class that represents a row with a switch.
 public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
 
   // MARK: - Initializer
 
-  /// Initializes a navigation row with a title, a switch state and an action block.
-  /// The icon and the customization block are optional.
+  /// Initializes a `SwitchRow` with a title, a switch state and an action closure.
+  /// The icon and the customization closure are optional.
   public init(
     title: String,
     switchValue: Bool,
@@ -56,10 +56,10 @@ public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabl
   /// The title text of the row.
   public let title: String
 
-  /// Subtitle is disabled in SwitchRow.
+  /// The subtitle is disabled in `SwitchRow`.
   public let subtitle: Subtitle? = nil
 
-  /// A closure that will be invoked when the switchValue is changed.
+  /// A closure that will be invoked when the `switchValue` is changed.
   public let action: ((Row) -> Void)?
 
   // MARK: - SwitchRow
@@ -81,20 +81,23 @@ public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabl
   /// The reuse identifier of the table view cell to display the row. The default value is **SwitchCell**.
   public let cellReuseIdentifier: String = String(describing: T.self)
 
-  /// The cell style is UITableViewCellStyle.default.
+  /// The cell style is `.default`.
   public let cellStyle: UITableViewCellStyle = .default
 
-  /// The SwitchRow should not be selectable.
+  /// The `SwitchRow` should not be selectable.
   public let isSelectable: Bool = false
 
-  /// Additional customization during cell configuration.
+  /// The additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
   // MARK: Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
   public static func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
-    return lhs.title == rhs.title && lhs.switchValue == rhs.switchValue && lhs.icon == rhs.icon
+    return
+      lhs.title == rhs.title &&
+      lhs.switchValue == rhs.switchValue &&
+      lhs.icon == rhs.icon
   }
 
   // MARK: - IconEnabled

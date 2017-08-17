@@ -28,7 +28,7 @@ import UIKit
 
 /// Any type that conforms to this protocol is able to take `Row & RowStyle` as the configuration.
 public protocol Configurable {
-  /// Configure the receiver with an instance that conforms to Row & RowStyle.
+  /// Configure the receiver with an instance that conforms to `Row & RowStyle`.
   func configure(with row: Row & RowStyle)
 }
 
