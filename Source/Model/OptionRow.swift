@@ -26,18 +26,22 @@
 
 import Foundation
 
-public final class OptionRow<T: UITableViewCell>: Row, RowStyle {
+public final class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
+  /// Initializes an `OptionRow` with a title, a selection state and an action closure.
+  /// The icon and the customization closure are optional.
   public init(
     title: String,
-    isSelected: Bool = false,
+    isSelected: Bool,
+    icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
     self.title = title
     self.isSelected = isSelected
+    self.icon = icon
     self.customize = customization
     self.action = action
   }
@@ -50,12 +54,19 @@ public final class OptionRow<T: UITableViewCell>: Row, RowStyle {
   ///
   public let subtitle: Subtitle? = nil
 
-  ///
+  /// A closure that will be invoked when the `isSelected` is changed.
   public let action: ((Row) -> Void)?
 
   // MARK: - OptionRow
 
-  public var isSelected: Bool = false
+  /// The state of selection.
+  public var isSelected: Bool = false {
+    didSet {
+      if isSelected != oldValue {
+        action?(self)
+      }
+    }
+  }
 
   // MARK: - RowStyle
 
@@ -68,8 +79,8 @@ public final class OptionRow<T: UITableViewCell>: Row, RowStyle {
   ///
   public let cellStyle: UITableViewCellStyle = .default
 
-  ///
-  public let icon: Icon? = nil
+  /// The icon of the row.
+  public let icon: Icon?
 
   /// Returns `.checkmark` when the row is selected, otherwise returns `.none`.
   public var accessoryType: UITableViewCellAccessoryType {
@@ -81,5 +92,15 @@ public final class OptionRow<T: UITableViewCell>: Row, RowStyle {
 
   /// Additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
+
+  // MARK: - Equatable
+
+  /// Returns true iff `lhs` and `rhs` have equal titles, selection states, and icons.
+  public static func == (lhs: OptionRow, rhs: OptionRow) -> Bool {
+    return
+      lhs.title == rhs.title &&
+      lhs.isSelected == rhs.isSelected &&
+      lhs.icon == rhs.icon
+  }
 
 }

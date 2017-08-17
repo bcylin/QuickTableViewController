@@ -67,8 +67,8 @@ internal final class ViewController: QuickTableViewController {
 
       Section(title: "Customized", rows: [
         OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 2", action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 3", action: weakify(self, type(of: self).didToggleSelection))
+        OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
       ], footer: "See OptionRow for more details."),
 
       debuggingSection
