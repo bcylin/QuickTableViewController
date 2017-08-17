@@ -26,6 +26,7 @@
 
 import Foundation
 
+/// A class that represents a row of selectable option.
 public final class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
@@ -51,7 +52,7 @@ public final class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
   /// The title text of the row.
   public let title: String
 
-  ///
+  /// Subtitle is disabled in `OptionRow`.
   public let subtitle: Subtitle? = nil
 
   /// A closure that will be invoked when the `isSelected` is changed.
@@ -73,10 +74,10 @@ public final class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
 
-  /// The reuse identifier of the table view cell to display the row. The default value is **TapActionCell**.
+  /// The reuse identifier of the table view cell to display the row. The default value is **UITableViewCell**.
   public let cellReuseIdentifier: String = String(describing: T.self)
 
-  ///
+  /// The cell style is `.default`.
   public let cellStyle: UITableViewCellStyle = .default
 
   /// The icon of the row.

@@ -32,13 +32,13 @@ internal final class ViewController: QuickTableViewController {
 
   // MARK: - Properties
 
-  private lazy var radioSection: RadioSection = RadioSection(title: "Radio", options: [
+  private lazy var options: Section = RadioSection(title: "Radio", options: [
     OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
     OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
     OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
-  ], footer: "See OptionRow for more details.")
+  ], footer: "See RadioSection for more details.")
 
-  private let debuggingSection = Section(title: nil, rows: [])
+  private let debugging = Section(title: nil, rows: [])
 
   // MARK: - UIViewController
 
@@ -71,8 +71,8 @@ internal final class ViewController: QuickTableViewController {
         NavigationRow(title: "Empty section title", subtitle: .none)
       ]),
 
-      radioSection,
-      debuggingSection
+      options,
+      debugging
     ]
   }
 
@@ -91,12 +91,11 @@ internal final class ViewController: QuickTableViewController {
   // MARK: - Private Methods
 
   private func didToggleSelection(_ sender: Row) {
-    let state: String
-    if let row = radioSection.selectedOption {
-      state = "\(row.title) is selected"
-    } else {
-      state = "\(sender.title) is deselected"
+    guard let option = sender as? OptionRow else {
+      return
     }
+
+    let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
     print(state)
     showDebuggingText(state)
   }
@@ -127,8 +126,9 @@ internal final class ViewController: QuickTableViewController {
   }
 
   private func showDebuggingText(_ text: String) {
-    debuggingSection.footer = text
-    tableView.reloadSections([tableContents.count - 1], with: .fade)
+    debugging.footer = text
+    let indexSet: IndexSet? = tableContents.index(where: { $0 === debugging }).map { [$0] }
+    tableView.reloadSections(indexSet ?? [], with: .fade)
   }
 
 }

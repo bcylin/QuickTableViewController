@@ -106,6 +106,16 @@ internal final class RadioSectionSpec: QuickSpec {
         ])
       }
 
+      context("when the option to toggle is not in the section") {
+        let section = mock()
+        let option = OptionRow(title: "", isSelected: true, action: nil)
+        let result = section.toggle(option)
+
+        it("should return an empty index set") {
+          expect(result) == []
+        }
+      }
+
       context("when the option is selected and it allows none selected") {
         let section = mock()
         _ = section.toggle(section.options[0])
