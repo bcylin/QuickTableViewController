@@ -73,9 +73,9 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 
 #### Images
 
-* Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
+* Images in table view cells can be set by specifying the `icon` of each row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
-* Table view cells in `UITableViewCellStyle.value2` will hide images.
+* Table view cells in `UITableViewCellStyle.value2` will not show the image view.
 
 ```swift
 NavigationRow(title: "Cell with image", subtitle: .none, icon: Icon(imageName: "icon"))
@@ -94,7 +94,7 @@ NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row)
 
 * A `SwitchRow` is representing a table view cell with a `UISwitch` as its `accessoryView`.
 * The `action` will be invoked when the switch value changes.
-* It also conforms to `IconEnabled`.
+* `Icon` is also settable in each `SwitchRow`.
 
 ```swift
 SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
@@ -104,6 +104,7 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 
 * A `TapActionRow` is representing a button-like table view cell.
 * The `action` will be invoked when the related table view cell is selected.
+* `Icon` is always `nil` in a `TapActionRow`. 
 
 ```swift
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
@@ -136,11 +137,9 @@ public protocol Configurable {
 
 The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
 
-> Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
-
 ### Rows
 
-All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation to [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift).
 
 ## Documentation
 

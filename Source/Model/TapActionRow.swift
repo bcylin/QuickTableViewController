@@ -69,6 +69,12 @@ public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   /// The cell style is UITableViewCellStyle.default.
   public let cellStyle: UITableViewCellStyle = .default
 
+  /// The default icon is nil.
+  public let icon: Icon? = nil
+
+  /// The default accessory type is `.none`.
+  public let accessoryType: UITableViewCellAccessoryType = .none
+
   /// The TapActionRow is selectable when action is not nil.
   public var isSelectable: Bool {
     return action != nil
