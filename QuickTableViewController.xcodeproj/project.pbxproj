@@ -14,7 +14,6 @@
 		B51F21A71F417037009BC2C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* ViewController.swift */; };
 		B51F21AC1F417037009BC2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51F21AB1F417037009BC2C9 /* Assets.xcassets */; };
 		B51F21B61F41709B009BC2C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51F21B41F41709B009BC2C9 /* LaunchScreen.xib */; };
-		B51F21B81F4170A4009BC2C9 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21B71F4170A4009BC2C9 /* OptionRow.swift */; };
 		B51F21C31F41E600009BC2C9 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21C21F41E600009BC2C9 /* ExampleUITests.swift */; };
 		B51F21CC1F41F32C009BC2C9 /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */; };
 		B51F21CD1F41F32C009BC2C9 /* QuickTableViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -33,6 +32,7 @@
 		B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */; };
 		B5E029211DC7A39200B5C90E /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E029201DC7A39200B5C90E /* Section.swift */; };
 		B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E029221DC8B3EC00B5C90E /* Icon.swift */; };
+		B5E619D21F454EEF005200E1 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E619D11F454EEF005200E1 /* OptionRow.swift */; };
 		B5EC18231B95FD7F0015C665 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC18221B95FD7F0015C665 /* Row.swift */; };
 		B5F0FFE61E9CC69C007BF1C9 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */; };
 		B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */; };
@@ -91,7 +91,6 @@
 		B51F21AB1F417037009BC2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B51F21B01F417037009BC2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51F21B51F41709B009BC2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B51F21B71F4170A4009BC2C9 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRow.swift; sourceTree = "<group>"; };
 		B51F21C01F41E600009BC2C9 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51F21C21F41E600009BC2C9 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		B51F21C41F41E600009BC2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleSpec.swift; sourceTree = "<group>"; };
 		B5E029201DC7A39200B5C90E /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Model/Section.swift; sourceTree = SOURCE_ROOT; };
 		B5E029221DC8B3EC00B5C90E /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Source/Model/Icon.swift; sourceTree = SOURCE_ROOT; };
+		B5E619D11F454EEF005200E1 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionRow.swift; path = Source/Model/OptionRow.swift; sourceTree = SOURCE_ROOT; };
 		B5EC18221B95FD7F0015C665 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Protocol/Row.swift; sourceTree = SOURCE_ROOT; };
 		B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = Source/View/SwitchCell.swift; sourceTree = SOURCE_ROOT; };
 		B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationRow.swift; path = Source/Model/NavigationRow.swift; sourceTree = SOURCE_ROOT; };
@@ -174,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */,
+				B5E619D11F454EEF005200E1 /* OptionRow.swift */,
 				B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */,
 				B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */,
 			);
@@ -197,7 +198,6 @@
 				B51F21AB1F417037009BC2C9 /* Assets.xcassets */,
 				B51F21B01F417037009BC2C9 /* Info.plist */,
 				B51F21B41F41709B009BC2C9 /* LaunchScreen.xib */,
-				B51F21B71F4170A4009BC2C9 /* OptionRow.swift */,
 				B51F21A61F417037009BC2C9 /* ViewController.swift */,
 			);
 			path = Example;
@@ -652,7 +652,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */,
-				B51F21B81F4170A4009BC2C9 /* OptionRow.swift in Sources */,
 				B51F21A71F417037009BC2C9 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +671,7 @@
 				B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */,
 				B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */,
 				B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */,
+				B5E619D21F454EEF005200E1 /* OptionRow.swift in Sources */,
 				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 				B5EC18231B95FD7F0015C665 /* Row.swift in Sources */,
 				B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */,

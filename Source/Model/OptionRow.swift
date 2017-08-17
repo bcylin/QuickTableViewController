@@ -1,6 +1,6 @@
 //
 //  OptionRow.swift
-//  Example
+//  QuickTableViewController
 //
 //  Created by Ben on 30/07/2017.
 //  Copyright © 2017 bcylin.
@@ -25,13 +25,12 @@
 //
 
 import Foundation
-import QuickTableViewController
 
-internal final class OptionRow<T: UITableViewCell>: Row, RowStyle {
+public final class OptionRow<T: UITableViewCell>: Row, RowStyle {
 
   // MARK: - Initializer
 
-  init(
+  public init(
     title: String,
     isSelected: Bool = false,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
@@ -45,26 +44,42 @@ internal final class OptionRow<T: UITableViewCell>: Row, RowStyle {
 
   // MARK: - Row
 
-  let title: String
-  let subtitle: Subtitle? = nil
-  let action: ((Row) -> Void)?
+  /// The title text of the row.
+  public let title: String
+
+  ///
+  public let subtitle: Subtitle? = nil
+
+  ///
+  public let action: ((Row) -> Void)?
 
   // MARK: - OptionRow
 
-  var isSelected: Bool = false
+  public var isSelected: Bool = false
 
   // MARK: - RowStyle
 
-  let cellType: UITableViewCell.Type = T.self
-  let cellReuseIdentifier: String = String(describing: T.self)
-  let cellStyle: UITableViewCellStyle = .default
-  let icon: Icon? = nil
+  /// The type of the table view cell to display the row.
+  public let cellType: UITableViewCell.Type = T.self
 
-  var accessoryType: UITableViewCellAccessoryType {
+  /// The reuse identifier of the table view cell to display the row. The default value is **TapActionCell**.
+  public let cellReuseIdentifier: String = String(describing: T.self)
+
+  ///
+  public let cellStyle: UITableViewCellStyle = .default
+
+  ///
+  public let icon: Icon? = nil
+
+  /// Returns `.checkmark` when the row is selected, otherwise returns `.none`.
+  public var accessoryType: UITableViewCellAccessoryType {
     return isSelected ? .checkmark : .none
   }
 
-  let isSelectable: Bool = true
-  let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
+  /// `OptionRow` is always selectable.
+  public let isSelectable: Bool = true
+
+  /// Additional customization during cell configuration.
+  public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
 }
