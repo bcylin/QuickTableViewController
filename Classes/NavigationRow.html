@@ -88,13 +88,7 @@ NavigationRow Class Reference
 <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/AccessoryEnabled.html">AccessoryEnabled</a>
-</li>
-<li class="nav-group-task">
 <a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/IconEnabled.html">IconEnabled</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
@@ -124,7 +118,7 @@ NavigationRow Class Reference
 <h1>NavigationRow</h1>
 <div class="declaration">
 <div class="language">
-<pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NavigationRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt"><a href="../Protocols/IconEnabled.html">IconEnabled</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/AccessoryEnabled.html">AccessoryEnabled</a></span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NavigationRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
@@ -386,6 +380,66 @@ The icon, customization and action blocks are optional.</p>
 <li class="item">
 <div>
 <code>
+<a name="/s:vC24QuickTableViewController13NavigationRow4iconGSqVS_4Icon_"></a>
+<a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController13NavigationRow4iconGSqVS_4Icon_">icon</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>The icon of the row.</p>
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L81">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+<li class="item">
+<div>
+<code>
+<a name="/s:vC24QuickTableViewController13NavigationRow13accessoryTypeOSC28UITableViewCellAccessoryType"></a>
+<a name="//apple_ref/swift/Property/accessoryType" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController13NavigationRow13accessoryTypeOSC28UITableViewCellAccessoryType">accessoryType</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>Returns .disclosureIndicator when action is not nil, otherwise returns .none.</p>
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">accessoryType</span><span class="p">:</span> <span class="kt">UITableViewCellAccessoryType</span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L84-L86">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+<li class="item">
+<div>
+<code>
 <a name="/s:vC24QuickTableViewController13NavigationRow12isSelectableSb"></a>
 <a name="//apple_ref/swift/Property/isSelectable" class="dashAnchor"></a>
 <a class="token" href="#/s:vC24QuickTableViewController13NavigationRow12isSelectableSb">isSelectable</a>
@@ -408,7 +462,7 @@ The icon, customization and action blocks are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L81-L83">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L89-L91">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -438,7 +492,7 @@ The icon, customization and action blocks are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L86">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L94">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -479,119 +533,7 @@ The icon, customization and action blocks are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L91-L93">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-<div class="task-group">
-<div class="task-name-container">
-<a name="/IconEnabled"></a>
-<a name="//apple_ref/swift/Section/IconEnabled" class="dashAnchor"></a>
-<a href="#/IconEnabled">
-<h3 class="section-name">IconEnabled</h3>
-</a>
-</div>
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:vC24QuickTableViewController13NavigationRow4iconGSqVS_4Icon_"></a>
-<a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController13NavigationRow4iconGSqVS_4Icon_">icon</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The icon of the row.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L98">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-<div class="task-group">
-<div class="task-name-container">
-<a name="/AccessoryEnabled"></a>
-<a name="//apple_ref/swift/Section/AccessoryEnabled" class="dashAnchor"></a>
-<a href="#/AccessoryEnabled">
-<h3 class="section-name">AccessoryEnabled</h3>
-</a>
-</div>
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:vC24QuickTableViewController13NavigationRow13accessoryTypeOSC28UITableViewCellAccessoryType"></a>
-<a name="//apple_ref/swift/Property/accessoryType" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController13NavigationRow13accessoryTypeOSC28UITableViewCellAccessoryType">accessoryType</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>Returns .disclosureIndicator when action is not nil, otherwise returns .none.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">accessoryType</span><span class="p">:</span> <span class="kt">UITableViewCellAccessoryType</span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L103-L105">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:vC24QuickTableViewController13NavigationRow13accessoryViewGSqCSo6UIView_"></a>
-<a name="//apple_ref/swift/Property/accessoryView" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController13NavigationRow13accessoryViewGSqCSo6UIView_">accessoryView</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>Nil by default.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">accessoryView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L108">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/NavigationRow.swift#L99-L101">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -604,7 +546,7 @@ The icon, customization and action blocks are optional.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-16)</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-17)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>

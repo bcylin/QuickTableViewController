@@ -87,13 +87,7 @@ QuickTableViewController  Reference
 <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols/AccessoryEnabled.html">AccessoryEnabled</a>
-</li>
-<li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols/IconEnabled.html">IconEnabled</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Row.html">Row</a>
@@ -191,9 +185,9 @@ QuickTableViewController  Reference
 <h4 id='images' class='heading'>Images</h4>
 
 <ul>
-<li>Images in table view cells can be set by specifying the <code>icon</code> of each <code>IconEnabled</code> row.</li>
+<li>Images in table view cells can be set by specifying the <code>icon</code> of each row.</li>
 <li>The <code>Icon</code> struct carries info about images for both normal and highlighted states.</li>
-<li>Table view cells in <code>UITableViewCellStyle.value2</code> will hide images.</li>
+<li>Table view cells in <code>UITableViewCellStyle.value2</code> will not show the image view.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell with image"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"icon"</span><span class="p">))</span>
 </code></pre>
@@ -210,7 +204,7 @@ QuickTableViewController  Reference
 <ul>
 <li>A <code>SwitchRow</code> is representing a table view cell with a <code>UISwitch</code> as its <code>accessoryView</code>.</li>
 <li>The <code>action</code> will be invoked when the switch value changes.</li>
-<li>It also conforms to <code>IconEnabled</code>.</li>
+<li><code>Icon</code> is also settable in each <code>SwitchRow</code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">}),</span>
 </code></pre>
@@ -219,6 +213,7 @@ QuickTableViewController  Reference
 <ul>
 <li>A <code>TapActionRow</code> is representing a button-like table view cell.</li>
 <li>The <code>action</code> will be invoked when the related table view cell is selected.</li>
+<li><code>Icon</code> is always <code>nil</code> in a <code>TapActionRow</code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
@@ -243,13 +238,9 @@ QuickTableViewController  Reference
 </code></pre>
 
 <p>The customization using <code>register(_:forCellReuseIdentifier:)</code> is deprecated.</p>
-
-<blockquote>
-<p>Note: in <code>0.5.1</code> &amp; <code>0.5.2</code>, <strong>SwitchRow</strong> and <strong>TapActionRow</strong> were using <code>String(describing: SwitchCell.self)</code> and <code>String(describing: TapActionCell.self)</code> as reuse identifiers. Fixed in <code>0.5.3</code> for backward compatibility.</p>
-</blockquote>
 <h3 id='rows' class='heading'>Rows</h3>
 
-<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code>Row</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code>RowStyle</code></a>. Optional conformation to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift"><code>IconEnabled</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift"><code>AccessoryEnabled</code></a> are available for customizing the cell image and accessory view.</p>
+<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code>Row</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code>RowStyle</code></a>.</p>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
 <ul>
@@ -342,7 +333,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-16)</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-17)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
