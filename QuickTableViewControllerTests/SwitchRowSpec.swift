@@ -70,22 +70,40 @@ internal final class SwitchRowSpec: QuickSpec {
         }
       }
 
+      context("different icons") {
+        let e = SwitchRow(title: "Same", switchValue: true, icon: Icon(image: UIImage()), action: nil)
+        it("should not be equal") {
+          expect(a) != e
+        }
+      }
+
       context("different actions") {
-        let e = SwitchRow(title: "Same", switchValue: true, action: { _ in })
+        let f = SwitchRow(title: "Same", switchValue: true, action: { _ in })
         it("should be equal regardless the actions attached") {
-          expect(a) == e
+          expect(a) == f
         }
       }
     }
 
     describe("action invocation") {
-      var toggled = false
-      let row = SwitchRow(title: "", switchValue: false) { _ in toggled = !toggled }
+      context("when the switch value is changed") {
+        var invoked = false
+        let row = SwitchRow(title: "", switchValue: false) { _ in invoked = !invoked }
 
-      // The action invocation has moved to the view controller.
-      it("should not invoke the action closure when the value changes") {
-        row.switchValue = true
-        expect(toggled) == false
+        it("should invoke the action closure") {
+          row.switchValue = true
+          expect(invoked) == true
+        }
+      }
+
+      context("when the switch value stays the same") {
+        var invoked = false
+        let row = SwitchRow(title: "", switchValue: false) { _ in invoked = !invoked }
+
+        it("should not invoke the action closure") {
+          row.switchValue = false
+          expect(invoked) == false
+        }
       }
     }
   }

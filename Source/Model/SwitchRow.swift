@@ -65,7 +65,13 @@ public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabl
   // MARK: - SwitchRow
 
   /// The state of the switch.
-  public var switchValue: Bool = false
+  public var switchValue: Bool = false {
+    didSet {
+      if switchValue != oldValue {
+        action?(self)
+      }
+    }
+  }
 
   // MARK: - RowStyle
 

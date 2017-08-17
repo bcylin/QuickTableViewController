@@ -141,7 +141,6 @@ open class QuickTableViewController: UIViewController,
     }
 
     row.switchValue = isOn
-    row.action?(row)
   }
 
 }
