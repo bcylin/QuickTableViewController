@@ -45,6 +45,58 @@ internal final class RadioSectionSpec: QuickSpec {
       }
     }
 
+    describe("always select one") {
+      context("when set to false") {
+        let section = RadioSection(title: "title", options: [
+          OptionRow(title: "Option 1", isSelected: false, action: nil)
+        ])
+        section.alwaysSelectOneOption = false
+
+        it("should do nothing") {
+          expect(section.options).to(haveCount(1))
+          expect(section.selectedOption).to(beNil())
+        }
+      }
+
+      context("when set to true with empty options") {
+        let section = RadioSection(title: "title", options: [])
+        section.alwaysSelectOneOption = true
+
+        it("should do nothing") {
+          expect(section.options).to(beEmpty())
+          expect(section.selectedOption).to(beNil())
+        }
+      }
+
+      context("when set to true with nothing selected") {
+        let section = RadioSection(title: "title", options: [
+          OptionRow(title: "Option 1", isSelected: false, action: nil),
+          OptionRow(title: "Option 2", isSelected: false, action: nil)
+        ])
+        section.alwaysSelectOneOption = true
+
+        it("should select the first option") {
+          expect(section.selectedOption) == section.options[0]
+          expect(section.options[0].isSelected) == true
+          expect(section.options[1].isSelected) == false
+        }
+      }
+
+      context("when set to true with something selected") {
+        let section = RadioSection(title: "title", options: [
+          OptionRow(title: "Option 1", isSelected: false, action: nil),
+          OptionRow(title: "Option 2", isSelected: true, action: nil)
+        ])
+        section.alwaysSelectOneOption = true
+
+        it("should do nothing") {
+          expect(section.selectedOption) == section.options[1]
+          expect(section.options[0].isSelected) == false
+          expect(section.options[1].isSelected) == true
+        }
+      }
+    }
+
     describe("toggle options") {
       let mock = {
         return RadioSection(title: "Radio", options: [
@@ -54,7 +106,7 @@ internal final class RadioSectionSpec: QuickSpec {
         ])
       }
 
-      context("toggle option that's selected") {
+      context("when the option is selected and it allows none selected") {
         let section = mock()
         _ = section.toggle(section.options[0])
 
@@ -66,12 +118,25 @@ internal final class RadioSectionSpec: QuickSpec {
         }
       }
 
-      context("toggle option when there's nothing selected") {
+      context("when the option is selected and it doesn't allow none selected") {
+        let section = mock()
+        section.alwaysSelectOneOption = true
+        _ = section.toggle(section.options[0])
+
+        it("should do nothing") {
+          expect(section.selectedOption) == section.options[0]
+          expect(section.options[0].isSelected) == true
+          expect(section.options[1].isSelected) == false
+          expect(section.options[2].isSelected) == false
+        }
+      }
+
+      context("when there's nothing selected") {
         let section = mock()
         _ = section.toggle(section.options[0])
         _ = section.toggle(section.options[1])
 
-        it("should deselect the option") {
+        it("should select the option") {
           expect(section.selectedOption) == section.options[1]
           expect(section.options[0].isSelected) == false
           expect(section.options[1].isSelected) == true
@@ -79,7 +144,7 @@ internal final class RadioSectionSpec: QuickSpec {
         }
       }
 
-      context("toggle option when there's already another option selected") {
+      context("when there's already another option selected") {
         let section = mock()
         _ = section.toggle(section.options[2])
 

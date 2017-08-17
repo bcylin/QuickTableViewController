@@ -55,6 +55,15 @@ open class RadioSection: Section {
 
   // MARK: - RadioSection
 
+  /// A boolean that indicates whether there's always one option selected.
+  open var alwaysSelectOneOption: Bool = false {
+    didSet {
+      if alwaysSelectOneOption && selectedOption == nil {
+        options.first?.isSelected = true
+      }
+    }
+  }
+
   /// The array of options in the section. It's identical to the `rows`.
   open private(set) var options: [OptionRow<UITableViewCell>]
 
@@ -64,10 +73,15 @@ open class RadioSection: Section {
   }
 
   /// Toggle the selection of the given option and keep options mutually exclusive.
+  /// If `alwaysSelectOneOption` is set to true, it will not deselect the current selection.
   ///
   /// - Parameter option: The option to flip the `isSelected` state.
   /// - Returns: The indexes of changed options.
   open func toggle(_ option: OptionRow<UITableViewCell>) -> IndexSet {
+    if option.isSelected && alwaysSelectOneOption {
+      return []
+    }
+
     defer {
       option.isSelected = !option.isSelected
     }
