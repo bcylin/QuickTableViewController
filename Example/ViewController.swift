@@ -32,7 +32,13 @@ internal final class ViewController: QuickTableViewController {
 
   // MARK: - Properties
 
-  let debuggingSection = Section(title: nil, rows: [])
+  private lazy var radioSection: RadioSection = RadioSection(title: "Radio", options: [
+    OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
+    OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
+    OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
+  ], footer: "See OptionRow for more details.")
+
+  private let debuggingSection = Section(title: nil, rows: [])
 
   // MARK: - UIViewController
 
@@ -65,12 +71,7 @@ internal final class ViewController: QuickTableViewController {
         NavigationRow(title: "Empty section title", subtitle: .none)
       ]),
 
-      Section(title: "Customized", rows: [
-        OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
-      ], footer: "See OptionRow for more details."),
-
+      radioSection,
       debuggingSection
     ]
   }
@@ -87,27 +88,17 @@ internal final class ViewController: QuickTableViewController {
     return cell
   }
 
-  // MARK: - UITableViewDelegate
-
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
-      row.isSelected = !row.isSelected
-      row.action?(row)
-      tableView.reloadRows(at: [indexPath], with: .automatic)
-      tableView.deselectRow(at: indexPath, animated: true)
-    } else {
-      super.tableView(tableView, didSelectRowAt: indexPath)
-    }
-  }
-
   // MARK: - Private Methods
 
   private func didToggleSelection(_ sender: Row) {
-    if let row = sender as? OptionRow {
-      let state = "\(row.title) is toggled = \(row.isSelected)"
-      print(state)
-      showDebuggingText(state)
+    let state: String
+    if let row = radioSection.selectedOption {
+      state = "\(row.title) is selected"
+    } else {
+      state = "\(sender.title) is deselected"
     }
+    print(state)
+    showDebuggingText(state)
   }
 
   private func didToggleSwitch(_ sender: Row) {
@@ -137,7 +128,7 @@ internal final class ViewController: QuickTableViewController {
 
   private func showDebuggingText(_ text: String) {
     debuggingSection.footer = text
-    tableView.reloadSections([tableContents.count - 1], with: .automatic)
+    tableView.reloadSections([tableContents.count - 1], with: .fade)
   }
 
 }
