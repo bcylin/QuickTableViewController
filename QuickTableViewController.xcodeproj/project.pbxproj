@@ -35,6 +35,7 @@
 		B5E619CF1F454CF0005200E1 /* RadioSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E619CE1F454CF0005200E1 /* RadioSection.swift */; };
 		B5E619D21F454EEF005200E1 /* OptionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E619D11F454EEF005200E1 /* OptionRow.swift */; };
 		B5E619D51F45744B005200E1 /* OptionRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E619D31F45708F005200E1 /* OptionRowSpec.swift */; };
+		B5E619D81F458B2F005200E1 /* RadioSectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */; };
 		B5EC18231B95FD7F0015C665 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC18221B95FD7F0015C665 /* Row.swift */; };
 		B5F0FFE61E9CC69C007BF1C9 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */; };
 		B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */; };
@@ -119,6 +120,7 @@
 		B5E619CE1F454CF0005200E1 /* RadioSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadioSection.swift; path = Source/Model/RadioSection.swift; sourceTree = SOURCE_ROOT; };
 		B5E619D11F454EEF005200E1 /* OptionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionRow.swift; path = Source/Model/OptionRow.swift; sourceTree = SOURCE_ROOT; };
 		B5E619D31F45708F005200E1 /* OptionRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRowSpec.swift; sourceTree = "<group>"; };
+		B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioSectionSpec.swift; sourceTree = "<group>"; };
 		B5EC18221B95FD7F0015C665 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Protocol/Row.swift; sourceTree = SOURCE_ROOT; };
 		B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = Source/View/SwitchCell.swift; sourceTree = SOURCE_ROOT; };
 		B5F0FFE71E9CC6E8007BF1C9 /* NavigationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationRow.swift; path = Source/Model/NavigationRow.swift; sourceTree = SOURCE_ROOT; };
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
+				B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */,
 				B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */,
 				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
 			);
@@ -699,6 +702,7 @@
 				B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */,
 				B5E619D51F45744B005200E1 /* OptionRowSpec.swift in Sources */,
 				B57FAA6E1C513454008FF7C7 /* QuickTableViewControllerSpec.swift in Sources */,
+				B5E619D81F458B2F005200E1 /* RadioSectionSpec.swift in Sources */,
 				B5DB7D351C4CBB74007B84D2 /* SectionSpec.swift in Sources */,
 				B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */,
 				B5DB7D2F1C4B95D3007B84D2 /* SwitchRowSpec.swift in Sources */,
