@@ -121,12 +121,30 @@ open class QuickTableViewController: UIViewController,
   }
 
   open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let row = tableContents[indexPath.section].rows[indexPath.row]
-    if row.isSelectable {
-      row.action?(row)
-    }
-    if row is TapActionRow {
+    let section = tableContents[indexPath.section]
+    let row = section.rows[indexPath.row]
+
+    switch (section, row) {
+    case let (radio as RadioSection, option as OptionRow<UITableViewCell>):
+      let indexPaths: [IndexPath] = radio.toggle(option).map {
+        IndexPath(row: $0, section: indexPath.section)
+      }
+      tableView.reloadRows(at: indexPaths, with: .automatic)
+
+    case let (_, option as OptionRow<UITableViewCell>):
+      // Allow OptionRow to be used without RadioSection.
+      option.isSelected = !option.isSelected
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+
+    case (_, is TapActionRow<TapActionCell>):
       tableView.deselectRow(at: indexPath, animated: true)
+      row.action?(row)
+
+    case let (_, row) where row.isSelectable:
+      row.action?(row)
+
+    default:
+      break
     }
   }
 

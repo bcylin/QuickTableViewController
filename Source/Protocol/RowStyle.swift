@@ -49,4 +49,5 @@ public protocol RowStyle {
 
   /// The additional customization during cell configuration.
   var customize: ((UITableViewCell, Row & RowStyle) -> Void)? { get }
+
 }
