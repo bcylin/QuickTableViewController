@@ -44,7 +44,7 @@ open class TapActionCell: UITableViewCell {
 
    - returns: An initialized `TapActionCell` object.
    */
-  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: .default, reuseIdentifier: reuseIdentifier)
     setUpAppearance()
   }
@@ -56,7 +56,7 @@ open class TapActionCell: UITableViewCell {
 
    - returns: `self`, initialized using the data in decoder.
    */
-  required public init?(coder aDecoder: NSCoder) {
+  public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setUpAppearance()
   }

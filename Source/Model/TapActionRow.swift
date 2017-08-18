@@ -26,13 +26,13 @@
 
 import Foundation
 
-/// A struct that represents a row that triggers certain action when seleced.
+/// A class that represents a row that triggers certain action when selected.
 public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
-  /// Initializes a navigation row with a title, an action block,
-  /// and an optional customization block.
+  /// Initializes a `TapActionRow` with a title, an action closure,
+  /// and an optional customization closure.
   public init(
     title: String,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
@@ -52,10 +52,10 @@ public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   /// The title text of the row.
   public let title: String
 
-  /// Subtitle is disabled in TapActionRow.
+  /// The subtitle is disabled in `TapActionRow`.
   public let subtitle: Subtitle? = nil
 
-  /// A closure as the tap action when the row is selected.
+  /// A closure that will be invoked when the row is selected.
   public let action: ((Row) -> Void)?
 
   // MARK: - RowStyle
@@ -66,7 +66,7 @@ public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   /// The reuse identifier of the table view cell to display the row. The default value is **TapActionCell**.
   public let cellReuseIdentifier: String = String(describing: T.self)
 
-  /// The cell style is UITableViewCellStyle.default.
+  /// The cell style is `.default`.
   public let cellStyle: UITableViewCellStyle = .default
 
   /// The default icon is nil.
@@ -75,12 +75,12 @@ public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   /// The default accessory type is `.none`.
   public let accessoryType: UITableViewCellAccessoryType = .none
 
-  /// The TapActionRow is selectable when action is not nil.
+  /// The `TapActionRow` is selectable when action is not nil.
   public var isSelectable: Bool {
     return action != nil
   }
 
-  /// Additional customization during cell configuration.
+  /// The additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
 }

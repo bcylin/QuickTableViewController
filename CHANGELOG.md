@@ -7,6 +7,13 @@
 * Remove the accessory view from the `AccessoryEnabled` protocol
 * Merge `IconEnabled` and `AccessoryEnabled` properties into the `RowStyle` protocol
 
+## v0.6.2
+
+#### Enhancements
+
+* Mark properties and methods open in the open classes
+* Improve the documentation
+
 ## v0.6.1
 
 #### Enhancements
