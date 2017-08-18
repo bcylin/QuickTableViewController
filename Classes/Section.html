@@ -23,7 +23,7 @@
 <a class="header-link" href="../index.html">
 QuickTableViewController Docs
 </a>
-(89% documented)
+(91% documented)
 </p>
 
 <p class="header-col--secondary">
@@ -57,7 +57,13 @@ Section Class Reference
 <a class="nav-group-task-link" href="../Classes/NavigationRow.html">NavigationRow</a>
 </li>
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="../Classes/OptionRow.html">OptionRow</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="../Classes/RadioSection.html">RadioSection</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
@@ -118,7 +124,7 @@ Section Class Reference
 <h1>Section</h1>
 <div class="declaration">
 <div class="language">
-<pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Section</span></code></pre>
+<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Section</span></code></pre>
 
 </div>
 </div>
@@ -130,97 +136,14 @@ Section Class Reference
 <section class="section">
 <div class="section-content">
 <div class="task-group">
+<div class="task-name-container">
+<a name="/Initializer"></a>
+<a name="//apple_ref/swift/Section/Initializer" class="dashAnchor"></a>
+<a href="#/Initializer">
+<h3 class="section-name">Initializer</h3>
+</a>
+</div>
 <ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:vC24QuickTableViewController7Section5titleGSqSS_"></a>
-<a name="//apple_ref/swift/Property/title" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController7Section5titleGSqSS_">title</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The text of the section title.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L33">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:vC24QuickTableViewController7Section4rowsGSaPS_3RowS_8RowStyle__"></a>
-<a name="//apple_ref/swift/Property/rows" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController7Section4rowsGSaPS_3RowS_8RowStyle__">rows</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The array of rows in the section.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">]</span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L36">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:vC24QuickTableViewController7Section6footerGSqSS_"></a>
-<a name="//apple_ref/swift/Property/footer" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController7Section6footerGSqSS_">footer</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The text of the section footer.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">footer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L39">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
 <li class="item">
 <div>
 <code>
@@ -246,7 +169,108 @@ Section Class Reference
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L42-L46">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L35-L39">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+</ul>
+</div>
+<div class="task-group">
+<div class="task-name-container">
+<a name="/Properties"></a>
+<a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+<a href="#/Properties">
+<h3 class="section-name">Properties</h3>
+</a>
+</div>
+<ul class="item-container">
+<li class="item">
+<div>
+<code>
+<a name="/s:vC24QuickTableViewController7Section5titleGSqSS_"></a>
+<a name="//apple_ref/swift/Property/title" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController7Section5titleGSqSS_">title</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>The text of the section title.</p>
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L44">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+<li class="item">
+<div>
+<code>
+<a name="/s:vC24QuickTableViewController7Section4rowsGSaPS_3RowS_8RowStyle__"></a>
+<a name="//apple_ref/swift/Property/rows" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController7Section4rowsGSaPS_3RowS_8RowStyle__">rows</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>The array of rows in the section.</p>
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">]</span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L47">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+<li class="item">
+<div>
+<code>
+<a name="/s:vC24QuickTableViewController7Section6footerGSqSS_"></a>
+<a name="//apple_ref/swift/Property/footer" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController7Section6footerGSqSS_">footer</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>The text of the section footer.</p>
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">footer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Section.swift#L50">Show on GitHub</a>
 </div>
 </section>
 </div>

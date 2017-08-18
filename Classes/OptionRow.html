@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>SwitchRow Class Reference</title>
+<title>OptionRow Class Reference</title>
 <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
 <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
 <meta charset="utf-8">
@@ -14,9 +14,9 @@
 </head>
 <body>
 
-<a name="//apple_ref/swift/Class/SwitchRow" class="dashAnchor"></a>
+<a name="//apple_ref/swift/Class/OptionRow" class="dashAnchor"></a>
 
-<a title="SwitchRow Class Reference"></a>
+<a title="OptionRow Class Reference"></a>
 
 <header class="header">
 <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@ View on GitHub
 <p class="breadcrumbs">
 <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
 <img class="carat" src="../img/carat.png" />
-SwitchRow Class Reference
+OptionRow Class Reference
 </p>
 
 <div class="content-wrapper">
@@ -121,14 +121,14 @@ SwitchRow Class Reference
 
 <section class="section">
 <div class="section-content">
-<h1>SwitchRow</h1>
+<h1>OptionRow</h1>
 <div class="declaration">
 <div class="language">
-<pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Classes/SwitchCell.html">SwitchCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
-<p>A class that represents a row with a switch.</p>
+<p>A class that represents a row of selectable option.</p>
 
 </div>
 </section>
@@ -147,9 +147,9 @@ SwitchRow Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:FC24QuickTableViewController9SwitchRowcFT5titleSS11switchValueSb4iconGSqVS_4Icon_13customizationGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__6actionGSqFPS3__T___GS0_x_"></a>
-<a name="//apple_ref/swift/Method/init(title:switchValue:icon:customization:action:)" class="dashAnchor"></a>
-<a class="token" href="#/s:FC24QuickTableViewController9SwitchRowcFT5titleSS11switchValueSb4iconGSqVS_4Icon_13customizationGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__6actionGSqFPS3__T___GS0_x_">init(title:switchValue:icon:customization:action:)</a>
+<a name="/s:FC24QuickTableViewController9OptionRowcFT5titleSS10isSelectedSb4iconGSqVS_4Icon_13customizationGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__6actionGSqFPS3__T___GS0_x_"></a>
+<a name="//apple_ref/swift/Method/init(title:isSelected:icon:customization:action:)" class="dashAnchor"></a>
+<a class="token" href="#/s:FC24QuickTableViewController9OptionRowcFT5titleSS10isSelectedSb4iconGSqVS_4Icon_13customizationGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__6actionGSqFPS3__T___GS0_x_">init(title:isSelected:icon:customization:action:)</a>
 </code>
 </div>
 <div class="height-container">
@@ -157,7 +157,7 @@ SwitchRow Class Reference
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>Initializes a <code>SwitchRow</code> with a title, a switch state and an action closure.
+<p>Initializes an <code>OptionRow</code> with a title, a selection state and an action closure.
 The icon and the customization closure are optional.</p>
 
 </div>
@@ -167,7 +167,7 @@ The icon and the customization closure are optional.</p>
 <p class="aside-title">Swift</p>
 <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
 <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-<span class="nv">switchValue</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
+<span class="nv">isSelected</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
 <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/Icon.html">Icon</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
 <span class="nv">customization</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
 <span class="nv">action</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span>
@@ -176,7 +176,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L36-L48">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L36-L48">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -195,9 +195,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow5titleSS"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow5titleSS"></a>
 <a name="//apple_ref/swift/Property/title" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow5titleSS">title</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow5titleSS">title</a>
 </code>
 </div>
 <div class="height-container">
@@ -217,7 +217,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L57">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L53">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -225,9 +225,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow8subtitleGSqOS_8Subtitle_"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow8subtitleGSqOS_8Subtitle_"></a>
 <a name="//apple_ref/swift/Property/subtitle" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow8subtitleGSqOS_8Subtitle_">subtitle</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow8subtitleGSqOS_8Subtitle_">subtitle</a>
 </code>
 </div>
 <div class="height-container">
@@ -235,7 +235,7 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>The subtitle is disabled in <code>SwitchRow</code>.</p>
+<p>Subtitle is disabled in <code>OptionRow</code>.</p>
 
 </div>
 <div class="declaration">
@@ -247,7 +247,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L60">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L56">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -255,9 +255,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow6actionGSqFPS_3Row_T__"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow6actionGSqFPS_3Row_T__"></a>
 <a name="//apple_ref/swift/Property/action" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow6actionGSqFPS_3Row_T__">action</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow6actionGSqFPS_3Row_T__">action</a>
 </code>
 </div>
 <div class="height-container">
@@ -265,7 +265,7 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>A closure that will be invoked when the <code><a href="../Classes/SwitchRow.html#/s:vC24QuickTableViewController9SwitchRow11switchValueSb">switchValue</a></code> is changed.</p>
+<p>A closure that will be invoked when the <code><a href="../Classes/OptionRow.html#/s:vC24QuickTableViewController9OptionRow10isSelectedSb">isSelected</a></code> is changed.</p>
 
 </div>
 <div class="declaration">
@@ -277,7 +277,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L63">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L59">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -286,19 +286,19 @@ The icon and the customization closure are optional.</p>
 </div>
 <div class="task-group">
 <div class="task-name-container">
-<a name="/SwitchRow"></a>
-<a name="//apple_ref/swift/Section/SwitchRow" class="dashAnchor"></a>
-<a href="#/SwitchRow">
-<h3 class="section-name">SwitchRow</h3>
+<a name="/OptionRow"></a>
+<a name="//apple_ref/swift/Section/OptionRow" class="dashAnchor"></a>
+<a href="#/OptionRow">
+<h3 class="section-name">OptionRow</h3>
 </a>
 </div>
 <ul class="item-container">
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow11switchValueSb"></a>
-<a name="//apple_ref/swift/Property/switchValue" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow11switchValueSb">switchValue</a>
+<a name="/s:vC24QuickTableViewController9OptionRow10isSelectedSb"></a>
+<a name="//apple_ref/swift/Property/isSelected" class="dashAnchor"></a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow10isSelectedSb">isSelected</a>
 </code>
 </div>
 <div class="height-container">
@@ -306,19 +306,19 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>The state of the switch.</p>
+<p>The state of selection.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L68-L74">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L64-L70">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -337,9 +337,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow8cellTypeMCSo15UITableViewCell"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow8cellTypeMCSo15UITableViewCell"></a>
 <a name="//apple_ref/swift/Property/cellType" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow8cellTypeMCSo15UITableViewCell">cellType</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow8cellTypeMCSo15UITableViewCell">cellType</a>
 </code>
 </div>
 <div class="height-container">
@@ -359,7 +359,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L79">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L75">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -367,9 +367,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow19cellReuseIdentifierSS"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow19cellReuseIdentifierSS"></a>
 <a name="//apple_ref/swift/Property/cellReuseIdentifier" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow19cellReuseIdentifierSS">cellReuseIdentifier</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow19cellReuseIdentifierSS">cellReuseIdentifier</a>
 </code>
 </div>
 <div class="height-container">
@@ -377,7 +377,7 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>The reuse identifier of the table view cell to display the row. The default value is <strong>SwitchCell</strong>.</p>
+<p>The reuse identifier of the table view cell to display the row. The default value is <strong>UITableViewCell</strong>.</p>
 
 </div>
 <div class="declaration">
@@ -389,7 +389,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L82">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L78">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -397,9 +397,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow9cellStyleOSC20UITableViewCellStyle"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow9cellStyleOSC20UITableViewCellStyle"></a>
 <a name="//apple_ref/swift/Property/cellStyle" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow9cellStyleOSC20UITableViewCellStyle">cellStyle</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow9cellStyleOSC20UITableViewCellStyle">cellStyle</a>
 </code>
 </div>
 <div class="height-container">
@@ -419,7 +419,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L85">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L81">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -427,9 +427,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow4iconGSqVS_4Icon_"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow4iconGSqVS_4Icon_"></a>
 <a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow4iconGSqVS_4Icon_">icon</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow4iconGSqVS_4Icon_">icon</a>
 </code>
 </div>
 <div class="height-container">
@@ -449,7 +449,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L88">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L84">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -457,9 +457,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow13accessoryTypeOSC28UITableViewCellAccessoryType"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow13accessoryTypeOSC28UITableViewCellAccessoryType"></a>
 <a name="//apple_ref/swift/Property/accessoryType" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow13accessoryTypeOSC28UITableViewCellAccessoryType">accessoryType</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow13accessoryTypeOSC28UITableViewCellAccessoryType">accessoryType</a>
 </code>
 </div>
 <div class="height-container">
@@ -467,19 +467,19 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>The default accessory type is <code>.none</code>.</p>
+<p>Returns <code>.checkmark</code> when the row is selected, otherwise returns <code>.none</code>.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">accessoryType</span><span class="p">:</span> <span class="kt">UITableViewCellAccessoryType</span> <span class="o">=</span> <span class="o">.</span><span class="k">none</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">accessoryType</span><span class="p">:</span> <span class="kt">UITableViewCellAccessoryType</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L91">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L87-L89">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -487,9 +487,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow12isSelectableSb"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow12isSelectableSb"></a>
 <a name="//apple_ref/swift/Property/isSelectable" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow12isSelectableSb">isSelectable</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow12isSelectableSb">isSelectable</a>
 </code>
 </div>
 <div class="height-container">
@@ -497,19 +497,19 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>The <code>SwitchRow</code> should not be selectable.</p>
+<p><code>OptionRow</code> is always selectable.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isSelectable</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isSelectable</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L94">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L92">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -517,9 +517,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:vC24QuickTableViewController9SwitchRow9customizeGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__"></a>
+<a name="/s:vC24QuickTableViewController9OptionRow9customizeGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__"></a>
 <a name="//apple_ref/swift/Property/customize" class="dashAnchor"></a>
-<a class="token" href="#/s:vC24QuickTableViewController9SwitchRow9customizeGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__">customize</a>
+<a class="token" href="#/s:vC24QuickTableViewController9OptionRow9customizeGSqFTCSo15UITableViewCellPS_3RowS_8RowStyle__T__">customize</a>
 </code>
 </div>
 <div class="height-container">
@@ -527,7 +527,7 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>The additional customization during cell configuration.</p>
+<p>Additional customization during cell configuration.</p>
 
 </div>
 <div class="declaration">
@@ -539,7 +539,7 @@ The icon and the customization closure are optional.</p>
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L97">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L95">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -558,9 +558,9 @@ The icon and the customization closure are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:ZFC24QuickTableViewController9SwitchRowoi2eeFTGS0_x_GS0_x__Sb"></a>
+<a name="/s:ZFC24QuickTableViewController9OptionRowoi2eeFTGS0_x_GS0_x__Sb"></a>
 <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
-<a class="token" href="#/s:ZFC24QuickTableViewController9SwitchRowoi2eeFTGS0_x_GS0_x__Sb">==(_:_:)</a>
+<a class="token" href="#/s:ZFC24QuickTableViewController9OptionRowoi2eeFTGS0_x_GS0_x__Sb">==(_:_:)</a>
 </code>
 </div>
 <div class="height-container">
@@ -568,19 +568,19 @@ The icon and the customization closure are optional.</p>
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>Returns true iff <code>lhs</code> and <code>rhs</code> have equal titles, switch values, and icons.</p>
+<p>Returns true iff <code>lhs</code> and <code>rhs</code> have equal titles, selection states, and icons.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">SwitchRow</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">SwitchRow</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">OptionRow</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">OptionRow</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/SwitchRow.swift#L102-L107">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/OptionRow.swift#L100-L105">Show on GitHub</a>
 </div>
 </section>
 </div>
