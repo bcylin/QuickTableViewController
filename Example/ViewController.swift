@@ -30,6 +30,8 @@ import Weakify
 
 internal final class ViewController: QuickTableViewController {
 
+  private final class CustomCell: UITableViewCell {}
+
   // MARK: - Properties
 
   private lazy var options: Section = RadioSection(title: "Radio", options: [
@@ -68,8 +70,9 @@ internal final class ViewController: QuickTableViewController {
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       Section(title: nil, rows: [
-        NavigationRow(title: "Empty section title", subtitle: .none, customization: { cell, _ in
+        NavigationRow<CustomCell>(title: "Empty section title", subtitle: .none, customization: { cell, row in
           cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "iconmonstr-x-mark"))
+          print(row.cellReuseIdentifier)
         })
       ]),
 
