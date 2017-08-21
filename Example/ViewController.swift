@@ -68,7 +68,9 @@ internal final class ViewController: QuickTableViewController {
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       Section(title: nil, rows: [
-        NavigationRow(title: "Empty section title", subtitle: .none)
+        NavigationRow(title: "Empty section title", subtitle: .none, customization: { cell, _ in
+          cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "iconmonstr-x-mark"))
+        })
       ]),
 
       options,
@@ -80,11 +82,7 @@ internal final class ViewController: QuickTableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
-    let row = tableContents[indexPath.section].rows[indexPath.row]
-    if row.title == "Empty section title" {
-      // Alter the cells created by QuickTableViewController
-      cell.imageView?.image = #imageLiteral(resourceName: "iconmonstr-x-mark")
-    }
+    // Alter the cells created by QuickTableViewController
     return cell
   }
 

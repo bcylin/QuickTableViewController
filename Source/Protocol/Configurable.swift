@@ -38,6 +38,9 @@ extension UITableViewCell {
   internal func defaultSetUp(with row: Row & RowStyle) {
     textLabel?.text = row.title
     detailTextLabel?.text = row.subtitle?.text
+
+    // Reset the accessory view in case the cell is reused.
+    accessoryView = nil
     accessoryType = row.accessoryType
 
     if let icon = row.icon {
