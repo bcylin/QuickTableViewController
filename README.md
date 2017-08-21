@@ -15,7 +15,7 @@ A simple way to create a table view for settings, including:
 * Actions performed when the row reacts to the user interaction
 * Customizable table view cell image, cell style and cell accessory type
 
-<img src="https://bcylin.github.io/QuickTableViewController/img/screenshot.png" width="50%"></img>
+<img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png"></img>
 
 ## Usage
 

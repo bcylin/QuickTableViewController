@@ -33,10 +33,10 @@ internal final class SubtitleSpec: QuickSpec {
   override func spec() {
     describe("subtitle style") {
       it("should return the descriptive name of the style") {
-        expect(Subtitle.none.style.stringValue) == "UITableViewCellStyleDefault"
-        expect(Subtitle.belowTitle("text").style.stringValue) == "UITableViewCellStyleSubtitle"
-        expect(Subtitle.rightAligned("text").style.stringValue) == "UITableViewCellStyleValue1"
-        expect(Subtitle.leftAligned("text").style.stringValue) == "UITableViewCellStyleValue2"
+        expect(Subtitle.none.style.stringValue) == ".default"
+        expect(Subtitle.belowTitle("text").style.stringValue) == ".subtitle"
+        expect(Subtitle.rightAligned("text").style.stringValue) == ".value1"
+        expect(Subtitle.leftAligned("text").style.stringValue) == ".value2"
       }
     }
 

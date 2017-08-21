@@ -69,7 +69,7 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
-    return subtitle?.style.stringValue ?? String(describing: T.self)
+    return T.reuseIdentifier + (subtitle?.style.stringValue ?? "")
   }
 
   /// Returns the table view cell style for the specified subtitle.

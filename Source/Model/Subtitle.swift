@@ -83,10 +83,10 @@ internal extension UITableViewCellStyle {
 
   var stringValue: String {
     switch self {
-    case .default:  return "UITableViewCellStyleDefault"
-    case .subtitle: return "UITableViewCellStyleSubtitle"
-    case .value1:   return "UITableViewCellStyleValue1"
-    case .value2:   return "UITableViewCellStyleValue2"
+    case .default:  return ".default"
+    case .subtitle: return ".subtitle"
+    case .value1:   return ".value1"
+    case .value2:   return ".value2"
     }
   }
 

@@ -46,33 +46,6 @@ open class SwitchCell: UITableViewCell, Configurable {
   /// The switch cell's delegate object, which should conform to `SwitchCellDelegate`.
   open weak var delegate: SwitchCellDelegate?
 
-  // MARK: Initializer
-
-  /**
-   Overrides `UITableViewCell`'s designated initializer.
-
-   - parameter style:           Unused. It always uses `UITableViewCellStyle.Default`.
-   - parameter reuseIdentifier: A string used to identify the cell object if it is to be reused for drawing multiple rows of a table view.
-
-   - returns: An initialized `SwitchCell` object.
-   */
-  public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: .default, reuseIdentifier: reuseIdentifier)
-    accessoryView = switchControl
-  }
-
-  /**
-   Overrides the designated initializer that returns an object initialized from data in a given unarchiver.
-
-   - parameter aDecoder: An unarchiver object.
-
-   - returns: `self`, initialized using the data in decoder.
-   */
-  public required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    accessoryView = switchControl
-  }
-
   // MARK: - Configurable
 
   /// Set up the switch control with the provided row.
@@ -80,6 +53,7 @@ open class SwitchCell: UITableViewCell, Configurable {
     if let row = row as? SwitchRow {
       switchControl.isOn = row.switchValue
     }
+    accessoryView = switchControl
   }
 
   // MARK: - Private

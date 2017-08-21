@@ -1,8 +1,8 @@
 //
-//  Configurable.swift
+//  Reusable.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 30/07/2017.
+//  Created by Ben on 21/08/2017.
 //  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,35 +24,40 @@
 //  SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-/// Any type that conforms to this protocol is able to take `Row & RowStyle` as the configuration.
-public protocol Configurable {
-  /// Configure the receiver with an instance that conforms to `Row & RowStyle`.
-  func configure(with row: Row & RowStyle)
+extension UITableViewCell: Reusable {}
+
+
+internal protocol Reusable {
+  static var reuseIdentifier: String { get }
 }
 
 
-extension UITableViewCell {
+internal extension Reusable {
 
-  internal func defaultSetUp(with row: Row & RowStyle) {
-    textLabel?.text = row.title
-    detailTextLabel?.text = row.subtitle?.text
+  internal static var reuseIdentifier: String {
+    let type = String(describing: self)
+    return type.matches(of: "^\\(([\\w\\d]+)\\sin\\s_[0-9A-F]+\\)$").last ?? type
+  }
 
-    // Reset the accessory view in case the cell is reused.
-    accessoryView = nil
-    accessoryType = row.accessoryType
+}
 
-    if let icon = row.icon {
-      if let image = icon.image {
-        imageView?.image = image
+
+internal extension String {
+
+  func matches(of pattern: String) -> [String] {
+    let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+    let fullText = NSRange(location: 0, length: characters.count)
+
+    guard let matches = regex?.matches(in: self, options: [], range: fullText) else {
+      return []
+    }
+
+    return matches.reduce([]) { accumulator, match in
+      accumulator + (0..<match.numberOfRanges).map {
+        (self as NSString).substring(with: match.rangeAt($0))
       }
-      if let image = icon.highlightedImage {
-        imageView?.highlightedImage = image
-      }
-    } else {
-      imageView?.image = nil
-      imageView?.highlightedImage = nil
     }
   }
 
