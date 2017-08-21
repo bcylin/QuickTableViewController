@@ -17,8 +17,10 @@
 		B51F21C31F41E600009BC2C9 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21C21F41E600009BC2C9 /* ExampleUITests.swift */; };
 		B51F21CC1F41F32C009BC2C9 /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */; };
 		B51F21CD1F41F32C009BC2C9 /* QuickTableViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B522E1E01F4AA750004DA5AD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522E1DF1F4AA750004DA5AD /* Reusable.swift */; };
 		B5334F191B8CC5BD00C64A6D /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
+		B536C7F81F4AAF9900DAC4AA /* ReusableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */; };
 		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
 		B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
@@ -97,12 +99,14 @@
 		B51F21C01F41E600009BC2C9 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51F21C21F41E600009BC2C9 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		B51F21C41F41E600009BC2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B522E1DF1F4AA750004DA5AD /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reusable.swift; path = Source/Protocol/Reusable.swift; sourceTree = SOURCE_ROOT; };
 		B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickTableViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F171B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = QuickTableViewController/Info.plist; sourceTree = SOURCE_ROOT; };
 		B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuickTableViewController.h; path = QuickTableViewController/QuickTableViewController.h; sourceTree = SOURCE_ROOT; };
 		B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTableViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableSpec.swift; sourceTree = "<group>"; };
 		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/Protocol/Configurable.swift; sourceTree = SOURCE_ROOT; };
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				B55475741F2DC3C00027F7C1 /* Configurable.swift */,
+				B522E1DF1F4AA750004DA5AD /* Reusable.swift */,
 				B5EC18221B95FD7F0015C665 /* Row.swift */,
 				B50E73841F2E1BC900481910 /* RowStyle.swift */,
 			);
@@ -334,6 +339,7 @@
 			children = (
 				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
 				B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */,
+				B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */,
 				B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */,
 				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
 			);
@@ -683,6 +689,7 @@
 				B5E619D21F454EEF005200E1 /* OptionRow.swift in Sources */,
 				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 				B5E619CF1F454CF0005200E1 /* RadioSection.swift in Sources */,
+				B522E1E01F4AA750004DA5AD /* Reusable.swift in Sources */,
 				B5EC18231B95FD7F0015C665 /* Row.swift in Sources */,
 				B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */,
 				B5E029211DC7A39200B5C90E /* Section.swift in Sources */,
@@ -703,6 +710,7 @@
 				B5E619D51F45744B005200E1 /* OptionRowSpec.swift in Sources */,
 				B57FAA6E1C513454008FF7C7 /* QuickTableViewControllerSpec.swift in Sources */,
 				B5E619D81F458B2F005200E1 /* RadioSectionSpec.swift in Sources */,
+				B536C7F81F4AAF9900DAC4AA /* ReusableSpec.swift in Sources */,
 				B5DB7D351C4CBB74007B84D2 /* SectionSpec.swift in Sources */,
 				B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */,
 				B5DB7D2F1C4B95D3007B84D2 /* SwitchRowSpec.swift in Sources */,
