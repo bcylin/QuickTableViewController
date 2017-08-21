@@ -7,6 +7,14 @@
 * Remove the accessory view from the `AccessoryEnabled` protocol
 * Merge `IconEnabled` and `AccessoryEnabled` properties into the `RowStyle` protocol
 
+#### Enhancements
+
+* Add `OptionRow` and `RadioSection` to support mutually exclusive options
+
+#### Fixes
+
+* Use both cell type and cell style as the reuse identifiers for navigation rows to distinguish customized cell classes
+
 ## v0.6.2
 
 #### Enhancements
