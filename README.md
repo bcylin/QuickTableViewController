@@ -15,7 +15,7 @@ A simple way to create a table view for settings, including:
 * Actions performed when the row reacts to the user interaction
 * Customizable table view cell image, cell style and cell accessory type
 
-<img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png"></img>
+<img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png" width="80%"></img>
 
 ## Usage
 
@@ -46,7 +46,7 @@ class ViewController: QuickTableViewController {
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
 
-      RadioSection(title: "Radio", options: [
+      RadioSection(title: "Radio Buttons", options: [
         OptionRow(title: "Option 1", isSelected: true, action: { _ in }),
         OptionRow(title: "Option 2", isSelected: false, action: { _ in }),
         OptionRow(title: "Option 3", isSelected: false, action: { _ in })
@@ -172,7 +172,7 @@ public protocol RowStyle {
 }
 ```
 
-The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
+The customization using `register(_:forCellReuseIdentifier:)` is deprecated after `v0.6.0`.
 
 ## Documentation
 
@@ -189,6 +189,7 @@ QuickTableViewController | iOS  | Xcode | Swift
 `~> 0.4.0`               | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
 `~> 0.5.0`               | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
 `~> 0.6.0`               | 8.0+ | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
+`~> 0.7.0`               | 8.0+ | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
 ## Installation
 
@@ -200,7 +201,7 @@ Create a `Podfile` with the following specification and run `pod install`.
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'QuickTableViewController', '~> 0.6.0'
+pod 'QuickTableViewController', '~> 0.7.0'
 ```
 
 ### Use [Carthage](https://github.com/Carthage/Carthage)
@@ -209,7 +210,7 @@ Create a `Cartfile` with the following specification and run `carthage update Qu
 Follow the [instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the framework to your project.
 
 ```
-github "bcylin/QuickTableViewController" ~> 0.6.0
+github "bcylin/QuickTableViewController" ~> 0.7.0
 ```
 
 ### Use Git Submodule

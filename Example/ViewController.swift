@@ -34,7 +34,7 @@ internal final class ViewController: QuickTableViewController {
 
   // MARK: - Properties
 
-  private lazy var options: Section = RadioSection(title: "Radio", options: [
+  private lazy var options: Section = RadioSection(title: "Radio Buttons", options: [
     OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
     OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
     OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
