@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9
 matrix:
   include:
     - env: VERSION=latest
@@ -21,8 +21,7 @@ script:
   - make -B carthage
   - make -B docs
 after_success:
-  - bundle exec slather
-  - bash <(curl -s https://codecov.io/bash) -f test_output/xml_report/cobertura.xml -X coveragepy -X gcov -X xcode
+  - bash <(curl -s https://codecov.io/bash) -cF ios
   - sh scripts/update-docs.sh
 notifications:
   email: false
