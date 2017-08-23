@@ -140,7 +140,7 @@ QuickTableViewController  Reference
 <li>Customizable table view cell image, cell style and cell accessory type</li>
 </ul>
 
-<p><img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png"></img></p>
+<p><img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png" width="80%"></img></p>
 <h2 id='usage' class='heading'>Usage</h2>
 
 <p>Set up <code>tableContents</code> in <code>viewDidLoad</code>:</p>
@@ -168,10 +168,10 @@ QuickTableViewController  Reference
 <span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">leftAligned</span><span class="p">(</span><span class="s">".value2"</span><span class="p">))</span>
 <span class="p">]),</span>
 
-<span class="kt">RadioSection</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Radio"</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span>
-<span class="kt">OptionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option 1"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
-<span class="kt">OptionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option 2"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
-<span class="kt">OptionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option 3"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
+<span class="kt">RadioSection</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Radio Buttons"</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span>
+<span class="kt">OptionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option 1"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kc">nil</span><span class="p">),</span>
+<span class="kt">OptionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option 2"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kc">nil</span><span class="p">),</span>
+<span class="kt">OptionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option 3"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 <span class="p">],</span> <span class="nv">footer</span><span class="p">:</span> <span class="s">"See RadioSection for more details."</span><span class="p">)</span>
 <span class="p">]</span>
 <span class="p">}</span>
@@ -243,7 +243,7 @@ QuickTableViewController  Reference
 
 <ul>
 <li><code>OptionRow</code> can be used with or without <code>RadioSection</code>, which guarantees that there&rsquo;s only one option is selected.</li>
-<li><code>RadioSection</code> allows all options unselected by default. Setting <code>alwaysSelectOneOption</code> to true will preserve the selected option.</li>
+<li><code>RadioSection</code> allows all options unselected by default. Setting <code>alwaysSelectOneOption</code> to true will preserve one selected option.</li>
 <li><code>selectedOption</code> is available as the result of selection in <code>RadioSection</code>.</li>
 </ul>
 <h2 id='customization' class='heading'>Customization</h2>
@@ -266,19 +266,19 @@ QuickTableViewController  Reference
 <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">CustomOptionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 
-<p>Table view cell classes that conform to <code>Configurable</code> can implement the additional configuration to set up the cell during <code>tableView(_:cellForRowAt:)</code>:</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Configurable</span> <span class="p">{</span>
+<p>Table view cell classes that conform to <code>Configurable</code> can implement additional configuration to set up the cell during <code>tableView(_:cellForRowAt:)</code>:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Configurable</span> <span class="p">{</span>
 <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="n">with</span> <span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span> <span class="o">&amp;</span> <span class="kt">RowStyle</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>Additional UI setups in the predefined classes can be achieved via this configuration. Subtitles can be added to <code>CustomSwitchCell</code> and <code>CustomOptionCell</code> using the <code>customize</code> closure for example:</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RowStyle</span> <span class="p">{</span>
+<p>Other setups can also be added to each row using the <code>customize</code> closure:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">RowStyle</span> <span class="p">{</span>
 <span class="k">var</span> <span class="nv">customize</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Row</span> <span class="o">&amp;</span> <span class="kt">RowStyle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>The customization using <code>register(_:forCellReuseIdentifier:)</code> is deprecated.</p>
+<p>The customization using <code>register(_:forCellReuseIdentifier:)</code> is deprecated after <code>v0.6.0</code>.</p>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
 <ul>
@@ -331,6 +331,12 @@ QuickTableViewController  Reference
 <td style="text-align: center">8.3</td>
 <td style="text-align: center"><img src="https://img.shields.io/badge/Swift-3.1-orange.svg" alt="Swift 3.1"></td>
 </tr>
+<tr>
+<td><code>~&gt; 0.7.0</code></td>
+<td style="text-align: center">8.0+</td>
+<td style="text-align: center">8.3</td>
+<td style="text-align: center"><img src="https://img.shields.io/badge/Swift-3.1-orange.svg" alt="Swift 3.1"></td>
+</tr>
 </tbody></table>
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='use-a-href-http-guides-cocoapods-org-cocoapods-a' class='heading'>Use <a href="http://guides.cocoapods.org/">CocoaPods</a></h3>
@@ -339,13 +345,13 @@ QuickTableViewController  Reference
 <pre class="highlight ruby"><code><span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'8.0'</span>
 <span class="n">use_frameworks!</span>
 
-<span class="n">pod</span> <span class="s1">'QuickTableViewController'</span><span class="p">,</span> <span class="s1">'~&gt; 0.6.0'</span>
+<span class="n">pod</span> <span class="s1">'QuickTableViewController'</span><span class="p">,</span> <span class="s1">'~&gt; 0.7.0'</span>
 </code></pre>
 <h3 id='use-a-href-https-github-com-carthage-carthage-carthage-a' class='heading'>Use <a href="https://github.com/Carthage/Carthage">Carthage</a></h3>
 
 <p>Create a <code>Cartfile</code> with the following specification and run <code>carthage update QuickTableViewController</code>.
 Follow the <a href="https://github.com/Carthage/Carthage#adding-frameworks-to-an-application">instructions</a> to add the framework to your project.</p>
-<pre class="highlight plaintext"><code>github "bcylin/QuickTableViewController" ~&gt; 0.6.0
+<pre class="highlight plaintext"><code>github "bcylin/QuickTableViewController" ~&gt; 0.7.0
 </code></pre>
 <h3 id='use-git-submodule' class='heading'>Use Git Submodule</h3>
 <pre class="highlight plaintext"><code>git submodule add -b master git@github.com:bcylin/QuickTableViewController.git Dependencies/QuickTableViewController
@@ -371,7 +377,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-21)</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-08-23)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
