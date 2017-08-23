@@ -27,16 +27,9 @@
 import Foundation
 
 /// A class that represents a section in a table view.
-public final class Section {
+open class Section {
 
-  /// The text of the section title.
-  public let title: String?
-
-  /// The array of rows in the section.
-  public var rows: [Row & RowStyle]
-
-  /// The text of the section footer.
-  public var footer: String?
+  // MARK: - Initializer
 
   /// Initializes a section with a nullable title, containing rows and an optional footer.
   public init(title: String?, rows: [Row & RowStyle], footer: String? = nil) {
@@ -44,5 +37,16 @@ public final class Section {
     self.rows = rows
     self.footer = footer
   }
+
+  // MARK: - Properties
+
+  /// The text of the section title.
+  open let title: String?
+
+  /// The array of rows in the section.
+  open var rows: [Row & RowStyle]
+
+  /// The text of the section footer.
+  open var footer: String?
 
 }

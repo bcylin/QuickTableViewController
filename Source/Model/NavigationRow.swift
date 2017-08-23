@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row that triggers certain navigation when selected.
-public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, IconEnabled, AccessoryEnabled {
+public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
@@ -69,12 +69,20 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
 
   /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
-    return subtitle?.style.stringValue ?? String(describing: T.self)
+    return T.reuseIdentifier + (subtitle?.style.stringValue ?? "")
   }
 
   /// Returns the table view cell style for the specified subtitle.
   public var cellStyle: UITableViewCellStyle {
     return subtitle?.style ?? .default
+  }
+
+  /// The icon of the row.
+  public let icon: Icon?
+
+  /// Returns `.disclosureIndicator` when action is not nil, otherwise returns `.none`.
+  public var accessoryType: UITableViewCellAccessoryType {
+    return (action == nil) ? .none : .disclosureIndicator
   }
 
   /// The `NavigationRow` is selectable when action is not nil.
@@ -94,20 +102,5 @@ public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable, 
       lhs.subtitle == rhs.subtitle &&
       lhs.icon == rhs.icon
   }
-
-  // MARK: - IconEnabled
-
-  /// The icon of the row.
-  public let icon: Icon?
-
-  // MARK: - AccessoryEnabled
-
-  /// Returns `.disclosureIndicator` when action is not nil, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
-    return (action == nil) ? .none : .disclosureIndicator
-  }
-
-  /// Nil by default.
-  public let accessoryView: UIView? = nil
 
 }

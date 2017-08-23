@@ -60,11 +60,11 @@ internal final class ExampleUITests: XCTestCase {
     XCTAssert(tablesQuery.staticTexts["CellStyle.value1 is selected"].exists)
 
     tablesQuery.staticTexts["Option 1"].tap()
-    XCTAssert(tablesQuery.staticTexts["Option 1 is toggled = false"].exists)
+    XCTAssert(tablesQuery.staticTexts["Option 1 is deselected"].exists)
     tablesQuery.staticTexts["Option 2"].tap()
-    XCTAssert(tablesQuery.staticTexts["Option 2 is toggled = true"].exists)
+    XCTAssert(tablesQuery.staticTexts["Option 2 is selected"].exists)
     tablesQuery.staticTexts["Option 3"].tap()
-    XCTAssert(tablesQuery.staticTexts["Option 3 is toggled = true"].exists)
+    XCTAssert(tablesQuery.staticTexts["Option 3 is selected"].exists)
   }
 
 }

@@ -7,14 +7,15 @@
 [![codecov.io](https://codecov.io/github/bcylin/QuickTableViewController/coverage.svg)](https://codecov.io/github/bcylin/QuickTableViewController)
 ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
-A simple way to create a table view for settings, providing table view cells with:
+A simple way to create a table view for settings, including:
 
-* UISwitch
-* Center aligned text
-* Table view cell image
-* Customizable UITableViewCellStyle and UITableViewCellAccessoryType
+* Table view cells with `UISwitch`
+* Table view cells with center aligned text for tap actions
+* A section that provides mutually exclusive options
+* Actions performed when the row reacts to the user interaction
+* Customizable table view cell image, cell style and cell accessory type
 
-<img src="https://bcylin.github.io/QuickTableViewController/img/screenshot.png" width="50%"></img>
+<img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png" width="80%"></img>
 
 ## Usage
 
@@ -43,7 +44,13 @@ class ViewController: QuickTableViewController {
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: UIImage(named: "gear"))),
         NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(imageName: "time"), action: { [weak self] in self?.showDetail($0) }),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
-      ])
+      ]),
+
+      RadioSection(title: "Radio Buttons", options: [
+        OptionRow(title: "Option 1", isSelected: true, action: nil),
+        OptionRow(title: "Option 2", isSelected: false, action: nil),
+        OptionRow(title: "Option 3", isSelected: false, action: nil)
+      ], footer: "See RadioSection for more details.")
     ]
   }
 
@@ -73,9 +80,9 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 
 #### Images
 
-* Images in table view cells can be set by specifying the `icon` of each `IconEnabled` row.
+* Images in table view cells can be set by specifying the `icon` of each row.
 * The `Icon` struct carries info about images for both normal and highlighted states.
-* Table view cells in `UITableViewCellStyle.value2` will hide images.
+* Table view cells in `UITableViewCellStyle.value2` will not show the image view.
 
 ```swift
 NavigationRow(title: "Cell with image", subtitle: .none, icon: Icon(imageName: "icon"))
@@ -94,7 +101,7 @@ NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row)
 
 * A `SwitchRow` is representing a table view cell with a `UISwitch` as its `accessoryView`.
 * The `action` will be invoked when the switch value changes.
-* It also conforms to `IconEnabled`.
+* The subtitle is disabled in `SwitchRow `.
 
 ```swift
 SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
@@ -104,12 +111,32 @@ SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
 
 * A `TapActionRow` is representing a button-like table view cell.
 * The `action` will be invoked when the related table view cell is selected.
+* `Icon` is disabled in `TapActionRow`.
 
 ```swift
 TapActionRow(title: "Tap action", action: { (sender: Row) in })
 ```
 
+### OptionRow & RadioSection
+
+* An `OptionRow` is representing a selectable table view cell.
+* When the row `isSelected`, the table view cell shows `.checkmark` as its `accessoryType`.
+* The `action` will be invoked when the selection is toggled.
+* The subtitle is disabled in `OptionRow`.
+
+```swift
+OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
+```
+
+* `OptionRow` can be used with or without `RadioSection`, which guarantees that there's only one option is selected.
+* `RadioSection` allows all options unselected by default. Setting `alwaysSelectOneOption` to true will preserve one selected option.
+* `selectedOption` is available as the result of selection in `RadioSection`.
+
 ## Customization
+
+### Rows
+
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Addtional info can be attached to customized rows, such as `switchValue` in `SwitchRow` and `isSelected` in `OptionRow`.
 
 ### Cell Classes
 
@@ -124,23 +151,28 @@ SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in }
 
 // TapActionRow, using TapActionCell if not specified.
 TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
+
+// OptionRow, using UITableViewCell if not specified.
+OptionRow<CustomOptionCell>(title: "Option", isSelected: true, action: { _ in })
 ```
 
-Table view cell classes that conform to `Configurable` can implement the additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
+Table view cell classes that conform to `Configurable` can implement additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
 
 ```swift
-public protocol Configurable {
+protocol Configurable {
   func configure(with row: Row & RowStyle)
 }
 ```
 
-The customization using `register(_:forCellReuseIdentifier:)` is deprecated.
+Other setups can also be added to each row using the `customize` closure:
 
-> Note: in `0.5.1` & `0.5.2`, **SwitchRow** and **TapActionRow** were using `String(describing: SwitchCell.self)` and `String(describing: TapActionCell.self)` as reuse identifiers. Fixed in `0.5.3` for backward compatibility.
+```swift
+protocol RowStyle {
+  var customize: ((UITableViewCell, Row & RowStyle) -> Void)? { get }
+}
+```
 
-### Rows
-
-All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Optional conformation to [`IconEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/IconEnabled.swift) and [`AccessoryEnabled`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/AccessoryEnabled.swift) are available for customizing the cell image and accessory view.
+The customization using `register(_:forCellReuseIdentifier:)` is deprecated after `v0.6.0`.
 
 ## Documentation
 
@@ -157,6 +189,7 @@ QuickTableViewController | iOS  | Xcode | Swift
 `~> 0.4.0`               | 8.0+ | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
 `~> 0.5.0`               | 8.0+ | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
 `~> 0.6.0`               | 8.0+ | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
+`~> 0.7.0`               | 8.0+ | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 
 ## Installation
 
@@ -168,7 +201,7 @@ Create a `Podfile` with the following specification and run `pod install`.
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'QuickTableViewController', '~> 0.6.0'
+pod 'QuickTableViewController', '~> 0.7.0'
 ```
 
 ### Use [Carthage](https://github.com/Carthage/Carthage)
@@ -177,7 +210,7 @@ Create a `Cartfile` with the following specification and run `carthage update Qu
 Follow the [instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the framework to your project.
 
 ```
-github "bcylin/QuickTableViewController" ~> 0.6.0
+github "bcylin/QuickTableViewController" ~> 0.7.0
 ```
 
 ### Use Git Submodule

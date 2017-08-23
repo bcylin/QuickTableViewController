@@ -30,9 +30,17 @@ import Weakify
 
 internal final class ViewController: QuickTableViewController {
 
+  private final class CustomCell: UITableViewCell {}
+
   // MARK: - Properties
 
-  let debuggingSection = Section(title: nil, rows: [])
+  private lazy var options: Section = RadioSection(title: "Radio Buttons", options: [
+    OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
+    OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
+    OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
+  ], footer: "See RadioSection for more details.")
+
+  private let debugging = Section(title: nil, rows: [])
 
   // MARK: - UIViewController
 
@@ -62,16 +70,14 @@ internal final class ViewController: QuickTableViewController {
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       Section(title: nil, rows: [
-        NavigationRow(title: "Empty section title", subtitle: .none)
+        NavigationRow<CustomCell>(title: "Empty section title", subtitle: .none, customization: { cell, row in
+          cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "iconmonstr-x-mark"))
+          print(row.cellReuseIdentifier)
+        })
       ]),
 
-      Section(title: "Customized", rows: [
-        OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 2", action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 3", action: weakify(self, type(of: self).didToggleSelection))
-      ], footer: "See OptionRow for more details."),
-
-      debuggingSection
+      options,
+      debugging
     ]
   }
 
@@ -79,35 +85,20 @@ internal final class ViewController: QuickTableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
-    let row = tableContents[indexPath.section].rows[indexPath.row]
-    if row.title == "Empty section title" {
-      // Alter the cells created by QuickTableViewController
-      cell.imageView?.image = #imageLiteral(resourceName: "iconmonstr-x-mark")
-    }
+    // Alter the cells created by QuickTableViewController
     return cell
-  }
-
-  // MARK: - UITableViewDelegate
-
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let row = tableContents[indexPath.section].rows[indexPath.row] as? OptionRow {
-      row.isSelected = !row.isSelected
-      row.action?(row)
-      tableView.reloadRows(at: [indexPath], with: .automatic)
-      tableView.deselectRow(at: indexPath, animated: true)
-    } else {
-      super.tableView(tableView, didSelectRowAt: indexPath)
-    }
   }
 
   // MARK: - Private Methods
 
   private func didToggleSelection(_ sender: Row) {
-    if let row = sender as? OptionRow {
-      let state = "\(row.title) is toggled = \(row.isSelected)"
-      print(state)
-      showDebuggingText(state)
+    guard let option = sender as? OptionRow else {
+      return
     }
+
+    let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
+    print(state)
+    showDebuggingText(state)
   }
 
   private func didToggleSwitch(_ sender: Row) {
@@ -136,8 +127,9 @@ internal final class ViewController: QuickTableViewController {
   }
 
   private func showDebuggingText(_ text: String) {
-    debuggingSection.footer = text
-    tableView.reloadSections([tableContents.count - 1], with: .automatic)
+    debugging.footer = text
+    let indexSet: IndexSet? = tableContents.index(where: { $0 === debugging }).map { [$0] }
+    tableView.reloadSections(indexSet ?? [], with: .fade)
   }
 
 }

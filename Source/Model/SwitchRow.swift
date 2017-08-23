@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row with a switch.
-public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabled {
+public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
@@ -79,10 +79,16 @@ public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabl
   public let cellType: UITableViewCell.Type = T.self
 
   /// The reuse identifier of the table view cell to display the row. The default value is **SwitchCell**.
-  public let cellReuseIdentifier: String = String(describing: T.self)
+  public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
   public let cellStyle: UITableViewCellStyle = .default
+
+  /// The icon of the row.
+  public let icon: Icon?
+
+  /// The default accessory type is `.none`.
+  public let accessoryType: UITableViewCellAccessoryType = .none
 
   /// The `SwitchRow` should not be selectable.
   public let isSelectable: Bool = false
@@ -99,10 +105,5 @@ public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable, IconEnabl
       lhs.switchValue == rhs.switchValue &&
       lhs.icon == rhs.icon
   }
-
-  // MARK: - IconEnabled
-
-  /// The icon of the row.
-  public let icon: Icon?
 
 }

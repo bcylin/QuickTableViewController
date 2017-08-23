@@ -1,9 +1,9 @@
 //
-//  TapActionRow.swift
+//  OptionRow.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/07/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,25 +26,25 @@
 
 import Foundation
 
-/// A class that represents a row that triggers certain action when selected.
-public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
+/// A class that represents a row of selectable option.
+public final class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
-  /// Initializes a `TapActionRow` with a title, an action closure,
-  /// and an optional customization closure.
+  /// Initializes an `OptionRow` with a title, a selection state and an action closure.
+  /// The icon and the customization closure are optional.
   public init(
     title: String,
+    isSelected: Bool,
+    icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
     self.title = title
+    self.isSelected = isSelected
+    self.icon = icon
     self.customize = customization
     self.action = action
-  }
-
-  private init() {
-    fatalError("init without any argument is not supported")
   }
 
   // MARK: - Row
@@ -52,35 +52,56 @@ public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
   /// The title text of the row.
   public let title: String
 
-  /// The subtitle is disabled in `TapActionRow`.
+  /// Subtitle is disabled in `OptionRow`.
   public let subtitle: Subtitle? = nil
 
-  /// A closure that will be invoked when the row is selected.
+  /// A closure that will be invoked when the `isSelected` is changed.
   public let action: ((Row) -> Void)?
+
+  // MARK: - OptionRow
+
+  /// The state of selection.
+  public var isSelected: Bool = false {
+    didSet {
+      if isSelected != oldValue {
+        action?(self)
+      }
+    }
+  }
 
   // MARK: - RowStyle
 
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
 
-  /// The reuse identifier of the table view cell to display the row. The default value is **TapActionCell**.
+  /// The reuse identifier of the table view cell to display the row. The default value is **UITableViewCell**.
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
   public let cellStyle: UITableViewCellStyle = .default
 
-  /// The default icon is nil.
-  public let icon: Icon? = nil
+  /// The icon of the row.
+  public let icon: Icon?
 
-  /// The default accessory type is `.none`.
-  public let accessoryType: UITableViewCellAccessoryType = .none
-
-  /// The `TapActionRow` is selectable when action is not nil.
-  public var isSelectable: Bool {
-    return action != nil
+  /// Returns `.checkmark` when the row is selected, otherwise returns `.none`.
+  public var accessoryType: UITableViewCellAccessoryType {
+    return isSelected ? .checkmark : .none
   }
 
-  /// The additional customization during cell configuration.
+  /// `OptionRow` is always selectable.
+  public let isSelectable: Bool = true
+
+  /// Additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
+
+  // MARK: - Equatable
+
+  /// Returns true iff `lhs` and `rhs` have equal titles, selection states, and icons.
+  public static func == (lhs: OptionRow, rhs: OptionRow) -> Bool {
+    return
+      lhs.title == rhs.title &&
+      lhs.isSelected == rhs.isSelected &&
+      lhs.icon == rhs.icon
+  }
 
 }

@@ -135,10 +135,10 @@ internal final class QuickTableViewControllerSpec: QuickSpec {
           let d = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 3, section: 0))
 
           it("should match the reusable identifier") {
-            expect(a.reuseIdentifier) == UITableViewCellStyle.default.stringValue
-            expect(b.reuseIdentifier) == UITableViewCellStyle.subtitle.stringValue
-            expect(c.reuseIdentifier) == UITableViewCellStyle.value1.stringValue
-            expect(d.reuseIdentifier) == UITableViewCellStyle.value2.stringValue
+            expect(a.reuseIdentifier) == "UITableViewCell.default"
+            expect(b.reuseIdentifier) == "UITableViewCell.subtitle"
+            expect(c.reuseIdentifier) == "UITableViewCell.value1"
+            expect(d.reuseIdentifier) == "UITableViewCell.value2"
           }
 
           it("should match texts in labels") {

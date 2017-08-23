@@ -1,8 +1,8 @@
 //
-//  IconEnabled.swift
+//  Reusable.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 30/07/2017.
+//  Created by Ben on 21/08/2017.
 //  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,8 +26,39 @@
 
 import Foundation
 
-/// Any type that conforms to this protocol is able to show an icon image in a table view.
-public protocol IconEnabled: Row {
-  /// The icon of the row.
-  var icon: Icon? { get }
+extension UITableViewCell: Reusable {}
+
+
+internal protocol Reusable {
+  static var reuseIdentifier: String { get }
+}
+
+
+internal extension Reusable {
+
+  internal static var reuseIdentifier: String {
+    let type = String(describing: self)
+    return type.matches(of: "^\\(([\\w\\d]+)\\sin\\s_[0-9A-F]+\\)$").last ?? type
+  }
+
+}
+
+
+internal extension String {
+
+  func matches(of pattern: String) -> [String] {
+    let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+    let fullText = NSRange(location: 0, length: characters.count)
+
+    guard let matches = regex?.matches(in: self, options: [], range: fullText) else {
+      return []
+    }
+
+    return matches.reduce([]) { accumulator, match in
+      accumulator + (0..<match.numberOfRanges).map {
+        (self as NSString).substring(with: match.rangeAt($0))
+      }
+    }
+  }
+
 }

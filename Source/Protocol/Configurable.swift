@@ -35,25 +35,24 @@ public protocol Configurable {
 
 extension UITableViewCell {
 
-  internal func defaultSetUp(with row: Row) {
+  internal func defaultSetUp(with row: Row & RowStyle) {
     textLabel?.text = row.title
     detailTextLabel?.text = row.subtitle?.text
 
-    if let icon = (row as? IconEnabled)?.icon {
+    // Reset the accessory view in case the cell is reused.
+    accessoryView = nil
+    accessoryType = row.accessoryType
+
+    if let icon = row.icon {
       if let image = icon.image {
         imageView?.image = image
       }
       if let image = icon.highlightedImage {
         imageView?.highlightedImage = image
       }
-    }
-
-    if let enabled = row as? AccessoryEnabled {
-      if let view = enabled.accessoryView {
-        accessoryView = view
-      } else {
-        accessoryType = enabled.accessoryType
-      }
+    } else {
+      imageView?.image = nil
+      imageView?.highlightedImage = nil
     }
   }
 
