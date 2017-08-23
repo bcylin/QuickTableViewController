@@ -47,9 +47,9 @@ class ViewController: QuickTableViewController {
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: { _ in }),
-        OptionRow(title: "Option 2", isSelected: false, action: { _ in }),
-        OptionRow(title: "Option 3", isSelected: false, action: { _ in })
+        OptionRow(title: "Option 1", isSelected: true, action: nil),
+        OptionRow(title: "Option 2", isSelected: false, action: nil),
+        OptionRow(title: "Option 3", isSelected: false, action: nil)
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -129,7 +129,7 @@ OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
 ```
 
 * `OptionRow` can be used with or without `RadioSection`, which guarantees that there's only one option is selected.
-* `RadioSection` allows all options unselected by default. Setting `alwaysSelectOneOption` to true will preserve the selected option.
+* `RadioSection` allows all options unselected by default. Setting `alwaysSelectOneOption` to true will preserve one selected option.
 * `selectedOption` is available as the result of selection in `RadioSection`.
 
 ## Customization
@@ -156,18 +156,18 @@ TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 OptionRow<CustomOptionCell>(title: "Option", isSelected: true, action: { _ in })
 ```
 
-Table view cell classes that conform to `Configurable` can implement the additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
+Table view cell classes that conform to `Configurable` can implement additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
 
 ```swift
-public protocol Configurable {
+protocol Configurable {
   func configure(with row: Row & RowStyle)
 }
 ```
 
-Additional UI setups in the predefined classes can be achieved via this configuration. Subtitles can be added to `CustomSwitchCell` and `CustomOptionCell` using the `customize` closure for example:
+Other setups can also be added to each row using the `customize` closure:
 
 ```swift
-public protocol RowStyle {
+protocol RowStyle {
   var customize: ((UITableViewCell, Row & RowStyle) -> Void)? { get }
 }
 ```
