@@ -7,5 +7,6 @@ output_directory: test_output/xml_report
 ignore:
   - Carthage/*
   - Example/*
+  - ExampleUITests/*
   - QuickTableViewControllerTests/*
   - Pods/*

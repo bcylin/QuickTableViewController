@@ -1,6 +1,6 @@
 # Change Log
 
-## Next Release
+## v0.7.0
 
 #### Breaking
 

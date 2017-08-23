@@ -21,8 +21,8 @@ script:
   - make -B carthage
   - make -B docs
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - make coverage
+  - bundle exec slather
+  - bash <(curl -s https://codecov.io/bash) -f test_output/xml_report/cobertura.xml -X coveragepy -X gcov -X xcode
   - sh scripts/update-docs.sh
 notifications:
   email: false
