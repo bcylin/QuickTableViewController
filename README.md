@@ -129,7 +129,7 @@ OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
 ```
 
 * `OptionRow` can be used with or without `RadioSection`, which guarantees that there's only one option is selected.
-* `RadioSection` allows all options unselected by default. Setting `alwaysSelectOneOption` to true will preserve one selected option.
+* `RadioSection` allows all options unselected by default. Setting `alwaysSelectsOneOption` to true will preserve one selected option.
 * `selectedOption` is available as the result of selection in `RadioSection`.
 
 ## Customization

@@ -8,3 +8,4 @@ module: QuickTableViewController
 module_version: 0.7.0
 output: docs/output
 theme: fullwidth
+skip_undocumented: true
