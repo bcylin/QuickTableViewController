@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.7.1
+
+#### Enhancements
+
+* Allow predefined `NavigationRow`, `SwitchRow`, `TapActionRow`, and `OptionRow` to be subclassable
+
 ## v0.7.0
 
 #### Breaking

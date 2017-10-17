@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row that triggers certain navigation when selected.
-public final class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable {
+open class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
