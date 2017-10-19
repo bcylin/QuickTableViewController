@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row of selectable option.
-public final class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
+open class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 
