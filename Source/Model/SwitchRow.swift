@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row with a switch.
-public final class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable {
+open class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 

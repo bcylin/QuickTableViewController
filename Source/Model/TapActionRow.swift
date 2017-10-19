@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row that triggers certain action when selected.
-public final class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
+open class TapActionRow<T: TapActionCell>: Row, RowStyle, Equatable {
 
   // MARK: - Initializer
 

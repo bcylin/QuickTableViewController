@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name          = "QuickTableViewController"
-  s.version       = "0.7.0"
+  s.version       = "0.7.1"
   s.summary       = "A simple way to create a UITableView for settings."
-  s.screenshots   = "https://bcylin.github.io/QuickTableViewController/img/screenshot.png"
+  s.screenshots   = "https://bcylin.github.io/QuickTableViewController/img/screenshots.png"
 
   s.homepage      = "https://github.com/bcylin/QuickTableViewController"
   s.license       = { type: "MIT", file: "LICENSE" }
