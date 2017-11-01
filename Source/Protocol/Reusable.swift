@@ -56,7 +56,7 @@ internal extension String {
 
     return matches.reduce([]) { accumulator, match in
       accumulator + (0..<match.numberOfRanges).map {
-        (self as NSString).substring(with: match.rangeAt($0))
+        (self as NSString).substring(with: match.range(at: $0))
       }
     }
   }
