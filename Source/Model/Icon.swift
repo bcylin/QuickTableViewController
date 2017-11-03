@@ -39,10 +39,8 @@ public struct Icon: Equatable {
     return _highlightedImage ?? UIImage(named: highlightedImageName)
   }
 
-  // swiftlint:disable variable_name
   fileprivate var _image: UIImage?
   fileprivate var _highlightedImage: UIImage?
-  // swiftlint:eable variable_name
 
   public private(set) var imageName: String?
   public var highlightedImageName: String {
