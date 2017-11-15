@@ -1,8 +1,8 @@
 # Change Log
 
-## `develop` branch
+## v0.8.0
 
-#### Breaking
+#### Enhancements
 
 * Swift 4
 

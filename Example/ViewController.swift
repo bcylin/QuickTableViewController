@@ -52,6 +52,8 @@ internal final class ViewController: QuickTableViewController {
     let globe = #imageLiteral(resourceName: "iconmonstr-globe")
     let time = #imageLiteral(resourceName: "iconmonstr-time")
 
+    print(String(describing: SwitchCell.self))
+
     tableContents = [
       Section(title: "Switch", rows: [
         SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
