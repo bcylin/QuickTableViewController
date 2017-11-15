@@ -55,12 +55,6 @@ open class RadioSection: Section {
 
   // MARK: - RadioSection
 
-  @available(*, deprecated, renamed: "alwaysSelectsOneOption")
-  public var alwaysSelectOneOption: Bool {
-    get { return alwaysSelectsOneOption }
-    set { alwaysSelectsOneOption = newValue }
-  }
-
   /// A boolean that indicates whether there's always one option selected.
   open var alwaysSelectsOneOption: Bool = false {
     didSet {
