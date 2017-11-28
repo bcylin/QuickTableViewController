@@ -34,7 +34,7 @@ open class TapActionCell: UITableViewCell {
     return _button.tintColor ?? UIColor.blue
   }()
 
-  // MARK: Initializer
+  // MARK: - Initializer
 
   /**
    Overrides `UITableViewCell`'s designated initializer.
@@ -64,6 +64,7 @@ open class TapActionCell: UITableViewCell {
   // MARK: Private Methods
 
   private func setUpAppearance() {
+    textLabel?.numberOfLines = 0
     textLabel?.textAlignment = .center
     textLabel?.textColor = type(of: self).systemTintColor
   }
