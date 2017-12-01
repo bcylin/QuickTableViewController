@@ -43,7 +43,7 @@ internal final class ReusableSpec: QuickSpec {
     }
 
     describe("type string") {
-      let pattern = "^\\(([\\w\\d]+)\\sin\\s_[0-9A-F]+\\)$"
+      let pattern = String.typeDescriptionPattern
 
       context("custom type") {
         it("should match the pattern") {

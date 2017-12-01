@@ -47,10 +47,6 @@ open class NavigationRow<T: UITableViewCell>: Row, RowStyle, Equatable {
     self.action = action
   }
 
-  private init() {
-    fatalError("init without any argument is not supported")
-  }
-
   // MARK: - Row
 
   /// The title text of the row.

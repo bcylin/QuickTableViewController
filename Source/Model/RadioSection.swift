@@ -55,12 +55,6 @@ open class RadioSection: Section {
 
   // MARK: - RadioSection
 
-  @available(*, deprecated, renamed: "alwaysSelectsOneOption")
-  public var alwaysSelectOneOption: Bool {
-    get { return alwaysSelectsOneOption }
-    set { alwaysSelectsOneOption = newValue }
-  }
-
   /// A boolean that indicates whether there's always one option selected.
   open var alwaysSelectsOneOption: Bool = false {
     didSet {
@@ -73,9 +67,18 @@ open class RadioSection: Section {
   /// The array of options in the section. It's identical to the `rows`.
   open private(set) var options: [OptionRow<UITableViewCell>]
 
+  /// Returns the selected index, or nil when nothing is selected.
+  open var indexOfSelectedOption: Int? {
+    return options.index { $0.isSelected }
+  }
+
   /// Returns the selected option row, or nil when nothing is selected.
   open var selectedOption: OptionRow<UITableViewCell>? {
-    return options.first { $0.isSelected }
+    if let index = indexOfSelectedOption {
+      return options[index]
+    } else {
+      return nil
+    }
   }
 
   /// Toggle the selection of the given option and keep options mutually exclusive.
