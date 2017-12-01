@@ -80,6 +80,7 @@ open class SwitchCell: UITableViewCell, Configurable {
     if let row = row as? SwitchRow {
       switchControl.isOn = row.switchValue
     }
+    accessoryView = switchControl
   }
 
   // MARK: - Private
@@ -92,7 +93,6 @@ open class SwitchCell: UITableViewCell, Configurable {
   private func setUpAppearance() {
     textLabel?.numberOfLines = 0
     detailTextLabel?.numberOfLines = 0
-    accessoryView = switchControl
   }
 
 }
