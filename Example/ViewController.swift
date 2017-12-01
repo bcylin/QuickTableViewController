@@ -129,7 +129,7 @@ internal final class ViewController: QuickTableViewController {
   }
 
   private func showDebuggingText(_ text: String) {
-    debugging.footer = text
+    debugging.rows = [NavigationRow(title: text, subtitle: .none)]
     let indexSet: IndexSet? = tableContents.index(where: { $0 === debugging }).map { [$0] }
     tableView.reloadSections(indexSet ?? [], with: .fade)
   }
