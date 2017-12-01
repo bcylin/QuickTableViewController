@@ -39,10 +39,8 @@ public struct Icon: Equatable {
     return _highlightedImage ?? UIImage(named: highlightedImageName)
   }
 
-  // swiftlint:disable variable_name
   fileprivate var _image: UIImage?
   fileprivate var _highlightedImage: UIImage?
-  // swiftlint:eable variable_name
 
   public private(set) var imageName: String?
   public var highlightedImageName: String {
@@ -53,18 +51,16 @@ public struct Icon: Equatable {
     }
   }
 
-  ///
+  /// Initializes an icon with an image name.
   public init(imageName: String) {
     self.imageName = imageName
   }
 
-  ///
+  /// Initializes an icon with images for the normal and highlighted states.
   public init(image: UIImage, highlightedImage: UIImage? = nil) {
     _image = image
     _highlightedImage = highlightedImage
   }
-
-  private init() {}
 
   // MARK: Equatable
 

@@ -10,6 +10,6 @@ target "QuickTableViewControllerTests-iOS" do
 end
 
 target "Example" do
-  pod "SwiftLint", "0.19.0"
+  pod "SwiftLint", "0.23.1"
   pod "Weakify", git: "https://github.com/klundberg/Weakify.git", tag: "v0.4.0"
 end

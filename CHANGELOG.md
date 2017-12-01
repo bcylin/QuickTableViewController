@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.8.0
+
+#### Enhancements
+
+* Swift 4
+
 ## v0.7.1
 
 #### Enhancements
