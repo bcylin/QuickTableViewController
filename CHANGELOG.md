@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.8.1
+
+#### Fixes
+
+* Unhighlight the selected row in the radio section when it's tapped with `alwaysSelectsOneOption` set to true
+
 ## v0.8.0
 
 #### Enhancements

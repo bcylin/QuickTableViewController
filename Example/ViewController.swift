@@ -34,12 +34,6 @@ internal final class ViewController: QuickTableViewController {
 
   // MARK: - Properties
 
-  private lazy var options: Section = RadioSection(title: "Radio Buttons", options: [
-    OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
-    OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
-    OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
-  ], footer: "See RadioSection for more details.")
-
   private let debugging = Section(title: nil, rows: [])
 
   // MARK: - UIViewController
@@ -78,7 +72,12 @@ internal final class ViewController: QuickTableViewController {
         })
       ]),
 
-      options,
+      RadioSection(title: "Radio Buttons", options: [
+        OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
+      ], footer: "See RadioSection for more details."),
+
       debugging
     ]
   }
@@ -131,7 +130,7 @@ internal final class ViewController: QuickTableViewController {
   private func showDebuggingText(_ text: String) {
     debugging.rows = [NavigationRow(title: text, subtitle: .none)]
     let indexSet: IndexSet? = tableContents.index(where: { $0 === debugging }).map { [$0] }
-    tableView.reloadSections(indexSet ?? [], with: .fade)
+    tableView.reloadSections(indexSet ?? [], with: .none)
   }
 
 }
