@@ -5,6 +5,7 @@
 #### Fixes
 
 * Unhighlight the selected row in the radio section when it's tapped with `alwaysSelectsOneOption` set to true
+* Fix the empty image name that causes **CUICatalog: Invalid asset name supplied: ''**
 
 ## v0.8.0
 
