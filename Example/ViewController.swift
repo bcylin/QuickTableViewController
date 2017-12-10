@@ -31,6 +31,8 @@ import Weakify
 internal final class ViewController: QuickTableViewController {
 
   private final class CustomCell: UITableViewCell {}
+  private final class CustomSwitchCell: SwitchCell {}
+  private final class CustomTapActionCell: TapActionCell {}
   private final class CustomOptionCell: UITableViewCell {}
 
   // MARK: - Properties
@@ -52,17 +54,17 @@ internal final class ViewController: QuickTableViewController {
     tableContents = [
       Section(title: "Switch", rows: [
         SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
-        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
+        SwitchRow<CustomSwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow<TapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
+        TapActionRow<CustomTapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
+        NavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
@@ -103,7 +105,7 @@ internal final class ViewController: QuickTableViewController {
   }
 
   private func didToggleSwitch(_ sender: Row) {
-    if let row = sender as? SwitchRow {
+    if let row = sender as? Switchable {
       let state = "\(row.title) = \(row.switchValue)"
       print(state)
       showDebuggingText(state)

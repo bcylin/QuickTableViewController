@@ -140,7 +140,7 @@ open class QuickTableViewController: UIViewController,
       option.isSelected = !option.isSelected
       tableView.reloadRows(at: [indexPath], with: .automatic)
 
-    case (_, is TapActionRow<TapActionCell>):
+    case (_, is Tappable):
       tableView.deselectRow(at: indexPath, animated: true)
       row.action?(row)
 
@@ -157,11 +157,10 @@ open class QuickTableViewController: UIViewController,
   open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard
       let indexPath = tableView.indexPath(for: cell),
-      let row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+      let row = tableContents[indexPath.section].rows[indexPath.row] as? Switchable
     else {
       return
     }
-
     row.switchValue = isOn
   }
 
