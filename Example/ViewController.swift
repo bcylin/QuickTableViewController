@@ -31,6 +31,7 @@ import Weakify
 internal final class ViewController: QuickTableViewController {
 
   private final class CustomCell: UITableViewCell {}
+  private final class CustomOptionCell: UITableViewCell {}
 
   // MARK: - Properties
 
@@ -75,7 +76,7 @@ internal final class ViewController: QuickTableViewController {
       RadioSection(title: "Radio Buttons", options: [
         OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
         OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
+        OptionRow<CustomOptionCell>(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
       ], footer: "See RadioSection for more details."),
 
       debugging
@@ -93,10 +94,9 @@ internal final class ViewController: QuickTableViewController {
   // MARK: - Private Methods
 
   private func didToggleSelection(_ sender: Row) {
-    guard let option = sender as? OptionRow else {
+    guard let option = sender as? OptionSelectable else {
       return
     }
-
     let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
     print(state)
     showDebuggingText(state)

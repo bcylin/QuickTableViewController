@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row of selectable option.
-open class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
+open class OptionRow<T: UITableViewCell>: OptionSelectable, Equatable {
 
   // MARK: - Initializer
 
@@ -47,6 +47,17 @@ open class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
     self.action = action
   }
 
+  // MARK: - OptionSelectable
+
+  /// The state of selection.
+  public var isSelected: Bool = false {
+    didSet {
+      if isSelected != oldValue {
+        action?(self)
+      }
+    }
+  }
+
   // MARK: - Row
 
   /// The title text of the row.
@@ -57,17 +68,6 @@ open class OptionRow<T: UITableViewCell>: Row, RowStyle, Equatable {
 
   /// A closure that will be invoked when the `isSelected` is changed.
   public let action: ((Row) -> Void)?
-
-  // MARK: - OptionRow
-
-  /// The state of selection.
-  public var isSelected: Bool = false {
-    didSet {
-      if isSelected != oldValue {
-        action?(self)
-      }
-    }
-  }
 
   // MARK: - RowStyle
 

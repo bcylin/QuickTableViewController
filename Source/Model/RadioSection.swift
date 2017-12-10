@@ -32,7 +32,7 @@ open class RadioSection: Section {
   // MARK: - Initializer
 
   /// Initializes a section with a title, containing rows and an optional footer.
-  public init(title: String?, options: [OptionRow<UITableViewCell>], footer: String? = nil) {
+  public init(title: String?, options: [OptionSelectable], footer: String? = nil) {
     self.options = options
     super.init(title: title, rows: [], footer: footer)
   }
@@ -49,7 +49,7 @@ open class RadioSection: Section {
       return options
     }
     set {
-      options = rows as? [OptionRow] ?? options
+      options = rows as? [OptionSelectable] ?? options
     }
   }
 
@@ -65,7 +65,7 @@ open class RadioSection: Section {
   }
 
   /// The array of options in the section. It's identical to the `rows`.
-  open private(set) var options: [OptionRow<UITableViewCell>]
+  open private(set) var options: [OptionSelectable]
 
   /// Returns the selected index, or nil when nothing is selected.
   open var indexOfSelectedOption: Int? {
@@ -73,7 +73,7 @@ open class RadioSection: Section {
   }
 
   /// Returns the selected option row, or nil when nothing is selected.
-  open var selectedOption: OptionRow<UITableViewCell>? {
+  open var selectedOption: OptionSelectable? {
     if let index = indexOfSelectedOption {
       return options[index]
     } else {
@@ -86,7 +86,7 @@ open class RadioSection: Section {
   ///
   /// - Parameter option: The option to flip the `isSelected` state.
   /// - Returns: The indexes of changed options.
-  open func toggle(_ option: OptionRow<UITableViewCell>) -> IndexSet {
+  open func toggle(_ option: OptionSelectable) -> IndexSet {
     if option.isSelected && alwaysSelectsOneOption {
       return []
     }
@@ -96,14 +96,15 @@ open class RadioSection: Section {
     }
 
     if option.isSelected {
-      return options.index(of: option).map { [$0] } ?? []
+      // Deselect the selected option.
+      return options.index(where: { $0 === option }).map { [$0] } ?? []
     }
 
     var toggledIndexes: IndexSet = []
 
     for (index, element) in options.enumerated() {
       switch element {
-      case option:
+      case let target where target === option:
         toggledIndexes.insert(index)
       case _ where element.isSelected:
         toggledIndexes.insert(index)

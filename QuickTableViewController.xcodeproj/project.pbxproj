@@ -21,6 +21,7 @@
 		B5334F191B8CC5BD00C64A6D /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
 		B536C7F81F4AAF9900DAC4AA /* ReusableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */; };
+		B5374C901FDD7AF800A3EA28 /* OptionSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5374C8F1FDD7AF700A3EA28 /* OptionSelectable.swift */; };
 		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
 		B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
@@ -107,6 +108,7 @@
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableSpec.swift; sourceTree = "<group>"; };
+		B5374C8F1FDD7AF700A3EA28 /* OptionSelectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionSelectable.swift; path = Source/Protocol/OptionSelectable.swift; sourceTree = SOURCE_ROOT; };
 		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/Protocol/Configurable.swift; sourceTree = SOURCE_ROOT; };
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				B55475741F2DC3C00027F7C1 /* Configurable.swift */,
+				B5374C8F1FDD7AF700A3EA28 /* OptionSelectable.swift */,
 				B522E1DF1F4AA750004DA5AD /* Reusable.swift */,
 				B5EC18221B95FD7F0015C665 /* Row.swift */,
 				B50E73841F2E1BC900481910 /* RowStyle.swift */,
@@ -689,6 +692,7 @@
 				B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */,
 				B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */,
 				B5E619D21F454EEF005200E1 /* OptionRow.swift in Sources */,
+				B5374C901FDD7AF800A3EA28 /* OptionSelectable.swift in Sources */,
 				B5334F301B8CC6AA00C64A6D /* QuickTableViewController.swift in Sources */,
 				B5E619CF1F454CF0005200E1 /* RadioSection.swift in Sources */,
 				B522E1E01F4AA750004DA5AD /* Reusable.swift in Sources */,

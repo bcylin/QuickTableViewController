@@ -125,7 +125,7 @@ open class QuickTableViewController: UIViewController,
     let row = section.rows[indexPath.row]
 
     switch (section, row) {
-    case let (radio as RadioSection, option as OptionRow<UITableViewCell>):
+    case let (radio as RadioSection, option as OptionSelectable):
       let indexPaths: [IndexPath] = radio.toggle(option).map {
         IndexPath(row: $0, section: indexPath.section)
       }
@@ -135,7 +135,7 @@ open class QuickTableViewController: UIViewController,
         tableView.reloadRows(at: indexPaths, with: .automatic)
       }
 
-    case let (_, option as OptionRow<UITableViewCell>):
+    case let (_, option as OptionSelectable):
       // Allow OptionRow to be used without RadioSection.
       option.isSelected = !option.isSelected
       tableView.reloadRows(at: [indexPath], with: .automatic)
