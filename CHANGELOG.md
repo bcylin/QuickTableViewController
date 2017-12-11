@@ -1,5 +1,14 @@
 # Change Log
 
+## v0.8.1
+
+#### Fixes
+
+* Unhighlight the selected row in the radio section when it's tapped with `alwaysSelectsOneOption` set to true
+* Fix the empty image name that causes **CUICatalog: Invalid asset name supplied: ''**
+* Allow `OptionRow` to be used with custom table view cells
+* Fix the actions that are not invoked in rows with custom table view cells
+
 ## v0.8.0
 
 #### Enhancements

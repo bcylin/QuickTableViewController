@@ -31,14 +31,11 @@ import Weakify
 internal final class ViewController: QuickTableViewController {
 
   private final class CustomCell: UITableViewCell {}
+  private final class CustomSwitchCell: SwitchCell {}
+  private final class CustomTapActionCell: TapActionCell {}
+  private final class CustomOptionCell: UITableViewCell {}
 
   // MARK: - Properties
-
-  private lazy var options: Section = RadioSection(title: "Radio Buttons", options: [
-    OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
-    OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
-    OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
-  ], footer: "See RadioSection for more details.")
 
   private let debugging = Section(title: nil, rows: [])
 
@@ -57,17 +54,17 @@ internal final class ViewController: QuickTableViewController {
     tableContents = [
       Section(title: "Switch", rows: [
         SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
-        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
+        SwitchRow<CustomSwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow<TapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
+        TapActionRow<CustomTapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
+        NavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
@@ -78,7 +75,12 @@ internal final class ViewController: QuickTableViewController {
         })
       ]),
 
-      options,
+      RadioSection(title: "Radio Buttons", options: [
+        OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow<CustomOptionCell>(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
+      ], footer: "See RadioSection for more details."),
+
       debugging
     ]
   }
@@ -94,17 +96,16 @@ internal final class ViewController: QuickTableViewController {
   // MARK: - Private Methods
 
   private func didToggleSelection(_ sender: Row) {
-    guard let option = sender as? OptionRow else {
+    guard let option = sender as? OptionSelectable else {
       return
     }
-
     let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
     print(state)
     showDebuggingText(state)
   }
 
   private func didToggleSwitch(_ sender: Row) {
-    if let row = sender as? SwitchRow {
+    if let row = sender as? Switchable {
       let state = "\(row.title) = \(row.switchValue)"
       print(state)
       showDebuggingText(state)
@@ -131,7 +132,7 @@ internal final class ViewController: QuickTableViewController {
   private func showDebuggingText(_ text: String) {
     debugging.rows = [NavigationRow(title: text, subtitle: .none)]
     let indexSet: IndexSet? = tableContents.index(where: { $0 === debugging }).map { [$0] }
-    tableView.reloadSections(indexSet ?? [], with: .fade)
+    tableView.reloadSections(indexSet ?? [], with: .none)
   }
 
 }

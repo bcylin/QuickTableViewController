@@ -40,6 +40,10 @@ docs:
 	git diff-index --quiet HEAD || \
 	git commit -m "[CI] Update documentation at $(shell date +'%Y-%m-%d %H:%M:%S %z')"
 
+preview-docs:
+	make -B docs
+	open docs/index.html
+
 update-docs:
 	make -B docs
 	cd docs && git push origin HEAD:gh-pages

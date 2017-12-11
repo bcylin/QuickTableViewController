@@ -27,7 +27,7 @@
 import Foundation
 
 /// A class that represents a row with a switch.
-open class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable {
+open class SwitchRow<T: SwitchCell>: Switchable, Equatable {
 
   // MARK: - Initializer
 
@@ -47,6 +47,17 @@ open class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable {
     self.action = action
   }
 
+  // MARK: - Switchable
+
+  /// The state of the switch.
+  public var switchValue: Bool = false {
+    didSet {
+      if switchValue != oldValue {
+        action?(self)
+      }
+    }
+  }
+
   // MARK: - Row
 
   /// The title text of the row.
@@ -57,17 +68,6 @@ open class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable {
 
   /// A closure that will be invoked when the `switchValue` is changed.
   public let action: ((Row) -> Void)?
-
-  // MARK: - SwitchRow
-
-  /// The state of the switch.
-  public var switchValue: Bool = false {
-    didSet {
-      if switchValue != oldValue {
-        action?(self)
-      }
-    }
-  }
 
   // MARK: - RowStyle
 
@@ -92,7 +92,7 @@ open class SwitchRow<T: SwitchCell>: Row, RowStyle, Equatable {
   /// The additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
-  // MARK: Equatable
+  // MARK: - Equatable
 
   /// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
   public static func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
