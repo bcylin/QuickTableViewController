@@ -31,12 +31,14 @@ public struct Icon: Equatable {
 
   /// The image of the normal state.
   public var image: UIImage? {
-    return _image ?? UIImage(named: imageName ?? "")
+    return _image ?? imageName.flatMap(UIImage.init(named:))
   }
 
   /// The image of the highlighted state.
   public var highlightedImage: UIImage? {
-    return _highlightedImage ?? UIImage(named: highlightedImageName)
+    return
+      _highlightedImage ??
+      (!highlightedImageName.isEmpty ? UIImage(named: highlightedImageName) : nil)
   }
 
   fileprivate var _image: UIImage?

@@ -125,18 +125,22 @@ open class QuickTableViewController: UIViewController,
     let row = section.rows[indexPath.row]
 
     switch (section, row) {
-    case let (radio as RadioSection, option as OptionRow<UITableViewCell>):
+    case let (radio as RadioSection, option as OptionSelectable):
       let indexPaths: [IndexPath] = radio.toggle(option).map {
         IndexPath(row: $0, section: indexPath.section)
       }
-      tableView.reloadRows(at: indexPaths, with: .automatic)
+      if indexPaths.isEmpty {
+        tableView.deselectRow(at: indexPath, animated: true)
+      } else {
+        tableView.reloadRows(at: indexPaths, with: .automatic)
+      }
 
-    case let (_, option as OptionRow<UITableViewCell>):
+    case let (_, option as OptionSelectable):
       // Allow OptionRow to be used without RadioSection.
       option.isSelected = !option.isSelected
       tableView.reloadRows(at: [indexPath], with: .automatic)
 
-    case (_, is TapActionRow<TapActionCell>):
+    case (_, is Tappable):
       tableView.deselectRow(at: indexPath, animated: true)
       row.action?(row)
 
@@ -153,11 +157,10 @@ open class QuickTableViewController: UIViewController,
   open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard
       let indexPath = tableView.indexPath(for: cell),
-      let row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRow
+      let row = tableContents[indexPath.section].rows[indexPath.row] as? Switchable
     else {
       return
     }
-
     row.switchValue = isOn
   }
 
