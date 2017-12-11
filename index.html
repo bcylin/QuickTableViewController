@@ -82,7 +82,7 @@ QuickTableViewController  Reference
 </ul>
 </li>
 <li class="nav-group-name">
-<a class="nav-group-name-link" href="Enums.html">Enums</a>
+<a class="nav-group-name-link" href="Enums.html">Enumerations</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Enums/Subtitle.html">Subtitle</a>
@@ -96,6 +96,9 @@ QuickTableViewController  Reference
 <a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
 </li>
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/OptionSelectable.html">OptionSelectable</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Row.html">Row</a>
 </li>
 <li class="nav-group-task">
@@ -104,10 +107,16 @@ QuickTableViewController  Reference
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
 </li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/Switchable.html">Switchable</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a>
+</li>
 </ul>
 </li>
 <li class="nav-group-name">
-<a class="nav-group-name-link" href="Structs.html">Structs</a>
+<a class="nav-group-name-link" href="Structs.html">Structures</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Structs/Icon.html">Icon</a>
@@ -199,7 +208,7 @@ QuickTableViewController  Reference
 
 <ul>
 <li>Images in table view cells can be set by specifying the <code>icon</code> of each row.</li>
-<li>The <code>Icon</code> struct carries info about images for both normal and highlighted states.</li>
+<li>The <code><a href="Structs/Icon.html">Icon</a></code> struct carries info about images for both normal and highlighted states.</li>
 <li>Table view cells in <code>UITableViewCellStyle.value2</code> will not show the image view.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell with image"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"icon"</span><span class="p">))</span>
@@ -207,7 +216,7 @@ QuickTableViewController  Reference
 <h4 id='disclosure-indicator' class='heading'>Disclosure Indicator</h4>
 
 <ul>
-<li>A <code>NavigationRow</code> with an <code>action</code> will be displayed in a table view cell whose <code>accessoryType</code> is <code>.disclosureIndicator</code>.</li>
+<li>A <code><a href="Classes/NavigationRow.html">NavigationRow</a></code> with an <code>action</code> will be displayed in a table view cell whose <code>accessoryType</code> is <code>.disclosureIndicator</code>.</li>
 <li>The <code>action</code> will be invoked when the related table view cell is selected.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation cell"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
@@ -215,41 +224,47 @@ QuickTableViewController  Reference
 <h3 id='switchrow' class='heading'>SwitchRow</h3>
 
 <ul>
-<li>A <code>SwitchRow</code> is representing a table view cell with a <code>UISwitch</code> as its <code>accessoryView</code>.</li>
+<li>A <code><a href="Classes/SwitchRow.html">SwitchRow</a></code> is representing a table view cell with a <code>UISwitch</code> as its <code>accessoryView</code>.</li>
 <li>The <code>action</code> will be invoked when the switch value changes.</li>
-<li>The subtitle is disabled in <code>SwitchRow</code>.</li>
+<li>The subtitle is disabled in <code><a href="Classes/SwitchRow.html">SwitchRow</a></code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">}),</span>
 </code></pre>
 <h3 id='tapactionrow' class='heading'>TapActionRow</h3>
 
 <ul>
-<li>A <code>TapActionRow</code> is representing a button-like table view cell.</li>
+<li>A <code><a href="Classes/TapActionRow.html">TapActionRow</a></code> is representing a button-like table view cell.</li>
 <li>The <code>action</code> will be invoked when the related table view cell is selected.</li>
-<li><code>Icon</code> is disabled in <code>TapActionRow</code>.</li>
+<li><code><a href="Structs/Icon.html">Icon</a></code> is disabled in <code><a href="Classes/TapActionRow.html">TapActionRow</a></code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 <h3 id='optionrow-amp-radiosection' class='heading'>OptionRow &amp; RadioSection</h3>
 
 <ul>
-<li>An <code>OptionRow</code> is representing a selectable table view cell.</li>
+<li>An <code><a href="Classes/OptionRow.html">OptionRow</a></code> is representing a selectable table view cell.</li>
 <li>When the row <code>isSelected</code>, the table view cell shows <code>.checkmark</code> as its <code>accessoryType</code>.</li>
 <li>The <code>action</code> will be invoked when the selection is toggled.</li>
-<li>The subtitle is disabled in <code>OptionRow</code>.</li>
+<li>The subtitle is disabled in <code><a href="Classes/OptionRow.html">OptionRow</a></code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">OptionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 
 <ul>
-<li><code>OptionRow</code> can be used with or without <code>RadioSection</code>, which guarantees that there&rsquo;s only one option is selected.</li>
-<li><code>RadioSection</code> allows all options unselected by default. Setting <code>alwaysSelectsOneOption</code> to true will preserve one selected option.</li>
-<li><code>selectedOption</code> is available as the result of selection in <code>RadioSection</code>.</li>
+<li><code><a href="Classes/OptionRow.html">OptionRow</a></code> can be used with or without <code><a href="Classes/RadioSection.html">RadioSection</a></code>, which guarantees that there&rsquo;s only one option is selected.</li>
+<li><code><a href="Classes/RadioSection.html">RadioSection</a></code> allows all options unselected by default. Setting <code>alwaysSelectsOneOption</code> to true will preserve one selected option.</li>
+<li><code>selectedOption</code> is available as the result of selection in <code><a href="Classes/RadioSection.html">RadioSection</a></code>.</li>
 </ul>
 <h2 id='customization' class='heading'>Customization</h2>
 <h3 id='rows' class='heading'>Rows</h3>
 
-<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code>Row</code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code>RowStyle</code></a>. Addtional info can be attached to customized rows, such as <code>switchValue</code> in <code>SwitchRow</code> and <code>isSelected</code> in <code>OptionRow</code>.</p>
+<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code><a href="Protocols/Row.html">Row</a></code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code><a href="Protocols/RowStyle.html">RowStyle</a></code></a>. Addtional interface to work with specific types of rows are represented as different protocols:</p>
+
+<ul>
+<li><code><a href="Protocols/Switchable.html">Switchable</a></code></li>
+<li><code><a href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a></code></li>
+<li><code><a href="Protocols/OptionSelectable.html">OptionSelectable</a></code></li>
+</ul>
 <h3 id='cell-classes' class='heading'>Cell Classes</h3>
 
 <p>A customized table view cell type can be specified to rows during initialization.</p>
@@ -266,7 +281,21 @@ QuickTableViewController  Reference
 <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">CustomOptionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 
-<p>Table view cell classes that conform to <code>Configurable</code> can implement additional configuration to set up the cell during <code>tableView(_:cellForRowAt:)</code>:</p>
+<p>Since the rows carry different cell types, they can be matched using either the concrete types or the related protocol:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="p">(</span><span class="kt">Row</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="o">=</span> <span class="p">{</span>
+<span class="k">switch</span> <span class="nv">$0</span> <span class="p">{</span>
+<span class="k">case</span> <span class="k">let</span> <span class="nv">option</span> <span class="k">as</span> <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">CustomOptionCell</span><span class="o">&gt;</span><span class="p">:</span>
+<span class="c1">// only matches the option rows with a specific cell type</span>
+<span class="k">case</span> <span class="k">let</span> <span class="nv">option</span> <span class="k">as</span> <span class="kt">OptionSelectable</span><span class="p">:</span>
+<span class="c1">// matches all option rows</span>
+<span class="k">default</span><span class="p">:</span>
+<span class="k">break</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='overwrite-default-configuration' class='heading'>Overwrite Default Configuration</h3>
+
+<p>Table view cell classes that conform to <code><a href="Protocols/Configurable.html">Configurable</a></code> can implement additional configuration to set up the cell during <code>tableView(_:cellForRowAt:)</code>:</p>
 <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Configurable</span> <span class="p">{</span>
 <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="n">with</span> <span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span> <span class="o">&amp;</span> <span class="kt">RowStyle</span><span class="p">)</span>
 <span class="p">}</span>
@@ -383,8 +412,8 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-12-01)</p>
-<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-12-11)</p>
+<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
 </div>

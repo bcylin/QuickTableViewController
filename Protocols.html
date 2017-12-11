@@ -82,7 +82,7 @@ Protocols  Reference
 </ul>
 </li>
 <li class="nav-group-name">
-<a class="nav-group-name-link" href="Enums.html">Enums</a>
+<a class="nav-group-name-link" href="Enums.html">Enumerations</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Enums/Subtitle.html">Subtitle</a>
@@ -96,6 +96,9 @@ Protocols  Reference
 <a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
 </li>
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/OptionSelectable.html">OptionSelectable</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Row.html">Row</a>
 </li>
 <li class="nav-group-task">
@@ -104,10 +107,16 @@ Protocols  Reference
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
 </li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/Switchable.html">Switchable</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a>
+</li>
 </ul>
 </li>
 <li class="nav-group-name">
-<a class="nav-group-name-link" href="Structs.html">Structs</a>
+<a class="nav-group-name-link" href="Structs.html">Structures</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Structs/Icon.html">Icon</a>
@@ -157,6 +166,41 @@ Protocols  Reference
 </div>
 <div class="slightly-smaller">
 <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Configurable.swift#L30-L33">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+</ul>
+</div>
+<div class="task-group">
+<ul class="item-container">
+<li class="item">
+<div>
+<code>
+<a name="/s:24QuickTableViewController16OptionSelectableP"></a>
+<a name="//apple_ref/swift/Protocol/OptionSelectable" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController16OptionSelectableP">OptionSelectable</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>Any type that conforms to this protocol is compatible with <code><a href="Classes/RadioSection.html">RadioSection</a></code>.</p>
+
+<a href="Protocols/OptionSelectable.html" class="slightly-smaller">See more</a>
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">OptionSelectable</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/OptionSelectable.swift#L30-L35">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -238,6 +282,41 @@ Protocols  Reference
 <li class="item">
 <div>
 <code>
+<a name="/s:24QuickTableViewController10SwitchableP"></a>
+<a name="//apple_ref/swift/Protocol/Switchable" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController10SwitchableP">Switchable</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>Any type that conforms to this protocol is compatible <code><a href="Classes/SwitchCell.html">SwitchCell</a></code>.</p>
+
+<a href="Protocols/Switchable.html" class="slightly-smaller">See more</a>
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Switchable</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Switchable.swift#L30-L35">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+</ul>
+</div>
+<div class="task-group">
+<ul class="item-container">
+<li class="item">
+<div>
+<code>
 <a name="/s:24QuickTableViewController18SwitchCellDelegateP"></a>
 <a name="//apple_ref/swift/Protocol/SwitchCellDelegate" class="dashAnchor"></a>
 <a class="token" href="#/s:24QuickTableViewController18SwitchCellDelegateP">SwitchCellDelegate</a>
@@ -268,14 +347,48 @@ Protocols  Reference
 </li>
 </ul>
 </div>
+<div class="task-group">
+<ul class="item-container">
+<li class="item">
+<div>
+<code>
+<a name="/s:24QuickTableViewController8TappableP"></a>
+<a name="//apple_ref/swift/Protocol/Tappable" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController8TappableP">Tappable</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>An empty type that indicates it&rsquo;s compatible with <code><a href="Classes/TapActionCell.html">TapActionCell</a></code>.</p>
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Tappable</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Tappable.swift#L30">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </section>
 
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-12-01)</p>
-<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-12-11)</p>
+<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
 </div>

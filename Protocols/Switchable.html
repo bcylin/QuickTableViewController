@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>SwitchCellDelegate Protocol Reference</title>
+<title>Switchable Protocol Reference</title>
 <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
 <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
 <meta charset="utf-8">
@@ -14,9 +14,9 @@
 </head>
 <body>
 
-<a name="//apple_ref/swift/Protocol/SwitchCellDelegate" class="dashAnchor"></a>
+<a name="//apple_ref/swift/Protocol/Switchable" class="dashAnchor"></a>
 
-<a title="SwitchCellDelegate Protocol Reference"></a>
+<a title="Switchable Protocol Reference"></a>
 
 <header class="header">
 <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@ View on GitHub
 <p class="breadcrumbs">
 <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
 <img class="carat" src="../img/carat.png" />
-SwitchCellDelegate Protocol Reference
+Switchable Protocol Reference
 </p>
 
 <div class="content-wrapper">
@@ -130,14 +130,14 @@ SwitchCellDelegate Protocol Reference
 
 <section class="section">
 <div class="section-content">
-<h1>SwitchCellDelegate</h1>
+<h1>Switchable</h1>
 <div class="declaration">
 <div class="language">
-<pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchCellDelegate</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+<pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Switchable</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
 </div>
 </div>
-<p>The <code>SwitchCellDelegate</code> protocol allows the adopting delegate to respond to the UI interaction.</p>
+<p>Any type that conforms to this protocol is compatible <code><a href="../Classes/SwitchCell.html">SwitchCell</a></code>.</p>
 
 </div>
 </section>
@@ -149,9 +149,9 @@ SwitchCellDelegate Protocol Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController18SwitchCellDelegateP06switchF0yAA0eF0C_Sb09didToggleE0tF"></a>
-<a name="//apple_ref/swift/Method/switchCell(_:didToggleSwitch:)" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController18SwitchCellDelegateP06switchF0yAA0eF0C_Sb09didToggleE0tF">switchCell(_:didToggleSwitch:)</a>
+<a name="/s:24QuickTableViewController10SwitchableP11switchValueSbv"></a>
+<a name="//apple_ref/swift/Property/switchValue" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController10SwitchableP11switchValueSbv">switchValue</a>
 </code>
 </div>
 <div class="height-container">
@@ -159,19 +159,19 @@ SwitchCellDelegate Protocol Reference
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>Tells the delegate that the switch control is toggled.</p>
+<p>The state of the switch.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="kd">func</span> <span class="nf">switchCell</span><span class="p">(</span><span class="n">_</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/SwitchCell.html">SwitchCell</a></span><span class="p">,</span> <span class="n">didToggleSwitch</span> <span class="nv">isOn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+<pre class="highlight"><code><span class="k">var</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/View/SwitchCell.swift#L32">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Switchable.swift#L33">Show on GitHub</a>
 </div>
 </section>
 </div>

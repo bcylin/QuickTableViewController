@@ -82,7 +82,7 @@ Classes  Reference
 </ul>
 </li>
 <li class="nav-group-name">
-<a class="nav-group-name-link" href="Enums.html">Enums</a>
+<a class="nav-group-name-link" href="Enums.html">Enumerations</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Enums/Subtitle.html">Subtitle</a>
@@ -96,6 +96,9 @@ Classes  Reference
 <a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
 </li>
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/OptionSelectable.html">OptionSelectable</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Row.html">Row</a>
 </li>
 <li class="nav-group-task">
@@ -104,10 +107,16 @@ Classes  Reference
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
 </li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/Switchable.html">Switchable</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a>
+</li>
 </ul>
 </li>
 <li class="nav-group-name">
-<a class="nav-group-name-link" href="Structs.html">Structs</a>
+<a class="nav-group-name-link" href="Structs.html">Structures</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Structs/Icon.html">Icon</a>
@@ -186,7 +195,7 @@ Classes  Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/OptionSelectable.html">OptionSelectable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
@@ -229,7 +238,7 @@ Classes  Reference
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L30-L164">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L30-L167">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -264,7 +273,7 @@ Classes  Reference
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/RadioSection.swift#L30-L119">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/RadioSection.swift#L30-L120">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -364,7 +373,7 @@ Classes  Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/SwitchCell.html">SwitchCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/SwitchCell.html">SwitchCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Switchable.html">Switchable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
@@ -434,7 +443,7 @@ Classes  Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/TapActionCell.html">TapActionCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/TapActionCell.html">TapActionCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
@@ -452,8 +461,8 @@ Classes  Reference
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-12-01)</p>
-<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+<p>&copy; 2017 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2017-12-11)</p>
+<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
 </div>
