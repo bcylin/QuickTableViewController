@@ -40,7 +40,7 @@ internal final class RadioSectionSpec: QuickSpec {
         expect(section.rows).to(haveCount(1))
         expect(section.rows.first as? OptionRow) == row
         expect(section.options).to(haveCount(1))
-        expect(section.options.first) == row
+        expect(section.options.first) === row
         expect(section.footer) == "footer"
       }
     }
@@ -76,7 +76,7 @@ internal final class RadioSectionSpec: QuickSpec {
         section.alwaysSelectsOneOption = true
 
         it("should select the first option") {
-          expect(section.selectedOption) == section.options[0]
+          expect(section.selectedOption) === section.options[0]
           expect(section.options[0].isSelected) == true
           expect(section.options[1].isSelected) == false
         }
@@ -90,7 +90,7 @@ internal final class RadioSectionSpec: QuickSpec {
         section.alwaysSelectsOneOption = true
 
         it("should do nothing") {
-          expect(section.selectedOption) == section.options[1]
+          expect(section.selectedOption) === section.options[1]
           expect(section.options[0].isSelected) == false
           expect(section.options[1].isSelected) == true
         }
@@ -134,7 +134,7 @@ internal final class RadioSectionSpec: QuickSpec {
         _ = section.toggle(section.options[0])
 
         it("should do nothing") {
-          expect(section.selectedOption) == section.options[0]
+          expect(section.selectedOption) === section.options[0]
           expect(section.options[0].isSelected) == true
           expect(section.options[1].isSelected) == false
           expect(section.options[2].isSelected) == false
@@ -147,7 +147,7 @@ internal final class RadioSectionSpec: QuickSpec {
         _ = section.toggle(section.options[1])
 
         it("should select the option") {
-          expect(section.selectedOption) == section.options[1]
+          expect(section.selectedOption) === section.options[1]
           expect(section.options[0].isSelected) == false
           expect(section.options[1].isSelected) == true
           expect(section.options[2].isSelected) == false
@@ -159,7 +159,7 @@ internal final class RadioSectionSpec: QuickSpec {
         _ = section.toggle(section.options[2])
 
         it("should deselect the other option") {
-          expect(section.selectedOption) == section.options[2]
+          expect(section.selectedOption) === section.options[2]
           expect(section.options[0].isSelected) == false
           expect(section.options[1].isSelected) == false
           expect(section.options[2].isSelected) == true
