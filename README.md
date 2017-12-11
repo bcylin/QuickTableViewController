@@ -136,7 +136,11 @@ OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
 
 ### Rows
 
-All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Addtional info can be attached to customized rows, such as `switchValue` in `SwitchRow` and `isSelected` in `OptionRow`.
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Addtional interface to work with specific types of rows are represented as different protocols:
+
+* `Switchable`
+* `Tappable`
+* `OptionSelectable`
 
 ### Cell Classes
 
@@ -155,6 +159,23 @@ TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 // OptionRow, using UITableViewCell if not specified.
 OptionRow<CustomOptionCell>(title: "Option", isSelected: true, action: { _ in })
 ```
+
+Since the rows carry different cell types, they can be matched using either the concrete types or the related protocol:
+
+```swift
+let action: (Row) -> Void = {
+  switch $0 {
+  case let option as OptionRow<CustomOptionCell>:
+    // only matches the option rows with a specific cell type
+  case let option as OptionSelectable:
+    // matches all option rows
+  default:
+    break
+  }
+}
+```
+
+### Overwrite Default Configuration
 
 Table view cell classes that conform to `Configurable` can implement additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
 
