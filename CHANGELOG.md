@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.8.2
+
+#### Fixes
+
+* Fix the `SwitchCell` configuration with custom row classes
+
 ## v0.8.1
 
 #### Fixes
