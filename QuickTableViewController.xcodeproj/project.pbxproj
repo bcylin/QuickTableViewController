@@ -28,7 +28,7 @@
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
 		B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
 		B57FAA6E1C513454008FF7C7 /* QuickTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */; };
-		B5824E8C1FF3BA0A009666C8 /* SwitchCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5824E8A1FF3B639009666C8 /* SwitchCellSpec.swift */; };
+		B5824E8C1FF3BA0A009666C8 /* ConfigurableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5824E8A1FF3B639009666C8 /* ConfigurableSpec.swift */; };
 		B595627B1B9758BC00D6DAB1 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */; };
 		B5DB7D271C4B7F74007B84D2 /* IconSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */; };
 		B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */; };
@@ -118,7 +118,7 @@
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
 		B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerSpec.swift; sourceTree = "<group>"; };
-		B5824E8A1FF3B639009666C8 /* SwitchCellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellSpec.swift; sourceTree = "<group>"; };
+		B5824E8A1FF3B639009666C8 /* ConfigurableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableSpec.swift; sourceTree = "<group>"; };
 		B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapActionCell.swift; path = Source/View/TapActionCell.swift; sourceTree = SOURCE_ROOT; };
 		B5C29201F434E855A1E9A3E9 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconSpec.swift; sourceTree = "<group>"; };
@@ -337,9 +337,9 @@
 		B5DB7D321C4B9FE6007B84D2 /* RowSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				B5824E8A1FF3B639009666C8 /* ConfigurableSpec.swift */,
 				B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */,
 				B5E619D31F45708F005200E1 /* OptionRowSpec.swift */,
-				B5824E8A1FF3B639009666C8 /* SwitchCellSpec.swift */,
 				B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */,
 				B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */,
 			);
@@ -722,6 +722,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5824E8C1FF3BA0A009666C8 /* ConfigurableSpec.swift in Sources */,
 				B5DB7D271C4B7F74007B84D2 /* IconSpec.swift in Sources */,
 				B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */,
 				B5E619D51F45744B005200E1 /* OptionRowSpec.swift in Sources */,
@@ -730,7 +731,6 @@
 				B536C7F81F4AAF9900DAC4AA /* ReusableSpec.swift in Sources */,
 				B5DB7D351C4CBB74007B84D2 /* SectionSpec.swift in Sources */,
 				B5DB94351BE117EE00E2CEDE /* SubtitleSpec.swift in Sources */,
-				B5824E8C1FF3BA0A009666C8 /* SwitchCellSpec.swift in Sources */,
 				B5DB7D2F1C4B95D3007B84D2 /* SwitchRowSpec.swift in Sources */,
 				B5DB7D311C4B9ACB007B84D2 /* TapActionRowSpec.swift in Sources */,
 			);

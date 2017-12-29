@@ -1,5 +1,5 @@
 //
-//  SwitchCellSpec.swift
+//  ConfigurableSpec.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 27/12/2017.
@@ -28,14 +28,14 @@ import Nimble
 import Quick
 @testable import QuickTableViewController
 
-internal final class SwitchCellSpec: QuickSpec {
+internal final class ConfigurableSpec: QuickSpec {
 
   private class CustomSwitchCell: SwitchCell {}
   private class CustomSwitchRow<T: SwitchCell>: SwitchRow<T> {}
 
   override func spec() {
-    describe("configuration") {
-      context("both default") {
+    describe("configure(with:)") {
+      context("default row and cell") {
         it("should set the switch to true") {
           let cell = SwitchCell()
           let row = SwitchRow(title: "", switchValue: true, action: nil)
@@ -44,7 +44,7 @@ internal final class SwitchCellSpec: QuickSpec {
           expect(cell.switchControl.isOn) == true
         }
 
-        it("should set the switch to true") {
+        it("should set the switch to false") {
           let cell = SwitchCell()
           let row = SwitchRow(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
@@ -62,7 +62,7 @@ internal final class SwitchCellSpec: QuickSpec {
           expect(cell.switchControl.isOn) == true
         }
 
-        it("should set the switch to true") {
+        it("should set the switch to false") {
           let cell = SwitchCell()
           let row = CustomSwitchRow(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
@@ -80,7 +80,7 @@ internal final class SwitchCellSpec: QuickSpec {
           expect(cell.switchControl.isOn) == true
         }
 
-        it("should set the switch to true") {
+        it("should set the switch to false") {
           let cell = CustomSwitchCell()
           let row = SwitchRow<CustomSwitchCell>(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
@@ -89,7 +89,7 @@ internal final class SwitchCellSpec: QuickSpec {
         }
       }
 
-      context("both customized") {
+      context("custom row and cell") {
         it("should set the switch to true") {
           let cell = CustomSwitchCell()
           let row = CustomSwitchRow<CustomSwitchCell>(title: "", switchValue: true, action: nil)
@@ -98,7 +98,7 @@ internal final class SwitchCellSpec: QuickSpec {
           expect(cell.switchControl.isOn) == true
         }
 
-        it("should set the switch to true") {
+        it("should set the switch to false") {
           let cell = CustomSwitchCell()
           let row = CustomSwitchRow<CustomSwitchCell>(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
