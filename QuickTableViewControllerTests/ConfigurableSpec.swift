@@ -30,9 +30,6 @@ import Quick
 
 internal final class ConfigurableSpec: QuickSpec {
 
-  private class CustomSwitchCell: SwitchCell {}
-  private class CustomSwitchRow<T: SwitchCell>: SwitchRow<T> {}
-
   override func spec() {
     describe("configure(with:)") {
       context("default row and cell") {

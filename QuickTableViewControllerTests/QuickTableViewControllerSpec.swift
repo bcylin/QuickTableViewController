@@ -1,6 +1,6 @@
 //
 //  QuickTableViewControllerSpec.swift
-//  QuickTableViewController
+//  QuickTableViewControllerTests
 //
 //  Created by Ben on 21/01/2016.
 //  Copyright © 2016 bcylin.
@@ -280,63 +280,6 @@ internal final class QuickTableViewControllerSpec: QuickSpec {
         it("should have text in the label") {
           expect(cell.textLabel?.text) == "Tap action"
         }
-      }
-    }
-
-    // MARK: - UITableViewDelegate
-
-    describe("tableView(_:shouldHighlightRowAt:") {
-      let controller = QuickTableViewController()
-      controller.tableContents = [
-        Section(title: nil, rows: [
-          NavigationRow(title: "", subtitle: .none),
-          NavigationRow(title: "", subtitle: .none, action: { _ in }),
-          SwitchRow(title: "", switchValue: true, action: nil),
-          TapActionRow(title: "", action: { _ in })
-        ])
-      ]
-
-      it("should not highlight NavigationRow without an action") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 0, section: 0))
-        expect(highlight) == false
-      }
-
-      it("should highlight NavigationRow with an action") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 1, section: 0))
-        expect(highlight) == true
-      }
-
-      it("should not highlight SwitchRow") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 2, section: 0))
-        expect(highlight) == false
-      }
-
-      it("should highlight TapActionRow") {
-        let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: 3, section: 0))
-        expect(highlight) == true
-      }
-    }
-
-    describe("tableView(_:didSelectRowAt:") {
-      let controller = QuickTableViewController()
-      var navigated = false
-      var tapped = false
-
-      controller.tableContents = [
-        Section(title: nil, rows: [
-          NavigationRow(title: "", subtitle: .none, action: { _ in navigated = true }),
-          TapActionRow(title: "", action: { _ in tapped = true })
-        ])
-      ]
-
-      it("should invoke the action when NavigationRow is selected") {
-        controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
-        expect(navigated) == true
-      }
-
-      it("should invoke the action when TapActionRow is selected") {
-        controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: 1, section: 0))
-        expect(tapped) == true
       }
     }
   }
