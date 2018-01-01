@@ -1,6 +1,6 @@
 //
 //  OptionRowSpec.swift
-//  QuickTableViewController
+//  QuickTableViewControllerTests
 //
 //  Created by Ben on 17/08/2017.
 //  Copyright © 2017 bcylin.
