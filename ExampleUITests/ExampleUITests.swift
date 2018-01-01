@@ -42,8 +42,14 @@ internal final class ExampleUITests: XCTestCase {
     tablesQuery.switches["Setting 1"].tap()
     XCTAssert(tablesQuery.staticTexts["Setting 1 = false"].exists)
 
+    tablesQuery.switches["Setting 1"].tap()
+    XCTAssert(tablesQuery.staticTexts["Setting 1 = true"].exists)
+
     tablesQuery.switches["Setting 2"].tap()
     XCTAssert(tablesQuery.staticTexts["Setting 2 = true"].exists)
+
+    tablesQuery.switches["Setting 2"].tap()
+    XCTAssert(tablesQuery.staticTexts["Setting 2 = false"].exists)
 
     tablesQuery.staticTexts["Tap action"].tap()
     addUIInterruptionMonitor(withDescription: "Action Triggered") {

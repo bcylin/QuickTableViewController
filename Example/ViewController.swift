@@ -35,9 +35,14 @@ internal final class ViewController: QuickTableViewController {
   private final class CustomTapActionCell: TapActionCell {}
   private final class CustomOptionCell: UITableViewCell {}
 
+  private final class CustomSwitchRow<T: SwitchCell>: SwitchRow<T> {}
+  private final class CustomTapActionRow<T: TapActionCell>: TapActionRow<T> {}
+  private final class CustomNavigationRow<T: UITableViewCell>: NavigationRow<T> {}
+  private final class CustomOptionRow<T: UITableViewCell>: OptionRow<T> {}
+
   // MARK: - Properties
 
-  private let debugging = Section(title: nil, rows: [])
+  private let debugging = Section(title: nil, rows: [NavigationRow(title: "", subtitle: .none)])
 
   // MARK: - UIViewController
 
@@ -53,23 +58,23 @@ internal final class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
-        SwitchRow<CustomSwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
+        SwitchRow<CustomSwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
+        CustomSwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow<CustomTapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
+        CustomTapActionRow<CustomTapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
-        NavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
-        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+        CustomNavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
+        CustomNavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
+        CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
+        CustomNavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       Section(title: nil, rows: [
-        NavigationRow<CustomCell>(title: "Empty section title", subtitle: .none, customization: { cell, row in
+        NavigationRow(title: "Empty section title", subtitle: .none, customization: { cell, row in
           cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "iconmonstr-x-mark"))
           print(row.cellReuseIdentifier)
         })
@@ -77,8 +82,8 @@ internal final class ViewController: QuickTableViewController {
 
       RadioSection(title: "Radio Buttons", options: [
         OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
-        OptionRow<CustomOptionCell>(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
+        CustomOptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
+        CustomOptionRow<CustomOptionCell>(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
       ], footer: "See RadioSection for more details."),
 
       debugging

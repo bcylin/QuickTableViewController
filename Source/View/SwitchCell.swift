@@ -77,7 +77,7 @@ open class SwitchCell: UITableViewCell, Configurable {
 
   /// Set up the switch control with the provided row.
   open func configure(with row: Row & RowStyle) {
-    if let row = row as? SwitchRow {
+    if let row = row as? Switchable {
       switchControl.isOn = row.switchValue
     }
     accessoryView = switchControl
