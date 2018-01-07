@@ -132,15 +132,15 @@ open class QuickTableViewController: UIViewController,
         IndexPath(row: $0, section: indexPath.section)
       }
       if changes.isEmpty {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
       } else {
-        tableView.reloadRows(at: changes, with: .automatic)
+        tableView.reloadData()
       }
 
     case let (_, option as OptionSelectable):
       // Allow OptionRow to be used without RadioSection.
       option.isSelected = !option.isSelected
-      tableView.reloadRows(at: [indexPath], with: .automatic)
+      tableView.reloadData()
 
     case (_, is Tappable):
       tableView.deselectRow(at: indexPath, animated: true)
