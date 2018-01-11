@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
 /// A struct that represents the image used in a row.
 public struct Icon: Equatable {

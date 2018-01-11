@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
 /// Any type that conforms to this protocol carries the info for the UI.
 public protocol RowStyle {

@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
 /// An enum that represents a subtitle text with `UITableViewCellStyle`.
 public enum Subtitle: Equatable {

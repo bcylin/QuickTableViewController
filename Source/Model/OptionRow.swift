@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
 /// A class that represents a row of selectable option.
 open class OptionRow<T: UITableViewCell>: OptionSelectable, Equatable {
