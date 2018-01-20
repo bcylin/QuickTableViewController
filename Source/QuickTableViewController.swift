@@ -128,26 +128,31 @@ open class QuickTableViewController: UIViewController,
 
     switch (section, row) {
     case let (radio as RadioSection, option as OptionSelectable):
-      let indexPaths: [IndexPath] = radio.toggle(option).map {
+      let changes: [IndexPath] = radio.toggle(option).map {
         IndexPath(row: $0, section: indexPath.section)
       }
-      if indexPaths.isEmpty {
-        tableView.deselectRow(at: indexPath, animated: false)
+      if changes.isEmpty {
+        tableView.deselectRow(at: indexPath, animated: true)
       } else {
-        tableView.reloadData()
+        tableView.reloadRows(at: changes, with: .automatic)
       }
 
     case let (_, option as OptionSelectable):
       // Allow OptionRow to be used without RadioSection.
       option.isSelected = !option.isSelected
-      tableView.reloadData()
+      tableView.reloadRows(at: [indexPath], with: .automatic)
 
     case (_, is Tappable):
       tableView.deselectRow(at: indexPath, animated: true)
-      row.action?(row)
+      DispatchQueue.main.async {
+        row.action?(row)
+      }
 
     case let (_, row) where row.isSelectable:
-      row.action?(row)
+      // Avoid some unwanted animation when the action also involves table view reload
+      DispatchQueue.main.async {
+        row.action?(row)
+      }
 
     default:
       break
