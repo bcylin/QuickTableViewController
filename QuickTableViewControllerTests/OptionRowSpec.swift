@@ -103,7 +103,7 @@ internal final class OptionRowSpec: QuickSpec {
 
         it("should invoke the action closure") {
           row.isSelected = true
-          expect(invoked) == true
+          expect(invoked).toEventually(beTrue())
         }
       }
 
@@ -113,7 +113,7 @@ internal final class OptionRowSpec: QuickSpec {
 
         it("should not invoke the action closure") {
           row.isSelected = false
-          expect(invoked) == false
+          expect(invoked).toEventually(beFalse())
         }
       }
     }
