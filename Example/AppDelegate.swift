@@ -32,6 +32,10 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+
+    // UIAppearance customization
+    UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = UIColor.magenta
+
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.backgroundColor = UIColor.white
     window?.rootViewController = UINavigationController(rootViewController: ViewController())

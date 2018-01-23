@@ -28,11 +28,14 @@ import UIKit
 import QuickTableViewController
 import Weakify
 
+// Create nib files for custom types
+internal final class CustomSwitchCell: SwitchCell {}
+internal final class CustomTapActionCell: TapActionCell {}
+
+
 internal final class ViewController: QuickTableViewController {
 
   private final class CustomCell: UITableViewCell {}
-  private final class CustomSwitchCell: SwitchCell {}
-  private final class CustomTapActionCell: TapActionCell {}
   private final class CustomOptionCell: UITableViewCell {}
 
   private final class CustomSwitchRow<T: SwitchCell>: SwitchRow<T> {}
@@ -54,16 +57,20 @@ internal final class ViewController: QuickTableViewController {
     let globe = #imageLiteral(resourceName: "iconmonstr-globe")
     let time = #imageLiteral(resourceName: "iconmonstr-time")
 
-    print(String(describing: SwitchCell.self))
+    // Register nibs to the table view
+    tableView.register(UINib(nibName: "CustomSwitchCell", bundle: .main), forCellReuseIdentifier: "CustomSwitchCell")
+    tableView.register(UINib(nibName: "CustomTapActionCell", bundle: .main), forCellReuseIdentifier: "CustomTapActionCell")
 
     tableContents = [
       Section(title: "Switch", rows: [
+        // Use SwitchRow with the custom type
         SwitchRow<CustomSwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
         CustomSwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
       ]),
 
       Section(title: "Tap Action", rows: [
-        CustomTapActionRow<CustomTapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
+        // Use TapActionRow with the custom type
+        TapActionRow<CustomTapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Navigation", rows: [
