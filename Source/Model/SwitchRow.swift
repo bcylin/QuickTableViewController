@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
 /// A class that represents a row with a switch.
 open class SwitchRow<T: SwitchCell>: Switchable, Equatable {
@@ -52,8 +52,11 @@ open class SwitchRow<T: SwitchCell>: Switchable, Equatable {
   /// The state of the switch.
   public var switchValue: Bool = false {
     didSet {
-      if switchValue != oldValue {
-        action?(self)
+      guard switchValue != oldValue else {
+        return
+      }
+      DispatchQueue.main.async {
+        self.action?(self)
       }
     }
   }

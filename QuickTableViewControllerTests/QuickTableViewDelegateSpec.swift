@@ -149,7 +149,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           for index in 0...3 {
             it("should invoke action when \(index) is selected") {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(selectedIndex) == index
+              expect(selectedIndex).toEventually(equal(index))
             }
           }
         }
@@ -171,7 +171,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           for index in 0...3 {
             it("should invoke action when \(index) is selected") {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(selectedIndex) == index
+              expect(selectedIndex).toEventually(equal(index))
             }
           }
         }
@@ -192,7 +192,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           for index in 0...3 {
             it("should invoke action when \(index) is selected") {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(toggledIndex) == index
+              expect(toggledIndex).toEventually(equal(index))
 
               let option = section.rows[index] as? OptionSelectable
               expect(option?.isSelected) == true
@@ -220,7 +220,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           for index in 0...3 {
             it("should invoke action when \(index) is selected") {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(toggledIndex) == index
+              expect(toggledIndex).toEventually(equal(index))
 
               let option = radio.rows[index] as? OptionSelectable
               expect(option?.isSelected) == true
@@ -248,7 +248,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           for index in 0...3 {
             it("should invoke action when \(index) is selected") {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(toggledIndex) == index
+              expect(toggledIndex).toEventually(equal(index))
 
               let option = controller.tableContents[0].rows[index] as? OptionSelectable
               expect(option?.isSelected) == true

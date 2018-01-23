@@ -71,6 +71,8 @@ open class QuickTableViewController: UIViewController,
     view.addSubview(tableView)
     tableView.frame = view.bounds
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 44
     tableView.dataSource = self
     tableView.delegate = self
   }
@@ -126,13 +128,13 @@ open class QuickTableViewController: UIViewController,
 
     switch (section, row) {
     case let (radio as RadioSection, option as OptionSelectable):
-      let indexPaths: [IndexPath] = radio.toggle(option).map {
+      let changes: [IndexPath] = radio.toggle(option).map {
         IndexPath(row: $0, section: indexPath.section)
       }
-      if indexPaths.isEmpty {
+      if changes.isEmpty {
         tableView.deselectRow(at: indexPath, animated: true)
       } else {
-        tableView.reloadRows(at: indexPaths, with: .automatic)
+        tableView.reloadRows(at: changes, with: .automatic)
       }
 
     case let (_, option as OptionSelectable):
@@ -142,10 +144,15 @@ open class QuickTableViewController: UIViewController,
 
     case (_, is Tappable):
       tableView.deselectRow(at: indexPath, animated: true)
-      row.action?(row)
+      DispatchQueue.main.async {
+        row.action?(row)
+      }
 
     case let (_, row) where row.isSelectable:
-      row.action?(row)
+      // Avoid some unwanted animation when the action also involves table view reload
+      DispatchQueue.main.async {
+        row.action?(row)
+      }
 
     default:
       break

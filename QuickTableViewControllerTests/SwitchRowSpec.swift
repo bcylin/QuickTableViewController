@@ -88,21 +88,21 @@ internal final class SwitchRowSpec: QuickSpec {
     describe("action invocation") {
       context("when the switch value is changed") {
         var invoked = false
-        let row = SwitchRow(title: "", switchValue: false) { _ in invoked = !invoked }
+        let row = SwitchRow(title: "", switchValue: false) { _ in invoked = true }
 
         it("should invoke the action closure") {
           row.switchValue = true
-          expect(invoked) == true
+          expect(invoked).toEventually(beTrue())
         }
       }
 
       context("when the switch value stays the same") {
         var invoked = false
-        let row = SwitchRow(title: "", switchValue: false) { _ in invoked = !invoked }
+        let row = SwitchRow(title: "", switchValue: false) { _ in invoked = true }
 
         it("should not invoke the action closure") {
           row.switchValue = false
-          expect(invoked) == false
+          expect(invoked).toEventually(beFalse())
         }
       }
     }

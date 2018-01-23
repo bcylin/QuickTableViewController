@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
 /// A class that represents a row of selectable option.
 open class OptionRow<T: UITableViewCell>: OptionSelectable, Equatable {
@@ -52,8 +52,11 @@ open class OptionRow<T: UITableViewCell>: OptionSelectable, Equatable {
   /// The state of selection.
   public var isSelected: Bool = false {
     didSet {
-      if isSelected != oldValue {
-        action?(self)
+      guard isSelected != oldValue else {
+        return
+      }
+      DispatchQueue.main.async {
+        self.action?(self)
       }
     }
   }
