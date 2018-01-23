@@ -42,19 +42,19 @@ internal final class ExampleUITests: XCTestCase {
 
     tables.switches["Setting 1"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 1 = false"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
     tables.switches["Setting 1"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 1 = true"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
     tables.switches["Setting 2"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 2 = true"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
     tables.switches["Setting 2"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 2 = false"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
     tables.staticTexts["Tap action"].tap()
     addUIInterruptionMonitor(withDescription: "Action Triggered") {
@@ -69,17 +69,17 @@ internal final class ExampleUITests: XCTestCase {
     tables.staticTexts[".value1"].tap()
     app.navigationBars.buttons.element(boundBy: 0).tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["CellStyle.value1 is selected"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
     tables.staticTexts["Option 1"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Option 1 is deselected"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
     tables.staticTexts["Option 2"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Option 2 is selected"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
     tables.staticTexts["Option 3"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Option 3 is selected"], handler: nil)
-    waitForExpectations(timeout: 1, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
   }
 
 }
