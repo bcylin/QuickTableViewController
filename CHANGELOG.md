@@ -1,6 +1,6 @@
 # Change Log
 
-## Next Release
+## v0.8.3
 
 #### Fixes
 
