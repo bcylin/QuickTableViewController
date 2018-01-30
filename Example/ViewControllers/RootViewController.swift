@@ -31,7 +31,12 @@ internal final class RootViewController: QuickTableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    let titleLabel = UILabel()
+    titleLabel.text = "QuickTableViewController"
+    titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
     title = " "
+    navigationItem.titleView = titleLabel
 
     tableContents = [
       Section(title: "Default", rows: [
@@ -43,6 +48,12 @@ internal final class RootViewController: QuickTableViewController {
       Section(title: "Customization", rows: [
         NavigationRow(title: "Use custom cell types", subtitle: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(CustomizationViewController(), animated: true)
+        })
+      ]),
+
+      Section(title: "Appearance", rows: [
+        NavigationRow(title: "UIAppearance customization", subtitle: .none, action: { [weak self] _ in
+          self?.navigationController?.pushViewController(AppearanceViewController(), animated: true)
         })
       ])
     ]
