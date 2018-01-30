@@ -1,9 +1,9 @@
 //
-//  AppDelegate.swift
+//  RootViewController.swift
 //  Example
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 30/01/2018.
+//  Copyright © 2018 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,18 +25,27 @@
 //
 
 import UIKit
+import QuickTableViewController
 
-@UIApplicationMain
-internal final class AppDelegate: UIResponder, UIApplicationDelegate {
+internal final class RootViewController: QuickTableViewController {
 
-  var window: UIWindow?
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    title = " "
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window?.backgroundColor = UIColor.white
-    window?.rootViewController = UINavigationController(rootViewController: RootViewController())
-    window?.makeKeyAndVisible()
-    return true
+    tableContents = [
+      Section(title: "Default", rows: [
+        NavigationRow(title: "Use default cell types", subtitle: .none, action: { [weak self] _ in
+          self?.navigationController?.pushViewController(DefaultViewController(), animated: true)
+        })
+      ]),
+
+      Section(title: "Customization", rows: [
+        NavigationRow(title: "Use custom cell types", subtitle: .none, action: { [weak self] _ in
+          self?.navigationController?.pushViewController(CustomizationViewController(), animated: true)
+        })
+      ])
+    ]
   }
 
 }

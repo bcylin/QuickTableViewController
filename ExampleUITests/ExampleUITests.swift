@@ -37,6 +37,8 @@ internal final class ExampleUITests: XCTestCase {
   }
 
   func testInteractions() {
+    app.tables.staticTexts["Use default cell types"].tap()
+
     let tables = XCUIApplication().tables
     let existance = NSPredicate(format: "exists == true")
 
@@ -79,6 +81,57 @@ internal final class ExampleUITests: XCTestCase {
     waitForExpectations(timeout: 5, handler: nil)
     tables.staticTexts["Option 3"].tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Option 3 is selected"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+  }
+
+  func testCustomization() {
+    app.tables.staticTexts["Use custom cell types"].tap()
+
+    let tables = XCUIApplication().tables
+    let existance = NSPredicate(format: "exists == true")
+
+    tables.switches["SwitchRow <CustomSwitchCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomSwitchCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.switches["CustomSwitchRow <SwitchCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["SwitchCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["TapActionRow <CustomTapActionCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomTapActionCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomTapActionRow <TapActionCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["TapActionCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["NavigationRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell.default"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["NavigationRow<CustomCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomCell.subtitle"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomNavigationRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell.value1"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomNavigationRow<CustomCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomCell.value2"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["OptionRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomOptionRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomOptionRow<CustomOptionCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomOptionCell"], handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
   }
 
