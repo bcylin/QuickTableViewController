@@ -31,12 +31,12 @@ class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow<SwitchCell>(title: "Setting 1", switchValue: true, action: { _ in }),
-        SwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, action: { _ in }),
+        SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
+        SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow<TapActionCell>(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+        TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
       ]),
 
       Section(title: "Navigation", rows: [
@@ -193,7 +193,23 @@ protocol RowStyle {
 }
 ```
 
-The customization using `register(_:forCellReuseIdentifier:)` is deprecated after `v0.6.0`.
+You can also use `register(_:forCellReuseIdentifier:)` to specify custom cell types for the [table view]((https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)) to use. See [CustomizationViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift) for the cell reuse identifiers of different rows.
+
+### UIAppearance
+
+As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/issues/12), UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out [AppearanceViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/AppearanceViewController.swift) for the setups.
+
+## Limitation
+
+> When to use **QuickTableViewController**?
+
+QuickTableViewController is good for presenting static table contents, where the sections and rows don't need to change dynamically after `viewDidLoad`.
+
+It's possible to update the table contents by replacing a specific section or row. Using different styles on each row requires additional configuration as described in the [Customization](#customization) section.
+
+> When **not** to use it?
+
+QuickTableViewController is not designed for inserting and deleting rows. It doesn't handle table view reload animation either. If your table view needs to update dynamically, you might want to consider other solutions such as [IGListKit](https://github.com/Instagram/IGListKit).
 
 ## Documentation
 
