@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.8.3
+
+#### Fixes
+
+* Avoid some unwanted animation when the row action also involves table view reload
+
 ## v0.8.2
 
 #### Fixes

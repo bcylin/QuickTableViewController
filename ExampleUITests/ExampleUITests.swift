@@ -37,21 +37,28 @@ internal final class ExampleUITests: XCTestCase {
   }
 
   func testInteractions() {
-    let tablesQuery = XCUIApplication().tables
+    app.tables.staticTexts["Use default cell types"].tap()
 
-    tablesQuery.switches["Setting 1"].tap()
-    XCTAssert(tablesQuery.staticTexts["Setting 1 = false"].exists)
+    let tables = XCUIApplication().tables
+    let existance = NSPredicate(format: "exists == true")
 
-    tablesQuery.switches["Setting 1"].tap()
-    XCTAssert(tablesQuery.staticTexts["Setting 1 = true"].exists)
+    tables.switches["Setting 1"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 1 = false"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
-    tablesQuery.switches["Setting 2"].tap()
-    XCTAssert(tablesQuery.staticTexts["Setting 2 = true"].exists)
+    tables.switches["Setting 1"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 1 = true"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
-    tablesQuery.switches["Setting 2"].tap()
-    XCTAssert(tablesQuery.staticTexts["Setting 2 = false"].exists)
+    tables.switches["Setting 2"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 2 = true"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
-    tablesQuery.staticTexts["Tap action"].tap()
+    tables.switches["Setting 2"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 2 = false"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["Tap action"].tap()
     addUIInterruptionMonitor(withDescription: "Action Triggered") {
       let button = $0.buttons["OK"]
       if button.exists {
@@ -61,16 +68,71 @@ internal final class ExampleUITests: XCTestCase {
       return false
     }
 
-    tablesQuery.staticTexts[".value1"].tap()
+    tables.staticTexts[".value1"].tap()
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    XCTAssert(tablesQuery.staticTexts["CellStyle.value1 is selected"].exists)
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CellStyle.value1 is selected"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
 
-    tablesQuery.staticTexts["Option 1"].tap()
-    XCTAssert(tablesQuery.staticTexts["Option 1 is deselected"].exists)
-    tablesQuery.staticTexts["Option 2"].tap()
-    XCTAssert(tablesQuery.staticTexts["Option 2 is selected"].exists)
-    tablesQuery.staticTexts["Option 3"].tap()
-    XCTAssert(tablesQuery.staticTexts["Option 3 is selected"].exists)
+    tables.staticTexts["Option 1"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["Option 1 is deselected"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+    tables.staticTexts["Option 2"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["Option 2 is selected"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+    tables.staticTexts["Option 3"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["Option 3 is selected"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+  }
+
+  func testCustomization() {
+    app.tables.staticTexts["Use custom cell types"].tap()
+
+    let tables = XCUIApplication().tables
+    let existance = NSPredicate(format: "exists == true")
+
+    tables.switches["SwitchRow <CustomSwitchCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomSwitchCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.switches["CustomSwitchRow <SwitchCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["SwitchCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["TapActionRow <CustomTapActionCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomTapActionCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomTapActionRow <TapActionCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["TapActionCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["NavigationRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell.default"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["NavigationRow<CustomCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomCell.subtitle"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomNavigationRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell.value1"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomNavigationRow<CustomCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomCell.value2"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["OptionRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomOptionRow"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["UITableViewCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
+    tables.staticTexts["CustomOptionRow<CustomOptionCell>"].tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CustomOptionCell"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
   }
 
 }

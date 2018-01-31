@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DefaultViewController.swift
 //  Example
 //
 //  Created by Ben on 01/09/2015.
@@ -28,17 +28,7 @@ import UIKit
 import QuickTableViewController
 import Weakify
 
-internal final class ViewController: QuickTableViewController {
-
-  private final class CustomCell: UITableViewCell {}
-  private final class CustomSwitchCell: SwitchCell {}
-  private final class CustomTapActionCell: TapActionCell {}
-  private final class CustomOptionCell: UITableViewCell {}
-
-  private final class CustomSwitchRow<T: SwitchCell>: SwitchRow<T> {}
-  private final class CustomTapActionRow<T: TapActionCell>: TapActionRow<T> {}
-  private final class CustomNavigationRow<T: UITableViewCell>: NavigationRow<T> {}
-  private final class CustomOptionRow<T: UITableViewCell>: OptionRow<T> {}
+internal final class DefaultViewController: QuickTableViewController {
 
   // MARK: - Properties
 
@@ -54,36 +44,27 @@ internal final class ViewController: QuickTableViewController {
     let globe = #imageLiteral(resourceName: "iconmonstr-globe")
     let time = #imageLiteral(resourceName: "iconmonstr-time")
 
-    print(String(describing: SwitchCell.self))
-
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow<CustomSwitchCell>(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
-        CustomSwitchRow<SwitchCell>(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
+        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
+        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
       ]),
 
       Section(title: "Tap Action", rows: [
-        CustomTapActionRow<CustomTapActionCell>(title: "Tap action", action: weakify(self, type(of: self).showAlert))
+        TapActionRow(title: "Tap action", action: weakify(self, type(of: self).showAlert))
       ]),
 
       Section(title: "Navigation", rows: [
-        CustomNavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
-        CustomNavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
-        CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
-        CustomNavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
+        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
-
-      Section(title: nil, rows: [
-        NavigationRow(title: "Empty section title", subtitle: .none, customization: { cell, row in
-          cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "iconmonstr-x-mark"))
-          print(row.cellReuseIdentifier)
-        })
-      ]),
 
       RadioSection(title: "Radio Buttons", options: [
         OptionRow(title: "Option 1", isSelected: true, action: weakify(self, type(of: self).didToggleSelection)),
-        CustomOptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
-        CustomOptionRow<CustomOptionCell>(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
+        OptionRow(title: "Option 2", isSelected: false, action: weakify(self, type(of: self).didToggleSelection)),
+        OptionRow(title: "Option 3", isSelected: false, action: weakify(self, type(of: self).didToggleSelection))
       ], footer: "See RadioSection for more details."),
 
       debugging
@@ -136,8 +117,9 @@ internal final class ViewController: QuickTableViewController {
 
   private func showDebuggingText(_ text: String) {
     debugging.rows = [NavigationRow(title: text, subtitle: .none)]
-    let indexSet: IndexSet? = tableContents.index(where: { $0 === debugging }).map { [$0] }
-    tableView.reloadSections(indexSet ?? [], with: .none)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+      self?.tableView.reloadData()
+    }
   }
 
 }
