@@ -162,12 +162,12 @@ QuickTableViewController  Reference
 
 <span class="n">tableContents</span> <span class="o">=</span> <span class="p">[</span>
 <span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
-<span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">SwitchCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 1"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
-<span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">SwitchCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 2"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
+<span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 1"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
+<span class="kt">SwitchRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Setting 2"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}),</span>
 <span class="p">]),</span>
 
 <span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap Action"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
-<span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">TapActionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showAlert</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">})</span>
+<span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showAlert</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">})</span>
 <span class="p">]),</span>
 
 <span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
@@ -307,7 +307,25 @@ QuickTableViewController  Reference
 <span class="p">}</span>
 </code></pre>
 
-<p>The customization using <code>register(_:forCellReuseIdentifier:)</code> is deprecated after <code>v0.6.0</code>.</p>
+<p>You can also use <code>register(_:forCellReuseIdentifier:)</code> to specify custom cell types for the <a href="(https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)">table view</a> to use. See <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift">CustomizationViewController</a> for the cell reuse identifiers of different rows.</p>
+<h3 id='uiappearance' class='heading'>UIAppearance</h3>
+
+<p>As discussed in issue <a href="https://github.com/bcylin/QuickTableViewController/issues/12">#12</a>, UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/AppearanceViewController.swift">AppearanceViewController</a> for the setups.</p>
+<h2 id='limitation' class='heading'>Limitation</h2>
+
+<blockquote>
+<p>When to use <strong>QuickTableViewController</strong>?</p>
+</blockquote>
+
+<p>QuickTableViewController is good for presenting static table contents, where the sections and rows don&rsquo;t need to change dynamically after <code>viewDidLoad</code>.</p>
+
+<p>It&rsquo;s possible to update the table contents by replacing a specific section or row. Using different styles on each row requires additional configuration as described in the <a href="#customization">Customization</a> section.</p>
+
+<blockquote>
+<p>When <strong>not</strong> to use it?</p>
+</blockquote>
+
+<p>QuickTableViewController is not designed for inserting and deleting rows. It doesn&rsquo;t handle table view reload animation either. If your table view needs to update dynamically, you might want to consider other solutions such as <a href="https://github.com/Instagram/IGListKit">IGListKit</a>.</p>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
 <ul>
@@ -412,7 +430,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-01-25)</p>
+<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-01-31)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
