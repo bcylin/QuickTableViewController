@@ -32,7 +32,7 @@ internal final class OptionRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialiation") {
-      let icon = Icon(imageName: "icon")
+      let icon = Icon.named("icon")
 
       var invoked = false
       let row = OptionRow(title: "title", isSelected: true, icon: icon) { _ in invoked = true }
@@ -82,7 +82,7 @@ internal final class OptionRowSpec: QuickSpec {
       }
 
       context("different icons") {
-        let e = OptionRow(title: "Same", isSelected: true, icon: Icon(image: UIImage()), action: nil)
+        let e = OptionRow(title: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
         it("should not be equal") {
           expect(a) != e
         }

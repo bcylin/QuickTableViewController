@@ -157,15 +157,15 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
 
           controller.tableContents = [
             Section(title: "NavigationRow", rows: [
-              CustomNavigationRow<CustomCell>(title: "CellStyle.default", subtitle: .none, icon: Icon(imageName: "icon")),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: image)),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: image, highlightedImage: highlightedImage)),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .leftAligned(".value2"), icon: Icon(image: image))
+              CustomNavigationRow<CustomCell>(title: "CellStyle.default", subtitle: .none, icon: .named("icon")),
+              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .image(image)),
+              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .images(normal: image, highlighted: highlightedImage)),
+              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .leftAligned(".value2"), icon: .image(image))
             ]),
             Section(title: "SwitchRow", rows: [
-              CustomSwitchRow<CustomSwitchCell>(title: "imageName", switchValue: true, icon: Icon(imageName: "icon"), action: nil),
-              CustomSwitchRow<CustomSwitchCell>(title: "image", switchValue: true, icon: Icon(image: image), action: nil),
-              CustomSwitchRow<CustomSwitchCell>(title: "image + highlightedImage", switchValue: true, icon: Icon(image: image, highlightedImage: highlightedImage), action: nil)
+              CustomSwitchRow<CustomSwitchCell>(title: "imageName", switchValue: true, icon: .named("icon"), action: nil),
+              CustomSwitchRow<CustomSwitchCell>(title: "image", switchValue: true, icon: .image(image), action: nil),
+              CustomSwitchRow<CustomSwitchCell>(title: "image + highlightedImage", switchValue: true, icon: .images(normal: image, highlighted: highlightedImage), action: nil)
             ])
           ]
 

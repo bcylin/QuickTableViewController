@@ -36,57 +36,49 @@ internal final class IconSpec: QuickSpec {
       let image = UIImage()
 
       context("image") {
-        let icon = Icon(image: image)
+        let icon = Icon.image(image)
         it("should initialize with the image") {
           expect(icon.image) == image
           expect(icon.highlightedImage).to(beNil())
-          expect(icon.imageName).to(beNil())
         }
       }
 
       context("image name") {
-        let icon = Icon(imageName: "name")
+        let icon = Icon.named("name")
         it("should initialize with the image name") {
           expect(icon.image).to(beNil())
           expect(icon.highlightedImage).to(beNil())
-          expect(icon.imageName) == "name"
         }
       }
     }
 
     describe("equatable") {
       let image = UIImage()
-      let a = Icon(image: image)
+      let a = Icon.image(image)
 
       context("identical images") {
-        let b = Icon(image: image)
+        let b = Icon.image(image)
         it("should be equal") {
           expect(a) == b
         }
       }
 
       context("different images") {
-        let c = Icon(image: UIImage())
+        let c = Icon.image(UIImage())
         it("should not be equal") {
           expect(a) != c
         }
       }
 
-      context("nil highlighted images") {
-        let d = Icon(image: image, highlightedImage: nil)
-        it("should be equal") {
-          expect(a) == d
-        }
-      }
-
       context("different highlighted images") {
-        let e = Icon(image: image, highlightedImage: UIImage())
+        let d = Icon.images(normal: image, highlighted: UIImage())
+        let e = Icon.images(normal: image, highlighted: UIImage())
         it("should not be equal") {
-          expect(a) != e
+          expect(d) != e
         }
       }
 
-      let f = Icon(imageName: "Same")
+      let f = Icon.named("Same")
 
       context("different image specification") {
         it("should not be queal") {
@@ -95,14 +87,14 @@ internal final class IconSpec: QuickSpec {
       }
 
       context("identical image names") {
-        let g = Icon(imageName: "Same")
+        let g = Icon.named("Same")
         it("should be eqaul") {
           expect(f) == g
         }
       }
 
       context("different image names") {
-        let h = Icon(imageName: "Different")
+        let h = Icon.named("Different")
         it("should not be equal") {
           expect(f) != h
         }

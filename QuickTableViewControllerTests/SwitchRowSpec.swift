@@ -71,7 +71,7 @@ internal final class SwitchRowSpec: QuickSpec {
       }
 
       context("different icons") {
-        let e = SwitchRow(title: "Same", switchValue: true, icon: Icon(image: UIImage()), action: nil)
+        let e = SwitchRow(title: "Same", switchValue: true, icon: .image(UIImage()), action: nil)
         it("should not be equal") {
           expect(a) != e
         }

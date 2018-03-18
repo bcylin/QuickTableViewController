@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.9.0
+
+#### Breaking
+
+* Change the `Icon` type from struct to enum
+
 ## v0.8.4
 
 #### Fixes
