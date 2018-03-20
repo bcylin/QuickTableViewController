@@ -8,6 +8,7 @@ namespace :ci do
       %(-scheme #{params[:scheme]}),
       %(-sdk iphonesimulator),
       %(-destination "name=iPhone 7,OS=latest"),
+      %(-enableCodeCoverage YES),
       %(#{params[:action]} | xcpretty -c && exit ${PIPESTATUS[0]})
     ].join " "
   end

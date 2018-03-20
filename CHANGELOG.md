@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.8.4
+
+#### Fixes
+
+* Use `TapActionCell`'s `tintColor` as its label `textColor`, [#13](https://github.com/bcylin/QuickTableViewController/pull/13) by [@sanekgusev](https://github.com/sanekgusev)
+
 ## v0.8.3
 
 #### Fixes
