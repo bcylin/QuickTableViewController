@@ -5,9 +5,3 @@ coverage:
     - ExampleUITests/*
     - QuickTableViewControllerTests/*
     - Pods/*
-  status:
-    project:
-      default:
-        enabled: yes
-        target: 80%
-        threshold: 3%

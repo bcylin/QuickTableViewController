@@ -21,7 +21,7 @@ script:
   - make -B carthage
   - make -B docs
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -cF ios
+  # - bash <(curl -s https://codecov.io/bash) -cF ios
   - sh scripts/update-docs.sh
 notifications:
   email: false
