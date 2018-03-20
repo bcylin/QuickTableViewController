@@ -51,8 +51,8 @@ internal final class RootViewController: QuickTableViewController {
         })
       ]),
 
-      Section(title: "Appearance", rows: [
-        NavigationRow(title: "UIAppearance customization", subtitle: .none, action: { [weak self] _ in
+      Section(title: "UIAppearance", rows: [
+        NavigationRow(title: "UILabel customization", subtitle: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(AppearanceViewController(), animated: true)
         })
       ])
