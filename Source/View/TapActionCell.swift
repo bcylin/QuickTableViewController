@@ -29,11 +29,6 @@ import UIKit
 /// A `UITableViewCell` subclass with the title text center aligned.
 open class TapActionCell: UITableViewCell {
 
-  private static var systemTintColor: UIColor = {
-    let _button = UIButton()
-    return _button.tintColor ?? UIColor.blue
-  }()
-
   // MARK: - Initializer
 
   /**
@@ -61,12 +56,19 @@ open class TapActionCell: UITableViewCell {
     setUpAppearance()
   }
 
+  // MARK: UIView
+
+  open override func tintColorDidChange() {
+    super.tintColorDidChange()
+    textLabel?.textColor = tintColor
+  }
+
   // MARK: Private Methods
 
   private func setUpAppearance() {
     textLabel?.numberOfLines = 0
     textLabel?.textAlignment = .center
-    textLabel?.textColor = type(of: self).systemTintColor
+    textLabel?.textColor = tintColor
   }
 
 }
