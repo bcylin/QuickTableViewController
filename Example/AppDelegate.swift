@@ -35,7 +35,6 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // See AppearanceViewController for the setups.
     UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .blue
-    UISwitch.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).onTintColor = .blue
 
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.backgroundColor = UIColor.white
