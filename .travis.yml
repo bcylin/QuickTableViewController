@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.2
 matrix:
   include:
     - env: VERSION=latest
@@ -17,11 +17,11 @@ before_script:
   - if [ -n "$DANGER_GITHUB_API_TOKEN" ]; then bundle exec danger; fi
 script:
   - bundle exec rake ci:test[QuickTableViewController-iOS]
+  - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
   - bundle exec rake ci:test[Example]
   - make -B carthage
   - make -B docs
 after_success:
-  # - bash <(curl -s https://codecov.io/bash) -cF ios
   - sh scripts/update-docs.sh
 notifications:
   email: false
