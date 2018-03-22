@@ -168,7 +168,7 @@ let action: (Row) -> Void = {
   switch $0 {
   case let option as OptionRow<CustomOptionCell>:
     // only matches the option rows with a specific cell type
-  case let option as OptionSelectable:
+  case let option as OptionRowCompatible:
     // matches all option rows
   default:
     break

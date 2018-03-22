@@ -97,7 +97,7 @@ internal final class CustomizationViewController: QuickTableViewController {
   // MARK: - Private
 
   private func log(_ sender: Row) {
-    if let option = sender as? OptionSelectable, !option.isSelected {
+    if let option = sender as? OptionRowCompatible, !option.isSelected {
       return
     }
 

@@ -1,5 +1,5 @@
 //
-//  Tappable.swift
+//  OptionRowCompatible.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 10/12/2017.
@@ -26,5 +26,10 @@
 
 import Foundation
 
-/// An empty type that indicates it's compatible with `TapActionCell`.
-public protocol Tappable: Row, RowStyle {}
+/// This protocol defines the compatible interface of an `OptionRow` regardless of its associated cell type.
+public protocol OptionRowCompatible: class, Row, RowStyle {
+
+  /// The state of selection.
+  var isSelected: Bool { get set }
+
+}

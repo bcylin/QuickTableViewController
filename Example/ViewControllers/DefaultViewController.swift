@@ -82,7 +82,7 @@ internal final class DefaultViewController: QuickTableViewController {
   // MARK: - Private Methods
 
   private func didToggleSelection(_ sender: Row) {
-    guard let option = sender as? OptionSelectable else {
+    guard let option = sender as? OptionRowCompatible else {
       return
     }
     let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
@@ -91,7 +91,7 @@ internal final class DefaultViewController: QuickTableViewController {
   }
 
   private func didToggleSwitch(_ sender: Row) {
-    if let row = sender as? Switchable {
+    if let row = sender as? SwitchRowCompatible {
       let state = "\(row.title) = \(row.switchValue)"
       print(state)
       showDebuggingText(state)

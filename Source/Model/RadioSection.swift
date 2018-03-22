@@ -32,7 +32,7 @@ open class RadioSection: Section {
   // MARK: - Initializer
 
   /// Initializes a section with a title, containing rows and an optional footer.
-  public init(title: String?, options: [OptionSelectable], footer: String? = nil) {
+  public init(title: String?, options: [OptionRowCompatible], footer: String? = nil) {
     self.options = options
     super.init(title: title, rows: [], footer: footer)
   }
@@ -49,7 +49,7 @@ open class RadioSection: Section {
       return options
     }
     set {
-      options = rows as? [OptionSelectable] ?? options
+      options = rows as? [OptionRowCompatible] ?? options
     }
   }
 
@@ -65,7 +65,7 @@ open class RadioSection: Section {
   }
 
   /// The array of options in the section. It's identical to the `rows`.
-  open private(set) var options: [OptionSelectable]
+  open private(set) var options: [OptionRowCompatible]
 
   /// Returns the selected index, or nil when nothing is selected.
   open var indexOfSelectedOption: Int? {
@@ -73,7 +73,7 @@ open class RadioSection: Section {
   }
 
   /// Returns the selected option row, or nil when nothing is selected.
-  open var selectedOption: OptionSelectable? {
+  open var selectedOption: OptionRowCompatible? {
     if let index = indexOfSelectedOption {
       return options[index]
     } else {
@@ -86,7 +86,7 @@ open class RadioSection: Section {
   ///
   /// - Parameter option: The option to flip the `isSelected` state.
   /// - Returns: The indexes of changed options.
-  open func toggle(_ option: OptionSelectable) -> IndexSet {
+  open func toggle(_ option: OptionRowCompatible) -> IndexSet {
     if option.isSelected && alwaysSelectsOneOption {
       return []
     }

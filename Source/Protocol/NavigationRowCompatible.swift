@@ -1,9 +1,9 @@
 //
-//  OptionSelectable.swift
+//  NavigationRowCompatible.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 10/12/2017.
-//  Copyright © 2017 bcylin.
+//  Created by Ben on 22/03/2018.
+//  Copyright © 2018 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,5 @@
 
 import Foundation
 
-/// Any type that conforms to this protocol is compatible with `RadioSection`.
-public protocol OptionSelectable: class, Row, RowStyle {
-
-  /// The state of selection.
-  var isSelected: Bool { get set }
-
-}
+/// This protocol defines the compatible interface of a `NavigationRow` regardless of its associated cell type.
+public protocol NavigationRowCompatible: class, Row, RowStyle {}

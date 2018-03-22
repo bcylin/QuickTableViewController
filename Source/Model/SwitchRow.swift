@@ -27,7 +27,7 @@
 import UIKit
 
 /// A class that represents a row with a switch.
-open class SwitchRow<T: SwitchCell>: Switchable, Equatable {
+open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
 
   // MARK: - Initializer
 
@@ -47,7 +47,7 @@ open class SwitchRow<T: SwitchCell>: Switchable, Equatable {
     self.action = action
   }
 
-  // MARK: - Switchable
+  // MARK: - SwitchRowCompatible
 
   /// The state of the switch.
   public var switchValue: Bool = false {

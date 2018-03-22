@@ -27,7 +27,7 @@
 import UIKit
 
 /// A class that represents a row that triggers certain action when selected.
-open class TapActionRow<T: TapActionCell>: Tappable, Equatable {
+open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
 
   // MARK: - Initializer
 

@@ -194,7 +194,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
               expect(toggledIndex).toEventually(equal(index))
 
-              let option = section.rows[index] as? OptionSelectable
+              let option = section.rows[index] as? OptionRowCompatible
               expect(option?.isSelected) == true
             }
           }
@@ -222,7 +222,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
               expect(toggledIndex).toEventually(equal(index))
 
-              let option = radio.rows[index] as? OptionSelectable
+              let option = radio.rows[index] as? OptionRowCompatible
               expect(option?.isSelected) == true
 
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
@@ -250,7 +250,7 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
               expect(toggledIndex).toEventually(equal(index))
 
-              let option = controller.tableContents[0].rows[index] as? OptionSelectable
+              let option = controller.tableContents[0].rows[index] as? OptionRowCompatible
               expect(option?.isSelected) == true
 
               controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
