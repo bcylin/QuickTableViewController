@@ -238,6 +238,56 @@
 			name = Protocol;
 			sourceTree = "<group>";
 		};
+		B51A0E2D20692AFD00F42693 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5824E8A1FF3B639009666C8 /* ConfigurableSpec.swift */,
+				B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B51A0E2E20692B1100F42693 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
+				B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */,
+				B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */,
+				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B51A0E3020692B4100F42693 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */,
+				B52677741FF80E9100DC1362 /* QuickTableViewDataSourceSpec.swift */,
+				B52677721FF7F08D00DC1362 /* QuickTableViewDelegateSpec.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B51A0E3220692D7B00F42693 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */,
+				B5E619D31F45708F005200E1 /* OptionRowSpec.swift */,
+				B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */,
+				B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		B51A0E3320692E7100F42693 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B578B5081C5673240021F7C3 /* icon-highlighted.png */,
+				B578B5071C5673240021F7C3 /* icon.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		B51F21A31F417037009BC2C9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,25 +365,15 @@
 		B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B5DB7D331C4BA0E8007B84D2 /* ModelSpecs */,
-				B5DB7D321C4B9FE6007B84D2 /* RowSpecs */,
-				B5334F231B8CC5BD00C64A6D /* Supporting Files */,
+				B51A0E3320692E7100F42693 /* Assets */,
+				B51A0E2E20692B1100F42693 /* Model */,
+				B51A0E3220692D7B00F42693 /* Row */,
+				B51A0E2D20692AFD00F42693 /* View */,
+				B51A0E3020692B4100F42693 /* ViewController */,
 				B526776F1FF7EA5A00DC1362 /* CustomTypes.swift */,
-				B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */,
-				B52677741FF80E9100DC1362 /* QuickTableViewDataSourceSpec.swift */,
-				B52677721FF7F08D00DC1362 /* QuickTableViewDelegateSpec.swift */,
-			);
-			path = QuickTableViewControllerTests;
-			sourceTree = "<group>";
-		};
-		B5334F231B8CC5BD00C64A6D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B578B5081C5673240021F7C3 /* icon-highlighted.png */,
-				B578B5071C5673240021F7C3 /* icon.png */,
 				B5334F241B8CC5BD00C64A6D /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = QuickTableViewControllerTests;
 			sourceTree = "<group>";
 		};
 		B55475721F2DC29B0027F7C1 /* Model */ = {
@@ -385,30 +425,6 @@
 				25C329622749AE5FEB731F1A /* Pods_QuickTableViewControllerTests_iOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B5DB7D321C4B9FE6007B84D2 /* RowSpecs */ = {
-			isa = PBXGroup;
-			children = (
-				B5824E8A1FF3B639009666C8 /* ConfigurableSpec.swift */,
-				B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */,
-				B5E619D31F45708F005200E1 /* OptionRowSpec.swift */,
-				B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */,
-				B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */,
-			);
-			name = RowSpecs;
-			sourceTree = "<group>";
-		};
-		B5DB7D331C4BA0E8007B84D2 /* ModelSpecs */ = {
-			isa = PBXGroup;
-			children = (
-				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
-				B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */,
-				B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */,
-				B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */,
-				B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */,
-			);
-			name = ModelSpecs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
