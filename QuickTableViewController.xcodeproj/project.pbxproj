@@ -119,8 +119,8 @@
 		B52677721FF7F08D00DC1362 /* QuickTableViewDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTableViewDelegateSpec.swift; sourceTree = "<group>"; };
 		B52677741FF80E9100DC1362 /* QuickTableViewDataSourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTableViewDataSourceSpec.swift; sourceTree = "<group>"; };
 		B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickTableViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5334F171B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = QuickTableViewController/Info.plist; sourceTree = SOURCE_ROOT; };
-		B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuickTableViewController.h; path = QuickTableViewController/QuickTableViewController.h; sourceTree = SOURCE_ROOT; };
+		B5334F171B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "QuickTableViewController-iOS/Info.plist"; sourceTree = SOURCE_ROOT; };
+		B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuickTableViewController.h; path = "QuickTableViewController-iOS/QuickTableViewController.h"; sourceTree = SOURCE_ROOT; };
 		B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTableViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5334F241B8CC5BD00C64A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickTableViewController.swift; path = Source/QuickTableViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -318,8 +318,8 @@
 				B5DB7D241C4A4BEC007B84D2 /* Frameworks */,
 				942C1FAD68407A74DB056C2B /* Pods */,
 				B5334F141B8CC5BD00C64A6D /* Products */,
-				B5334F151B8CC5BD00C64A6D /* QuickTableViewController */,
-				B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */,
+				B5334F151B8CC5BD00C64A6D /* QuickTableViewController-iOS */,
+				B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests-iOS */,
 				B5DD432C20639F7800AB661D /* CHANGELOG.md */,
 				B5DD432D20639F7800AB661D /* README.md */,
 			);
@@ -340,29 +340,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B5334F151B8CC5BD00C64A6D /* QuickTableViewController */ = {
+		B5334F151B8CC5BD00C64A6D /* QuickTableViewController-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				B55475721F2DC29B0027F7C1 /* Model */,
 				B50E73811F2E1B2C00481910 /* Protocol */,
 				B50E73801F2E193400481910 /* Row */,
-				B5334F161B8CC5BD00C64A6D /* Supporting Files */,
 				B55475731F2DC2BC0027F7C1 /* View */,
-				B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */,
-			);
-			path = QuickTableViewController;
-			sourceTree = "<group>";
-		};
-		B5334F161B8CC5BD00C64A6D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 				B5334F171B8CC5BD00C64A6D /* Info.plist */,
 				B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */,
+				B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */,
 			);
-			name = "Supporting Files";
+			path = "QuickTableViewController-iOS";
 			sourceTree = "<group>";
 		};
-		B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests */ = {
+		B5334F221B8CC5BD00C64A6D /* QuickTableViewControllerTests-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				B51A0E3320692E7100F42693 /* Assets */,
@@ -373,7 +365,7 @@
 				B526776F1FF7EA5A00DC1362 /* CustomTypes.swift */,
 				B5334F241B8CC5BD00C64A6D /* Info.plist */,
 			);
-			path = QuickTableViewControllerTests;
+			path = "QuickTableViewControllerTests-iOS";
 			sourceTree = "<group>";
 		};
 		B55475721F2DC29B0027F7C1 /* Model */ = {
@@ -1072,7 +1064,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = QuickTableViewController/Info.plist;
+				INFOPLIST_FILE = "QuickTableViewController-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController;
@@ -1094,7 +1086,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = QuickTableViewController/Info.plist;
+				INFOPLIST_FILE = "QuickTableViewController-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController;
@@ -1119,9 +1111,9 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = QuickTableViewControllerTests/Info.plist;
+				INFOPLIST_FILE = "QuickTableViewControllerTests-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.neuvie.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.bcylin.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = QuickTableViewControllerTests;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1136,9 +1128,9 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = QuickTableViewControllerTests/Info.plist;
+				INFOPLIST_FILE = "QuickTableViewControllerTests-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.neuvie.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.bcylin.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = QuickTableViewControllerTests;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
