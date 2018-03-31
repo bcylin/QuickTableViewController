@@ -53,7 +53,11 @@ internal extension String {
 
   internal func matches(of pattern: String) -> [String] {
     let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
-    let fullText = NSRange(location: 0, length: count)
+    #if swift(>=4)
+      let fullText = NSRange(location: 0, length: count)
+    #else
+      let fullText = NSRange(location: 0, length: characters.count)
+    #endif
 
     guard let matches = regex?.matches(in: self, options: [], range: fullText) else {
       return []
@@ -61,7 +65,11 @@ internal extension String {
 
     return matches.reduce([]) { accumulator, match in
       accumulator + (0..<match.numberOfRanges).map {
-        (self as NSString).substring(with: match.range(at: $0))
+        #if swift(>=4)
+          return (self as NSString).substring(with: match.range(at: $0))
+        #else
+          return (self as NSString).substring(with: match.rangeAt($0))
+        #endif
       }
     }
   }
