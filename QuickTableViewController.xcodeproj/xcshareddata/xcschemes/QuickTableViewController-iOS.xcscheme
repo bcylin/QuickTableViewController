@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5334F1D1B8CC5BD00C64A6D"
                BuildableName = "QuickTableViewControllerTests.xctest"
-               BlueprintName = "QuickTableViewControllerTests-iOS"
+               BlueprintName = "QuickTableViewController-iOSTests"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,7 +50,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5334F1D1B8CC5BD00C64A6D"
                BuildableName = "QuickTableViewControllerTests.xctest"
-               BlueprintName = "QuickTableViewControllerTests-iOS"
+               BlueprintName = "QuickTableViewController-iOSTests"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </TestableReference>

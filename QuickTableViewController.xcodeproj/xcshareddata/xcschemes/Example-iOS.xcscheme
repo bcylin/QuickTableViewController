@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B51F21A11F417037009BC2C9"
-               BuildableName = "Example.app"
-               BlueprintName = "Example"
+               BuildableName = "Example-iOS.app"
+               BlueprintName = "Example-iOS"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B51F21BF1F41E600009BC2C9"
-               BuildableName = "ExampleUITests.xctest"
-               BlueprintName = "ExampleUITests"
+               BuildableName = "Example-iOSUITests.xctest"
+               BlueprintName = "Example-iOSUITests"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,8 +44,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B51F21A11F417037009BC2C9"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
+            BuildableName = "Example-iOS.app"
+            BlueprintName = "Example-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -68,8 +68,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B51F21A11F417037009BC2C9"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
+            BuildableName = "Example-iOS.app"
+            BlueprintName = "Example-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -87,8 +87,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B51F21A11F417037009BC2C9"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
+            BuildableName = "Example-iOS.app"
+            BlueprintName = "Example-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
