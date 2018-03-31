@@ -16,9 +16,10 @@ install:
 before_script:
   - if [ -n "$DANGER_GITHUB_API_TOKEN" ]; then bundle exec danger; fi
 script:
-  - bundle exec rake ci:test[QuickTableViewController-iOS]
+  - bundle exec rake "ci:build[QuickTableViewController-iOS, 3.0]"
+  - bundle exec rake "ci:test[QuickTableViewController-iOS]"
   - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
-  - bundle exec rake ci:test[Example-iOS]
+  - bundle exec rake "ci:test[Example-iOS]"
   - make -B carthage
   - make -B docs
 after_success:

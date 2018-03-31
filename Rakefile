@@ -8,29 +8,30 @@ namespace :ci do
       %(-scheme #{params[:scheme]}),
       %(-sdk iphonesimulator),
       %(-destination "name=iPhone 7,OS=latest"),
+      params[:swift_version] ? %(SWIFT_VERSION=#{params[:swift_version]}) : nil,
       %(#{params[:action]} | xcpretty -c && exit ${PIPESTATUS[0]})
-    ].join " "
+    ].reject(&:nil?).join " "
   end
 
-  desc "Build a target of specified scheme"
-  task :build, [:scheme] do |t, args|
+  desc "Build a target with a specified scheme and Swift version"
+  task :build, [:scheme, :swift_version] do |t, args|
     unless args[:scheme]
-      puts "usage: rake ci:build[scheme]"
+      puts "Usage: rake 'ci:build[scheme, swift_version]'"
       next
     end
 
-    sh xcodebuild(scheme: args[:scheme], action: "clean build")
+    sh xcodebuild(args.to_hash.merge(action: "clean build"))
     exit $?.exitstatus if not $?.success?
   end
 
-  desc "Run tests with a specified scheme"
-  task :test, [:scheme] do |t, args|
+  desc "Run tests with a specified scheme and Swift version"
+  task :test, [:scheme, :swift_version] do |t, args|
     unless args[:scheme]
-      puts "Usage: rake ci:test[scheme]"
+      puts "Usage: rake 'ci:test[scheme, swift_version]'"
       next
     end
 
-    sh xcodebuild(scheme: args[:scheme], action: "-enableCodeCoverage YES clean test")
+    sh xcodebuild(args.to_hash.merge(action: "-enableCodeCoverage YES clean test"))
     exit $?.exitstatus if not $?.success?
   end
 end
