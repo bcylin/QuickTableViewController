@@ -5,7 +5,7 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
 ![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
 [![codecov](https://codecov.io/gh/bcylin/QuickTableViewController/branch/master/graph/badge.svg)](https://codecov.io/gh/bcylin/QuickTableViewController)
-![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
+![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
 
 A simple way to create a table view for settings, including:
 
@@ -139,9 +139,10 @@ OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
 
 All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Addtional interface to work with specific types of rows are represented as different protocols:
 
-* `Switchable`
-* `Tappable`
-* `OptionSelectable`
+* `NavigationRowCompatible`
+* `OptionRowCompatible`
+* `SwitchRowCompatible`
+* `TapActionRowCompatible`
 
 ### Cell Classes
 
@@ -229,6 +230,7 @@ QuickTableViewController | iOS  | Xcode | Swift
 `~> 0.6.0`               | 8.0+ | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
 `~> 0.7.0`               | 8.0+ | 9.0   | ![Swift 3.2](https://img.shields.io/badge/Swift-3.2-orange.svg)
 `~> 0.8.0`               | 8.0+ | 9.1   | ![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
+`~> 0.9.0`               | 8.0+ | 9.3   | ![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
 
 ## Installation
 
