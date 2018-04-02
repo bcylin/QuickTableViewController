@@ -18,7 +18,7 @@ before_script:
 script:
   - bundle exec rake ci:test[QuickTableViewController-iOS]
   - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
-  - bundle exec rake ci:test[Example]
+  - bundle exec rake ci:test[Example-iOS]
   - make -B carthage
   - make -B docs
 after_success:

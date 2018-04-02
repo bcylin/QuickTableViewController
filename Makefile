@@ -2,7 +2,7 @@ default: test
 
 test:
 	bundle exec rake 'ci:test[QuickTableViewController-iOS]'
-	bundle exec rake 'ci:test[Example]'
+	bundle exec rake 'ci:test[Example-iOS]'
 
 ci-test: test
 	make -B carthage
