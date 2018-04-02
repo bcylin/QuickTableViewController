@@ -137,7 +137,7 @@ OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
 
 ### Rows
 
-All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Addtional interface to work with specific types of rows are represented as different protocols:
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Addtional interface to work with specific types of rows are represented as different [protocols](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift):
 
 * `NavigationRowCompatible`
 * `OptionRowCompatible`

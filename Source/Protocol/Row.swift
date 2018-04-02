@@ -28,12 +28,16 @@ import Foundation
 
 /// Any type that conforms to this protocol is capable of representing a row in a table view.
 public protocol Row {
+
   /// The title text of the row.
   var title: String { get }
+
   /// The subtitle text of the row.
   var subtitle: Subtitle? { get }
+
   /// A closure related to the action of the row.
   var action: ((Row) -> Void)? { get }
+
 }
 
 
