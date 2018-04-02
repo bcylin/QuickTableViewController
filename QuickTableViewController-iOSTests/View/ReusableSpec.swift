@@ -34,28 +34,26 @@ internal final class ReusableSpec: QuickSpec {
 
   override func spec() {
     describe("matches of pattern") {
+      let pattern = String.typeDescriptionPattern
+
       context("invalid pattern") {
         it("should return an empty array") {
           let matches = String(describing: type(of: self)).matches(of: "\\")
           expect(matches).to(beEmpty())
         }
       }
-    }
 
-    describe("type string") {
-      let pattern = String.typeDescriptionPattern
-
-      context("custom type") {
+      context("type with special format") {
         it("should match the pattern") {
-          let type = String(describing: CustomCell.self)
+          let type = "(CustomCell in _B5334F301B8CC6AA00C64A6D)"
           let matches = type.matches(of: pattern)
           expect(matches).to(haveCount(2))
         }
       }
 
-      context("type in the module") {
+      context("type with name only") {
         it("should not match the pattern") {
-          let type = String(describing: SwitchCell.self)
+          let type = "CustomCell"
           let matches = type.matches(of: pattern)
           expect(matches).to(beEmpty())
         }
