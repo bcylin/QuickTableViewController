@@ -127,7 +127,7 @@ open class QuickTableViewController: UIViewController,
     let row = section.rows[indexPath.row]
 
     switch (section, row) {
-    case let (radio as RadioSection, option as OptionSelectable):
+    case let (radio as RadioSection, option as OptionRowCompatible):
       let changes: [IndexPath] = radio.toggle(option).map {
         IndexPath(row: $0, section: indexPath.section)
       }
@@ -137,12 +137,12 @@ open class QuickTableViewController: UIViewController,
         tableView.reloadData()
       }
 
-    case let (_, option as OptionSelectable):
+    case let (_, option as OptionRowCompatible):
       // Allow OptionRow to be used without RadioSection.
       option.isSelected = !option.isSelected
       tableView.reloadData()
 
-    case (_, is Tappable):
+    case (_, is TapActionRowCompatible):
       tableView.deselectRow(at: indexPath, animated: true)
       DispatchQueue.main.async {
         row.action?(row)
@@ -164,7 +164,7 @@ open class QuickTableViewController: UIViewController,
   open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard
       let indexPath = tableView.indexPath(for: cell),
-      let row = tableContents[indexPath.section].rows[indexPath.row] as? Switchable
+      let row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRowCompatible
     else {
       return
     }

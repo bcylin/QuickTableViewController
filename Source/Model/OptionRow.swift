@@ -27,7 +27,7 @@
 import UIKit
 
 /// A class that represents a row of selectable option.
-open class OptionRow<T: UITableViewCell>: OptionSelectable, Equatable {
+open class OptionRow<T: UITableViewCell>: OptionRowCompatible, Equatable {
 
   // MARK: - Initializer
 
@@ -47,7 +47,7 @@ open class OptionRow<T: UITableViewCell>: OptionSelectable, Equatable {
     self.action = action
   }
 
-  // MARK: - OptionSelectable
+  // MARK: - OptionRowCompatible
 
   /// The state of selection.
   public var isSelected: Bool = false {

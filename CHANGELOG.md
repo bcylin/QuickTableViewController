@@ -1,5 +1,12 @@
 # Change Log
 
+## v0.9.0
+
+#### Breaking
+
+* Change the `Icon` type from struct to enum
+* Rename the protocols that define specific rows regardless of their associated cell types
+
 ## v0.8.4
 
 #### Fixes

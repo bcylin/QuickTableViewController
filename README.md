@@ -40,9 +40,9 @@ class ViewController: QuickTableViewController {
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: UIImage(named: "globe"), highlightedImage: UIImage(named: "globe-highlighted"))),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: UIImage(named: "gear"))),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(imageName: "time"), action: { [weak self] in self?.showDetail($0) }),
+        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { [weak self] in self?.showDetail($0) }),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
 
@@ -81,11 +81,12 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 #### Images
 
 * Images in table view cells can be set by specifying the `icon` of each row.
-* The `Icon` struct carries info about images for both normal and highlighted states.
+* The `Icon` carries info about images for both normal and highlighted states.
 * Table view cells in `UITableViewCellStyle.value2` will not show the image view.
 
 ```swift
-NavigationRow(title: "Cell with image", subtitle: .none, icon: Icon(imageName: "icon"))
+let icon = Icon.images(normal: UIImage(named: "icon"), highlighted: UIImage(named: "icon-highlighted"))
+NavigationRow(title: "Cell with image", subtitle: .none, icon: icon)
 ```
 
 #### Disclosure Indicator
@@ -167,7 +168,7 @@ let action: (Row) -> Void = {
   switch $0 {
   case let option as OptionRow<CustomOptionCell>:
     // only matches the option rows with a specific cell type
-  case let option as OptionSelectable:
+  case let option as OptionRowCompatible:
     // matches all option rows
   default:
     break

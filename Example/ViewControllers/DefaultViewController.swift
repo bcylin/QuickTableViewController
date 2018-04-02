@@ -46,8 +46,8 @@ internal final class DefaultViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, icon: Icon(image: globe), action: weakify(self, type(of: self).didToggleSwitch)),
-        SwitchRow(title: "Setting 2", switchValue: false, icon: Icon(image: time), action: weakify(self, type(of: self).didToggleSwitch))
+        SwitchRow(title: "Setting 1", switchValue: true, icon: .image(globe), action: weakify(self, type(of: self).didToggleSwitch)),
+        SwitchRow(title: "Setting 2", switchValue: false, icon: .image(time), action: weakify(self, type(of: self).didToggleSwitch))
       ]),
 
       Section(title: "Tap Action", rows: [
@@ -55,9 +55,9 @@ internal final class DefaultViewController: QuickTableViewController {
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: Icon(image: gear)),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: Icon(image: globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: Icon(image: time), action: weakify(self, type(of: self).showDetail)),
+        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .image(gear)),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .image(globe)),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .image(time), action: weakify(self, type(of: self).showDetail)),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
@@ -82,7 +82,7 @@ internal final class DefaultViewController: QuickTableViewController {
   // MARK: - Private Methods
 
   private func didToggleSelection(_ sender: Row) {
-    guard let option = sender as? OptionSelectable else {
+    guard let option = sender as? OptionRowCompatible else {
       return
     }
     let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
@@ -91,7 +91,7 @@ internal final class DefaultViewController: QuickTableViewController {
   }
 
   private func didToggleSwitch(_ sender: Row) {
-    if let row = sender as? Switchable {
+    if let row = sender as? SwitchRowCompatible {
       let state = "\(row.title) = \(row.switchValue)"
       print(state)
       showDebuggingText(state)

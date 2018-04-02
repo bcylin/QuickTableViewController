@@ -1,5 +1,5 @@
 //
-//  Switchable.swift
+//  TapActionRowCompatible.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 10/12/2017.
@@ -26,10 +26,5 @@
 
 import Foundation
 
-/// Any type that conforms to this protocol is compatible `SwitchCell`.
-public protocol Switchable: class, Row, RowStyle {
-
-  /// The state of the switch.
-  var switchValue: Bool { get set }
-
-}
+/// This protocol defines the compatible interface of a `TapActionRow` regardless of its associated cell type.
+public protocol TapActionRowCompatible: Row, RowStyle {}
