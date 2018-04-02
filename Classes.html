@@ -22,7 +22,7 @@
 <a class="header-link" href="index.html">
 QuickTableViewController Docs
 </a>
-(90% documented)
+(92% documented)
 </p>
 
 <p class="header-col--secondary">
@@ -85,6 +85,9 @@ Classes  Reference
 <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Enums/Icon.html">Icon</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Enums/Subtitle.html">Subtitle</a>
 </li>
 </ul>
@@ -96,7 +99,10 @@ Classes  Reference
 <a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols/OptionSelectable.html">OptionSelectable</a>
+<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Row.html">Row</a>
@@ -108,18 +114,10 @@ Classes  Reference
 <a class="nav-group-task-link" href="Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols/Switchable.html">Switchable</a>
+<a class="nav-group-task-link" href="Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="Structs.html">Structures</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="Structs/Icon.html">Icon</a>
+<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
 </li>
 </ul>
 </li>
@@ -195,7 +193,7 @@ Classes  Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/OptionSelectable.html">OptionSelectable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/OptionRowCompatible.html">OptionRowCompatible</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
@@ -373,7 +371,7 @@ Classes  Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/SwitchCell.html">SwitchCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/Switchable.html">Switchable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/SwitchCell.html">SwitchCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
@@ -443,7 +441,7 @@ Classes  Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/TapActionCell.html">TapActionCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="Classes/TapActionCell.html">TapActionCell</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
 </div>
 </div>
@@ -461,7 +459,7 @@ Classes  Reference
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-03-21)</p>
+<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-02)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>

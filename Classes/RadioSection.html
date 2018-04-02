@@ -23,7 +23,7 @@
 <a class="header-link" href="../index.html">
 QuickTableViewController Docs
 </a>
-(90% documented)
+(92% documented)
 </p>
 
 <p class="header-col--secondary">
@@ -86,6 +86,9 @@ RadioSection Class Reference
 <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
 </li>
 </ul>
@@ -97,7 +100,10 @@ RadioSection Class Reference
 <a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/OptionSelectable.html">OptionSelectable</a>
+<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
@@ -109,18 +115,10 @@ RadioSection Class Reference
 <a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Switchable.html">Switchable</a>
+<a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Structs.html">Structures</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Structs/Icon.html">Icon</a>
+<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
 </li>
 </ul>
 </li>
@@ -156,9 +154,9 @@ RadioSection Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController12RadioSectionCACSSSg5title_SayAA16OptionSelectable_pG7optionsAD6footertcfc"></a>
+<a name="/s:24QuickTableViewController12RadioSectionCACSSSg5title_SayAA19OptionRowCompatible_pG7optionsAD6footertcfc"></a>
 <a name="//apple_ref/swift/Method/init(title:options:footer:)" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController12RadioSectionCACSSSg5title_SayAA16OptionSelectable_pG7optionsAD6footertcfc">init(title:options:footer:)</a>
+<a class="token" href="#/s:24QuickTableViewController12RadioSectionCACSSSg5title_SayAA19OptionRowCompatible_pG7optionsAD6footertcfc">init(title:options:footer:)</a>
 </code>
 </div>
 <div class="height-container">
@@ -173,7 +171,7 @@ RadioSection Class Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/OptionSelectable.html">OptionSelectable</a></span><span class="p">],</span> <span class="nv">footer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a></span><span class="p">],</span> <span class="nv">footer</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
 </div>
 </div>
@@ -268,9 +266,9 @@ RadioSection Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController12RadioSectionC7optionsSayAA16OptionSelectable_pGv"></a>
+<a name="/s:24QuickTableViewController12RadioSectionC7optionsSayAA19OptionRowCompatible_pGv"></a>
 <a name="//apple_ref/swift/Property/options" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController12RadioSectionC7optionsSayAA16OptionSelectable_pGv">options</a>
+<a class="token" href="#/s:24QuickTableViewController12RadioSectionC7optionsSayAA19OptionRowCompatible_pGv">options</a>
 </code>
 </div>
 <div class="height-container">
@@ -285,7 +283,7 @@ RadioSection Class Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/OptionSelectable.html">OptionSelectable</a></span><span class="p">]</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a></span><span class="p">]</span></code></pre>
 
 </div>
 </div>
@@ -328,9 +326,9 @@ RadioSection Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController12RadioSectionC14selectedOptionAA0H10Selectable_pSgv"></a>
+<a name="/s:24QuickTableViewController12RadioSectionC14selectedOptionAA0H13RowCompatible_pSgv"></a>
 <a name="//apple_ref/swift/Property/selectedOption" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController12RadioSectionC14selectedOptionAA0H10Selectable_pSgv">selectedOption</a>
+<a class="token" href="#/s:24QuickTableViewController12RadioSectionC14selectedOptionAA0H13RowCompatible_pSgv">selectedOption</a>
 </code>
 </div>
 <div class="height-container">
@@ -345,7 +343,7 @@ RadioSection Class Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">selectedOption</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OptionSelectable.html">OptionSelectable</a></span><span class="p">?</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">selectedOption</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a></span><span class="p">?</span></code></pre>
 
 </div>
 </div>
@@ -358,9 +356,9 @@ RadioSection Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController12RadioSectionC6toggle10Foundation8IndexSetVAA16OptionSelectable_pF"></a>
+<a name="/s:24QuickTableViewController12RadioSectionC6toggle10Foundation8IndexSetVAA19OptionRowCompatible_pF"></a>
 <a name="//apple_ref/swift/Method/toggle(_:)" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController12RadioSectionC6toggle10Foundation8IndexSetVAA16OptionSelectable_pF">toggle(_:)</a>
+<a class="token" href="#/s:24QuickTableViewController12RadioSectionC6toggle10Foundation8IndexSetVAA19OptionRowCompatible_pF">toggle(_:)</a>
 </code>
 </div>
 <div class="height-container">
@@ -376,7 +374,7 @@ If <code>alwaysSelectOneOption</code> is set to true, it will not deselect the c
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">toggle</span><span class="p">(</span><span class="n">_</span> <span class="nv">option</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OptionSelectable.html">OptionSelectable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">IndexSet</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">toggle</span><span class="p">(</span><span class="n">_</span> <span class="nv">option</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">IndexSet</span></code></pre>
 
 </div>
 </div>
@@ -417,7 +415,7 @@ If <code>alwaysSelectOneOption</code> is set to true, it will not deselect the c
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-03-21)</p>
+<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-02)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>

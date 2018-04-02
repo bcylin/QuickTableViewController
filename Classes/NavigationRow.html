@@ -23,7 +23,7 @@
 <a class="header-link" href="../index.html">
 QuickTableViewController Docs
 </a>
-(90% documented)
+(92% documented)
 </p>
 
 <p class="header-col--secondary">
@@ -86,6 +86,9 @@ NavigationRow Class Reference
 <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
 </li>
 </ul>
@@ -97,7 +100,10 @@ NavigationRow Class Reference
 <a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/OptionSelectable.html">OptionSelectable</a>
+<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
@@ -109,18 +115,10 @@ NavigationRow Class Reference
 <a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Switchable.html">Switchable</a>
+<a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Structs.html">Structures</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Structs/Icon.html">Icon</a>
+<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
 </li>
 </ul>
 </li>
@@ -156,9 +154,9 @@ NavigationRow Class Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController13NavigationRowCACyxGSS5title_AA8SubtitleO8subtitleAA4IconVSg4iconySo07UITableC4CellC_AA0F0_AA0F5StyleptcSg13customizationyAaO_pcSg6actiontcfc"></a>
+<a name="/s:24QuickTableViewController13NavigationRowCACyxGSS5title_AA8SubtitleO8subtitleAA4IconOSg4iconySo07UITableC4CellC_AA0F0_AA0F5StyleptcSg13customizationyAaO_pcSg6actiontcfc"></a>
 <a name="//apple_ref/swift/Method/init(title:subtitle:icon:customization:action:)" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController13NavigationRowCACyxGSS5title_AA8SubtitleO8subtitleAA4IconVSg4iconySo07UITableC4CellC_AA0F0_AA0F5StyleptcSg13customizationyAaO_pcSg6actiontcfc">init(title:subtitle:icon:customization:action:)</a>
+<a class="token" href="#/s:24QuickTableViewController13NavigationRowCACyxGSS5title_AA8SubtitleO8subtitleAA4IconOSg4iconySo07UITableC4CellC_AA0F0_AA0F5StyleptcSg13customizationyAaO_pcSg6actiontcfc">init(title:subtitle:icon:customization:action:)</a>
 </code>
 </div>
 <div class="height-container">
@@ -177,7 +175,7 @@ The icon, customization and action closures are optional.</p>
 <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
 <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
 <span class="nv">subtitle</span><span class="p">:</span> <span class="kt"><a href="../Enums/Subtitle.html">Subtitle</a></span><span class="p">,</span>
-<span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/Icon.html">Icon</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+<span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Enums/Icon.html">Icon</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
 <span class="nv">customization</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
 <span class="nv">action</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
 <span class="p">)</span></code></pre>
@@ -395,9 +393,9 @@ The icon, customization and action closures are optional.</p>
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController13NavigationRowC4iconAA4IconVSgv"></a>
+<a name="/s:24QuickTableViewController13NavigationRowC4iconAA4IconOSgv"></a>
 <a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController13NavigationRowC4iconAA4IconVSgv">icon</a>
+<a class="token" href="#/s:24QuickTableViewController13NavigationRowC4iconAA4IconOSgv">icon</a>
 </code>
 </div>
 <div class="height-container">
@@ -412,7 +410,7 @@ The icon, customization and action closures are optional.</p>
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Enums/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
 
 </div>
 </div>
@@ -561,7 +559,7 @@ The icon, customization and action closures are optional.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-03-21)</p>
+<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-02)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>

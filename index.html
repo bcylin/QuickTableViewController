@@ -22,7 +22,7 @@
 <a class="header-link" href="index.html">
 QuickTableViewController Docs
 </a>
-(90% documented)
+(92% documented)
 </p>
 
 <p class="header-col--secondary">
@@ -85,6 +85,9 @@ QuickTableViewController  Reference
 <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
 <ul class="nav-group-tasks">
 <li class="nav-group-task">
+<a class="nav-group-task-link" href="Enums/Icon.html">Icon</a>
+</li>
+<li class="nav-group-task">
 <a class="nav-group-task-link" href="Enums/Subtitle.html">Subtitle</a>
 </li>
 </ul>
@@ -96,7 +99,10 @@ QuickTableViewController  Reference
 <a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols/OptionSelectable.html">OptionSelectable</a>
+<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+</li>
+<li class="nav-group-task">
+<a class="nav-group-task-link" href="Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
 </li>
 <li class="nav-group-task">
 <a class="nav-group-task-link" href="Protocols/Row.html">Row</a>
@@ -108,18 +114,10 @@ QuickTableViewController  Reference
 <a class="nav-group-task-link" href="Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols/Switchable.html">Switchable</a>
+<a class="nav-group-task-link" href="Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
 </li>
 <li class="nav-group-task">
-<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="Structs.html">Structures</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="Structs/Icon.html">Icon</a>
+<a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
 </li>
 </ul>
 </li>
@@ -171,9 +169,9 @@ QuickTableViewController  Reference
 <span class="p">]),</span>
 
 <span class="kt">Section</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation"</span><span class="p">,</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle.default"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"globe"</span><span class="p">),</span> <span class="nv">highlightedImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"globe-highlighted"</span><span class="p">))),</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">belowTitle</span><span class="p">(</span><span class="s">".subtitle"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"gear"</span><span class="p">))),</span>
-<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">rightAligned</span><span class="p">(</span><span class="s">".value1"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"time"</span><span class="p">),</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showDetail</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}),</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle.default"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="o">.</span><span class="nf">named</span><span class="p">(</span><span class="s">"gear"</span><span class="p">)),</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">belowTitle</span><span class="p">(</span><span class="s">".subtitle"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="o">.</span><span class="nf">named</span><span class="p">(</span><span class="s">"globe"</span><span class="p">)),</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">rightAligned</span><span class="p">(</span><span class="s">".value1"</span><span class="p">),</span> <span class="nv">icon</span><span class="p">:</span> <span class="o">.</span><span class="nf">named</span><span class="p">(</span><span class="s">"time"</span><span class="p">),</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="nf">showDetail</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}),</span>
 <span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"CellStyle"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="nf">leftAligned</span><span class="p">(</span><span class="s">".value2"</span><span class="p">))</span>
 <span class="p">]),</span>
 
@@ -208,10 +206,11 @@ QuickTableViewController  Reference
 
 <ul>
 <li>Images in table view cells can be set by specifying the <code>icon</code> of each row.</li>
-<li>The <code><a href="Structs/Icon.html">Icon</a></code> struct carries info about images for both normal and highlighted states.</li>
+<li>The <code><a href="Enums/Icon.html">Icon</a></code> carries info about images for both normal and highlighted states.</li>
 <li>Table view cells in <code>UITableViewCellStyle.value2</code> will not show the image view.</li>
 </ul>
-<pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell with image"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt">Icon</span><span class="p">(</span><span class="nv">imageName</span><span class="p">:</span> <span class="s">"icon"</span><span class="p">))</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">icon</span> <span class="o">=</span> <span class="kt">Icon</span><span class="o">.</span><span class="nf">images</span><span class="p">(</span><span class="nv">normal</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"icon"</span><span class="p">),</span> <span class="nv">highlighted</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"icon-highlighted"</span><span class="p">))</span>
+<span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Cell with image"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">icon</span><span class="p">:</span> <span class="n">icon</span><span class="p">)</span>
 </code></pre>
 <h4 id='disclosure-indicator' class='heading'>Disclosure Indicator</h4>
 
@@ -235,7 +234,7 @@ QuickTableViewController  Reference
 <ul>
 <li>A <code><a href="Classes/TapActionRow.html">TapActionRow</a></code> is representing a button-like table view cell.</li>
 <li>The <code>action</code> will be invoked when the related table view cell is selected.</li>
-<li><code><a href="Structs/Icon.html">Icon</a></code> is disabled in <code><a href="Classes/TapActionRow.html">TapActionRow</a></code>.</li>
+<li><code><a href="Enums/Icon.html">Icon</a></code> is disabled in <code><a href="Classes/TapActionRow.html">TapActionRow</a></code>.</li>
 </ul>
 <pre class="highlight swift"><code><span class="kt">TapActionRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap action"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
@@ -261,9 +260,9 @@ QuickTableViewController  Reference
 <p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code><a href="Protocols/Row.html">Row</a></code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code><a href="Protocols/RowStyle.html">RowStyle</a></code></a>. Addtional interface to work with specific types of rows are represented as different protocols:</p>
 
 <ul>
-<li><code><a href="Protocols/Switchable.html">Switchable</a></code></li>
-<li><code><a href="Protocols.html#/s:24QuickTableViewController8TappableP">Tappable</a></code></li>
-<li><code><a href="Protocols/OptionSelectable.html">OptionSelectable</a></code></li>
+<li><code>Switchable</code></li>
+<li><code>Tappable</code></li>
+<li><code>OptionSelectable</code></li>
 </ul>
 <h3 id='cell-classes' class='heading'>Cell Classes</h3>
 
@@ -286,7 +285,7 @@ QuickTableViewController  Reference
 <span class="k">switch</span> <span class="nv">$0</span> <span class="p">{</span>
 <span class="k">case</span> <span class="k">let</span> <span class="nv">option</span> <span class="k">as</span> <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">CustomOptionCell</span><span class="o">&gt;</span><span class="p">:</span>
 <span class="c1">// only matches the option rows with a specific cell type</span>
-<span class="k">case</span> <span class="k">let</span> <span class="nv">option</span> <span class="k">as</span> <span class="kt">OptionSelectable</span><span class="p">:</span>
+<span class="k">case</span> <span class="k">let</span> <span class="nv">option</span> <span class="k">as</span> <span class="kt">OptionRowCompatible</span><span class="p">:</span>
 <span class="c1">// matches all option rows</span>
 <span class="k">default</span><span class="p">:</span>
 <span class="k">break</span>
@@ -430,7 +429,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-03-21)</p>
+<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-02)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Configurable Protocol Reference</title>
+<title>SwitchRowCompatible Protocol Reference</title>
 <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
 <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
 <meta charset="utf-8">
@@ -14,9 +14,9 @@
 </head>
 <body>
 
-<a name="//apple_ref/swift/Protocol/Configurable" class="dashAnchor"></a>
+<a name="//apple_ref/swift/Protocol/SwitchRowCompatible" class="dashAnchor"></a>
 
-<a title="Configurable Protocol Reference"></a>
+<a title="SwitchRowCompatible Protocol Reference"></a>
 
 <header class="header">
 <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@ View on GitHub
 <p class="breadcrumbs">
 <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
 <img class="carat" src="../img/carat.png" />
-Configurable Protocol Reference
+SwitchRowCompatible Protocol Reference
 </p>
 
 <div class="content-wrapper">
@@ -128,14 +128,14 @@ Configurable Protocol Reference
 
 <section class="section">
 <div class="section-content">
-<h1>Configurable</h1>
+<h1>SwitchRowCompatible</h1>
 <div class="declaration">
 <div class="language">
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Configurable</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchRowCompatible</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
 </div>
 </div>
-<p>Any type that conforms to this protocol is able to take <code>Row &amp; RowStyle</code> as the configuration.</p>
+<p>This protocol defines the compatible interface of a <code><a href="../Classes/SwitchRow.html">SwitchRow</a></code> regardless of its associated cell type.</p>
 
 </div>
 </section>
@@ -147,9 +147,9 @@ Configurable Protocol Reference
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController12ConfigurableP9configureyAA3Row_AA0G5Stylep4with_tF"></a>
-<a name="//apple_ref/swift/Method/configure(with:)" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController12ConfigurableP9configureyAA3Row_AA0G5Stylep4with_tF">configure(with:)</a>
+<a name="/s:24QuickTableViewController19SwitchRowCompatibleP11switchValueSbv"></a>
+<a name="//apple_ref/swift/Property/switchValue" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController19SwitchRowCompatibleP11switchValueSbv">switchValue</a>
 </code>
 </div>
 <div class="height-container">
@@ -157,19 +157,19 @@ Configurable Protocol Reference
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>Configure the receiver with an instance that conforms to <code>Row &amp; RowStyle</code>.</p>
+<p>The state of the switch.</p>
 
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="n">with</span> <span class="nv">row</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">)</span></code></pre>
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Configurable.swift#L32">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/SwitchRowCompatible.swift#L33">Show on GitHub</a>
 </div>
 </section>
 </div>
