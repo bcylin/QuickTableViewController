@@ -43,17 +43,8 @@ extension UITableViewCell {
     accessoryView = nil
     accessoryType = row.accessoryType
 
-    if let icon = row.icon {
-      if let image = icon.image {
-        imageView?.image = image
-      }
-      if let image = icon.highlightedImage {
-        imageView?.highlightedImage = image
-      }
-    } else {
-      imageView?.image = nil
-      imageView?.highlightedImage = nil
-    }
+    imageView?.image = row.icon?.image
+    imageView?.highlightedImage = row.icon?.highlightedImage
   }
 
 }
