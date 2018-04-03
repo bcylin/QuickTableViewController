@@ -38,10 +38,13 @@ internal final class TapActionRowSpec: QuickSpec {
       it("should initialize with given parameters") {
         expect(row.title) == "title"
         expect(row.cellReuseIdentifier) == "TapActionCell"
-        expect(row.action).notTo(beNil())
 
         row.action?(row)
         expect(invoked) == true
+      }
+
+      it("should conform to the protocol") {
+        expect(row).to(beAKindOf(TapActionRowCompatible.self))
       }
     }
 

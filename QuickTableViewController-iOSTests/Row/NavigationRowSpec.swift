@@ -43,10 +43,13 @@ internal final class NavigationRowSpec: QuickSpec {
         expect(row.subtitle) == subtitle
         expect(row.icon) == icon
         expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
-        expect(row.action).notTo(beNil())
 
         row.action?(row)
         expect(invoked) == true
+      }
+
+      it("should conform to the protocol") {
+        expect(row).to(beAKindOf(NavigationRowCompatible.self))
       }
     }
 

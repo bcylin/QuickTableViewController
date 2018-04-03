@@ -27,7 +27,7 @@
 import Foundation
 
 /// This protocol defines the compatible interface of a `NavigationRow` regardless of its associated cell type.
-public protocol NavigationRowCompatible: class, Row, RowStyle {}
+public protocol NavigationRowCompatible: Row, RowStyle {}
 
 
 /// This protocol defines the compatible interface of a `TapActionRow` regardless of its associated cell type.

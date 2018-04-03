@@ -42,7 +42,9 @@ internal final class OptionRowSpec: QuickSpec {
         expect(row.title) == "title"
         expect(row.subtitle).to(beNil())
         expect(row.isSelected) == true
-        expect(row.action).notTo(beNil())
+
+        row.action?(row)
+        expect(invoked) == true
 
         // RowStyle
         expect(row.cellReuseIdentifier) == "UITableViewCell"
@@ -51,9 +53,10 @@ internal final class OptionRowSpec: QuickSpec {
         expect(row.accessoryType) == UITableViewCellAccessoryType.checkmark
         expect(row.isSelectable) == true
         expect(row.customize).to(beNil())
+      }
 
-        row.action?(row)
-        expect(invoked) == true
+      it("should conform to the protocol") {
+        expect(row).to(beAKindOf(OptionRowCompatible.self))
       }
     }
 
@@ -103,6 +106,7 @@ internal final class OptionRowSpec: QuickSpec {
 
         it("should invoke the action closure") {
           row.isSelected = true
+          expect(row.accessoryType) == UITableViewCellAccessoryType.checkmark
           expect(invoked).toEventually(beTrue())
         }
       }
@@ -113,6 +117,7 @@ internal final class OptionRowSpec: QuickSpec {
 
         it("should not invoke the action closure") {
           row.isSelected = false
+          expect(row.accessoryType) == UITableViewCellAccessoryType.none
           expect(invoked).toEventually(beFalse())
         }
       }
