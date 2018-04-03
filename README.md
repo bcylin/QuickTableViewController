@@ -13,7 +13,7 @@ A simple way to create a table view for settings, including:
 * Table view cells with center aligned text for tap actions
 * A section that provides mutually exclusive options
 * Actions performed when the row reacts to the user interaction
-* Customizable table view cell image, cell style and cell accessory type
+* Customizable table view cell image, cell style and accessory type
 
 <img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png" width="80%"></img>
 
@@ -95,7 +95,7 @@ NavigationRow(title: "Cell with image", subtitle: .none, icon: icon)
 * The `action` will be invoked when the related table view cell is selected.
 
 ```swift
-NavigationRow(title: "Navigation cell", subtitle: .None, action: { (sender: Row) in })
+NavigationRow(title: "Navigation cell", subtitle: .none, action: { (sender: Row) in })
 ```
 
 ### SwitchRow
@@ -129,15 +129,14 @@ TapActionRow(title: "Tap action", action: { (sender: Row) in })
 OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
 ```
 
-* `OptionRow` can be used with or without `RadioSection`, which guarantees that there's only one option is selected.
-* `RadioSection` allows all options unselected by default. Setting `alwaysSelectsOneOption` to true will preserve one selected option.
-* `selectedOption` is available as the result of selection in `RadioSection`.
+* `OptionRow` can be used with or without `RadioSection`, which allows only one selection.
+* `RadioSection` allows all options unselected by default. Set `alwaysSelectsOneOption` to true to keep one option selected.
 
 ## Customization
 
 ### Rows
 
-All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Addtional interface to work with specific types of rows are represented as different [protocols](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift):
+All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift) and [`RowStyle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift). Additional interface to work with specific types of rows are represented as different [protocols](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift):
 
 * `NavigationRowCompatible`
 * `OptionRowCompatible`
@@ -149,16 +148,16 @@ All rows must conform to [`Row`](https://github.com/bcylin/QuickTableViewControl
 A customized table view cell type can be specified to rows during initialization.
 
 ```swift
-// NavigationRow, using UITableViewCell if not specified.
+// Default is UITableViewCell.
 NavigationRow<CustomCell>(title: "Navigation", subtitle: .none)
 
-// SwitchRow, using SwitchCell if not specified.
+// Default is SwitchCell.
 SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in })
 
-// TapActionRow, using TapActionCell if not specified.
+// Default is TapActionCell.
 TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
 
-// OptionRow, using UITableViewCell if not specified.
+// Default is UITableViewCell.
 OptionRow<CustomOptionCell>(title: "Option", isSelected: true, action: { _ in })
 ```
 
@@ -179,7 +178,9 @@ let action: (Row) -> Void = {
 
 ### Overwrite Default Configuration
 
-Table view cell classes that conform to `Configurable` can implement additional configuration to set up the cell during `tableView(_:cellForRowAt:)`:
+You can use `register(_:forCellReuseIdentifier:)` to specify custom cell types for the [table view]((https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)) to use. See [CustomizationViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift) for the cell reuse identifiers of different rows.
+
+Table view cell classes that conform to `Configurable` can take the customization during `tableView(_:cellForRowAt:)`:
 
 ```swift
 protocol Configurable {
@@ -187,7 +188,7 @@ protocol Configurable {
 }
 ```
 
-Other setups can also be added to each row using the `customize` closure:
+Additional setups can also be added to each row using the `customize` closure:
 
 ```swift
 protocol RowStyle {
@@ -195,7 +196,7 @@ protocol RowStyle {
 }
 ```
 
-You can also use `register(_:forCellReuseIdentifier:)` to specify custom cell types for the [table view]((https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)) to use. See [CustomizationViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift) for the cell reuse identifiers of different rows.
+The `customize` closure overwrites the `Configurable` changes.
 
 ### UIAppearance
 
@@ -262,10 +263,6 @@ git submodule add -b master git@github.com:bcylin/QuickTableViewController.git D
 
 * Drag **QuickTableViewController.xcodeproj** to your app project as a subproject.
 * On your application target's **Build Phases** settings tab, add **QuickTableViewController-iOS** to **Target Dependencies**.
-
-## Contact
-
-[![Twitter](https://img.shields.io/badge/twitter-@bcylin-blue.svg?style=flat)](https://twitter.com/bcylin)
 
 ## License
 
