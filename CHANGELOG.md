@@ -4,8 +4,22 @@
 
 #### Breaking
 
-* Change the `Icon` type from struct to enum
-* Rename the protocols that define specific rows regardless of their associated cell types
+* Change the `Icon` type (since [v0.2.0](#v020)) from struct to enum:
+
+  ```swift
+  enum Icon {
+    case named(String)
+    case image(UIImage)
+    case images(normal: UIImage, highlighted: UIImage)
+  }
+  ```
+
+* Rename the protocols (introduced in [v0.8.1](#v081)) that define specific rows regardless of their associated cell types:
+
+  * `NavigationRowCompatible`
+  * `OptionSelectable` → `OptionRowCompatible`
+  * `Switchable` → `SwitchRowCompatible`
+  * `Tappable` → `TapActionRowCompatible`
 
 ## v0.8.4
 

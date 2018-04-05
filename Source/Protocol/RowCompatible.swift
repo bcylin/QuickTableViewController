@@ -1,9 +1,9 @@
 //
-//  NavigationRowCompatible.swift
+//  RowCompatible.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 22/03/2018.
-//  Copyright © 2018 bcylin.
+//  Created by Ben on 10/12/2017.
+//  Copyright © 2017 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,4 +27,22 @@
 import Foundation
 
 /// This protocol defines the compatible interface of a `NavigationRow` regardless of its associated cell type.
-public protocol NavigationRowCompatible: class, Row, RowStyle {}
+public protocol NavigationRowCompatible: Row, RowStyle {}
+
+
+/// This protocol defines the compatible interface of a `TapActionRow` regardless of its associated cell type.
+public protocol TapActionRowCompatible: Row, RowStyle {}
+
+
+/// This protocol defines the compatible interface of an `OptionRow` regardless of its associated cell type.
+public protocol OptionRowCompatible: class, Row, RowStyle {
+  /// The state of selection.
+  var isSelected: Bool { get set }
+}
+
+
+/// This protocol defines the compatible interface of a `SwitchRow` regardless of its associated cell type.
+public protocol SwitchRowCompatible: class, Row, RowStyle {
+  /// The state of the switch.
+  var switchValue: Bool { get set }
+}
