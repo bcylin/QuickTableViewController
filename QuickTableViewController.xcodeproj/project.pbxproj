@@ -446,7 +446,6 @@
 				B51F219F1F417037009BC2C9 /* Frameworks */,
 				B51F21A01F417037009BC2C9 /* Resources */,
 				C57ED08E45623928E1F82168 /* [CP] Embed Pods Frameworks */,
-				D080B9179C49F538425D9877 /* [CP] Copy Pods Resources */,
 				B51F21CE1F41F32D009BC2C9 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -505,7 +504,6 @@
 				B5334F1B1B8CC5BD00C64A6D /* Frameworks */,
 				B5334F1C1B8CC5BD00C64A6D /* Resources */,
 				7BD682369F694709705F5C93 /* [CP] Embed Pods Frameworks */,
-				6AE0A3E3587C9FF47D0E5997 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -609,21 +607,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6AE0A3E3587C9FF47D0E5997 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7BD682369F694709705F5C93 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -706,21 +689,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D080B9179C49F538425D9877 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D6A5837800B2AEA91500816C /* [CP] Check Pods Manifest.lock */ = {
