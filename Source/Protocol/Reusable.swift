@@ -53,7 +53,7 @@ internal extension String {
 
   internal func matches(of pattern: String) -> [String] {
     let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
-    #if swift(>=4)
+    #if swift(>=3.2)
       let fullText = NSRange(location: 0, length: count)
     #else
       let fullText = NSRange(location: 0, length: characters.count)
