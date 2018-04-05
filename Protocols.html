@@ -175,6 +175,41 @@ Protocols  Reference
 <li class="item">
 <div>
 <code>
+<a name="/s:24QuickTableViewController3RowP"></a>
+<a name="//apple_ref/swift/Protocol/Row" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController3RowP">Row</a>
+</code>
+</div>
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>Any type that conforms to this protocol is capable of representing a row in a table view.</p>
+
+<a href="Protocols/Row.html" class="slightly-smaller">See more</a>
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Row</span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift#L30-L41">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
+</ul>
+</div>
+<div class="task-group">
+<ul class="item-container">
+<li class="item">
+<div>
+<code>
 <a name="/s:24QuickTableViewController23NavigationRowCompatibleP"></a>
 <a name="//apple_ref/swift/Protocol/NavigationRowCompatible" class="dashAnchor"></a>
 <a class="token" href="#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
@@ -192,20 +227,46 @@ Protocols  Reference
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NavigationRowCompatible</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NavigationRowCompatible</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/NavigationRowCompatible.swift#L30">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L30">Show on GitHub</a>
 </div>
 </section>
 </div>
 </li>
-</ul>
+<li class="item">
+<div>
+<code>
+<a name="/s:24QuickTableViewController22TapActionRowCompatibleP"></a>
+<a name="//apple_ref/swift/Protocol/TapActionRowCompatible" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
+</code>
 </div>
-<div class="task-group">
-<ul class="item-container">
+<div class="height-container">
+<div class="pointer-container"></div>
+<section class="section">
+<div class="pointer"></div>
+<div class="abstract">
+<p>This protocol defines the compatible interface of a <code><a href="Classes/TapActionRow.html">TapActionRow</a></code> regardless of its associated cell type.</p>
+
+</div>
+<div class="declaration">
+<h4>Declaration</h4>
+<div class="language">
+<p class="aside-title">Swift</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TapActionRowCompatible</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+
+</div>
+</div>
+<div class="slightly-smaller">
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L34">Show on GitHub</a>
+</div>
+</section>
+</div>
+</li>
 <li class="item">
 <div>
 <code>
@@ -232,21 +293,17 @@ Protocols  Reference
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/OptionRowCompatible.swift#L30-L35">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L38-L41">Show on GitHub</a>
 </div>
 </section>
 </div>
 </li>
-</ul>
-</div>
-<div class="task-group">
-<ul class="item-container">
 <li class="item">
 <div>
 <code>
-<a name="/s:24QuickTableViewController3RowP"></a>
-<a name="//apple_ref/swift/Protocol/Row" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController3RowP">Row</a>
+<a name="/s:24QuickTableViewController19SwitchRowCompatibleP"></a>
+<a name="//apple_ref/swift/Protocol/SwitchRowCompatible" class="dashAnchor"></a>
+<a class="token" href="#/s:24QuickTableViewController19SwitchRowCompatibleP">SwitchRowCompatible</a>
 </code>
 </div>
 <div class="height-container">
@@ -254,20 +311,20 @@ Protocols  Reference
 <section class="section">
 <div class="pointer"></div>
 <div class="abstract">
-<p>Any type that conforms to this protocol is capable of representing a row in a table view.</p>
+<p>This protocol defines the compatible interface of a <code><a href="Classes/SwitchRow.html">SwitchRow</a></code> regardless of its associated cell type.</p>
 
-<a href="Protocols/Row.html" class="slightly-smaller">See more</a>
+<a href="Protocols/SwitchRowCompatible.html" class="slightly-smaller">See more</a>
 </div>
 <div class="declaration">
 <h4>Declaration</h4>
 <div class="language">
 <p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Row</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchRowCompatible</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
 </div>
 </div>
 <div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift#L30-L37">Show on GitHub</a>
+<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L45-L48">Show on GitHub</a>
 </div>
 </section>
 </div>
@@ -344,82 +401,13 @@ Protocols  Reference
 </li>
 </ul>
 </div>
-<div class="task-group">
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController19SwitchRowCompatibleP"></a>
-<a name="//apple_ref/swift/Protocol/SwitchRowCompatible" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController19SwitchRowCompatibleP">SwitchRowCompatible</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>This protocol defines the compatible interface of a <code><a href="Classes/SwitchRow.html">SwitchRow</a></code> regardless of its associated cell type.</p>
-
-<a href="Protocols/SwitchRowCompatible.html" class="slightly-smaller">See more</a>
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchRowCompatible</span><span class="p">:</span> <span class="kd">class</span><span class="p">,</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/SwitchRowCompatible.swift#L30-L35">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-<div class="task-group">
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController22TapActionRowCompatibleP"></a>
-<a name="//apple_ref/swift/Protocol/TapActionRowCompatible" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>This protocol defines the compatible interface of a <code><a href="Classes/TapActionRow.html">TapActionRow</a></code> regardless of its associated cell type.</p>
-
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TapActionRowCompatible</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
-
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/TapActionRowCompatible.swift#L30">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
 </div>
 </section>
 
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-02)</p>
+<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-05)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>

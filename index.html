@@ -135,7 +135,7 @@ QuickTableViewController  Reference
 <a href="https://cocoapods.org/pods/QuickTableViewController"><img src="https://img.shields.io/cocoapods/v/QuickTableViewController.svg" alt="CocoaPods Compatible"></a>
 <img src="https://img.shields.io/cocoapods/p/QuickTableViewController.svg" alt="Platform">
 <a href="https://codecov.io/gh/bcylin/QuickTableViewController"><img src="https://codecov.io/gh/bcylin/QuickTableViewController/branch/master/graph/badge.svg" alt="codecov"></a>
-<img src="https://img.shields.io/badge/Swift-4.0-orange.svg" alt="Swift 4.0"></p>
+<img src="https://img.shields.io/badge/Swift-4.1-orange.svg" alt="Swift 4.1"></p>
 
 <p>A simple way to create a table view for settings, including:</p>
 
@@ -144,7 +144,7 @@ QuickTableViewController  Reference
 <li>Table view cells with center aligned text for tap actions</li>
 <li>A section that provides mutually exclusive options</li>
 <li>Actions performed when the row reacts to the user interaction</li>
-<li>Customizable table view cell image, cell style and cell accessory type</li>
+<li>Customizable table view cell image, cell style and accessory type</li>
 </ul>
 
 <p><img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png" width="80%"></img></p>
@@ -218,7 +218,7 @@ QuickTableViewController  Reference
 <li>A <code><a href="Classes/NavigationRow.html">NavigationRow</a></code> with an <code>action</code> will be displayed in a table view cell whose <code>accessoryType</code> is <code>.disclosureIndicator</code>.</li>
 <li>The <code>action</code> will be invoked when the related table view cell is selected.</li>
 </ul>
-<pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation cell"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="kt">None</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
+<pre class="highlight swift"><code><span class="kt">NavigationRow</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation cell"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="nv">sender</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 <h3 id='switchrow' class='heading'>SwitchRow</h3>
 
@@ -250,33 +250,33 @@ QuickTableViewController  Reference
 </code></pre>
 
 <ul>
-<li><code><a href="Classes/OptionRow.html">OptionRow</a></code> can be used with or without <code><a href="Classes/RadioSection.html">RadioSection</a></code>, which guarantees that there&rsquo;s only one option is selected.</li>
-<li><code><a href="Classes/RadioSection.html">RadioSection</a></code> allows all options unselected by default. Setting <code>alwaysSelectsOneOption</code> to true will preserve one selected option.</li>
-<li><code>selectedOption</code> is available as the result of selection in <code><a href="Classes/RadioSection.html">RadioSection</a></code>.</li>
+<li><code><a href="Classes/OptionRow.html">OptionRow</a></code> can be used with or without <code><a href="Classes/RadioSection.html">RadioSection</a></code>, which allows only one selection.</li>
+<li><code><a href="Classes/RadioSection.html">RadioSection</a></code> allows all options unselected by default. Set <code>alwaysSelectsOneOption</code> to true to keep one option selected.</li>
 </ul>
 <h2 id='customization' class='heading'>Customization</h2>
 <h3 id='rows' class='heading'>Rows</h3>
 
-<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code><a href="Protocols/Row.html">Row</a></code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code><a href="Protocols/RowStyle.html">RowStyle</a></code></a>. Addtional interface to work with specific types of rows are represented as different protocols:</p>
+<p>All rows must conform to <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/Row.swift"><code><a href="Protocols/Row.html">Row</a></code></a> and <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift"><code><a href="Protocols/RowStyle.html">RowStyle</a></code></a>. Additional interface to work with specific types of rows are represented as different <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift">protocols</a>:</p>
 
 <ul>
-<li><code>Switchable</code></li>
-<li><code>Tappable</code></li>
-<li><code>OptionSelectable</code></li>
+<li><code><a href="Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a></code></li>
+<li><code><a href="Protocols/OptionRowCompatible.html">OptionRowCompatible</a></code></li>
+<li><code><a href="Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a></code></li>
+<li><code><a href="Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a></code></li>
 </ul>
 <h3 id='cell-classes' class='heading'>Cell Classes</h3>
 
 <p>A customized table view cell type can be specified to rows during initialization.</p>
-<pre class="highlight swift"><code><span class="c1">// NavigationRow, using UITableViewCell if not specified.</span>
+<pre class="highlight swift"><code><span class="c1">// Default is UITableViewCell.</span>
 <span class="kt">NavigationRow</span><span class="o">&lt;</span><span class="kt">CustomCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Navigation"</span><span class="p">,</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="o">.</span><span class="k">none</span><span class="p">)</span>
 
-<span class="c1">// SwitchRow, using SwitchCell if not specified.</span>
+<span class="c1">// Default is SwitchCell.</span>
 <span class="kt">SwitchRow</span><span class="o">&lt;</span><span class="kt">CustomSwitchCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Switch"</span><span class="p">,</span> <span class="nv">switchValue</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
 
-<span class="c1">// TapActionRow, using TapActionCell if not specified.</span>
+<span class="c1">// Default is TapActionCell.</span>
 <span class="kt">TapActionRow</span><span class="o">&lt;</span><span class="kt">CustomTapActionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Tap"</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
 
-<span class="c1">// OptionRow, using UITableViewCell if not specified.</span>
+<span class="c1">// Default is UITableViewCell.</span>
 <span class="kt">OptionRow</span><span class="o">&lt;</span><span class="kt">CustomOptionCell</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Option"</span><span class="p">,</span> <span class="nv">isSelected</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
 </code></pre>
 
@@ -294,19 +294,21 @@ QuickTableViewController  Reference
 </code></pre>
 <h3 id='overwrite-default-configuration' class='heading'>Overwrite Default Configuration</h3>
 
-<p>Table view cell classes that conform to <code><a href="Protocols/Configurable.html">Configurable</a></code> can implement additional configuration to set up the cell during <code>tableView(_:cellForRowAt:)</code>:</p>
+<p>You can use <code>register(_:forCellReuseIdentifier:)</code> to specify custom cell types for the <a href="(https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)">table view</a> to use. See <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift">CustomizationViewController</a> for the cell reuse identifiers of different rows.</p>
+
+<p>Table view cell classes that conform to <code><a href="Protocols/Configurable.html">Configurable</a></code> can take the customization during <code>tableView(_:cellForRowAt:)</code>:</p>
 <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Configurable</span> <span class="p">{</span>
 <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="n">with</span> <span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span> <span class="o">&amp;</span> <span class="kt">RowStyle</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>Other setups can also be added to each row using the <code>customize</code> closure:</p>
+<p>Additional setups can also be added to each row using the <code>customize</code> closure:</p>
 <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">RowStyle</span> <span class="p">{</span>
 <span class="k">var</span> <span class="nv">customize</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Row</span> <span class="o">&amp;</span> <span class="kt">RowStyle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>You can also use <code>register(_:forCellReuseIdentifier:)</code> to specify custom cell types for the <a href="(https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)">table view</a> to use. See <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift">CustomizationViewController</a> for the cell reuse identifiers of different rows.</p>
+<p>The <code>customize</code> closure overwrites the <code><a href="Protocols/Configurable.html">Configurable</a></code> changes.</p>
 <h3 id='uiappearance' class='heading'>UIAppearance</h3>
 
 <p>As discussed in issue <a href="https://github.com/bcylin/QuickTableViewController/issues/12">#12</a>, UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/AppearanceViewController.swift">AppearanceViewController</a> for the setups.</p>
@@ -389,6 +391,12 @@ QuickTableViewController  Reference
 <td style="text-align: center">9.1</td>
 <td style="text-align: center"><img src="https://img.shields.io/badge/Swift-4.0-orange.svg" alt="Swift 4.0"></td>
 </tr>
+<tr>
+<td><code>~&gt; 0.9.0</code></td>
+<td style="text-align: center">8.0+</td>
+<td style="text-align: center">9.3</td>
+<td style="text-align: center"><img src="https://img.shields.io/badge/Swift-4.1-orange.svg" alt="Swift 4.1"></td>
+</tr>
 </tbody></table>
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='use-a-href-http-guides-cocoapods-org-cocoapods-a' class='heading'>Use <a href="http://guides.cocoapods.org/">CocoaPods</a></h3>
@@ -413,9 +421,6 @@ Follow the <a href="https://github.com/Carthage/Carthage#adding-frameworks-to-an
 <li>Drag <strong>QuickTableViewController.xcodeproj</strong> to your app project as a subproject.</li>
 <li>On your application target&rsquo;s <strong>Build Phases</strong> settings tab, add <strong>QuickTableViewController-iOS</strong> to <strong>Target Dependencies</strong>.</li>
 </ul>
-<h2 id='contact' class='heading'>Contact</h2>
-
-<p><a href="https://twitter.com/bcylin"><img src="https://img.shields.io/badge/twitter-@bcylin-blue.svg?style=flat" alt="Twitter"></a></p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>QuickTableViewController is released under the MIT license.
@@ -429,7 +434,7 @@ Image source: <a href="http://iconmonstr.com/license/">iconmonstr</a>.</p>
 </article>
 </div>
 <section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-02)</p>
+<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-05)</p>
 <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
 </section>
 </body>
