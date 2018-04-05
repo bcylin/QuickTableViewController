@@ -8,7 +8,6 @@ namespace :ci do
       %(-scheme #{params[:scheme]}),
       %(-sdk iphonesimulator),
       %(-destination "name=iPhone 7,OS=latest"),
-      %(-enableCodeCoverage YES),
       %(#{params[:action]} | xcpretty -c && exit ${PIPESTATUS[0]})
     ].join " "
   end
@@ -31,7 +30,7 @@ namespace :ci do
       next
     end
 
-    sh xcodebuild(scheme: args[:scheme], action: "clean test")
+    sh xcodebuild(scheme: args[:scheme], action: "-enableCodeCoverage YES clean test")
     exit $?.exitstatus if not $?.success?
   end
 end

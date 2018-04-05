@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
-               BuildableName = "QuickTableViewController.framework"
-               BlueprintName = "QuickTableViewController-iOS"
-               ReferencedContainer = "container:QuickTableViewController.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5334F1D1B8CC5BD00C64A6D"
-               BuildableName = "QuickTableViewControllerTests.xctest"
-               BlueprintName = "QuickTableViewController-iOSTests"
+               BlueprintIdentifier = "B51F21A11F417037009BC2C9"
+               BuildableName = "Example-iOS.app"
+               BlueprintName = "Example-iOS"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,16 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5334F1D1B8CC5BD00C64A6D"
-               BuildableName = "QuickTableViewControllerTests.xctest"
-               BlueprintName = "QuickTableViewController-iOSTests"
+               BlueprintIdentifier = "B51F21BF1F41E600009BC2C9"
+               BuildableName = "Example-iOSUITests.xctest"
+               BlueprintName = "Example-iOSUITests"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
-            BuildableName = "QuickTableViewController.framework"
-            BlueprintName = "QuickTableViewController-iOS"
+            BlueprintIdentifier = "B51F21A11F417037009BC2C9"
+            BuildableName = "Example-iOS.app"
+            BlueprintName = "Example-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
-            BuildableName = "QuickTableViewController.framework"
-            BlueprintName = "QuickTableViewController-iOS"
+            BlueprintIdentifier = "B51F21A11F417037009BC2C9"
+            BuildableName = "Example-iOS.app"
+            BlueprintName = "Example-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -94,15 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5334F121B8CC5BD00C64A6D"
-            BuildableName = "QuickTableViewController.framework"
-            BlueprintName = "QuickTableViewController-iOS"
+            BlueprintIdentifier = "B51F21A11F417037009BC2C9"
+            BuildableName = "Example-iOS.app"
+            BlueprintName = "Example-iOS"
             ReferencedContainer = "container:QuickTableViewController.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
