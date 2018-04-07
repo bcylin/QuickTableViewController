@@ -41,11 +41,7 @@ public protocol Row {
 }
 
 
-extension Row {
-
-  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
-  public static func == (lhs: Self, rhs: Self) -> Bool {
-    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
-  }
-
+/// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
+func ==(lhs: Row, rhs: Row) -> Bool {
+  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
 }

@@ -49,7 +49,7 @@ open class RadioSection: Section {
       return options
     }
     set {
-      options = rows as? [OptionRowCompatible] ?? options
+      options = newValue as? [OptionRowCompatible] ?? options
     }
   }
 
