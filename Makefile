@@ -1,8 +1,8 @@
 default: test
 
 test:
-	bundle exec rake 'ci:test[QuickTableViewController-iOS]'
-	bundle exec rake 'ci:test[Example-iOS]'
+	bundle exec rake "ci:test[QuickTableViewController-iOS]"
+	bundle exec rake "ci:test[Example-iOS]"
 
 ci-test: test
 	make -B carthage
@@ -21,7 +21,7 @@ carthage:
 	set -o pipefail && carthage build --no-skip-current --verbose | bundle exec xcpretty -c
 
 coverage:
-	bundle exec slather coverage -s --input-format profdata --workspace QuickTableViewController.xcworkspace --scheme QuickTableViewController-iOS QuickTableViewController.xcodeproj
+	slather coverage -s --input-format profdata --workspace QuickTableViewController.xcworkspace --scheme QuickTableViewController-iOS QuickTableViewController.xcodeproj
 
 docs:
 	test -d docs || git clone -b gh-pages --single-branch https://github.com/bcylin/QuickTableViewController.git docs
