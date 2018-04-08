@@ -56,30 +56,83 @@ internal final class CustomizationViewController: QuickTableViewController {
       debugging,
 
       Section(title: "Switch", rows: [
-        SwitchRow<CustomSwitchCell>(title: "SwitchRow\n<CustomSwitchCell>", switchValue: true, action: weakify(self, type(of: self).log)),
-        CustomSwitchRow<SwitchCell>(title: "CustomSwitchRow\n<SwitchCell>", switchValue: false, action: weakify(self, type(of: self).log))
+        SwitchRow<CustomSwitchCell>(
+          title: "SwitchRow\n<CustomSwitchCell>",
+          switchValue: true,
+          customization: set(label: "0-0"),
+          action: weakify(self, type(of: self).log)
+        ),
+        CustomSwitchRow<SwitchCell>(
+          title: "CustomSwitchRow\n<SwitchCell>",
+          switchValue: false,
+          customization: set(label: "0-1"),
+          action: weakify(self, type(of: self).log)
+        )
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow<CustomTapActionCell>(title: "TapActionRow\n<CustomTapActionCell>", action: weakify(self, type(of: self).log)),
-        CustomTapActionRow<TapActionCell>(title: "CustomTapActionRow\n<TapActionCell>", action: weakify(self, type(of: self).log))
+        TapActionRow<CustomTapActionCell>(
+          title: "TapActionRow\n<CustomTapActionCell>",
+          customization: set(label: "1-0"),
+          action: weakify(self, type(of: self).log)
+        ),
+        CustomTapActionRow<TapActionCell>(
+          title: "CustomTapActionRow\n<TapActionCell>",
+          customization: set(label: "1-1"),
+          action: weakify(self, type(of: self).log)
+        )
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "NavigationRow", subtitle: .none, action: weakify(self, type(of: self).log)),
-        NavigationRow<CustomCell>(title: "NavigationRow<CustomCell>", subtitle: .belowTitle(".subtitle"), action: weakify(self, type(of: self).log)),
-        CustomNavigationRow(title: "CustomNavigationRow", subtitle: .rightAligned(".value1"), action: weakify(self, type(of: self).log)),
-        CustomNavigationRow<CustomCell>(title: "CustomNavigationRow<CustomCell>", subtitle: .leftAligned(".value2"), action: weakify(self, type(of: self).log))
+        NavigationRow(
+          title: "NavigationRow",
+          subtitle: .none,
+          customization: set(label: "2-0"),
+          action: weakify(self, type(of: self).log)),
+        NavigationRow<CustomCell>(
+          title: "NavigationRow<CustomCell>",
+          subtitle: .belowTitle(".subtitle"),
+          customization: set(label: "2-1"),
+          action: weakify(self, type(of: self).log)
+        ),
+        CustomNavigationRow(
+          title: "CustomNavigationRow",
+          subtitle: .rightAligned(".value1"),
+          customization: set(label: "2-2"),
+          action: weakify(self, type(of: self).log)
+        ),
+        CustomNavigationRow<CustomCell>(
+          title: "CustomNavigationRow<CustomCell>",
+          subtitle: .leftAligned(".value2"),
+          customization: set(label: "2-3"),
+          action: weakify(self, type(of: self).log)
+        )
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "OptionRow", isSelected: false, action: weakify(self, type(of: self).log)),
-        CustomOptionRow(title: "CustomOptionRow", isSelected: false, action: weakify(self, type(of: self).log)),
-        CustomOptionRow<CustomOptionCell>(title: "CustomOptionRow<CustomOptionCell>", isSelected: false, action: weakify(self, type(of: self).log))
+        OptionRow(
+          title: "OptionRow",
+          isSelected: false,
+          customization: set(label: "3-0"),
+          action: weakify(self, type(of: self).log)
+        ),
+        CustomOptionRow(
+          title: "CustomOptionRow",
+          isSelected: false,
+          customization: set(label: "3-1"),
+          action: weakify(self, type(of: self).log)
+        ),
+        CustomOptionRow<CustomOptionCell>(
+          title: "CustomOptionRow<CustomOptionCell>",
+          isSelected: false,
+          customization: set(label: "3-2"),
+          action: weakify(self, type(of: self).log)
+        )
       ]),
 
       Section(title: nil, rows: [
         NavigationRow(title: "Customization closure", subtitle: .none, customization: { cell, _ in
+          cell.accessibilityLabel = "4-0"
           cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "iconmonstr-x-mark"))
         })
       ])
@@ -95,6 +148,12 @@ internal final class CustomizationViewController: QuickTableViewController {
   }
 
   // MARK: - Private
+
+  private func set(label: String) -> ((UITableViewCell, Row & RowStyle) -> Void) {
+    return { cell, _ in
+      cell.accessibilityLabel = label
+    }
+  }
 
   private func log(_ sender: Row) {
     if let option = sender as? OptionRowCompatible, !option.isSelected {
