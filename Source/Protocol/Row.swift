@@ -27,27 +27,25 @@
 import Foundation
 
 /// Any type that conforms to this protocol is capable of representing a row in a table view.
-public protocol Row {
-
+public protocol Row: class {
+  
   /// The title text of the row.
   var title: String { get }
-
+  
   /// The subtitle text of the row.
   var subtitle: Subtitle? { get }
-
+  
   /// A closure related to the action of the row.
   var action: ((Row) -> Void)? { get }
-
+  
 }
 
+
 extension Row {
+  
   /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
   public static func == (lhs: Self, rhs: Self) -> Bool {
     return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
   }
-}
-
-/// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
-public func == (lhs: Row, rhs: Row) -> Bool {
-  return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+  
 }
