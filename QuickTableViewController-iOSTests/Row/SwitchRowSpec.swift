@@ -82,7 +82,7 @@ internal final class SwitchRowSpec: QuickSpec {
 
       context("different actions") {
         let f = SwitchRow(title: "Same", switchValue: true, action: { _ in })
-        it("should be equal regardless the actions attached") {
+        it("should be equal regardless of the actions attached") {
           expect(a) == f
         }
       }

@@ -67,7 +67,7 @@ internal final class TapActionRowSpec: QuickSpec {
 
       context("different actions") {
         let d = TapActionRow(title: "Same", action: { _ in })
-        it("should be equal regardless the actions attached") {
+        it("should be equal regardless of the actions attached") {
           expect(a) == d
         }
       }

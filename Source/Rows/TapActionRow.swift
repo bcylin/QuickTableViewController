@@ -79,4 +79,11 @@ open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
   /// The additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
 
+  // MARK: - Equatable
+
+  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
+  public static func == (lhs: TapActionRow, rhs: TapActionRow) -> Bool {
+    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+  }
+
 }

@@ -35,14 +35,14 @@ public protocol TapActionRowCompatible: Row, RowStyle {}
 
 
 /// This protocol defines the compatible interface of an `OptionRow` regardless of its associated cell type.
-public protocol OptionRowCompatible: class, Row, RowStyle {
+public protocol OptionRowCompatible: Row, RowStyle {
   /// The state of selection.
   var isSelected: Bool { get set }
 }
 
 
 /// This protocol defines the compatible interface of a `SwitchRow` regardless of its associated cell type.
-public protocol SwitchRowCompatible: class, Row, RowStyle {
+public protocol SwitchRowCompatible: Row, RowStyle {
   /// The state of the switch.
   var switchValue: Bool { get set }
 }
