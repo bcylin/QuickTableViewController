@@ -101,7 +101,7 @@ internal final class NavigationRowSpec: QuickSpec {
 
       context("different actions") {
         let f = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(image), action: { _ in })
-        it("should be equal regardless the actions attached") {
+        it("should be equal regardless of the actions attached") {
           expect(a) == f
         }
       }

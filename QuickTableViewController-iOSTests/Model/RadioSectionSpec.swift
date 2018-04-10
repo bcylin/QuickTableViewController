@@ -45,7 +45,46 @@ internal final class RadioSectionSpec: QuickSpec {
       }
     }
 
-    describe("always select one") {
+    describe("rows") {
+      let options = [
+        OptionRow(title: "0", isSelected: false, action: nil),
+        OptionRow(title: "1", isSelected: true, action: nil)
+      ]
+
+      context("getter") {
+        let section = RadioSection(title: "", options: options)
+
+        it("should return options as rows") {
+          expect(section.rows).to(beAKindOf([OptionRowCompatible].self))
+          expect(section.rows as? [OptionRow]) == options
+        }
+      }
+
+      context("setter") {
+        context("incompatible types") {
+          let section = RadioSection(title: "", options: [])
+
+          it("should not set rows") {
+            expect(section.rows).to(beEmpty())
+            section.rows = [NavigationRow(title: "", subtitle: .none)]
+            expect(section.rows).to(beEmpty())
+          }
+        }
+
+        context("compatible types") {
+          let section = RadioSection(title: "", options: [])
+
+          it("should set options to rows") {
+            expect(section.rows).to(beEmpty())
+            section.rows = options
+            expect(section.rows).to(haveCount(2))
+            expect(section.rows as? [OptionRow]) == options
+          }
+        }
+      }
+    }
+
+    describe("always selects one option") {
       context("when set to false") {
         let section = RadioSection(title: "title", options: [
           OptionRow(title: "Option 1", isSelected: false, action: nil)
