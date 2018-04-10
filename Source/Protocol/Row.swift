@@ -39,13 +39,3 @@ public protocol Row: class {
   var action: ((Row) -> Void)? { get }
 
 }
-
-
-extension Row {
-
-  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
-  public static func == (lhs: Self, rhs: Self) -> Bool {
-    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
-  }
-
-}
