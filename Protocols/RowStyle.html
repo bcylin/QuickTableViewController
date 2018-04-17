@@ -1,370 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>RowStyle Protocol Reference</title>
-<link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
-<link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-<meta charset="utf-8">
-<script src="../js/jquery.min.js" defer></script>
-<script src="../js/jazzy.js" defer></script>
+  <head>
+    <title>RowStyle Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
 
-<script src="../js/lunr.min.js" defer></script>
-<script src="../js/typeahead.jquery.js" defer></script>
-<script src="../js/jazzy.search.js" defer></script>
-</head>
-<body>
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
 
-<a name="//apple_ref/swift/Protocol/RowStyle" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Protocol/RowStyle" class="dashAnchor"></a>
 
-<a title="RowStyle Protocol Reference"></a>
+    <a title="RowStyle Protocol Reference"></a>
 
-<header class="header">
-<p class="header-col header-col--primary">
-<a class="header-link" href="../index.html">
-QuickTableViewController Docs
-</a>
-(91% documented)
-</p>
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          QuickTableViewController Docs
+        </a>
+         (91% documented)
+      </p>
 
-<p class="header-col--secondary">
-<form role="search" action="../search.json">
-<input type="text" placeholder="Search documentation" data-typeahead>
-</form>
-</p>
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
 
-<p class="header-col header-col--secondary">
-<a class="header-link" href="https://github.com/bcylin/QuickTableViewController">
-<img class="header-icon" src="../img/gh.png"/>
-View on GitHub
-</a>
-</p>
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/bcylin/QuickTableViewController">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
 
-</header>
+    </header>
 
-<p class="breadcrumbs">
-<a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
-<img class="carat" src="../img/carat.png" />
-RowStyle Protocol Reference
-</p>
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      RowStyle Protocol Reference
+    </p>
 
-<div class="content-wrapper">
-<nav class="navigation">
-<ul class="nav-groups">
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Classes.html">Classes</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/NavigationRow.html">NavigationRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/OptionRow.html">OptionRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/RadioSection.html">RadioSection</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/SwitchCell.html">SwitchCell</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/SwitchRow.html">SwitchRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/TapActionCell.html">TapActionCell</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/TapActionRow.html">TapActionRow</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/RowStyle.html">RowStyle</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-<article class="main-content">
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NavigationRow.html">NavigationRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OptionRow.html">OptionRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RadioSection.html">RadioSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SwitchCell.html">SwitchCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SwitchRow.html">SwitchRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TapActionCell.html">TapActionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TapActionRow.html">TapActionRow</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RowStyle.html">RowStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
 
-<section class="section">
-<div class="section-content">
-<h1>RowStyle</h1>
-<div class="declaration">
-<div class="language">
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RowStyle</span></code></pre>
+        <section class="section">
+          <div class="section-content">
+            <h1>RowStyle</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RowStyle</span></code></pre>
 
-</div>
-</div>
-<p>Any type that conforms to this protocol carries the info for the UI.</p>
+                </div>
+              </div>
+            <p>Any type that conforms to this protocol carries the info for the UI.</p>
 
-</div>
-</section>
+          </div>
+        </section>
 
-<section class="section">
-<div class="section-content">
-<div class="task-group">
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController8RowStyleP8cellTypeSo07UITableC4CellCmvp"></a>
-<a name="//apple_ref/swift/Property/cellType" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController8RowStyleP8cellTypeSo07UITableC4CellCmvp">cellType</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The type of the table view cell to display the row.</p>
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController8RowStyleP8cellTypeSo07UITableC4CellCmvp"></a>
+                    <a name="//apple_ref/swift/Property/cellType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController8RowStyleP8cellTypeSo07UITableC4CellCmvp">cellType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the table view cell to display the row.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cellType</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">.</span><span class="k">Type</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cellType</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">.</span><span class="k">Type</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L33">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController8RowStyleP19cellReuseIdentifierSSvp"></a>
-<a name="//apple_ref/swift/Property/cellReuseIdentifier" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController8RowStyleP19cellReuseIdentifierSSvp">cellReuseIdentifier</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The reuse identifier of the table view cell to display the row.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L33">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController8RowStyleP19cellReuseIdentifierSSvp"></a>
+                    <a name="//apple_ref/swift/Property/cellReuseIdentifier" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController8RowStyleP19cellReuseIdentifierSSvp">cellReuseIdentifier</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reuse identifier of the table view cell to display the row.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cellReuseIdentifier</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cellReuseIdentifier</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L36">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController8RowStyleP04cellF0SC07UITablec4CellF0Ovp"></a>
-<a name="//apple_ref/swift/Property/cellStyle" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController8RowStyleP04cellF0SC07UITablec4CellF0Ovp">cellStyle</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The style of the table view cell to display the row.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L36">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController8RowStyleP04cellF0SC07UITablec4CellF0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/cellStyle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController8RowStyleP04cellF0SC07UITablec4CellF0Ovp">cellStyle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The style of the table view cell to display the row.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cellStyle</span><span class="p">:</span> <span class="kt">UITableViewCellStyle</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cellStyle</span><span class="p">:</span> <span class="kt">UITableViewCellStyle</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L39">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController8RowStyleP4iconAA4IconOSgvp"></a>
-<a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController8RowStyleP4iconAA4IconOSgvp">icon</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The icon of the row.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController8RowStyleP4iconAA4IconOSgvp"></a>
+                    <a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController8RowStyleP4iconAA4IconOSgvp">icon</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The icon of the row.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Enums/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Enums/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L42">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController8RowStyleP13accessoryTypeSC07UITablec13CellAccessoryH0Ovp"></a>
-<a name="//apple_ref/swift/Property/accessoryType" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController8RowStyleP13accessoryTypeSC07UITablec13CellAccessoryH0Ovp">accessoryType</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The type of standard accessory view the cell should use.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L42">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController8RowStyleP13accessoryTypeSC07UITablec13CellAccessoryH0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/accessoryType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController8RowStyleP13accessoryTypeSC07UITablec13CellAccessoryH0Ovp">accessoryType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of standard accessory view the cell should use.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">accessoryType</span><span class="p">:</span> <span class="kt">UITableViewCellAccessoryType</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">accessoryType</span><span class="p">:</span> <span class="kt">UITableViewCellAccessoryType</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L45">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController8RowStyleP12isSelectableSbvp"></a>
-<a name="//apple_ref/swift/Property/isSelectable" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController8RowStyleP12isSelectableSbvp">isSelectable</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The flag that indicates whether the table view cell should trigger the action when selected.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L45">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController8RowStyleP12isSelectableSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isSelectable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController8RowStyleP12isSelectableSbvp">isSelectable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The flag that indicates whether the table view cell should trigger the action when selected.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isSelectable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isSelectable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L48">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController8RowStyleP9customizeySo07UITableC4CellC_AA0E0_AaBptcSgvp"></a>
-<a name="//apple_ref/swift/Property/customize" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController8RowStyleP9customizeySo07UITableC4CellC_AA0E0_AaBptcSgvp">customize</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The additional customization during cell configuration.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L48">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController8RowStyleP9customizeySo07UITableC4CellC_AA0E0_AaBptcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/customize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController8RowStyleP9customizeySo07UITableC4CellC_AA0E0_AaBptcSgvp">customize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The additional customization during cell configuration.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">customize</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt">RowStyle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">customize</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt">RowStyle</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L51">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</section>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowStyle.swift#L51">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-</article>
-</div>
-<section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-10)</p>
-<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-</section>
-</body>
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
 </div>
 </html>

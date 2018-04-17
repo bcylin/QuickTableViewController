@@ -1,357 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>QuickTableViewController Class Reference</title>
-<link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
-<link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-<meta charset="utf-8">
-<script src="../js/jquery.min.js" defer></script>
-<script src="../js/jazzy.js" defer></script>
+  <head>
+    <title>QuickTableViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
 
-<script src="../js/lunr.min.js" defer></script>
-<script src="../js/typeahead.jquery.js" defer></script>
-<script src="../js/jazzy.search.js" defer></script>
-</head>
-<body>
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
 
-<a name="//apple_ref/swift/Class/QuickTableViewController" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/QuickTableViewController" class="dashAnchor"></a>
 
-<a title="QuickTableViewController Class Reference"></a>
+    <a title="QuickTableViewController Class Reference"></a>
 
-<header class="header">
-<p class="header-col header-col--primary">
-<a class="header-link" href="../index.html">
-QuickTableViewController Docs
-</a>
-(91% documented)
-</p>
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          QuickTableViewController Docs
+        </a>
+         (91% documented)
+      </p>
 
-<p class="header-col--secondary">
-<form role="search" action="../search.json">
-<input type="text" placeholder="Search documentation" data-typeahead>
-</form>
-</p>
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
 
-<p class="header-col header-col--secondary">
-<a class="header-link" href="https://github.com/bcylin/QuickTableViewController">
-<img class="header-icon" src="../img/gh.png"/>
-View on GitHub
-</a>
-</p>
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/bcylin/QuickTableViewController">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
 
-</header>
+    </header>
 
-<p class="breadcrumbs">
-<a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
-<img class="carat" src="../img/carat.png" />
-QuickTableViewController Class Reference
-</p>
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      QuickTableViewController Class Reference
+    </p>
 
-<div class="content-wrapper">
-<nav class="navigation">
-<ul class="nav-groups">
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Classes.html">Classes</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/NavigationRow.html">NavigationRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/OptionRow.html">OptionRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/RadioSection.html">RadioSection</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/SwitchCell.html">SwitchCell</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/SwitchRow.html">SwitchRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/TapActionCell.html">TapActionCell</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/TapActionRow.html">TapActionRow</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/RowStyle.html">RowStyle</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-<article class="main-content">
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NavigationRow.html">NavigationRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OptionRow.html">OptionRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RadioSection.html">RadioSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SwitchCell.html">SwitchCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SwitchRow.html">SwitchRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TapActionCell.html">TapActionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TapActionRow.html">TapActionRow</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RowStyle.html">RowStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
 
-<section class="section">
-<div class="section-content">
-<h1>QuickTableViewController</h1>
-<div class="declaration">
-<div class="language">
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
-<span class="kt">UITableViewDataSource</span><span class="p">,</span>
-<span class="kt">UITableViewDelegate</span><span class="p">,</span>
-<span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
+        <section class="section">
+          <div class="section-content">
+            <h1>QuickTableViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">QuickTableViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
+  <span class="kt">UITableViewDataSource</span><span class="p">,</span>
+  <span class="kt">UITableViewDelegate</span><span class="p">,</span>
+  <span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span></code></pre>
 
-</div>
-</div>
-<p>A table view controller that shows <code>tableContents</code> as formatted sections and rows.</p>
+                </div>
+              </div>
+            <p>A table view controller that shows <code>tableContents</code> as formatted sections and rows.</p>
 
-</div>
-</section>
+          </div>
+        </section>
 
-<section class="section">
-<div class="section-content">
-<div class="task-group">
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewControllerAAC017clearsSelectionOnC10WillAppearSbvp"></a>
-<a name="//apple_ref/swift/Property/clearsSelectionOnViewWillAppear" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewControllerAAC017clearsSelectionOnC10WillAppearSbvp">clearsSelectionOnViewWillAppear</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>A Boolean value indicating if the controller clears the selection when the collection view appears.</p>
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewControllerAAC017clearsSelectionOnC10WillAppearSbvp"></a>
+                    <a name="//apple_ref/swift/Property/clearsSelectionOnViewWillAppear" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewControllerAAC017clearsSelectionOnC10WillAppearSbvp">clearsSelectionOnViewWillAppear</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating if the controller clears the selection when the collection view appears.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">clearsSelectionOnViewWillAppear</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">clearsSelectionOnViewWillAppear</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L36">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewControllerAAC05tableC0So07UITableC0Cvp"></a>
-<a name="//apple_ref/swift/Property/tableView" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewControllerAAC05tableC0So07UITableC0Cvp">tableView</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>Returns the table view managed by the controller object.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L36">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewControllerAAC05tableC0So07UITableC0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/tableView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewControllerAAC05tableC0So07UITableC0Cvp">tableView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the table view managed by the controller object.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span> <span class="o">=</span> <span class="kt">UITableView</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="o">.</span><span class="n">zero</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">grouped</span><span class="p">)</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span> <span class="o">=</span> <span class="kt">UITableView</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="o">.</span><span class="n">zero</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">grouped</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L39">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewControllerAAC13tableContentsSayAA7SectionCGvp"></a>
-<a name="//apple_ref/swift/Property/tableContents" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewControllerAAC13tableContentsSayAA7SectionCGvp">tableContents</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>The layout of sections and rows to display in the table view.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewControllerAAC13tableContentsSayAA7SectionCGvp"></a>
+                    <a name="//apple_ref/swift/Property/tableContents" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewControllerAAC13tableContentsSayAA7SectionCGvp">tableContents</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The layout of sections and rows to display in the table view.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">tableContents</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Section.html">Section</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">tableContents</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Section.html">Section</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L42-L46">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-<div class="task-group">
-<div class="task-name-container">
-<a name="/Initialization"></a>
-<a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
-<a href="#/Initialization">
-<h3 class="section-name">Initialization</h3>
-</a>
-</div>
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewControllerAACABSC07UITableC5StyleO5style_tcfc"></a>
-<a name="//apple_ref/swift/Method/init(style:)" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewControllerAACABSC07UITableC5StyleO5style_tcfc">init(style:)</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>Initializes a table view controller to manage a table view of a given style.</p>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L42-L46">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
+                <a href="#/Initialization">
+                  <h3 class="section-name">Initialization</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewControllerAACABSC07UITableC5StyleO5style_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(style:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewControllerAACABSC07UITableC5StyleO5style_tcfc">init(style:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a table view controller to manage a table view of a given style.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewStyle</span><span class="p">)</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewStyle</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-<div>
-<h4>Parameters</h4>
-<table class="graybox">
-<tbody>
-<tr>
-<td>
-<code>
-<em>style</em>
-</code>
-</td>
-<td>
-<div>
-<p>A constant that specifies the style of table view that the controller object is to manage (<code>.plain</code> or <code>.grouped</code>).</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div>
-<h4>Return Value</h4>
-<p>An initialized <code>QuickTableViewController</code> object.</p>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L57-L60">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-<div class="task-group">
-<div class="task-name-container">
-<a name="/SwitchCellDelegate"></a>
-<a name="//apple_ref/swift/Section/SwitchCellDelegate" class="dashAnchor"></a>
-<a href="#/SwitchCellDelegate">
-<h3 class="section-name">SwitchCellDelegate</h3>
-</a>
-</div>
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/s:24QuickTableViewController18SwitchCellDelegateP06switchF0yAA0eF0C_Sb09didToggleE0tF"></a>
-<a name="//apple_ref/swift/Method/switchCell(_:didToggleSwitch:)" class="dashAnchor"></a>
-<a class="token" href="#/s:24QuickTableViewController18SwitchCellDelegateP06switchF0yAA0eF0C_Sb09didToggleE0tF">switchCell(_:didToggleSwitch:)</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>style</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A constant that specifies the style of table view that the controller object is to manage (<code>.plain</code> or <code>.grouped</code>).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized <code>QuickTableViewController</code> object.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L57-L60">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/SwitchCellDelegate"></a>
+                <a name="//apple_ref/swift/Section/SwitchCellDelegate" class="dashAnchor"></a>
+                <a href="#/SwitchCellDelegate">
+                  <h3 class="section-name">SwitchCellDelegate</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController18SwitchCellDelegateP06switchF0yAA0eF0C_Sb09didToggleE0tF"></a>
+                    <a name="//apple_ref/swift/Method/switchCell(_:didToggleSwitch:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController18SwitchCellDelegateP06switchF0yAA0eF0C_Sb09didToggleE0tF">switchCell(_:didToggleSwitch:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">switchCell</span><span class="p">(</span><span class="n">_</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/SwitchCell.html">SwitchCell</a></span><span class="p">,</span> <span class="n">didToggleSwitch</span> <span class="nv">isOn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">switchCell</span><span class="p">(</span><span class="n">_</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/SwitchCell.html">SwitchCell</a></span><span class="p">,</span> <span class="n">didToggleSwitch</span> <span class="nv">isOn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L164-L172">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</section>
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L164-L172">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-</article>
-</div>
-<section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-10)</p>
-<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-</section>
-</body>
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
 </div>
 </html>

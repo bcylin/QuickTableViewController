@@ -1,285 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>TapActionCell Class Reference</title>
-<link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
-<link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-<meta charset="utf-8">
-<script src="../js/jquery.min.js" defer></script>
-<script src="../js/jazzy.js" defer></script>
+  <head>
+    <title>TapActionCell Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
 
-<script src="../js/lunr.min.js" defer></script>
-<script src="../js/typeahead.jquery.js" defer></script>
-<script src="../js/jazzy.search.js" defer></script>
-</head>
-<body>
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
 
-<a name="//apple_ref/swift/Class/TapActionCell" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/TapActionCell" class="dashAnchor"></a>
 
-<a title="TapActionCell Class Reference"></a>
+    <a title="TapActionCell Class Reference"></a>
 
-<header class="header">
-<p class="header-col header-col--primary">
-<a class="header-link" href="../index.html">
-QuickTableViewController Docs
-</a>
-(91% documented)
-</p>
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          QuickTableViewController Docs
+        </a>
+         (91% documented)
+      </p>
 
-<p class="header-col--secondary">
-<form role="search" action="../search.json">
-<input type="text" placeholder="Search documentation" data-typeahead>
-</form>
-</p>
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
 
-<p class="header-col header-col--secondary">
-<a class="header-link" href="https://github.com/bcylin/QuickTableViewController">
-<img class="header-icon" src="../img/gh.png"/>
-View on GitHub
-</a>
-</p>
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/bcylin/QuickTableViewController">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
 
-</header>
+    </header>
 
-<p class="breadcrumbs">
-<a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
-<img class="carat" src="../img/carat.png" />
-TapActionCell Class Reference
-</p>
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      TapActionCell Class Reference
+    </p>
 
-<div class="content-wrapper">
-<nav class="navigation">
-<ul class="nav-groups">
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Classes.html">Classes</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/NavigationRow.html">NavigationRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/OptionRow.html">OptionRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/RadioSection.html">RadioSection</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/SwitchCell.html">SwitchCell</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/SwitchRow.html">SwitchRow</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/TapActionCell.html">TapActionCell</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Classes/TapActionRow.html">TapActionRow</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
-</li>
-</ul>
-</li>
-<li class="nav-group-name">
-<a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
-<ul class="nav-group-tasks">
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/RowStyle.html">RowStyle</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
-</li>
-<li class="nav-group-task">
-<a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-<article class="main-content">
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NavigationRow.html">NavigationRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/OptionRow.html">OptionRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/QuickTableViewController.html">QuickTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/RadioSection.html">RadioSection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Section.html">Section</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SwitchCell.html">SwitchCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SwitchRow.html">SwitchRow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TapActionCell.html">TapActionCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TapActionRow.html">TapActionRow</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/Row.html">Row</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RowStyle.html">RowStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SwitchRowCompatible.html">SwitchRowCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController22TapActionRowCompatibleP">TapActionRowCompatible</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
 
-<section class="section">
-<div class="section-content">
-<h1>TapActionCell</h1>
-<div class="declaration">
-<div class="language">
-<pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">TapActionCell</span><span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
+        <section class="section">
+          <div class="section-content">
+            <h1>TapActionCell</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">TapActionCell</span><span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
 
-</div>
-</div>
-<p>A <code>UITableViewCell</code> subclass with the title text center aligned.</p>
+                </div>
+              </div>
+            <p>A <code>UITableViewCell</code> subclass with the title text center aligned.</p>
 
-</div>
-</section>
+          </div>
+        </section>
 
-<section class="section">
-<div class="section-content">
-<div class="task-group">
-<div class="task-name-container">
-<a name="/Initializer"></a>
-<a name="//apple_ref/swift/Section/Initializer" class="dashAnchor"></a>
-<a href="#/Initializer">
-<h3 class="section-name">Initializer</h3>
-</a>
-</div>
-<ul class="item-container">
-<li class="item">
-<div>
-<code>
-<a name="/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithStyle:reuseIdentifier:"></a>
-<a name="//apple_ref/swift/Method/init(style:reuseIdentifier:)" class="dashAnchor"></a>
-<a class="token" href="#/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithStyle:reuseIdentifier:">init(style:reuseIdentifier:)</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>Overrides <code>UITableViewCell</code>&lsquo;s designated initializer.</p>
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializer"></a>
+                <a name="//apple_ref/swift/Section/Initializer" class="dashAnchor"></a>
+                <a href="#/Initializer">
+                  <h3 class="section-name">Initializer</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithStyle:reuseIdentifier:"></a>
+                    <a name="//apple_ref/swift/Method/init(style:reuseIdentifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithStyle:reuseIdentifier:">init(style:reuseIdentifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Overrides <code>UITableViewCell</code>&lsquo;s designated initializer.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewCellStyle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewCellStyle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
 
-</div>
-</div>
-<div>
-<h4>Parameters</h4>
-<table class="graybox">
-<tbody>
-<tr>
-<td>
-<code>
-<em>style</em>
-</code>
-</td>
-<td>
-<div>
-<p>Unused. It always uses <code>UITableViewCellStyle.Default</code>.</p>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<code>
-<em>reuseIdentifier</em>
-</code>
-</td>
-<td>
-<div>
-<p>A string used to identify the cell object if it is to be reused for drawing multiple rows of a table view.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div>
-<h4>Return Value</h4>
-<p>An initialized <code>TapActionCell</code> object.</p>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/TapActionCell.swift#L42-L45">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-<li class="item">
-<div>
-<code>
-<a name="/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithCoder:"></a>
-<a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
-<a class="token" href="#/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithCoder:">init(coder:)</a>
-</code>
-</div>
-<div class="height-container">
-<div class="pointer-container"></div>
-<section class="section">
-<div class="pointer"></div>
-<div class="abstract">
-<p>Overrides the designated initializer that returns an object initialized from data in a given unarchiver.</p>
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>style</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Unused. It always uses <code>UITableViewCellStyle.Default</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reuseIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string used to identify the cell object if it is to be reused for drawing multiple rows of a table view.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized <code>TapActionCell</code> object.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/TapActionCell.swift#L42-L45">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithCoder:"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@QuickTableViewController@objc(cs)TapActionCell(im)initWithCoder:">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Overrides the designated initializer that returns an object initialized from data in a given unarchiver.</p>
 
-</div>
-<div class="declaration">
-<h4>Declaration</h4>
-<div class="language">
-<p class="aside-title">Swift</p>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
 
-</div>
-</div>
-<div>
-<h4>Parameters</h4>
-<table class="graybox">
-<tbody>
-<tr>
-<td>
-<code>
-<em>aDecoder</em>
-</code>
-</td>
-<td>
-<div>
-<p>An unarchiver object.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div>
-<h4>Return Value</h4>
-<p><code>self</code>, initialized using the data in decoder.</p>
-</div>
-<div class="slightly-smaller">
-<a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/TapActionCell.swift#L54-L57">Show on GitHub</a>
-</div>
-</section>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</section>
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>aDecoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An unarchiver object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>self</code>, initialized using the data in decoder.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/TapActionCell.swift#L54-L57">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-</article>
-</div>
-<section class="footer">
-<p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-10)</p>
-<p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-</section>
-</body>
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
 </div>
 </html>
