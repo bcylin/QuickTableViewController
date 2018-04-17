@@ -1,6 +1,8 @@
 coverage:
-  ignore:
-    - "Carthage/**/*"
-    - "Example*/**/*"
-    - "*Tests/**/*"
-    - "Pods/**/*"
+  status:
+    patch: off
+ignore:
+  - "Carthage/**/*"
+  - "Example*/**/*"
+  - "*Tests/**/*"
+  - "Pods/**/*"

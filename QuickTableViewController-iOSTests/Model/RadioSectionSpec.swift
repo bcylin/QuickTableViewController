@@ -45,7 +45,66 @@ internal final class RadioSectionSpec: QuickSpec {
       }
     }
 
-    describe("always select one") {
+    describe("rows") {
+      context("getter") {
+        let options = [
+          OptionRow(title: "0", isSelected: false, action: nil),
+          OptionRow(title: "1", isSelected: true, action: nil)
+        ]
+        let section = RadioSection(title: "", options: options)
+
+        it("should return options as rows") {
+          expect(section.rows).to(beAKindOf([OptionRowCompatible].self))
+          expect(section.rows as? [OptionRow]) == options
+        }
+      }
+
+      context("setter") {
+        context("given empty array") {
+          let section = RadioSection(title: "", options: [
+            OptionRow(title: "", isSelected: true, action: nil)
+          ])
+
+          it("should change rows") {
+            expect(section.rows).to(haveCount(1))
+            section.rows = []
+            expect(section.rows).to(beEmpty())
+          }
+        }
+
+        context("given incompatible type") {
+          let options = [OptionRow(title: "0", isSelected: false, action: nil)]
+          let section = RadioSection(title: "", options: options)
+
+          it("should not change rows") {
+            expect(section.rows).to(haveCount(1))
+            section.rows = [
+              NavigationRow(title: "", subtitle: .none),
+              NavigationRow(title: "", subtitle: .none)
+            ]
+            expect(section.rows).to(haveCount(1))
+            expect(section.rows as? [OptionRow]) == options
+          }
+        }
+
+        context("given compatible type") {
+          let options = [
+            OptionRow(title: "0", isSelected: false, action: nil),
+            OptionRow(title: "1", isSelected: true, action: nil)
+          ]
+          let section = RadioSection(title: "", options: [])
+
+          it("should change rows") {
+            expect(section.rows).to(beEmpty())
+            section.rows = options
+            expect(section.rows).to(haveCount(2))
+            expect(section.rows as? [OptionRow]) == options
+          }
+        }
+      }
+    }
+
+    describe("always selects one option") {
       context("when set to false") {
         let section = RadioSection(title: "title", options: [
           OptionRow(title: "Option 1", isSelected: false, action: nil)

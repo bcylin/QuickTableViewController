@@ -44,7 +44,7 @@ internal final class QuickTableViewControllerSpec: QuickSpec {
     // MARK: - UIViewController
 
     describe("lifecycle") {
-      var tableView: UITableView!
+      var tableView: UITableView! // swiftlint:disable:this implicitly_unwrapped_optional
 
       it("should set up table view") {
         let controller = QuickTableViewController(style: .grouped)

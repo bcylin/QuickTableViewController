@@ -1,5 +1,11 @@
 # Change Log
 
+## v0.9.1
+
+#### Fixes
+
+* Fix the property setter in `RadioSection` and change `Row` to a class protocol, [#14](https://github.com/bcylin/QuickTableViewController/pull/14) by [@z3bi](https://github.com/z3bi)
+
 ## v0.9.0
 
 #### Breaking

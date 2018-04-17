@@ -93,7 +93,7 @@ internal final class OptionRowSpec: QuickSpec {
 
       context("different actions") {
         let f = OptionRow(title: "Same", isSelected: true, action: { _ in })
-        it("should be equal regardless the actions attached") {
+        it("should be equal regardless of the actions attached") {
           expect(a) == f
         }
       }
