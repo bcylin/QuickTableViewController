@@ -31,8 +31,9 @@ docs:
 
 	for file in "html" "css" "js" "json"; do \
 		echo "Cleaning whitespace in *."$$file ; \
-		find docs/output -name "*."$$file -exec sed -E -i '' -e 's/[[:blank:]]*$///' {} \; ; \
+		find docs/output -name "*."$$file -exec sed -E -i "" -e "s/[[:blank:]]*$$//" {} \; ; \
 	done
+	find docs -type f -execdir chmod 644 {} \;
 
 	cp -rfv docs/output/* docs
 	cd docs && \
