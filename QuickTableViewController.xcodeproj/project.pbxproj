@@ -44,6 +44,9 @@
 		B54A244C208883A300EEBA26 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */; };
 		B54A244D208883A300EEBA26 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */; };
 		B54A244E208883A300EEBA26 /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
+		B54A24562088D44A00EEBA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24552088D44A00EEBA26 /* AppDelegate.swift */; };
+		B54A24582088D44A00EEBA26 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24572088D44A00EEBA26 /* TableViewController.swift */; };
+		B54A245D2088D44D00EEBA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54A245C2088D44D00EEBA26 /* Assets.xcassets */; };
 		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
 		B578B50A1C5673240021F7C3 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
@@ -106,6 +109,13 @@
 			remoteGlobalIDString = B54A24252088816D00EEBA26;
 			remoteInfo = "QuickTableViewController-tvOS";
 		};
+		B54A24622088D4E100EEBA26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5334F0A1B8CC5BD00C64A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B54A24252088816D00EEBA26;
+			remoteInfo = "QuickTableViewController-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -155,6 +165,11 @@
 		B54A242E2088816E00EEBA26 /* QuickTableViewController-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickTableViewController-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A24332088816E00EEBA26 /* QuickTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B54A24352088816E00EEBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B54A24532088D44A00EEBA26 /* Example-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54A24552088D44A00EEBA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B54A24572088D44A00EEBA26 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B54A245C2088D44D00EEBA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B54A245E2088D44D00EEBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Source/Protocol/Configurable.swift; sourceTree = SOURCE_ROOT; };
 		B578B5071C5673240021F7C3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B578B5081C5673240021F7C3 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
@@ -236,6 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54A242F2088816E00EEBA26 /* QuickTableViewController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A24502088D44A00EEBA26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +389,7 @@
 			children = (
 				B51F21A31F417037009BC2C9 /* Example-iOS */,
 				B51F21C11F41E600009BC2C9 /* Example-iOSUITests */,
+				B54A24542088D44A00EEBA26 /* Example-tvOS */,
 				B5DB7D241C4A4BEC007B84D2 /* Frameworks */,
 				942C1FAD68407A74DB056C2B /* Pods */,
 				B5334F141B8CC5BD00C64A6D /* Products */,
@@ -389,6 +412,7 @@
 			children = (
 				B51F21A21F417037009BC2C9 /* Example-iOS.app */,
 				B51F21C01F41E600009BC2C9 /* Example-iOSUITests.xctest */,
+				B54A24532088D44A00EEBA26 /* Example-tvOS.app */,
 				B54A242E2088816E00EEBA26 /* QuickTableViewController-tvOSTests.xctest */,
 				B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */,
 				B54A24262088816D00EEBA26 /* QuickTableViewController.framework */,
@@ -436,6 +460,17 @@
 				B54A24332088816E00EEBA26 /* QuickTableViewControllerTests.swift */,
 			);
 			path = "QuickTableViewController-tvOSTests";
+			sourceTree = "<group>";
+		};
+		B54A24542088D44A00EEBA26 /* Example-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				B54A24552088D44A00EEBA26 /* AppDelegate.swift */,
+				B54A245C2088D44D00EEBA26 /* Assets.xcassets */,
+				B54A245E2088D44D00EEBA26 /* Info.plist */,
+				B54A24572088D44A00EEBA26 /* TableViewController.swift */,
+			);
+			path = "Example-tvOS";
 			sourceTree = "<group>";
 		};
 		B55475721F2DC29B0027F7C1 /* Model */ = {
@@ -628,6 +663,24 @@
 			productReference = B54A242E2088816E00EEBA26 /* QuickTableViewController-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B54A24522088D44A00EEBA26 /* Example-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B54A24612088D44D00EEBA26 /* Build configuration list for PBXNativeTarget "Example-tvOS" */;
+			buildPhases = (
+				B54A244F2088D44A00EEBA26 /* Sources */,
+				B54A24502088D44A00EEBA26 /* Frameworks */,
+				B54A24512088D44A00EEBA26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B54A24632088D4E100EEBA26 /* PBXTargetDependency */,
+			);
+			name = "Example-tvOS";
+			productName = "Example-tvOS";
+			productReference = B54A24532088D44A00EEBA26 /* Example-tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -665,6 +718,10 @@
 						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
 					};
+					B54A24522088D44A00EEBA26 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = B5334F0D1B8CC5BD00C64A6D /* Build configuration list for PBXProject "QuickTableViewController" */;
@@ -686,6 +743,7 @@
 				B54A242D2088816E00EEBA26 /* QuickTableViewController-tvOSTests */,
 				B51F21A11F417037009BC2C9 /* Example-iOS */,
 				B51F21BF1F41E600009BC2C9 /* Example-iOSUITests */,
+				B54A24522088D44A00EEBA26 /* Example-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -738,6 +796,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B54A24512088D44A00EEBA26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54A245D2088D44D00EEBA26 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +1010,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B54A244F2088D44A00EEBA26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54A24562088D44A00EEBA26 /* AppDelegate.swift in Sources */,
+				B54A24582088D44A00EEBA26 /* TableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -966,6 +1041,11 @@
 			isa = PBXTargetDependency;
 			target = B54A24252088816D00EEBA26 /* QuickTableViewController-tvOS */;
 			targetProxy = B54A243D2088828300EEBA26 /* PBXContainerItemProxy */;
+		};
+		B54A24632088D4E100EEBA26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B54A24252088816D00EEBA26 /* QuickTableViewController-tvOS */;
+			targetProxy = B54A24622088D4E100EEBA26 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1309,7 +1389,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1339,7 +1419,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -1389,6 +1469,57 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
+			};
+			name = Release;
+		};
+		B54A245F2088D44D00EEBA26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Example-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		B54A24602088D44D00EEBA26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Example-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewController.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -1454,6 +1585,15 @@
 			buildConfigurations = (
 				B54A24392088816E00EEBA26 /* Debug */,
 				B54A243A2088816E00EEBA26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B54A24612088D44D00EEBA26 /* Build configuration list for PBXNativeTarget "Example-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54A245F2088D44D00EEBA26 /* Debug */,
+				B54A24602088D44D00EEBA26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
