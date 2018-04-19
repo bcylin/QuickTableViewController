@@ -1,6 +1,6 @@
 //
 //  CustomizationViewController.swift
-//  Example
+//  Example-iOS
 //
 //  Created by Ben on 30/01/2018.
 //  Copyright © 2018 bcylin.
