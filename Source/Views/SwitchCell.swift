@@ -36,12 +36,14 @@ public protocol SwitchCellDelegate: class {
 /// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
 open class SwitchCell: UITableViewCell, Configurable {
 
+  #if os(iOS)
   /// A `UISwitch` as the `accessoryView`.
   public private(set) lazy var switchControl: UISwitch = {
     let control = UISwitch()
-    control.addTarget(self, action: .didToggleSwitch, for: .valueChanged)
+    control.addTarget(self, action: #selector(SwitchCell.didToggleSwitch(_:)), for: .valueChanged)
     return control
   }()
+  #endif
 
   /// The switch cell's delegate object, which should conform to `SwitchCellDelegate`.
   open weak var delegate: SwitchCellDelegate?
@@ -77,27 +79,26 @@ open class SwitchCell: UITableViewCell, Configurable {
 
   /// Set up the switch control with the provided row.
   open func configure(with row: Row & RowStyle) {
+    #if os(iOS)
     if let row = row as? SwitchRowCompatible {
       switchControl.isOn = row.switchValue
     }
     accessoryView = switchControl
+    #endif
   }
 
   // MARK: - Private
 
+  #if os(iOS)
   @objc
   fileprivate func didToggleSwitch(_ sender: UISwitch) {
     delegate?.switchCell(self, didToggleSwitch: sender.isOn)
   }
+  #endif
 
   private func setUpAppearance() {
     textLabel?.numberOfLines = 0
     detailTextLabel?.numberOfLines = 0
   }
 
-}
-
-
-private extension Selector {
-  static let didToggleSwitch = #selector(SwitchCell.didToggleSwitch(_:))
 }
