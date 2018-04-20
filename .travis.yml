@@ -16,6 +16,8 @@ install:
 before_script:
   - if [ -n "$DANGER_GITHUB_API_TOKEN" ]; then bundle exec danger; fi
 script:
+  - set -o pipefail
+  - xcodebuild -workspace QuickTableViewController.xcworkspace -scheme Example-tvOS -sdk appletvsimulator clean build analyze | bundle exec xcpretty -c
   - bundle exec rake "ci:build[QuickTableViewController-iOS, 3.0]"
   - bundle exec rake "ci:test[QuickTableViewController-iOS]"
   - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
