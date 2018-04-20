@@ -161,7 +161,7 @@ internal final class CustomizationViewController: QuickTableViewController {
     }
 
     let text = (sender as! RowStyle).cellReuseIdentifier
-    debugging.rows = [NavigationRow(title: text, subtitle: .none)]
+    debugging.rows = [NavigationRow(title: text, subtitle: .none, customization: set(label: "debug"))]
     print(text)
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
       self?.tableView.reloadData()
