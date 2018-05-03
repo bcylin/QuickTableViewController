@@ -35,8 +35,8 @@ final class TableViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, action: nil),
-        SwitchRow(title: "Setting 2", switchValue: false, action: nil)
+        SwitchRow(title: "Setting 1", switchValue: true, action: log()),
+        SwitchRow(title: "Setting 2", switchValue: false, action: log())
       ]),
 
       Section(title: "Tap Action", rows: [
@@ -51,9 +51,9 @@ final class TableViewController: QuickTableViewController {
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: nil),
-        OptionRow(title: "Option 2", isSelected: false, action: nil),
-        OptionRow(title: "Option 3", isSelected: false, action: nil)
+        OptionRow(title: "Option 1", isSelected: true, action: log()),
+        OptionRow(title: "Option 2", isSelected: false, action: log()),
+        OptionRow(title: "Option 3", isSelected: false, action: log())
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -77,6 +77,19 @@ final class TableViewController: QuickTableViewController {
       let controller = UIViewController()
       controller.title = row.title + (row.subtitle.flatMap({ $0.text }) ?? "")
       self?.navigationController?.pushViewController(controller, animated: true)
+    }
+  }
+
+  private func log() -> (Row) -> Void {
+    return {
+      switch $0 {
+      case let row as SwitchRowCompatible:
+        print("\(row.title) = \(row.switchValue)")
+      case let option as OptionRowCompatible where option.isSelected:
+        print("\(option.title) is selected")
+      default:
+        break
+      }
     }
   }
 

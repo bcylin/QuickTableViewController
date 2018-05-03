@@ -142,6 +142,12 @@ open class QuickTableViewController: UIViewController,
       option.isSelected = !option.isSelected
       tableView.reloadData()
 
+    #if os(tvOS)
+    case let (_, row as SwitchRowCompatible):
+      row.switchValue = !row.switchValue
+      tableView.reloadData()
+    #endif
+
     case (_, is TapActionRowCompatible):
       tableView.deselectRow(at: indexPath, animated: true)
       DispatchQueue.main.async {

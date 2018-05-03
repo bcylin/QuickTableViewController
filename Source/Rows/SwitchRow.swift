@@ -86,11 +86,25 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   /// The icon of the row.
   public let icon: Icon?
 
+  #if os(iOS)
+
   /// The default accessory type is `.none`.
   public let accessoryType: UITableViewCellAccessoryType = .none
 
   /// The `SwitchRow` should not be selectable.
   public let isSelectable: Bool = false
+
+  #elseif os(tvOS)
+
+  /// Returns `.checkmark` when the `switchValue` is on, otherwise returns `.none`.
+  public var accessoryType: UITableViewCellAccessoryType {
+    return switchValue ? .checkmark : .none
+  }
+
+  /// The `SwitchRow` is selectable on tvOS.
+  public let isSelectable: Bool = true
+
+  #endif
 
   /// The additional customization during cell configuration.
   public let customize: ((UITableViewCell, Row & RowStyle) -> Void)?
