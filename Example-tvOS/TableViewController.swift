@@ -40,12 +40,12 @@ final class TableViewController: QuickTableViewController {
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: nil)
+        TapActionRow(title: "Tap action", action: showAlert())
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle")),
+        NavigationRow(title: "CellStyle.default", subtitle: .none, action: showDetail()),
+        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), action: showDetail()),
         NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1")),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
@@ -56,6 +56,28 @@ final class TableViewController: QuickTableViewController {
         OptionRow(title: "Option 3", isSelected: false, action: nil)
       ], footer: "See RadioSection for more details.")
     ]
+  }
+
+  // MARK: - Private
+
+  private func showAlert() -> (Row) -> Void {
+    return { [weak self] row in
+      let alert = UIAlertController(
+        title: row.title,
+        message: row.subtitle.flatMap({ $0.text }),
+        preferredStyle: .alert
+      )
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+      self?.present(alert, animated: true, completion: nil)
+    }
+  }
+
+  private func showDetail() -> (Row) -> Void {
+    return { [weak self] row in
+      let controller = UIViewController()
+      controller.title = row.title + (row.subtitle.flatMap({ $0.text }) ?? "")
+      self?.navigationController?.pushViewController(controller, animated: true)
+    }
   }
 
 }
