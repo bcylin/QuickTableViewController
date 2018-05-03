@@ -17,11 +17,12 @@ before_script:
   - if [ -n "$DANGER_GITHUB_API_TOKEN" ]; then bundle exec danger; fi
 script:
   - set -o pipefail
-  - xcodebuild -workspace QuickTableViewController.xcworkspace -scheme Example-tvOS -sdk appletvsimulator clean build analyze | bundle exec xcpretty -c
-  - bundle exec rake "ci:build[QuickTableViewController-iOS, 3.0]"
-  - bundle exec rake "ci:test[QuickTableViewController-iOS]"
+  - xcodebuild clean build -workspace QuickTableViewController.xcworkspace -scheme QuickTableViewController-iOS -sdk iphonesimulator SWIFT_VERSION=3.0 | bundle exec xcpretty -c
+  - bundle exec rake "test:ios[QuickTableViewController-iOS]"
+  - bundle exec rake "test:tvos[QuickTableViewController-tvOS]"
   - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
-  - bundle exec rake "ci:test[Example-iOS]"
+  - bundle exec rake "test:ios[Example-iOS]"
+  - bundle exec rake "build:tvos[Example-tvOS]"
   - make -B carthage
   - make -B docs
 after_success:
