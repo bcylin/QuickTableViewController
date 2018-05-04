@@ -1,6 +1,6 @@
 //
 //  DefaultViewController.swift
-//  Example
+//  Example-iOS
 //
 //  Created by Ben on 01/09/2015.
 //  Copyright (c) 2015 bcylin.

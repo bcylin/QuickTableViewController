@@ -29,6 +29,8 @@ import UIKit
 /// A `UITableViewCell` subclass with the title text center aligned.
 open class TapActionCell: UITableViewCell {
 
+  #if os(iOS)
+
   // MARK: - Initializer
 
   /**
@@ -70,5 +72,7 @@ open class TapActionCell: UITableViewCell {
     textLabel?.textAlignment = .center
     textLabel?.textColor = tintColor
   }
+
+  #endif
 
 }

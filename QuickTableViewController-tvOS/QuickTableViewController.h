@@ -1,9 +1,9 @@
 //
-//  AppDelegate.swift
-//  Example-iOS
+//  QuickTableViewController.h
+//  QuickTableViewController
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 19/04/2018.
+//  Copyright © 2018 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,25 +24,12 @@
 //  SOFTWARE.
 //
 
-import UIKit
+#import <UIKit/UIKit.h>
 
-@UIApplicationMain
-internal final class AppDelegate: UIResponder, UIApplicationDelegate {
+//! Project version number for QuickTableViewController.
+FOUNDATION_EXPORT double QuickTableViewControllerVersionNumber;
 
-  var window: UIWindow?
+//! Project version string for QuickTableViewController.
+FOUNDATION_EXPORT const unsigned char QuickTableViewControllerVersionString[];
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-
-    if #available(iOS 9.0, *) {
-      // See AppearanceViewController for the setups.
-      UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .blue
-    }
-
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window?.backgroundColor = UIColor.white
-    window?.rootViewController = UINavigationController(rootViewController: RootViewController())
-    window?.makeKeyAndVisible()
-    return true
-  }
-
-}
+// In this header, you should import all the public headers of your framework using statements like #import <QuickTableViewController/PublicHeader.h>

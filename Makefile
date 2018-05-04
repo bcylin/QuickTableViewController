@@ -1,8 +1,11 @@
 default: test
 
 test:
-	bundle exec rake "ci:test[QuickTableViewController-iOS]"
-	bundle exec rake "ci:test[Example-iOS]"
+	xcodebuild clean build -workspace QuickTableViewController.xcworkspace -scheme QuickTableViewController-iOS -sdk iphonesimulator SWIFT_VERSION=3.0 | bundle exec xcpretty -c
+	bundle exec rake "test:ios[QuickTableViewController-iOS]"
+	bundle exec rake "test:tvos[QuickTableViewController-tvOS]"
+	bundle exec rake "test:ios[Example-iOS]"
+	bundle exec rake "build:tvos[Example-tvOS]"
 
 ci-test: test
 	make -B carthage

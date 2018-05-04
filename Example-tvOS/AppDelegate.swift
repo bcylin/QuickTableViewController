@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Example-iOS
+//  Example-tvOS
 //
-//  Created by Ben on 01/09/2015.
-//  Copyright (c) 2015 bcylin.
+//  Created by Ben on 19/04/2018.
+//  Copyright © 2018 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,20 +27,13 @@
 import UIKit
 
 @UIApplicationMain
-internal final class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-
-    if #available(iOS 9.0, *) {
-      // See AppearanceViewController for the setups.
-      UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .blue
-    }
-
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
-    window?.backgroundColor = UIColor.white
-    window?.rootViewController = UINavigationController(rootViewController: RootViewController())
+    window?.rootViewController = UINavigationController(rootViewController: TableViewController())
     window?.makeKeyAndVisible()
     return true
   }
