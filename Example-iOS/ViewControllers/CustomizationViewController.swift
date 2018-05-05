@@ -26,7 +26,6 @@
 
 import UIKit
 import QuickTableViewController
-import Weakify
 
 private final class CustomCell: UITableViewCell {}
 private final class CustomSwitchCell: SwitchCell {}
@@ -60,13 +59,13 @@ internal final class CustomizationViewController: QuickTableViewController {
           title: "SwitchRow\n<CustomSwitchCell>",
           switchValue: true,
           customization: set(label: "0-0"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         ),
         CustomSwitchRow<SwitchCell>(
           title: "CustomSwitchRow\n<SwitchCell>",
           switchValue: false,
           customization: set(label: "0-1"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         )
       ]),
 
@@ -74,12 +73,12 @@ internal final class CustomizationViewController: QuickTableViewController {
         TapActionRow<CustomTapActionCell>(
           title: "TapActionRow\n<CustomTapActionCell>",
           customization: set(label: "1-0"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         ),
         CustomTapActionRow<TapActionCell>(
           title: "CustomTapActionRow\n<TapActionCell>",
           customization: set(label: "1-1"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         )
       ]),
 
@@ -88,24 +87,25 @@ internal final class CustomizationViewController: QuickTableViewController {
           title: "NavigationRow",
           subtitle: .none,
           customization: set(label: "2-0"),
-          action: weakify(self, type(of: self).log)),
+          action: showLog()
+        ),
         NavigationRow<CustomCell>(
           title: "NavigationRow<CustomCell>",
           subtitle: .belowTitle(".subtitle"),
           customization: set(label: "2-1"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         ),
         CustomNavigationRow(
           title: "CustomNavigationRow",
           subtitle: .rightAligned(".value1"),
           customization: set(label: "2-2"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         ),
         CustomNavigationRow<CustomCell>(
           title: "CustomNavigationRow<CustomCell>",
           subtitle: .leftAligned(".value2"),
           customization: set(label: "2-3"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         )
       ]),
 
@@ -114,19 +114,19 @@ internal final class CustomizationViewController: QuickTableViewController {
           title: "OptionRow",
           isSelected: false,
           customization: set(label: "3-0"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         ),
         CustomOptionRow(
           title: "CustomOptionRow",
           isSelected: false,
           customization: set(label: "3-1"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         ),
         CustomOptionRow<CustomOptionCell>(
           title: "CustomOptionRow<CustomOptionCell>",
           isSelected: false,
           customization: set(label: "3-2"),
-          action: weakify(self, type(of: self).log)
+          action: showLog()
         )
       ]),
 
@@ -155,16 +155,19 @@ internal final class CustomizationViewController: QuickTableViewController {
     }
   }
 
-  private func log(_ sender: Row) {
-    if let option = sender as? OptionRowCompatible, !option.isSelected {
-      return
-    }
-
-    let text = (sender as! RowStyle).cellReuseIdentifier
-    debugging.rows = [NavigationRow(title: text, subtitle: .none, customization: set(label: "debug"))]
-    print(text)
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-      self?.tableView.reloadData()
+  private func showLog() -> (Row) -> Void {
+    return { [weak self] in
+      if let option = $0 as? OptionRowCompatible, !option.isSelected {
+        return
+      }
+      let identifier = ($0 as! RowStyle).cellReuseIdentifier
+      self?.debugging.rows = [
+        NavigationRow(title: identifier, subtitle: .none, customization: self?.set(label: "debug"))
+      ]
+      print(identifier)
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+        self?.tableView.reloadData()
+      }
     }
   }
 

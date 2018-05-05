@@ -2,13 +2,11 @@ PODS:
   - Nimble (7.1.1)
   - Quick (1.3.0)
   - SwiftLint (0.25.0)
-  - Weakify (0.4.0)
 
 DEPENDENCIES:
   - Nimble (from `https://github.com/Quick/Nimble.git`, tag `v7.1.1`)
   - Quick (from `https://github.com/Quick/Quick.git`, tag `v1.3.0`)
   - SwiftLint (from `https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/4/0/1/SwiftLint/0.25.0/SwiftLint.podspec.json`)
-  - Weakify (from `https://github.com/klundberg/Weakify.git`, tag `v0.4.0`)
 
 EXTERNAL SOURCES:
   Nimble:
@@ -19,9 +17,6 @@ EXTERNAL SOURCES:
     :tag: v1.3.0
   SwiftLint:
     :podspec: https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/4/0/1/SwiftLint/0.25.0/SwiftLint.podspec.json
-  Weakify:
-    :git: https://github.com/klundberg/Weakify.git
-    :tag: v0.4.0
 
 CHECKOUT OPTIONS:
   Nimble:
@@ -30,16 +25,12 @@ CHECKOUT OPTIONS:
   Quick:
     :git: https://github.com/Quick/Quick.git
     :tag: v1.3.0
-  Weakify:
-    :git: https://github.com/klundberg/Weakify.git
-    :tag: v0.4.0
 
 SPEC CHECKSUMS:
   Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
-  Weakify: 77be86c462237baa373e97fcf57d4d8637c2e614
 
-PODFILE CHECKSUM: 2d81cf9c761ea9b0f3ef2b9b0c088c545c9d79aa
+PODFILE CHECKSUM: 63ae4b6c2c52ce9d17c3fd339894d12d88cf2a65
 
 COCOAPODS: 1.5.0

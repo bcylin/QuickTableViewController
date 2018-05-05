@@ -284,8 +284,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B54A242F2088816E00EEBA26 /* QuickTableViewController.framework in Frameworks */,
 				A3895BA2FCD4633B9297CB06 /* Pods_QuickTableViewController_tvOSTests.framework in Frameworks */,
+				B54A242F2088816E00EEBA26 /* QuickTableViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,7 +655,6 @@
 				B51F219E1F417037009BC2C9 /* Sources */,
 				B51F219F1F417037009BC2C9 /* Frameworks */,
 				B51F21A01F417037009BC2C9 /* Resources */,
-				C57ED08E45623928E1F82168 /* [CP] Embed Pods Frameworks */,
 				B51F21CE1F41F32D009BC2C9 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -997,24 +996,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --config .swiftlint.yml";
-		};
-		C57ED08E45623928E1F82168 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Weakify/Weakify.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Weakify.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		D6A5837800B2AEA91500816C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
