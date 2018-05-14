@@ -254,9 +254,9 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
 
           it("should match the switch value at \(index)") {
             #if os(iOS)
-            expect((cell as? SwitchCell)?.switchControl.isOn) == true
+              expect((cell as? SwitchCell)?.switchControl.isOn) == true
             #elseif os(tvOS)
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+              expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
             #endif
           }
         }

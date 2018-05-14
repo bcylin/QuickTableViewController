@@ -100,9 +100,9 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
         for index in 0...3 {
           let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 2))
           #if os(iOS)
-          expect(highlight) == false
+            expect(highlight) == false
           #elseif os(tvOS)
-          expect(highlight) == true
+            expect(highlight) == true
           #endif
         }
       }

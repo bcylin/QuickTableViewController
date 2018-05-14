@@ -38,11 +38,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = SwitchRow(title: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == true
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
           #endif
         }
 
@@ -51,11 +51,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = SwitchRow(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == false
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
           #endif
         }
       }
@@ -66,11 +66,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = CustomSwitchRow(title: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == true
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
           #endif
         }
 
@@ -79,11 +79,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = CustomSwitchRow(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == false
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
           #endif
         }
       }
@@ -94,11 +94,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = SwitchRow<CustomSwitchCell>(title: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == true
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
           #endif
         }
 
@@ -107,11 +107,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = SwitchRow<CustomSwitchCell>(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == false
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
           #endif
         }
       }
@@ -122,11 +122,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = CustomSwitchRow<CustomSwitchCell>(title: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == true
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
           #endif
         }
 
@@ -135,11 +135,11 @@ internal final class ConfigurableSpec: QuickSpec {
           let row = CustomSwitchRow<CustomSwitchCell>(title: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
-          expect(cell.accessoryView) == cell.switchControl
-          expect(cell.switchControl.isOn) == false
+            expect(cell.accessoryView) == cell.switchControl
+            expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
-          expect(cell.accessoryView).to(beNil())
-          expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryView).to(beNil())
+            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
           #endif
         }
       }
