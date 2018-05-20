@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B54A242D2088816E00EEBA26"
-               BuildableName = "QuickTableViewController-tvOSTests.xctest"
+               BuildableName = "QuickTableViewControllerTests.xctest"
                BlueprintName = "QuickTableViewController-tvOSTests"
                ReferencedContainer = "container:QuickTableViewController.xcodeproj">
             </BuildableReference>

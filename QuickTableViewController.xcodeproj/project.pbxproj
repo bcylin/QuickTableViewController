@@ -60,22 +60,22 @@
 		B5A37EB62020937A009C075F /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A37EB52020937A009C075F /* OptionCell.xib */; };
 		B5A67A1220205F5C0075E0C8 /* CustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */; };
 		B5A67A14202069440075E0C8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A67A13202069440075E0C8 /* RootViewController.swift */; };
-		B5C3BBFB209AC5D70034B8A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C3BBE7209AC5D60034B8A5 /* icon.png */; };
-		B5C3BBFC209AC5D70034B8A5 /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B5C3BBE8209AC5D60034B8A5 /* icon-highlighted.png */; };
-		B5C3BBFD209AC5D70034B8A5 /* SwitchRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBEA209AC5D60034B8A5 /* SwitchRowSpec.swift */; };
-		B5C3BBFE209AC5D70034B8A5 /* TapActionRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBEB209AC5D60034B8A5 /* TapActionRowSpec.swift */; };
-		B5C3BBFF209AC5D70034B8A5 /* NavigationRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBEC209AC5D60034B8A5 /* NavigationRowSpec.swift */; };
-		B5C3BC00209AC5D70034B8A5 /* OptionRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBED209AC5D60034B8A5 /* OptionRowSpec.swift */; };
-		B5C3BC01209AC5D70034B8A5 /* ReusableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBEF209AC5D70034B8A5 /* ReusableSpec.swift */; };
-		B5C3BC02209AC5D70034B8A5 /* ConfigurableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF0209AC5D70034B8A5 /* ConfigurableSpec.swift */; };
-		B5C3BC03209AC5D70034B8A5 /* QuickTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF2209AC5D70034B8A5 /* QuickTableViewControllerSpec.swift */; };
-		B5C3BC04209AC5D70034B8A5 /* QuickTableViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF3209AC5D70034B8A5 /* QuickTableViewDelegateSpec.swift */; };
-		B5C3BC05209AC5D70034B8A5 /* QuickTableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF4209AC5D70034B8A5 /* QuickTableViewDataSourceSpec.swift */; };
-		B5C3BC06209AC5D70034B8A5 /* RadioSectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF6209AC5D70034B8A5 /* RadioSectionSpec.swift */; };
-		B5C3BC07209AC5D70034B8A5 /* IconSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF7209AC5D70034B8A5 /* IconSpec.swift */; };
-		B5C3BC08209AC5D70034B8A5 /* SectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF8209AC5D70034B8A5 /* SectionSpec.swift */; };
-		B5C3BC09209AC5D70034B8A5 /* SubtitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBF9209AC5D70034B8A5 /* SubtitleSpec.swift */; };
-		B5C3BC0A209AC5D70034B8A5 /* CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3BBFA209AC5D70034B8A5 /* CustomTypes.swift */; };
+		B5C9174520B1831800C7999C /* icon-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5081C5673240021F7C3 /* icon-highlighted.png */; };
+		B5C9174620B1831800C7999C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
+		B5C9174720B1831800C7999C /* IconSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */; };
+		B5C9174820B1831800C7999C /* RadioSectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */; };
+		B5C9174920B1831800C7999C /* SectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */; };
+		B5C9174A20B1831800C7999C /* SubtitleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB94341BE117EE00E2CEDE /* SubtitleSpec.swift */; };
+		B5C9174B20B1831800C7999C /* NavigationRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */; };
+		B5C9174C20B1831800C7999C /* OptionRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E619D31F45708F005200E1 /* OptionRowSpec.swift */; };
+		B5C9174D20B1831800C7999C /* SwitchRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */; };
+		B5C9174E20B1831800C7999C /* TapActionRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D301C4B9ACB007B84D2 /* TapActionRowSpec.swift */; };
+		B5C9174F20B1831800C7999C /* ConfigurableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5824E8A1FF3B639009666C8 /* ConfigurableSpec.swift */; };
+		B5C9175020B1831800C7999C /* ReusableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536C7F61F4AAF7C00DAC4AA /* ReusableSpec.swift */; };
+		B5C9175120B1831800C7999C /* QuickTableViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FAA6C1C512D5B008FF7C7 /* QuickTableViewControllerSpec.swift */; };
+		B5C9175220B1831800C7999C /* QuickTableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52677741FF80E9100DC1362 /* QuickTableViewDataSourceSpec.swift */; };
+		B5C9175320B1831800C7999C /* QuickTableViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52677721FF7F08D00DC1362 /* QuickTableViewDelegateSpec.swift */; };
+		B5C9175420B1831800C7999C /* CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526776F1FF7EA5A00DC1362 /* CustomTypes.swift */; };
 		B5DB7D271C4B7F74007B84D2 /* IconSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */; };
 		B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */; };
 		B5DB7D2F1C4B95D3007B84D2 /* SwitchRowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */; };
@@ -180,7 +180,7 @@
 		B54A24262088816D00EEBA26 /* QuickTableViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickTableViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A24282088816D00EEBA26 /* QuickTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickTableViewController.h; sourceTree = "<group>"; };
 		B54A24292088816D00EEBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B54A242E2088816E00EEBA26 /* QuickTableViewController-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickTableViewController-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54A242E2088816E00EEBA26 /* QuickTableViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTableViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A24352088816E00EEBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B54A24532088D44A00EEBA26 /* Example-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A24552088D44A00EEBA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,22 +200,6 @@
 		B5A37EB52020937A009C075F /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewController.swift; sourceTree = "<group>"; };
 		B5A67A13202069440075E0C8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		B5C3BBE7209AC5D60034B8A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		B5C3BBE8209AC5D60034B8A5 /* icon-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-highlighted.png"; sourceTree = "<group>"; };
-		B5C3BBEA209AC5D60034B8A5 /* SwitchRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRowSpec.swift; sourceTree = "<group>"; };
-		B5C3BBEB209AC5D60034B8A5 /* TapActionRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRowSpec.swift; sourceTree = "<group>"; };
-		B5C3BBEC209AC5D60034B8A5 /* NavigationRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRowSpec.swift; sourceTree = "<group>"; };
-		B5C3BBED209AC5D60034B8A5 /* OptionRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionRowSpec.swift; sourceTree = "<group>"; };
-		B5C3BBEF209AC5D70034B8A5 /* ReusableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF0209AC5D70034B8A5 /* ConfigurableSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF2209AC5D70034B8A5 /* QuickTableViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewControllerSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF3209AC5D70034B8A5 /* QuickTableViewDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewDelegateSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF4209AC5D70034B8A5 /* QuickTableViewDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTableViewDataSourceSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF6209AC5D70034B8A5 /* RadioSectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioSectionSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF7209AC5D70034B8A5 /* IconSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF8209AC5D70034B8A5 /* SectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionSpec.swift; sourceTree = "<group>"; };
-		B5C3BBF9209AC5D70034B8A5 /* SubtitleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleSpec.swift; sourceTree = "<group>"; };
-		B5C3BBFA209AC5D70034B8A5 /* CustomTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTypes.swift; path = "QuickTableViewController-iOSTests/CustomTypes.swift"; sourceTree = SOURCE_ROOT; };
 		B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2C1C4B8294007B84D2 /* NavigationRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRowSpec.swift; sourceTree = "<group>"; };
 		B5DB7D2E1C4B95D3007B84D2 /* SwitchRowSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRowSpec.swift; sourceTree = "<group>"; };
@@ -431,10 +415,11 @@
 				942C1FAD68407A74DB056C2B /* Pods */,
 				B5334F141B8CC5BD00C64A6D /* Products */,
 				B5334F151B8CC5BD00C64A6D /* QuickTableViewController-iOS */,
-				B5334F221B8CC5BD00C64A6D /* QuickTableViewController-iOSTests */,
+				B5C9174420B1827500C7999C /* QuickTableViewController-iOSTests */,
 				B54A24272088816D00EEBA26 /* QuickTableViewController-tvOS */,
 				B54A24322088816E00EEBA26 /* QuickTableViewController-tvOSTests */,
 				B51A0E7A206934C300F42693 /* Source */,
+				B5334F221B8CC5BD00C64A6D /* Tests */,
 				B5DD432C20639F7800AB661D /* CHANGELOG.md */,
 				B5DD432D20639F7800AB661D /* README.md */,
 			);
@@ -450,9 +435,9 @@
 				B51F21A21F417037009BC2C9 /* Example-iOS.app */,
 				B51F21C01F41E600009BC2C9 /* Example-iOSUITests.xctest */,
 				B54A24532088D44A00EEBA26 /* Example-tvOS.app */,
-				B54A242E2088816E00EEBA26 /* QuickTableViewController-tvOSTests.xctest */,
 				B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */,
 				B54A24262088816D00EEBA26 /* QuickTableViewController.framework */,
+				B54A242E2088816E00EEBA26 /* QuickTableViewControllerTests.xctest */,
 				B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */,
 			);
 			name = Products;
@@ -467,7 +452,7 @@
 			path = "QuickTableViewController-iOS";
 			sourceTree = "<group>";
 		};
-		B5334F221B8CC5BD00C64A6D /* QuickTableViewController-iOSTests */ = {
+		B5334F221B8CC5BD00C64A6D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				B51A0E3320692E7100F42693 /* Assets */,
@@ -476,9 +461,8 @@
 				B51A0E2D20692AFD00F42693 /* View */,
 				B51A0E3020692B4100F42693 /* ViewController */,
 				B526776F1FF7EA5A00DC1362 /* CustomTypes.swift */,
-				B5334F241B8CC5BD00C64A6D /* Info.plist */,
 			);
-			path = "QuickTableViewController-iOSTests";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		B54A24272088816D00EEBA26 /* QuickTableViewController-tvOS */ = {
@@ -493,12 +477,6 @@
 		B54A24322088816E00EEBA26 /* QuickTableViewController-tvOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				B5C3BBE6209AC5D60034B8A5 /* Assets */,
-				B5C3BBF5209AC5D70034B8A5 /* Model */,
-				B5C3BBE9209AC5D60034B8A5 /* Row */,
-				B5C3BBEE209AC5D70034B8A5 /* View */,
-				B5C3BBF1209AC5D70034B8A5 /* ViewController */,
-				B5C3BBFA209AC5D70034B8A5 /* CustomTypes.swift */,
 				B54A24352088816E00EEBA26 /* Info.plist */,
 			);
 			path = "QuickTableViewController-tvOSTests";
@@ -559,60 +537,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		B5C3BBE6209AC5D60034B8A5 /* Assets */ = {
+		B5C9174420B1827500C7999C /* QuickTableViewController-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				B5C3BBE8209AC5D60034B8A5 /* icon-highlighted.png */,
-				B5C3BBE7209AC5D60034B8A5 /* icon.png */,
+				B5334F241B8CC5BD00C64A6D /* Info.plist */,
 			);
-			name = Assets;
-			path = "QuickTableViewController-iOSTests/Assets";
-			sourceTree = SOURCE_ROOT;
-		};
-		B5C3BBE9209AC5D60034B8A5 /* Row */ = {
-			isa = PBXGroup;
-			children = (
-				B5C3BBEC209AC5D60034B8A5 /* NavigationRowSpec.swift */,
-				B5C3BBED209AC5D60034B8A5 /* OptionRowSpec.swift */,
-				B5C3BBEA209AC5D60034B8A5 /* SwitchRowSpec.swift */,
-				B5C3BBEB209AC5D60034B8A5 /* TapActionRowSpec.swift */,
-			);
-			name = Row;
-			path = "QuickTableViewController-iOSTests/Row";
-			sourceTree = SOURCE_ROOT;
-		};
-		B5C3BBEE209AC5D70034B8A5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B5C3BBF0209AC5D70034B8A5 /* ConfigurableSpec.swift */,
-				B5C3BBEF209AC5D70034B8A5 /* ReusableSpec.swift */,
-			);
-			name = View;
-			path = "QuickTableViewController-iOSTests/View";
-			sourceTree = SOURCE_ROOT;
-		};
-		B5C3BBF1209AC5D70034B8A5 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				B5C3BBF2209AC5D70034B8A5 /* QuickTableViewControllerSpec.swift */,
-				B5C3BBF4209AC5D70034B8A5 /* QuickTableViewDataSourceSpec.swift */,
-				B5C3BBF3209AC5D70034B8A5 /* QuickTableViewDelegateSpec.swift */,
-			);
-			name = ViewController;
-			path = "QuickTableViewController-iOSTests/ViewController";
-			sourceTree = SOURCE_ROOT;
-		};
-		B5C3BBF5209AC5D70034B8A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B5C3BBF7209AC5D70034B8A5 /* IconSpec.swift */,
-				B5C3BBF6209AC5D70034B8A5 /* RadioSectionSpec.swift */,
-				B5C3BBF8209AC5D70034B8A5 /* SectionSpec.swift */,
-				B5C3BBF9209AC5D70034B8A5 /* SubtitleSpec.swift */,
-			);
-			name = Model;
-			path = "QuickTableViewController-iOSTests/Model";
-			sourceTree = SOURCE_ROOT;
+			path = "QuickTableViewController-iOSTests";
+			sourceTree = "<group>";
 		};
 		B5DB7D241C4A4BEC007B84D2 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -759,7 +690,7 @@
 			);
 			name = "QuickTableViewController-tvOSTests";
 			productName = QuickTableViewControllerTests;
-			productReference = B54A242E2088816E00EEBA26 /* QuickTableViewController-tvOSTests.xctest */;
+			productReference = B54A242E2088816E00EEBA26 /* QuickTableViewControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		B54A24522088D44A00EEBA26 /* Example-tvOS */ = {
@@ -895,8 +826,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C3BBFC209AC5D70034B8A5 /* icon-highlighted.png in Resources */,
-				B5C3BBFB209AC5D70034B8A5 /* icon.png in Resources */,
+				B5C9174520B1831800C7999C /* icon-highlighted.png in Resources */,
+				B5C9174620B1831800C7999C /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1127,20 +1058,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C3BC02209AC5D70034B8A5 /* ConfigurableSpec.swift in Sources */,
-				B5C3BC0A209AC5D70034B8A5 /* CustomTypes.swift in Sources */,
-				B5C3BC07209AC5D70034B8A5 /* IconSpec.swift in Sources */,
-				B5C3BBFF209AC5D70034B8A5 /* NavigationRowSpec.swift in Sources */,
-				B5C3BC00209AC5D70034B8A5 /* OptionRowSpec.swift in Sources */,
-				B5C3BC03209AC5D70034B8A5 /* QuickTableViewControllerSpec.swift in Sources */,
-				B5C3BC05209AC5D70034B8A5 /* QuickTableViewDataSourceSpec.swift in Sources */,
-				B5C3BC04209AC5D70034B8A5 /* QuickTableViewDelegateSpec.swift in Sources */,
-				B5C3BC06209AC5D70034B8A5 /* RadioSectionSpec.swift in Sources */,
-				B5C3BC01209AC5D70034B8A5 /* ReusableSpec.swift in Sources */,
-				B5C3BC08209AC5D70034B8A5 /* SectionSpec.swift in Sources */,
-				B5C3BC09209AC5D70034B8A5 /* SubtitleSpec.swift in Sources */,
-				B5C3BBFD209AC5D70034B8A5 /* SwitchRowSpec.swift in Sources */,
-				B5C3BBFE209AC5D70034B8A5 /* TapActionRowSpec.swift in Sources */,
+				B5C9174F20B1831800C7999C /* ConfigurableSpec.swift in Sources */,
+				B5C9175420B1831800C7999C /* CustomTypes.swift in Sources */,
+				B5C9174720B1831800C7999C /* IconSpec.swift in Sources */,
+				B5C9174B20B1831800C7999C /* NavigationRowSpec.swift in Sources */,
+				B5C9174C20B1831800C7999C /* OptionRowSpec.swift in Sources */,
+				B5C9175120B1831800C7999C /* QuickTableViewControllerSpec.swift in Sources */,
+				B5C9175220B1831800C7999C /* QuickTableViewDataSourceSpec.swift in Sources */,
+				B5C9175320B1831800C7999C /* QuickTableViewDelegateSpec.swift in Sources */,
+				B5C9174820B1831800C7999C /* RadioSectionSpec.swift in Sources */,
+				B5C9175020B1831800C7999C /* ReusableSpec.swift in Sources */,
+				B5C9174920B1831800C7999C /* SectionSpec.swift in Sources */,
+				B5C9174A20B1831800C7999C /* SubtitleSpec.swift in Sources */,
+				B5C9174D20B1831800C7999C /* SwitchRowSpec.swift in Sources */,
+				B5C9174E20B1831800C7999C /* TapActionRowSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1574,7 +1505,7 @@
 				INFOPLIST_FILE = "QuickTableViewController-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewControllerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTableViewControllerTests;
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.0;
@@ -1599,7 +1530,7 @@
 				INFOPLIST_FILE = "QuickTableViewController-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewControllerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTableViewControllerTests;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
