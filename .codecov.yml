@@ -1,8 +1,10 @@
 coverage:
   status:
     patch: off
+comment:
+  layout: "diff, files"
 ignore:
   - "Carthage/**/*"
   - "Example*/**/*"
-  - "*Tests/**/*"
+  - "Tests/**/*"
   - "Pods/**/*"
