@@ -42,7 +42,7 @@ class ViewController: QuickTableViewController {
       Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { [weak self] in self?.showDetail($0) }),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: showDetail()),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
 
@@ -60,8 +60,10 @@ class ViewController: QuickTableViewController {
     // ...
   }
 
-  private func showDetail(_ sender: Row) {
-    // ...
+  private func showDetail() -> (Row) -> Void {
+    return { [weak self] row in
+      // ...
+    }
   }
 
 }
@@ -72,7 +74,7 @@ class ViewController: QuickTableViewController {
 #### Subtitle Styles
 
 ```swift
-NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .none)
+NavigationRow(title: "UITableViewCellStyle.default", subtitle: .none)
 NavigationRow(title: "UITableViewCellStyle", subtitle: .belowTitle(".subtitle")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
@@ -221,16 +223,16 @@ QuickTableViewController is not designed for inserting and deleting rows. It doe
 
 QuickTableViewController | iOS  | tvOS | Xcode | Swift
 ------------------------ | :--: | :--: | :---: | :---:
-`~> 0.1.0`               | 8.0+ | -    | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
-`~> 0.2.0`               | 8.0+ | -    | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
-`~> 0.3.0`               | 8.0+ | -    | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
-`~> 0.4.0`               | 8.0+ | -    | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
-`~> 0.5.0`               | 8.0+ | -    | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
-`~> 0.6.0`               | 8.0+ | -    | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
-`~> 0.7.0`               | 8.0+ | -    | 9.0   | ![Swift 3.2](https://img.shields.io/badge/Swift-3.2-orange.svg)
-`~> 0.8.0`               | 8.0+ | -    | 9.1   | ![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
-`~> 0.9.0`               | 8.0+ | -    | 9.3   | ![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
-`develop` branch         | 8.0+ | 9.0+ | 9.3   | ![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
+`~> 0.1.0`               | 8.0+ | -    | 6.4   | 1.2
+`~> 0.2.0`               | 8.0+ | -    | 7.0   | 2.0
+`~> 0.3.0`               | 8.0+ | -    | 7.3   | 2.2
+`~> 0.4.0`               | 8.0+ | -    | 8.0   | 2.3
+`~> 0.5.0`               | 8.0+ | -    | 8.0   | 3.0
+`~> 0.6.0`               | 8.0+ | -    | 8.3   | 3.1
+`~> 0.7.0`               | 8.0+ | -    | 9.0   | 3.2
+`~> 0.8.0`               | 8.0+ | -    | 9.1   | 4.0
+`~> 0.9.0`               | 8.0+ | -    | 9.3   | 4.1
+`develop` branch         | 8.0+ | 9.0+ | 9.4   | 4.2
 
 ## Installation
 
