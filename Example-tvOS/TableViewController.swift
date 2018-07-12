@@ -35,8 +35,8 @@ final class TableViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, action: log()),
-        SwitchRow(title: "Setting 2", switchValue: false, action: log())
+        SwitchRow(title: "Setting 1", switchValue: true, action: showLog()),
+        SwitchRow(title: "Setting 2", switchValue: false, action: showLog())
       ]),
 
       Section(title: "Tap Action", rows: [
@@ -51,9 +51,9 @@ final class TableViewController: QuickTableViewController {
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: log()),
-        OptionRow(title: "Option 2", isSelected: false, action: log()),
-        OptionRow(title: "Option 3", isSelected: false, action: log())
+        OptionRow(title: "Option 1", isSelected: true, action: showLog()),
+        OptionRow(title: "Option 2", isSelected: false, action: showLog()),
+        OptionRow(title: "Option 3", isSelected: false, action: showLog())
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -75,12 +75,12 @@ final class TableViewController: QuickTableViewController {
   private func showDetail() -> (Row) -> Void {
     return { [weak self] row in
       let controller = UIViewController()
-      controller.title = row.title + (row.subtitle.flatMap({ $0.text }) ?? "")
+      controller.title = row.title + (row.subtitle?.text ?? "")
       self?.navigationController?.pushViewController(controller, animated: true)
     }
   }
 
-  private func log() -> (Row) -> Void {
+  private func showLog() -> (Row) -> Void {
     return {
       switch $0 {
       case let row as SwitchRowCompatible:

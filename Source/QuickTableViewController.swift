@@ -104,7 +104,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     cell.defaultSetUp(with: row)
     (cell as? Configurable)?.configure(with: row)
     #if os(iOS)
-    (cell as? SwitchCell)?.delegate = self
+      (cell as? SwitchCell)?.delegate = self
     #endif
     row.customize?(cell, row)
 
