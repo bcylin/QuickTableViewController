@@ -42,14 +42,14 @@ class ViewController: QuickTableViewController {
       Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: showDetail()),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time")),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: nil),
-        OptionRow(title: "Option 2", isSelected: false, action: nil),
-        OptionRow(title: "Option 3", isSelected: false, action: nil)
+        OptionRow(title: "Option 1", isSelected: true, action: didToggleOption()),
+        OptionRow(title: "Option 2", isSelected: false, action: didToggleOption()),
+        OptionRow(title: "Option 3", isSelected: false, action: didToggleOption())
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -60,7 +60,7 @@ class ViewController: QuickTableViewController {
     // ...
   }
 
-  private func showDetail() -> (Row) -> Void {
+  private func didToggleOption() -> (Row) -> Void {
     return { [weak self] row in
       // ...
     }
@@ -80,24 +80,23 @@ NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 ```
 
-#### Images
-
-* Images in table view cells can be set by specifying the `icon` of each row.
-* Table view cells in `UITableViewCellStyle.value2` will not show the image view.
-
-```swift
-let icon = Icon.images(normal: UIImage(named: "icon"), highlighted: UIImage(named: "icon-highlighted"))
-NavigationRow(title: "Cell with image", subtitle: .none, icon: icon)
-```
-
 #### Disclosure Indicator
 
 * A `NavigationRow` with an `action` will be displayed in a table view cell with `.disclosureIndicator`.
 * The `action` will be invoked when the table view cell is selected.
 
+#### Images
+
 ```swift
-NavigationRow(title: "Navigation cell", subtitle: .none, action: { (sender: Row) in })
+enum Icon {
+  case named(String)
+  case image(UIImage)
+  case images(normal: UIImage, highlighted: UIImage)
+}
 ```
+
+* Images in table view cells can be set by specifying the `icon` of each row.
+* Table view cells in `UITableViewCellStyle.value2` will not show the image view.
 
 ### SwitchRow
 
@@ -105,32 +104,30 @@ NavigationRow(title: "Navigation cell", subtitle: .none, action: { (sender: Row)
 * The `action` will be invoked when the switch value changes.
 * The subtitle is disabled in `SwitchRow `.
 
-```swift
-SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
-```
-
 ### TapActionRow
 
 * A `TapActionRow` is representing a button-like table view cell.
 * The `action` will be invoked when the table view cell is selected.
 * The icon and subtitle are disabled in `TapActionRow`.
 
-```swift
-TapActionRow(title: "Tap action", action: { (sender: Row) in })
-```
-
-### OptionRow & RadioSection
+### OptionRow
 
 * An `OptionRow` is representing a table view cell with `.checkmark`.
-* The `action` will be invoked when the selected state is toggled.
 * The subtitle is disabled in `OptionRow`.
+* The `action` will be invoked when the selected state is toggled.
 
 ```swift
-OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
+let didToggleOption: (Row) -> Void = { [weak self] in
+  if let option = $0 as? OptionRowCompatible, option.isSelected {
+    // to exclude the option that's toggled off
+  }
+}
 ```
 
+### RadioSection
+
 * `OptionRow` can be used with or without `RadioSection`, which allows only one selected option.
-* All options can be unselected in `RadioSection` by default. Setting `alwaysSelectsOneOption` to true will keep one of the options selected.
+* Setting `alwaysSelectsOneOption` to true will keep one of the options selected.
 
 ## Customization
 
@@ -202,6 +199,12 @@ The `customize` closure overwrites the `Configurable` setup.
 
 As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/issues/12), UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out [AppearanceViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/AppearanceViewController.swift) for the setup.
 
+## tvOS Differences
+
+* `UISwitch` is replaced by a checkmark in `SwitchCell`.
+* `TapActionCell` does not use center aligned text.
+* Cell image view's left margin is 0.
+
 ## Limitation
 
 > When to use **QuickTableViewController**?
@@ -232,7 +235,7 @@ QuickTableViewController | iOS  | tvOS | Xcode | Swift
 `~> 0.7.0`               | 8.0+ | -    | 9.0   | 3.2
 `~> 0.8.0`               | 8.0+ | -    | 9.1   | 4.0
 `~> 0.9.0`               | 8.0+ | -    | 9.3   | 4.1
-`develop` branch         | 8.0+ | 9.0+ | 9.4   | 4.2
+`~> 1.0.0`               | 8.0+ | 9.0+ | 9.4   | 4.1
 
 ## Installation
 
