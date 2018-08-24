@@ -42,7 +42,7 @@ class ViewController: QuickTableViewController {
       Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time")),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
 
@@ -175,7 +175,7 @@ let action: (Row) -> Void = {
 
 ### Overwrite Default Configuration
 
-You can use `register(_:forCellReuseIdentifier:)` to specify custom cell types for the [table view]((https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)) to use. See [CustomizationViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift) for the cell reuse identifiers of different rows.
+You can use `register(_:forCellReuseIdentifier:)` to specify custom cell types for the [table view](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L100-L102) to use. See [CustomizationViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example-iOS/ViewControllers/CustomizationViewController.swift) for the cell reuse identifiers of different rows.
 
 Table view cell classes that conform to `Configurable` can take the customization during `tableView(_:cellForRowAt:)`:
 
@@ -197,7 +197,7 @@ The `customize` closure overwrites the `Configurable` setup.
 
 ### UIAppearance
 
-As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/issues/12), UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out [AppearanceViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/AppearanceViewController.swift) for the setup.
+As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/issues/12), UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out [AppearanceViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example-iOS/ViewControllers/AppearanceViewController.swift) for the setup.
 
 ## tvOS Differences
 
