@@ -27,16 +27,13 @@
 import UIKit
 
 /// A table view controller that shows `tableContents` as formatted sections and rows.
-open class QuickTableViewController: UIViewController,
-  UITableViewDataSource,
-  UITableViewDelegate,
-  SwitchCellDelegate {
+open class QuickTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
   /// A Boolean value indicating if the controller clears the selection when the collection view appears.
   open var clearsSelectionOnViewWillAppear = true
 
   /// Returns the table view managed by the controller object.
-  open private(set) var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
+  open private(set) var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
 
   /// The layout of sections and rows to display in the table view.
   open var tableContents: [Section] = [] {
@@ -56,7 +53,7 @@ open class QuickTableViewController: UIViewController,
    */
   public convenience init(style: UITableViewStyle) {
     self.init(nibName: nil, bundle: nil)
-    tableView = UITableView(frame: CGRect.zero, style: style)
+    tableView = UITableView(frame: .zero, style: style)
   }
 
   deinit {
@@ -106,7 +103,9 @@ open class QuickTableViewController: UIViewController,
 
     cell.defaultSetUp(with: row)
     (cell as? Configurable)?.configure(with: row)
-    (cell as? SwitchCell)?.delegate = self
+    #if os(iOS)
+      (cell as? SwitchCell)?.delegate = self
+    #endif
     row.customize?(cell, row)
 
     return cell
@@ -142,14 +141,21 @@ open class QuickTableViewController: UIViewController,
       option.isSelected = !option.isSelected
       tableView.reloadData()
 
+    #if os(tvOS)
+    case let (_, row as SwitchRowCompatible):
+      // SwitchRow on tvOS behaves like OptionRow.
+      row.switchValue = !row.switchValue
+      tableView.reloadData()
+    #endif
+
     case (_, is TapActionRowCompatible):
       tableView.deselectRow(at: indexPath, animated: true)
+      // Avoid some unwanted animation when the action also involves table view reload.
       DispatchQueue.main.async {
         row.action?(row)
       }
 
     case let (_, row) where row.isSelectable:
-      // Avoid some unwanted animation when the action also involves table view reload
       DispatchQueue.main.async {
         row.action?(row)
       }
@@ -158,6 +164,12 @@ open class QuickTableViewController: UIViewController,
       break
     }
   }
+
+}
+
+
+#if os(iOS)
+extension QuickTableViewController: SwitchCellDelegate {
 
   // MARK: - SwitchCellDelegate
 
@@ -172,3 +184,4 @@ open class QuickTableViewController: UIViewController,
   }
 
 }
+#endif

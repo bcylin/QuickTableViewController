@@ -1,45 +1,36 @@
 PODS:
-  - Nimble (7.0.3)
-  - Quick (1.2.0)
-  - SwiftLint (0.25.0)
-  - Weakify (0.4.0)
+  - Nimble (7.1.3)
+  - Quick (1.3.1)
+  - SwiftLint (0.27.0)
 
 DEPENDENCIES:
-  - Nimble (from `https://github.com/Quick/Nimble.git`, tag `v7.0.3`)
-  - Quick (from `https://github.com/Quick/Quick.git`, tag `v1.2.0`)
-  - SwiftLint (from `https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/4/0/1/SwiftLint/0.25.0/SwiftLint.podspec.json`)
-  - Weakify (from `https://github.com/klundberg/Weakify.git`, tag `v0.4.0`)
+  - Nimble (from `https://github.com/Quick/Nimble.git`, tag `v7.1.3`)
+  - Quick (from `https://github.com/Quick/Quick.git`, tag `v1.3.1`)
+  - SwiftLint (from `https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/4/0/1/SwiftLint/0.27.0/SwiftLint.podspec.json`)
 
 EXTERNAL SOURCES:
   Nimble:
     :git: https://github.com/Quick/Nimble.git
-    :tag: v7.0.3
+    :tag: v7.1.3
   Quick:
     :git: https://github.com/Quick/Quick.git
-    :tag: v1.2.0
+    :tag: v1.3.1
   SwiftLint:
-    :podspec: https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/4/0/1/SwiftLint/0.25.0/SwiftLint.podspec.json
-  Weakify:
-    :git: https://github.com/klundberg/Weakify.git
-    :tag: v0.4.0
+    :podspec: https://raw.githubusercontent.com/CocoaPods/Specs/master/Specs/4/0/1/SwiftLint/0.27.0/SwiftLint.podspec.json
 
 CHECKOUT OPTIONS:
   Nimble:
     :git: https://github.com/Quick/Nimble.git
-    :tag: v7.0.3
+    :tag: v7.1.3
   Quick:
     :git: https://github.com/Quick/Quick.git
-    :tag: v1.2.0
-  Weakify:
-    :git: https://github.com/klundberg/Weakify.git
-    :tag: v0.4.0
+    :tag: v1.3.1
 
 SPEC CHECKSUMS:
-  Nimble: 6254fec7d02791c7dc33722d799f2a951dd147c1
-  Quick: 65081c7ab6eb85f9b65dbecbaf88793ce9ce47bc
-  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
-  Weakify: 77be86c462237baa373e97fcf57d4d8637c2e614
+  Nimble: 2839b01d1b31f6a6a7777a221f0d91cf52e8e27b
+  Quick: d17304d58d0d169dd0bd1c6e5c28e3318de32a1a
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 9fcd2a1e3af645ede9b21d5cbdc536a26bee3280
+PODFILE CHECKSUM: 6dedfd3b564540ea44d6f3f3bf311afc936ee83a
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

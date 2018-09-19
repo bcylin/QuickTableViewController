@@ -26,7 +26,8 @@
 
 import UIKit
 
-/// The `SwitchCellDelegate` protocol allows the adopting delegate to respond to the UI interaction.
+/// The `SwitchCellDelegate` protocol allows the adopting delegate to respond to the UI interaction. Not available on tvOS.
+@available(tvOS, unavailable, message: "SwitchCellDelegate is not available on tvOS.")
 public protocol SwitchCellDelegate: class {
   /// Tells the delegate that the switch control is toggled.
   func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool)
@@ -36,14 +37,20 @@ public protocol SwitchCellDelegate: class {
 /// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
 open class SwitchCell: UITableViewCell, Configurable {
 
-  /// A `UISwitch` as the `accessoryView`.
+  #if os(iOS)
+
+  /// A `UISwitch` as the `accessoryView`. Not available on tvOS.
+  @available(tvOS, unavailable, message: "switchControl is not available on tvOS.")
   public private(set) lazy var switchControl: UISwitch = {
     let control = UISwitch()
-    control.addTarget(self, action: .didToggleSwitch, for: .valueChanged)
+    control.addTarget(self, action: #selector(SwitchCell.didToggleSwitch(_:)), for: .valueChanged)
     return control
   }()
 
-  /// The switch cell's delegate object, which should conform to `SwitchCellDelegate`.
+  #endif
+
+  /// The switch cell's delegate object, which should conform to `SwitchCellDelegate`. Not available on tvOS.
+  @available(tvOS, unavailable, message: "SwitchCellDelegate is not available on tvOS.")
   open weak var delegate: SwitchCellDelegate?
 
   // MARK: - Initializer
@@ -75,18 +82,24 @@ open class SwitchCell: UITableViewCell, Configurable {
 
   // MARK: - Configurable
 
-  /// Set up the switch control with the provided row.
+  /// Set up the switch control (iOS) or accessory type (tvOS) with the provided row.
   open func configure(with row: Row & RowStyle) {
-    if let row = row as? SwitchRowCompatible {
-      switchControl.isOn = row.switchValue
-    }
-    accessoryView = switchControl
+    #if os(iOS)
+      if let row = row as? SwitchRowCompatible {
+        switchControl.isOn = row.switchValue
+      }
+      accessoryView = switchControl
+    #elseif os(tvOS)
+      accessoryView = nil
+      accessoryType = row.accessoryType
+    #endif
   }
 
   // MARK: - Private
 
+  @available(tvOS, unavailable, message: "UISwitch is not available on tvOS.")
   @objc
-  fileprivate func didToggleSwitch(_ sender: UISwitch) {
+  private func didToggleSwitch(_ sender: UISwitch) {
     delegate?.switchCell(self, didToggleSwitch: sender.isOn)
   }
 
@@ -95,9 +108,4 @@ open class SwitchCell: UITableViewCell, Configurable {
     detailTextLabel?.numberOfLines = 0
   }
 
-}
-
-
-private extension Selector {
-  static let didToggleSwitch = #selector(SwitchCell.didToggleSwitch(_:))
 }

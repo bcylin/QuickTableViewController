@@ -253,7 +253,11 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
           }
 
           it("should match the switch value at \(index)") {
-            expect((cell as? SwitchCell)?.switchControl.isOn) == true
+            #if os(iOS)
+              expect((cell as? SwitchCell)?.switchControl.isOn) == true
+            #elseif os(tvOS)
+              expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            #endif
           }
         }
       }

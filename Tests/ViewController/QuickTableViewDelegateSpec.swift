@@ -99,7 +99,11 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
       it("should not highlight SwitchRow") {
         for index in 0...3 {
           let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 2))
-          expect(highlight) == false
+          #if os(iOS)
+            expect(highlight) == false
+          #elseif os(tvOS)
+            expect(highlight) == true
+          #endif
         }
       }
 

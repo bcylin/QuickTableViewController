@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Example
+//  Example-iOS
 //
 //  Created by Ben on 01/09/2015.
 //  Copyright (c) 2015 bcylin.
@@ -33,8 +33,10 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
 
-    // See AppearanceViewController for the setups.
-    UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .blue
+    if #available(iOS 9.0, *) {
+      // See AppearanceViewController for the setups.
+      UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .blue
+    }
 
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.backgroundColor = UIColor.white
