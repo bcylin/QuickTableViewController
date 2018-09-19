@@ -42,14 +42,14 @@ class ViewController: QuickTableViewController {
       Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { [weak self] in self?.showDetail($0) }),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: nil),
-        OptionRow(title: "Option 2", isSelected: false, action: nil),
-        OptionRow(title: "Option 3", isSelected: false, action: nil)
+        OptionRow(title: "Option 1", isSelected: true, action: didToggleOption()),
+        OptionRow(title: "Option 2", isSelected: false, action: didToggleOption()),
+        OptionRow(title: "Option 3", isSelected: false, action: didToggleOption())
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -60,8 +60,10 @@ class ViewController: QuickTableViewController {
     // ...
   }
 
-  private func showDetail(_ sender: Row) {
-    // ...
+  private func didToggleOption() -> (Row) -> Void {
+    return { [weak self] row in
+      // ...
+    }
   }
 
 }
@@ -72,20 +74,10 @@ class ViewController: QuickTableViewController {
 #### Subtitle Styles
 
 ```swift
-NavigationRow(title: "UITableViewCellStyle.Default", subtitle: .none)
+NavigationRow(title: "UITableViewCellStyle.default", subtitle: .none)
 NavigationRow(title: "UITableViewCellStyle", subtitle: .belowTitle(".subtitle")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
 NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
-```
-
-#### Images
-
-* Images in table view cells can be set by specifying the `icon` of each row.
-* Table view cells in `UITableViewCellStyle.value2` will not show the image view.
-
-```swift
-let icon = Icon.images(normal: UIImage(named: "icon"), highlighted: UIImage(named: "icon-highlighted"))
-NavigationRow(title: "Cell with image", subtitle: .none, icon: icon)
 ```
 
 #### Disclosure Indicator
@@ -93,9 +85,18 @@ NavigationRow(title: "Cell with image", subtitle: .none, icon: icon)
 * A `NavigationRow` with an `action` will be displayed in a table view cell with `.disclosureIndicator`.
 * The `action` will be invoked when the table view cell is selected.
 
+#### Images
+
 ```swift
-NavigationRow(title: "Navigation cell", subtitle: .none, action: { (sender: Row) in })
+enum Icon {
+  case named(String)
+  case image(UIImage)
+  case images(normal: UIImage, highlighted: UIImage)
+}
 ```
+
+* Images in table view cells can be set by specifying the `icon` of each row.
+* Table view cells in `UITableViewCellStyle.value2` will not show the image view.
 
 ### SwitchRow
 
@@ -103,32 +104,30 @@ NavigationRow(title: "Navigation cell", subtitle: .none, action: { (sender: Row)
 * The `action` will be invoked when the switch value changes.
 * The subtitle is disabled in `SwitchRow `.
 
-```swift
-SwitchRow(title: "Switch", switchValue: true, action: { (sender: Row) in }),
-```
-
 ### TapActionRow
 
 * A `TapActionRow` is representing a button-like table view cell.
 * The `action` will be invoked when the table view cell is selected.
 * The icon and subtitle are disabled in `TapActionRow`.
 
-```swift
-TapActionRow(title: "Tap action", action: { (sender: Row) in })
-```
-
-### OptionRow & RadioSection
+### OptionRow
 
 * An `OptionRow` is representing a table view cell with `.checkmark`.
-* The `action` will be invoked when the selected state is toggled.
 * The subtitle is disabled in `OptionRow`.
+* The `action` will be invoked when the selected state is toggled.
 
 ```swift
-OptionRow(title: "Option", isSelected: true, action: { (sender: Row) in })
+let didToggleOption: (Row) -> Void = { [weak self] in
+  if let option = $0 as? OptionRowCompatible, option.isSelected {
+    // to exclude the option that's toggled off
+  }
+}
 ```
 
+### RadioSection
+
 * `OptionRow` can be used with or without `RadioSection`, which allows only one selected option.
-* All options can be unselected in `RadioSection` by default. Setting `alwaysSelectsOneOption` to true will keep one of the options selected.
+* Setting `alwaysSelectsOneOption` to true will keep one of the options selected.
 
 ## Customization
 
@@ -176,7 +175,7 @@ let action: (Row) -> Void = {
 
 ### Overwrite Default Configuration
 
-You can use `register(_:forCellReuseIdentifier:)` to specify custom cell types for the [table view]((https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104)) to use. See [CustomizationViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/CustomizationViewController.swift) for the cell reuse identifiers of different rows.
+You can use `register(_:forCellReuseIdentifier:)` to specify custom cell types for the [table view](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L100-L102) to use. See [CustomizationViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example-iOS/ViewControllers/CustomizationViewController.swift) for the cell reuse identifiers of different rows.
 
 Table view cell classes that conform to `Configurable` can take the customization during `tableView(_:cellForRowAt:)`:
 
@@ -198,7 +197,13 @@ The `customize` closure overwrites the `Configurable` setup.
 
 ### UIAppearance
 
-As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/issues/12), UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out [AppearanceViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example/ViewControllers/AppearanceViewController.swift) for the setup.
+As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/issues/12), UIAppearance customization works when the cell is dequeued from the storyboard. One way to work around this is to register nib objects to the table view. Check out [AppearanceViewController](https://github.com/bcylin/QuickTableViewController/blob/develop/Example-iOS/ViewControllers/AppearanceViewController.swift) for the setup.
+
+## tvOS Differences
+
+* `UISwitch` is replaced by a checkmark in `SwitchCell`.
+* `TapActionCell` does not use center aligned text.
+* Cell image view's left margin is 0.
 
 ## Limitation
 
@@ -221,16 +226,16 @@ QuickTableViewController is not designed for inserting and deleting rows. It doe
 
 QuickTableViewController | iOS  | tvOS | Xcode | Swift
 ------------------------ | :--: | :--: | :---: | :---:
-`~> 0.1.0`               | 8.0+ | -    | 6.4   | ![Swift 1.2](https://img.shields.io/badge/Swift-1.2-orange.svg)
-`~> 0.2.0`               | 8.0+ | -    | 7.0   | ![Swift 2.0](https://img.shields.io/badge/Swift-2.0-orange.svg)
-`~> 0.3.0`               | 8.0+ | -    | 7.3   | ![Swift 2.2](https://img.shields.io/badge/Swift-2.2-orange.svg)
-`~> 0.4.0`               | 8.0+ | -    | 8.0   | ![Swift 2.3](https://img.shields.io/badge/Swift-2.3-orange.svg)
-`~> 0.5.0`               | 8.0+ | -    | 8.0   | ![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)
-`~> 0.6.0`               | 8.0+ | -    | 8.3   | ![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg)
-`~> 0.7.0`               | 8.0+ | -    | 9.0   | ![Swift 3.2](https://img.shields.io/badge/Swift-3.2-orange.svg)
-`~> 0.8.0`               | 8.0+ | -    | 9.1   | ![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
-`~> 0.9.0`               | 8.0+ | -    | 9.3   | ![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
-`develop` branch         | 8.0+ | 9.0+ | 9.3   | ![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
+`~> 0.1.0`               | 8.0+ | -    | 6.4   | 1.2
+`~> 0.2.0`               | 8.0+ | -    | 7.0   | 2.0
+`~> 0.3.0`               | 8.0+ | -    | 7.3   | 2.2
+`~> 0.4.0`               | 8.0+ | -    | 8.0   | 2.3
+`~> 0.5.0`               | 8.0+ | -    | 8.0   | 3.0
+`~> 0.6.0`               | 8.0+ | -    | 8.3   | 3.1
+`~> 0.7.0`               | 8.0+ | -    | 9.0   | 3.2
+`~> 0.8.0`               | 8.0+ | -    | 9.1   | 4.0
+`~> 0.9.0`               | 8.0+ | -    | 9.3   | 4.1
+`~> 1.0.0`               | 8.0+ | 9.0+ | 9.4   | 4.1
 
 ## Installation
 

@@ -55,15 +55,15 @@ internal final class SubtitleSpec: QuickSpec {
     }
 
     describe("equatable") {
-      context(".None") {
-        it("should be equal when both are .None") {
+      context(".none") {
+        it("should be equal when both are .none") {
           let a = Subtitle.none
           let b = Subtitle.none
           expect(a) == b
         }
       }
 
-      context(".BelowTitle") {
+      context(".belowTitle") {
         let a = Subtitle.belowTitle("Same")
         let b = Subtitle.belowTitle("Same")
         let c = Subtitle.belowTitle("Different")
@@ -78,7 +78,7 @@ internal final class SubtitleSpec: QuickSpec {
         }
       }
 
-      context(".RightAligned") {
+      context(".rightAligned") {
         let a = Subtitle.rightAligned("Same")
         let b = Subtitle.rightAligned("Same")
         let c = Subtitle.rightAligned("Different")
@@ -93,7 +93,7 @@ internal final class SubtitleSpec: QuickSpec {
         }
       }
 
-      context(".LeftAligned") {
+      context(".leftAligned") {
         let a = Subtitle.leftAligned("Same")
         let b = Subtitle.leftAligned("Same")
         let c = Subtitle.leftAligned("Different")

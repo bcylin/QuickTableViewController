@@ -37,6 +37,8 @@ public protocol SwitchCellDelegate: class {
 /// A `UITableViewCell` subclass that shows a `UISwitch` as the `accessoryView`.
 open class SwitchCell: UITableViewCell, Configurable {
 
+  #if os(iOS)
+
   /// A `UISwitch` as the `accessoryView`. Not available on tvOS.
   @available(tvOS, unavailable, message: "switchControl is not available on tvOS.")
   public private(set) lazy var switchControl: UISwitch = {
@@ -44,6 +46,8 @@ open class SwitchCell: UITableViewCell, Configurable {
     control.addTarget(self, action: #selector(SwitchCell.didToggleSwitch(_:)), for: .valueChanged)
     return control
   }()
+
+  #endif
 
   /// The switch cell's delegate object, which should conform to `SwitchCellDelegate`. Not available on tvOS.
   @available(tvOS, unavailable, message: "SwitchCellDelegate is not available on tvOS.")

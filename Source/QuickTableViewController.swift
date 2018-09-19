@@ -33,7 +33,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   open var clearsSelectionOnViewWillAppear = true
 
   /// Returns the table view managed by the controller object.
-  open private(set) var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
+  open private(set) var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
 
   /// The layout of sections and rows to display in the table view.
   open var tableContents: [Section] = [] {
@@ -53,7 +53,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
    */
   public convenience init(style: UITableViewStyle) {
     self.init(nibName: nil, bundle: nil)
-    tableView = UITableView(frame: CGRect.zero, style: style)
+    tableView = UITableView(frame: .zero, style: style)
   }
 
   deinit {
@@ -143,18 +143,19 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
     #if os(tvOS)
     case let (_, row as SwitchRowCompatible):
+      // SwitchRow on tvOS behaves like OptionRow.
       row.switchValue = !row.switchValue
       tableView.reloadData()
     #endif
 
     case (_, is TapActionRowCompatible):
       tableView.deselectRow(at: indexPath, animated: true)
+      // Avoid some unwanted animation when the action also involves table view reload.
       DispatchQueue.main.async {
         row.action?(row)
       }
 
     case let (_, row) where row.isSelectable:
-      // Avoid some unwanted animation when the action also involves table view reload
       DispatchQueue.main.async {
         row.action?(row)
       }

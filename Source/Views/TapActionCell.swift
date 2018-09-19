@@ -29,6 +29,7 @@ import UIKit
 /// A `UITableViewCell` subclass with the title text center aligned.
 open class TapActionCell: UITableViewCell {
 
+  // TapActionCell on tvOS does not need customization.
   #if os(iOS)
 
   // MARK: - Initializer
@@ -36,7 +37,7 @@ open class TapActionCell: UITableViewCell {
   /**
    Overrides `UITableViewCell`'s designated initializer.
 
-   - parameter style:           Unused. It always uses `UITableViewCellStyle.Default`.
+   - parameter style:           Unused. It always uses `UITableViewCellStyle.default`.
    - parameter reuseIdentifier: A string used to identify the cell object if it is to be reused for drawing multiple rows of a table view.
 
    - returns: An initialized `TapActionCell` object.
