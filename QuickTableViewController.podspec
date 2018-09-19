@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.license       = { type: "MIT", file: "LICENSE" }
   s.author        = "bcylin"
 
+  s.swift_version           = "4.0"
   s.ios.deployment_target   = "8.0"
   s.tvos.deployment_target  = "9.0"
 
