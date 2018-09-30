@@ -63,13 +63,13 @@ open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
-  public let cellStyle: UITableViewCellStyle = .default
+  public let cellStyle: UITableViewCell.CellStyle = .default
 
   /// The default icon is nil.
   public let icon: Icon? = nil
 
   /// The default accessory type is `.none`.
-  public let accessoryType: UITableViewCellAccessoryType = .none
+  public let accessoryType: UITableViewCell.AccessoryType = .none
 
   /// The `TapActionRow` is selectable when action is not nil.
   public var isSelectable: Bool {

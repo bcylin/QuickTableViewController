@@ -42,7 +42,7 @@ open class TapActionCell: UITableViewCell {
 
    - returns: An initialized `TapActionCell` object.
    */
-  public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: .default, reuseIdentifier: reuseIdentifier)
     setUpAppearance()
   }
