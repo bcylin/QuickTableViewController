@@ -1,8 +1,5 @@
 language: objective-c
 osx_image: xcode10
-matrix:
-  include:
-    - env: VERSION=latest
 cache:
   - bundler
   - cocoapods
@@ -17,7 +14,6 @@ before_script:
   - if [ -n "$DANGER_GITHUB_API_TOKEN" ]; then bundle exec danger; fi
 script:
   - set -o pipefail
-  - xcodebuild clean build -workspace QuickTableViewController.xcworkspace -scheme QuickTableViewController-iOS -sdk iphonesimulator SWIFT_VERSION=4.2 | bundle exec xcpretty -c
   - bundle exec rake "test:ios[QuickTableViewController-iOS]"
   - bundle exec rake "test:tvos[QuickTableViewController-tvOS]"
   - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
