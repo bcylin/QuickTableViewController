@@ -31,7 +31,9 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  // swiftlint:disable line_length
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+    // swiftlint:enable line_length
 
     if #available(iOS 9.0, *) {
       // See AppearanceViewController for the setups.
