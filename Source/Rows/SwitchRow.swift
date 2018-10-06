@@ -97,7 +97,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   #elseif os(tvOS)
 
   /// Returns `.checkmark` when the `switchValue` is on, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
+  public var accessoryType: UITableViewCell.AccessoryType {
     return switchValue ? .checkmark : .none
   }
 
