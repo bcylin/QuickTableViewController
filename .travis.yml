@@ -9,7 +9,7 @@ cache:
 before_install:
   - export LANG=en_US.UTF-8
   - xcrun instruments -s devices
-  - open -b com.apple.iphonesimulator
+  - open -a /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
 install:
   - bundle install --without development --deployment --jobs=3 --retry=3
   - bundle exec pod install
