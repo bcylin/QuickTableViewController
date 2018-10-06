@@ -81,13 +81,13 @@ open class OptionRow<T: UITableViewCell>: OptionRowCompatible, Equatable {
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
-  public let cellStyle: UITableViewCellStyle = .default
+  public let cellStyle: UITableViewCell.CellStyle = .default
 
   /// The icon of the row.
   public let icon: Icon?
 
   /// Returns `.checkmark` when the row is selected, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
+  public var accessoryType: UITableViewCell.AccessoryType {
     return isSelected ? .checkmark : .none
   }
 

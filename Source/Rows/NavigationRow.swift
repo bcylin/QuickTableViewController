@@ -69,7 +69,7 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
   }
 
   /// Returns the table view cell style for the specified subtitle.
-  public var cellStyle: UITableViewCellStyle {
+  public var cellStyle: UITableViewCell.CellStyle {
     return subtitle?.style ?? .default
   }
 
@@ -77,7 +77,7 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
   public let icon: Icon?
 
   /// Returns `.disclosureIndicator` when action is not nil, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
+  public var accessoryType: UITableViewCell.AccessoryType {
     return (action == nil) ? .none : .disclosureIndicator
   }
 

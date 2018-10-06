@@ -41,7 +41,7 @@ open class Section {
   // MARK: - Properties
 
   /// The text of the section title.
-  open let title: String?
+  public let title: String?
 
   /// The array of rows in the section.
   open var rows: [Row & RowStyle]

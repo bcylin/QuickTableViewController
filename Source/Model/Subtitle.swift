@@ -39,7 +39,7 @@ public enum Subtitle: Equatable {
   case leftAligned(String)
 
   /// Returns the corresponding table view cell style.
-  public var style: UITableViewCellStyle {
+  public var style: UITableViewCell.CellStyle {
     switch self {
     case .none:          return .default
     case .belowTitle:    return .subtitle
@@ -79,7 +79,7 @@ public enum Subtitle: Equatable {
 }
 
 
-internal extension UITableViewCellStyle {
+internal extension UITableViewCell.CellStyle {
 
   var stringValue: String {
     switch self {

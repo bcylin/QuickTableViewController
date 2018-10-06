@@ -81,7 +81,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
-  public let cellStyle: UITableViewCellStyle = .default
+  public let cellStyle: UITableViewCell.CellStyle = .default
 
   /// The icon of the row.
   public let icon: Icon?
@@ -89,7 +89,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   #if os(iOS)
 
   /// The default accessory type is `.none`.
-  public let accessoryType: UITableViewCellAccessoryType = .none
+  public let accessoryType: UITableViewCell.AccessoryType = .none
 
   /// The `SwitchRow` should not be selectable.
   public let isSelectable: Bool = false
@@ -97,7 +97,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   #elseif os(tvOS)
 
   /// Returns `.checkmark` when the `switchValue` is on, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
+  public var accessoryType: UITableViewCell.AccessoryType {
     return switchValue ? .checkmark : .none
   }
 

@@ -3,6 +3,7 @@ disabled_rules:
   - force_cast
   - function_body_length
   - identifier_name
+  - line_length
   - vertical_whitespace
 opt_in_rules:
   - closure_end_indentation
@@ -36,4 +37,3 @@ included:
 excluded:
   - Carthage
   - Pods
-line_length: 192
