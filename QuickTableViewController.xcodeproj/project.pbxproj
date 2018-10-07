@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0313D389A7BCE29502848262 /* Pods_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2A67F5AE20173B6E17FFBE /* Pods_Example_tvOS.framework */; };
+		136DD300216A367B00F554F0 /* Example_tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DD2FF216A367B00F554F0 /* Example_tvOSUITests.swift */; };
 		1DF796C7F4630ACDCE1DE189 /* Pods_QuickTableViewController_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51571B6D4B25D0BCCCFFBCF5 /* Pods_QuickTableViewController_iOSTests.framework */; };
 		A3895BA2FCD4633B9297CB06 /* Pods_QuickTableViewController_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EFDFBFA59BFFF7C494F9AE /* Pods_QuickTableViewController_tvOSTests.framework */; };
 		A7A26A71AB271F9D402D1A12 /* Pods_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3454E57819285B32968564 /* Pods_Example_iOS.framework */; };
@@ -98,6 +99,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		136DD302216A367B00F554F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5334F0A1B8CC5BD00C64A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B54A24522088D44A00EEBA26;
+			remoteInfo = "Example-tvOS";
+		};
 		B51A0E912069360500F42693 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5334F0A1B8CC5BD00C64A6D /* Project object */;
@@ -150,6 +158,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-tvOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		136DD2FF216A367B00F554F0 /* Example_tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_tvOSUITests.swift; sourceTree = "<group>"; };
+		136DD301216A367B00F554F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		466DB8C8ACDE64B9E0EF8D74 /* Pods-QuickTableViewController-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		4AAC8E26F072FAB5027928F8 /* Pods-Example-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example-tvOS/Pods-Example-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4D38F5DD6F45D1136A106B9F /* Pods-QuickTableViewController-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +240,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		136DD2FA216A367B00F554F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F219F1F417037009BC2C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,6 +305,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		136DD2FE216A367B00F554F0 /* Example-tvOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				136DD2FF216A367B00F554F0 /* Example_tvOSUITests.swift */,
+				136DD301216A367B00F554F0 /* Info.plist */,
+			);
+			path = "Example-tvOSUITests";
+			sourceTree = "<group>";
+		};
 		942C1FAD68407A74DB056C2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +442,7 @@
 				B51F21A31F417037009BC2C9 /* Example-iOS */,
 				B51F21C11F41E600009BC2C9 /* Example-iOSUITests */,
 				B54A24542088D44A00EEBA26 /* Example-tvOS */,
+				136DD2FE216A367B00F554F0 /* Example-tvOSUITests */,
 				B5DB7D241C4A4BEC007B84D2 /* Frameworks */,
 				942C1FAD68407A74DB056C2B /* Pods */,
 				B5334F141B8CC5BD00C64A6D /* Products */,
@@ -440,6 +468,7 @@
 				B54A24262088816D00EEBA26 /* QuickTableViewController.framework */,
 				B54A242E2088816E00EEBA26 /* QuickTableViewControllerTests.xctest */,
 				B5334F1E1B8CC5BD00C64A6D /* QuickTableViewControllerTests.xctest */,
+				136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -555,6 +584,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		136DD2FC216A367B00F554F0 /* Example-tvOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 136DD306216A367B00F554F0 /* Build configuration list for PBXNativeTarget "Example-tvOSUITests" */;
+			buildPhases = (
+				136DD2F9216A367B00F554F0 /* Sources */,
+				136DD2FA216A367B00F554F0 /* Frameworks */,
+				136DD2FB216A367B00F554F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				136DD303216A367B00F554F0 /* PBXTargetDependency */,
+			);
+			name = "Example-tvOSUITests";
+			productName = "Example-tvOSUITests";
+			productReference = 136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B51F21A11F417037009BC2C9 /* Example-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B51F21B31F417037009BC2C9 /* Build configuration list for PBXNativeTarget "Example-iOS" */;
@@ -697,10 +744,16 @@
 		B5334F0A1B8CC5BD00C64A6D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = bcylin;
 				TargetAttributes = {
+					136DD2FC216A367B00F554F0 = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = NQU669U9J9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B54A24522088D44A00EEBA26;
+					};
 					B51F21A11F417037009BC2C9 = {
 						CreatedOnToolsVersion = 8.3.3;
 						LastSwiftMigration = 1000;
@@ -756,11 +809,19 @@
 				B51F21A11F417037009BC2C9 /* Example-iOS */,
 				B51F21BF1F41E600009BC2C9 /* Example-iOSUITests */,
 				B54A24522088D44A00EEBA26 /* Example-tvOS */,
+				136DD2FC216A367B00F554F0 /* Example-tvOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		136DD2FB216A367B00F554F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F21A01F417037009BC2C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -985,6 +1046,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		136DD2F9216A367B00F554F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136DD300216A367B00F554F0 /* Example_tvOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F219E1F417037009BC2C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1105,6 +1174,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		136DD303216A367B00F554F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B54A24522088D44A00EEBA26 /* Example-tvOS */;
+			targetProxy = 136DD302216A367B00F554F0 /* PBXContainerItemProxy */;
+		};
 		B51A0E922069360500F42693 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B51F21A11F417037009BC2C9 /* Example-iOS */;
@@ -1144,6 +1218,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		136DD304216A367B00F554F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NQU669U9J9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Example-tvOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.bcylin.QuickTableViewController.Example-tvOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "Example-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Debug;
+		};
+		136DD305216A367B00F554F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NQU669U9J9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Example-tvOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.bcylin.QuickTableViewController.Example-tvOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "Example-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Release;
+		};
 		B51F21B11F417037009BC2C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A57FEA19A020A7DE44AE8BCE /* Pods-Example-iOS.debug.xcconfig */;
@@ -1607,6 +1735,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		136DD306216A367B00F554F0 /* Build configuration list for PBXNativeTarget "Example-tvOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136DD304216A367B00F554F0 /* Debug */,
+				136DD305216A367B00F554F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B51F21B31F417037009BC2C9 /* Build configuration list for PBXNativeTarget "Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
