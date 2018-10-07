@@ -48,9 +48,9 @@ internal final class OptionRowSpec: QuickSpec {
 
         // RowStyle
         expect(row.cellReuseIdentifier) == "UITableViewCell"
-        expect(row.cellStyle) == UITableViewCellStyle.default
+        expect(row.cellStyle) == UITableViewCell.CellStyle.default
         expect(row.icon) == icon
-        expect(row.accessoryType) == UITableViewCellAccessoryType.checkmark
+        expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
         expect(row.isSelectable) == true
         expect(row.customize).to(beNil())
       }
@@ -106,7 +106,7 @@ internal final class OptionRowSpec: QuickSpec {
 
         it("should invoke the action closure") {
           row.isSelected = true
-          expect(row.accessoryType) == UITableViewCellAccessoryType.checkmark
+          expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
           expect(invoked).toEventually(beTrue())
         }
       }
@@ -117,7 +117,7 @@ internal final class OptionRowSpec: QuickSpec {
 
         it("should not invoke the action closure") {
           row.isSelected = false
-          expect(row.accessoryType) == UITableViewCellAccessoryType.none
+          expect(row.accessoryType) == UITableViewCell.AccessoryType.none
           expect(invoked).toEventually(beFalse())
         }
       }

@@ -36,8 +36,8 @@ internal final class QuickTableViewControllerSpec: QuickSpec {
 
     describe("init(style:)") {
       it("should set up table view with style") {
-        expect(QuickTableViewController().tableView.style) == UITableViewStyle.grouped
-        expect(QuickTableViewController(style: .plain).tableView.style) == UITableViewStyle.plain
+        expect(QuickTableViewController().tableView.style) == UITableView.Style.grouped
+        expect(QuickTableViewController(style: .plain).tableView.style) == UITableView.Style.plain
       }
     }
 

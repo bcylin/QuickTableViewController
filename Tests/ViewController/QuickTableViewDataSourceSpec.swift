@@ -220,7 +220,7 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
           it("should have the disclosure indicator") {
             for row in 0...3 {
               let cell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: row, section: 0))
-              expect(cell.accessoryType) == UITableViewCellAccessoryType.disclosureIndicator
+              expect(cell.accessoryType) == UITableViewCell.AccessoryType.disclosureIndicator
             }
           }
         }
@@ -316,7 +316,7 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
           }
 
           it("should match the selection at \(index)") {
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
           }
         }
       }
