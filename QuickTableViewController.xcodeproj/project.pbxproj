@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0313D389A7BCE29502848262 /* Pods_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2A67F5AE20173B6E17FFBE /* Pods_Example_tvOS.framework */; };
 		136DD300216A367B00F554F0 /* Example_tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DD2FF216A367B00F554F0 /* Example_tvOSUITests.swift */; };
+		136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; };
+		136DD308216A36FA00F554F0 /* QuickTableViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DF796C7F4630ACDCE1DE189 /* Pods_QuickTableViewController_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51571B6D4B25D0BCCCFFBCF5 /* Pods_QuickTableViewController_iOSTests.framework */; };
 		A3895BA2FCD4633B9297CB06 /* Pods_QuickTableViewController_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EFDFBFA59BFFF7C494F9AE /* Pods_QuickTableViewController_tvOSTests.framework */; };
 		A7A26A71AB271F9D402D1A12 /* Pods_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3454E57819285B32968564 /* Pods_Example_iOS.framework */; };
@@ -144,6 +146,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		136DD309216A36FA00F554F0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				136DD308216A36FA00F554F0 /* QuickTableViewController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F21CE1F41F32D009BC2C9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,6 +311,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */,
 				0313D389A7BCE29502848262 /* Pods_Example_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +741,7 @@
 				B54A244F2088D44A00EEBA26 /* Sources */,
 				B54A24502088D44A00EEBA26 /* Frameworks */,
 				B54A24512088D44A00EEBA26 /* Resources */,
+				136DD309216A36FA00F554F0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1683,6 +1698,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AAC8E26F072FAB5027928F8 /* Pods-Example-tvOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1710,6 +1726,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C846A13C763FF2B7B3A6029A /* Pods-Example-tvOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
