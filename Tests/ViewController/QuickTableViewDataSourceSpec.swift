@@ -256,7 +256,7 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
             #if os(iOS)
               expect((cell as? SwitchCell)?.switchControl.isOn) == true
             #elseif os(tvOS)
-              expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+              expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
             #endif
           }
         }

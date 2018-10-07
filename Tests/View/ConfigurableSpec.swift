@@ -42,7 +42,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
           #endif
         }
 
@@ -55,7 +55,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
           #endif
         }
       }
@@ -70,7 +70,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
           #endif
         }
 
@@ -83,7 +83,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
           #endif
         }
       }
@@ -98,7 +98,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
           #endif
         }
 
@@ -111,7 +111,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
           #endif
         }
       }
@@ -126,7 +126,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == true
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
           #endif
         }
 
@@ -139,7 +139,7 @@ internal final class ConfigurableSpec: QuickSpec {
             expect(cell.switchControl.isOn) == false
           #elseif os(tvOS)
             expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
           #endif
         }
       }
