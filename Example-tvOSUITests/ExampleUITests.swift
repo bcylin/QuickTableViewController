@@ -26,7 +26,7 @@
 
 import XCTest
 
-internal final class Example_tvOSUITests: XCTestCase {
+internal final class ExampleUITests: XCTestCase {
 
   private lazy var app: XCUIApplication = XCUIApplication()
 
