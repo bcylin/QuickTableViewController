@@ -18,7 +18,7 @@ script:
   - bundle exec rake "test:tvos[QuickTableViewController-tvOS]"
   - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
   - bundle exec rake "test:ios[Example-iOS]"
-  - bundle exec rake "build:tvos[Example-tvOS]"
+  - bundle exec rake "test:tvos[Example-tvOS]"
   - make -B carthage
   - make -B docs
 after_success:
