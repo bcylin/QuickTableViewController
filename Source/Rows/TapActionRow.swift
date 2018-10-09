@@ -36,11 +36,11 @@ open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
   public init(
     title: String,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
-    action: ((Row) -> Void)?
+    actions: [RowActionType]?
   ) {
     self.title = title
     self.customize = customization
-    self.action = action
+    self.actions = actions
   }
 
   // MARK: - Row
@@ -52,7 +52,7 @@ open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
   public let subtitle: Subtitle? = nil
 
   /// A closure that will be invoked when the row is selected.
-  public let action: ((Row) -> Void)?
+  public let actions: [RowActionType]?
 
   // MARK: - RowStyle
 
@@ -73,7 +73,7 @@ open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
 
   /// The `TapActionRow` is selectable when action is not nil.
   public var isSelectable: Bool {
-    return action != nil
+    return actions != nil
   }
 
   /// The additional customization during cell configuration.

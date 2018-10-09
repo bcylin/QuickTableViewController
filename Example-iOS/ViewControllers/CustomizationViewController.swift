@@ -59,13 +59,13 @@ internal final class CustomizationViewController: QuickTableViewController {
           title: "SwitchRow\n<CustomSwitchCell>",
           switchValue: true,
           customization: set(label: "0-0"),
-          action: showLog()
+          actions: [showLog()]
         ),
         CustomSwitchRow<SwitchCell>(
           title: "CustomSwitchRow\n<SwitchCell>",
           switchValue: false,
           customization: set(label: "0-1"),
-          action: showLog()
+          actions: [showLog()]
         )
       ]),
 
@@ -73,12 +73,12 @@ internal final class CustomizationViewController: QuickTableViewController {
         TapActionRow<CustomTapActionCell>(
           title: "TapActionRow\n<CustomTapActionCell>",
           customization: set(label: "1-0"),
-          action: showLog()
+          actions: [showLog()]
         ),
         CustomTapActionRow<TapActionCell>(
           title: "CustomTapActionRow\n<TapActionCell>",
           customization: set(label: "1-1"),
-          action: showLog()
+          actions: [showLog()]
         )
       ]),
 
@@ -87,25 +87,25 @@ internal final class CustomizationViewController: QuickTableViewController {
           title: "NavigationRow",
           subtitle: .none,
           customization: set(label: "2-0"),
-          action: showLog()
+          actions: [showLog()]
         ),
         NavigationRow<CustomCell>(
           title: "NavigationRow<CustomCell>",
           subtitle: .belowTitle(".subtitle"),
           customization: set(label: "2-1"),
-          action: showLog()
+          actions: [showLog()]
         ),
         CustomNavigationRow(
           title: "CustomNavigationRow",
           subtitle: .rightAligned(".value1"),
           customization: set(label: "2-2"),
-          action: showLog()
+          actions: [showLog()]
         ),
         CustomNavigationRow<CustomCell>(
           title: "CustomNavigationRow<CustomCell>",
           subtitle: .leftAligned(".value2"),
           customization: set(label: "2-3"),
-          action: showLog()
+          actions: [showLog()]
         )
       ]),
 
@@ -114,19 +114,19 @@ internal final class CustomizationViewController: QuickTableViewController {
           title: "OptionRow",
           isSelected: false,
           customization: set(label: "3-0"),
-          action: showLog()
+          actions: [showLog()]
         ),
         CustomOptionRow(
           title: "CustomOptionRow",
           isSelected: false,
           customization: set(label: "3-1"),
-          action: showLog()
+          actions: [showLog()]
         ),
         CustomOptionRow<CustomOptionCell>(
           title: "CustomOptionRow<CustomOptionCell>",
           isSelected: false,
           customization: set(label: "3-2"),
-          action: showLog()
+          actions: [showLog()]
         )
       ]),
 
@@ -155,8 +155,9 @@ internal final class CustomizationViewController: QuickTableViewController {
     }
   }
 
-  private func showLog() -> (Row) -> Void {
-    return { [weak self] in
+  private func showLog() -> RowActionType {
+    let action: (Row) -> Void = {
+      [weak self] in
       if let option = $0 as? OptionRowCompatible, !option.isSelected {
         return
       }
@@ -169,6 +170,8 @@ internal final class CustomizationViewController: QuickTableViewController {
         self?.tableView.reloadData()
       }
     }
+    let actionType: RowActionType = .defaultAction(action)
+    return actionType
   }
 
 }

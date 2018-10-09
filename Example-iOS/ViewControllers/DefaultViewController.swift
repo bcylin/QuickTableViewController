@@ -45,25 +45,26 @@ internal final class DefaultViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, icon: .image(globe), action: didToggleSwitch()),
-        SwitchRow(title: "Setting 2", switchValue: false, icon: .image(time), action: didToggleSwitch())
+        SwitchRow(title: "Setting 1", switchValue: true, icon: .image(globe), actions: [didToggleSwitch()]),
+        SwitchRow(title: "Setting 2", switchValue: false, icon: .image(time), actions: [didToggleSwitch()])
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: showAlert())
+        TapActionRow(title: "Tap action", actions: [showAlert()]),
+        TapActionRow(title: "Tap action1", actions: [showDetail(), show3DTouchPreview()])
       ]),
 
       Section(title: "Navigation", rows: [
         NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .image(gear)),
         NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .image(globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .image(time), action: showDetail()),
+        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .image(time), actions: [showDetail()]),
         NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: didToggleSelection()),
-        OptionRow(title: "Option 2", isSelected: false, action: didToggleSelection()),
-        OptionRow(title: "Option 3", isSelected: false, action: didToggleSelection())
+        OptionRow(title: "Option 1", isSelected: true, actions: [didToggleSelection()]),
+        OptionRow(title: "Option 2", isSelected: false, actions: [didToggleSelection()]),
+        OptionRow(title: "Option 3", isSelected: false, actions: [didToggleSelection()])
       ], footer: "See RadioSection for more details."),
 
       debugging
@@ -80,43 +81,67 @@ internal final class DefaultViewController: QuickTableViewController {
 
   // MARK: - Private Methods
 
-  private func didToggleSelection() -> (Row) -> Void {
-    return { [weak self] in
+  private func didToggleSelection() -> RowActionType {
+    let action: (Row) -> Void = {
+      [weak self] in
       if let option = $0 as? OptionRowCompatible {
         let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
         self?.showDebuggingText(state)
       }
     }
+    let actionType: RowActionType = .defaultAction(action)
+    return actionType
   }
 
-  private func didToggleSwitch() -> (Row) -> Void {
-    return { [weak self] in
+  private func didToggleSwitch() -> RowActionType {
+    let action: (Row) -> Void = {
+      [weak self] in
       if let row = $0 as? SwitchRowCompatible {
         let state = "\(row.title) = \(row.switchValue)"
         self?.showDebuggingText(state)
       }
     }
+    let actionType: RowActionType = .defaultAction(action)
+    return actionType
   }
 
-  private func showAlert() -> (Row) -> Void {
-    return { [weak self] _ in
+  private func showAlert() -> RowActionType {
+    let action: (Row) -> Void = {
+      [weak self] _ in
       let alert = UIAlertController(title: "Action Triggered", message: nil, preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "OK", style: .cancel) { [weak self] _ in
         self?.dismiss(animated: true, completion: nil)
       })
       self?.present(alert, animated: true, completion: nil)
     }
+    let actionType: RowActionType = .defaultAction(action)
+    return actionType
   }
 
-  private func showDetail() -> (Row) -> Void {
-    return { [weak self] in
+  private func showDetail() -> RowActionType {
+    let action: (Row) -> Void = {
+      [weak self] in
       let detail = $0.title + ($0.subtitle?.text ?? "")
       let controller = UIViewController()
-      controller.view.backgroundColor = .white
+      controller.view.backgroundColor = .blue
       controller.title = detail
       self?.navigationController?.pushViewController(controller, animated: true)
       self?.showDebuggingText(detail + " is selected")
     }
+    let actionType: RowActionType = .defaultAction(action)
+    return actionType
+  }
+
+  private func show3DTouchPreview() -> RowActionType {
+    let action: (Row) -> UIViewController? = {
+      let detail = $0.title + ($0.subtitle?.text ?? "")
+      let controller = UIViewController()
+      controller.view.backgroundColor = .blue
+      controller.title = detail
+      return controller
+    }
+    let actionType: RowActionType = .popViewController(action)
+    return actionType
   }
 
   private func showDebuggingText(_ text: String) {
@@ -126,5 +151,4 @@ internal final class DefaultViewController: QuickTableViewController {
       self?.tableView.reloadData()
     }
   }
-
 }

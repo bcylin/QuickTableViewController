@@ -24,7 +24,12 @@
 //  SOFTWARE.
 //
 
-import Foundation
+import UIKit
+
+public enum RowActionType {
+  case defaultAction(((Row) -> Void))
+  case popViewController(((Row) -> UIViewController?))
+}
 
 /// Any type that conforms to this protocol is capable of representing a row in a table view.
 public protocol Row: class {
@@ -36,6 +41,5 @@ public protocol Row: class {
   var subtitle: Subtitle? { get }
 
   /// A closure related to the action of the row.
-  var action: ((Row) -> Void)? { get }
-
+  var actions: [RowActionType]? { get }
 }

@@ -28,6 +28,7 @@ import UIKit
 
 /// A table view controller that shows `tableContents` as formatted sections and rows.
 open class QuickTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+  public var viewControllerToPop: UIViewController?
 
   /// A Boolean value indicating if the controller clears the selection when the collection view appears.
   open var clearsSelectionOnViewWillAppear = true
@@ -72,6 +73,10 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     tableView.estimatedRowHeight = 44
     tableView.dataSource = self
     tableView.delegate = self
+
+    if #available(iOS 9.0, *) {
+      registerForPreviewing()
+    }
   }
 
   open override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +85,18 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
       tableView.deselectRow(at: indexPath, animated: true)
     }
   }
+
+  // MARK: - Private
+
+  #if os(iOS)
+  @available(iOS 9.0, *)
+  private func registerForPreviewing() {
+    // Register the table view for force touch
+    if traitCollection.forceTouchCapability == .available {
+      registerForPreviewing(with: self, sourceView: tableView)
+    }
+  }
+  #endif
 
   // MARK: - UITableViewDataSource
 
@@ -150,14 +167,36 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
     case (_, is TapActionRowCompatible):
       tableView.deselectRow(at: indexPath, animated: true)
+
+      guard let actions = row.actions else {
+        return
+      }
       // Avoid some unwanted animation when the action also involves table view reload.
       DispatchQueue.main.async {
-        row.action?(row)
+        for actionType in actions {
+          switch actionType {
+          case .defaultAction(let action):
+            action(row)
+          case .popViewController:
+            break
+          }
+        }
       }
 
     case let (_, row) where row.isSelectable:
+
+      guard let actions = row.actions else {
+        return
+      }
       DispatchQueue.main.async {
-        row.action?(row)
+        for actionType in actions {
+          switch actionType {
+          case .defaultAction(let action):
+            action(row)
+          case .popViewController:
+            break
+          }
+        }
       }
 
     default:
@@ -182,6 +221,38 @@ extension QuickTableViewController: SwitchCellDelegate {
     }
     row.switchValue = isOn
   }
+}
 
+
+@available(iOS 9.0, *)
+extension QuickTableViewController: UIViewControllerPreviewingDelegate {
+  public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    //Here's where you commit (peek)
+    guard let indexPath = tableView.indexPathForRow(at: location) else {
+      return nil
+    }
+    guard let cell = tableView.cellForRow(at: indexPath) else {
+      return nil
+    }
+    let row = tableContents[indexPath.section].rows[indexPath.row]
+    guard let actions = row.actions else {
+      return nil
+    }
+    for actionType in actions {
+      switch actionType {
+      case .defaultAction:
+        break
+      case .popViewController(let action):
+        self.viewControllerToPop = action(row)
+      }
+    }
+    previewingContext.sourceRect = cell.frame
+    return viewControllerToPop
+  }
+
+  public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+    //Here's where you commit (pop)
+    show(viewControllerToCommit, sender: self)
+  }
 }
 #endif

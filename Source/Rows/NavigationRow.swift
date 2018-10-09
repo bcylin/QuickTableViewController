@@ -38,13 +38,13 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
     subtitle: Subtitle,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
-    action: ((Row) -> Void)? = nil
+    actions: [RowActionType]? = nil
   ) {
     self.title = title
     self.subtitle = subtitle
     self.icon = icon
     self.customize = customization
-    self.action = action
+    self.actions = actions
   }
 
   // MARK: - Row
@@ -56,7 +56,7 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
   public let subtitle: Subtitle?
 
   /// A closure that will be invoked when the row is selected.
-  public let action: ((Row) -> Void)?
+  public let actions: [RowActionType]?
 
   // MARK: - RowStyle
 
@@ -78,12 +78,12 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   /// Returns `.disclosureIndicator` when action is not nil, otherwise returns `.none`.
   public var accessoryType: UITableViewCell.AccessoryType {
-    return (action == nil) ? .none : .disclosureIndicator
+    return (actions == nil) ? .none : .disclosureIndicator
   }
 
   /// The `NavigationRow` is selectable when action is not nil.
   public var isSelectable: Bool {
-    return action != nil
+    return actions != nil
   }
 
   /// The additional customization during cell configuration.

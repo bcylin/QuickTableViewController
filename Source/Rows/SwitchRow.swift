@@ -38,13 +38,13 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
     switchValue: Bool,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
-    action: ((Row) -> Void)?
+    actions: [RowActionType]?
   ) {
     self.title = title
     self.switchValue = switchValue
     self.icon = icon
     self.customize = customization
-    self.action = action
+    self.actions = actions
   }
 
   // MARK: - SwitchRowCompatible
@@ -56,7 +56,17 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
         return
       }
       DispatchQueue.main.async {
-        self.action?(self)
+        guard let actions = self.actions else {
+          return
+        }
+        for actionType in actions {
+          switch actionType {
+          case .defaultAction(let action):
+            action(self)
+          case .popViewController:
+            break
+          }
+        }
       }
     }
   }
@@ -70,7 +80,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   public let subtitle: Subtitle? = nil
 
   /// A closure that will be invoked when the `switchValue` is changed.
-  public let action: ((Row) -> Void)?
+  public let actions: [RowActionType]?
 
   // MARK: - RowStyle
 
