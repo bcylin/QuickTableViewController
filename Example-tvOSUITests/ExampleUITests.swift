@@ -36,23 +36,24 @@ internal final class ExampleUITests: XCTestCase {
     app.launch()
   }
 
+// swiftlint:disable function_body_length line_length
   func testInteractions() {
 
     let tables = XCUIApplication().tables
     let existance = NSPredicate(format: "exists == true")
     let hasFocus = NSPredicate(format: "hasFocus == true")
 
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"Setting 1").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Setting 1").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"Setting 2").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Setting 2").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"Tap action").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Tap action").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
@@ -60,55 +61,55 @@ internal final class ExampleUITests: XCTestCase {
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"Tap action").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Tap action").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"CellStyle.default").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "CellStyle.default").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
-    expectation(for: existance, evaluatedWith: app.otherElements.containing(.staticText, identifier:"CellStyle.default").element, handler: nil)
+    expectation(for: existance, evaluatedWith: app.otherElements.containing(.staticText, identifier: "CellStyle.default").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.menu)
 
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"CellStyle.default").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "CellStyle.default").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:".subtitle").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: ".subtitle").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
-    expectation(for: existance, evaluatedWith: app.otherElements.containing(.staticText, identifier:"CellStyle.subtitle").element, handler: nil)
+    expectation(for: existance, evaluatedWith: app.otherElements.containing(.staticText, identifier: "CellStyle.subtitle").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.menu)
 
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:".subtitle").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: ".subtitle").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:".value1").element, handler: nil)
-    waitForExpectations(timeout: 5, handler: nil)
-    XCUIRemote.shared.press(.select)
-
-    XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:".value2").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: ".value1").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"Option 1").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: ".value2").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"Option 2").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Option 1").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
     XCUIRemote.shared.press(.down)
-    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier:"Option 3").element, handler: nil)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Option 2").element, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+    XCUIRemote.shared.press(.select)
+
+    XCUIRemote.shared.press(.down)
+    expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Option 3").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
   }
