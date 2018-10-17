@@ -158,7 +158,7 @@ internal final class RadioSectionSpec: QuickSpec {
 
     describe("toggle options") {
       let mock = {
-        return RadioSection(title: "Radio", options: [
+        RadioSection(title: "Radio", options: [
           OptionRow(title: "Option 1", isSelected: true, action: nil),
           OptionRow(title: "Option 2", isSelected: false, action: nil),
           OptionRow(title: "Option 3", isSelected: false, action: nil)

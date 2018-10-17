@@ -36,7 +36,6 @@ internal final class ExampleUITests: XCTestCase {
     app.launch()
   }
 
-// swiftlint:disable function_body_length line_length
   func testInteractions() {
 
     let tables = XCUIApplication().tables

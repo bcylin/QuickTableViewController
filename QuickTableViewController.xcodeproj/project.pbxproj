@@ -717,6 +717,7 @@
 			buildConfigurationList = B54A243C2088816E00EEBA26 /* Build configuration list for PBXNativeTarget "QuickTableViewController-tvOSTests" */;
 			buildPhases = (
 				E5D972CCDEB057DA678D5651 /* [CP] Check Pods Manifest.lock */,
+				B51EE1432177EB3C0039C9B2 /* SwiftLint */,
 				B54A242A2088816E00EEBA26 /* Sources */,
 				B54A242B2088816E00EEBA26 /* Frameworks */,
 				B54A242C2088816E00EEBA26 /* Resources */,
@@ -979,6 +980,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B51EE1432177EB3C0039C9B2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh scripts/swiftlint.sh\n";
+		};
 		B51F21BB1F417269009BC2C9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -991,7 +1010,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "sh scripts/swiftlint.sh\n";
 		};
 		B54582FB212D7F89004376C8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1005,7 +1024,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "sh scripts/swiftlint.sh\n";
 		};
 		B5C335A91D07CBD000C706A4 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1019,7 +1038,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --config .swiftlint.yml";
+			shellScript = "sh scripts/swiftlint.sh\n";
 		};
 		D6A5837800B2AEA91500816C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

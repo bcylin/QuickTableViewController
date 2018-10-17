@@ -27,7 +27,7 @@
 import UIKit
 import QuickTableViewController
 
-final class TableViewController: QuickTableViewController {
+internal final class TableViewController: QuickTableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
