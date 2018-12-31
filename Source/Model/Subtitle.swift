@@ -78,15 +78,33 @@ public enum Subtitle: Equatable {
 
 }
 
+////////////////////////////////////////////////////////////////////////////////
 
-internal extension UITableViewCell.CellStyle {
+internal extension Subtitle {
 
-  var stringValue: String {
+  /// The conversion between Subtitle and DetailText.
+  internal var detailText: DetailText {
     switch self {
-    case .default:  return ".default"
-    case .subtitle: return ".subtitle"
-    case .value1:   return ".value1"
-    case .value2:   return ".value2"
+    case .none:                   return .none
+    case let .belowTitle(text):   return .subtitle(text)
+    case let .rightAligned(text): return .value1(text)
+    case let .leftAligned(text):  return .value2(text)
+    }
+  }
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+internal extension DetailText {
+
+  /// The conversion between DetailText and Subtitle.
+  internal var subtitle: Subtitle {
+    switch self {
+    case .none:               return .none
+    case let .subtitle(text): return .belowTitle(text)
+    case let .value1(text):   return .rightAligned(text)
+    case let .value2(text):   return .leftAligned(text)
     }
   }
 

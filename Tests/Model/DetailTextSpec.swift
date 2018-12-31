@@ -1,9 +1,9 @@
 //
-//  SubtitleSpec.swift
-//  QuickTableViewControllerTests
+//  DetailTextSpec.swift
+//  QuickTableViewController
 //
-//  Created by Ben on 28/10/2015.
-//  Copyright © 2015 bcylin.
+//  Created by bcylin on 31/12/2018.
+//  Copyright © 2018 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,51 +23,47 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
+
 import Nimble
 import Quick
 @testable import QuickTableViewController
 
-internal final class SubtitleSpec: QuickSpec {
+internal final class DetailTextSpec: QuickSpec {
 
   override func spec() {
-    describe("compatibility") {
-      it("should return the corresponding detail text") {
-        expect(Subtitle.none.detailText) == DetailText.none
-        expect(Subtitle.belowTitle("text").detailText) == .subtitle("text")
-        expect(Subtitle.rightAligned("text").detailText) == .value1("text")
-        expect(Subtitle.leftAligned("text").detailText) == .value2("text")
+    describe("cell style") {
+      it("should return the descriptive name of the style") {
+        expect(DetailText.none.style) == .default
+        expect(DetailText.subtitle("text").style) == .subtitle
+        expect(DetailText.value1("text").style) == .value1
+        expect(DetailText.value2("text").style) == .value2
       }
     }
 
     describe("associtated value") {
-      let none = Subtitle.none
-      let belowTitle = Subtitle.belowTitle("text")
-      let rightAligned = Subtitle.rightAligned("text")
-      let leftAligned = Subtitle.leftAligned("text")
-
       it("should return the associated text") {
-        expect(none.text).to(beNil())
-        expect(belowTitle.text) == "text"
-        expect(rightAligned.text) == "text"
-        expect(leftAligned.text) == "text"
+        expect(DetailText.none.text).to(beNil())
+        expect(DetailText.subtitle("3").text) == "3"
+        expect(DetailText.value1("1").text) == "1"
+        expect(DetailText.value2("2").text) == "2"
       }
     }
 
     describe("equatable") {
       context(".none") {
         it("should be equal when both are .none") {
-          let a = Subtitle.none
-          let b = Subtitle.none
+          let a = DetailText.none
+          let b = DetailText.none
           expect(a) == b
         }
       }
 
-      context(".belowTitle") {
-        let a = Subtitle.belowTitle("Same")
-        let b = Subtitle.belowTitle("Same")
-        let c = Subtitle.belowTitle("Different")
-        let d = Subtitle.rightAligned("Same")
-        let e = Subtitle.none
+      context(".subtitle") {
+        let a = DetailText.subtitle("Same")
+        let b = DetailText.subtitle("Same")
+        let c = DetailText.subtitle("Different")
+        let d = DetailText.value1("Same")
+        let e = DetailText.none
 
         it("should be equal only when type and associated value match") {
           expect(a) == b
@@ -77,12 +73,12 @@ internal final class SubtitleSpec: QuickSpec {
         }
       }
 
-      context(".rightAligned") {
-        let a = Subtitle.rightAligned("Same")
-        let b = Subtitle.rightAligned("Same")
-        let c = Subtitle.rightAligned("Different")
-        let d = Subtitle.leftAligned("Same")
-        let e = Subtitle.none
+      context(".value1") {
+        let a = DetailText.value1("Same")
+        let b = DetailText.value1("Same")
+        let c = DetailText.value1("Different")
+        let d = DetailText.value2("Same")
+        let e = DetailText.none
 
         it("should be equal only when type and associated value match") {
           expect(a) == b
@@ -92,12 +88,12 @@ internal final class SubtitleSpec: QuickSpec {
         }
       }
 
-      context(".leftAligned") {
-        let a = Subtitle.leftAligned("Same")
-        let b = Subtitle.leftAligned("Same")
-        let c = Subtitle.leftAligned("Different")
-        let d = Subtitle.belowTitle("Same")
-        let e = Subtitle.none
+      context(".value2") {
+        let a = DetailText.value2("Same")
+        let b = DetailText.value2("Same")
+        let c = DetailText.value2("Different")
+        let d = DetailText.subtitle("Same")
+        let e = DetailText.none
 
         it("should be equal only when type and associated value match") {
           expect(a) == b

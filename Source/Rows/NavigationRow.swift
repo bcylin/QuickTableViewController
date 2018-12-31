@@ -100,3 +100,17 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
   }
 
 }
+
+
+private extension UITableViewCell.CellStyle {
+
+  var stringValue: String {
+    switch self {
+    case .default:  return ".default"
+    case .subtitle: return ".subtitle"
+    case .value1:   return ".value1"
+    case .value2:   return ".value2"
+    }
+  }
+
+}
