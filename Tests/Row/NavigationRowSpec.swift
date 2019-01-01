@@ -69,40 +69,40 @@ internal final class NavigationRowSpec: QuickSpec {
 
     describe("equatable") {
       let image = UIImage()
-      let a = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
+      let row = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
 
       context("identical parameters") {
-        let b = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
         it("should be equal") {
-          expect(a) == b
+          expect(this) == row
         }
       }
 
-      context("different titles") {
-        let c = NavigationRow(text: "Different", detailText: .subtitle("Same"), icon: .image(image), action: nil)
+      context("different texts") {
+        let this = NavigationRow(text: "Different", detailText: .subtitle("Same"), icon: .image(image), action: nil)
         it("should not be equal") {
-          expect(a) != c
+          expect(this) != row
         }
       }
 
-      context("different subtitles") {
-        let d = NavigationRow(text: "Same", detailText: .subtitle("Different"), icon: .image(image), action: nil)
+      context("different detail texts") {
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Different"), icon: .image(image), action: nil)
         it("should not be equal") {
-          expect(a) != d
+          expect(this) != row
         }
       }
 
       context("different icons") {
-        let e = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(UIImage()), action: nil)
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(UIImage()), action: nil)
         it("should not be equal") {
-          expect(a) != e
+          expect(this) != row
         }
       }
 
       context("different actions") {
-        let f = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: { _ in })
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: { _ in })
         it("should be equal regardless of the actions attached") {
-          expect(a) == f
+          expect(this) == row
         }
       }
     }

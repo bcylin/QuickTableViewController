@@ -32,11 +32,16 @@ internal final class SwitchRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {
+      let detailText = DetailText.subtitle("subtitle")
+      let icon = Icon.named("icon")
+
       var invoked = false
-      let row = SwitchRow(text: "title", switchValue: true) { _ in invoked = true }
+      let row = SwitchRow(text: "title", detailText: detailText, switchValue: true, icon: icon) { _ in invoked = true }
 
       it("should initialize with given parameters") {
         expect(row.text) == "title"
+        expect(row.detailText) == detailText
+        expect(row.icon) == icon
         expect(row.switchValue) == true
         expect(row.cellReuseIdentifier) == "SwitchCell"
 
@@ -50,40 +55,47 @@ internal final class SwitchRowSpec: QuickSpec {
     }
 
     describe("equatable") {
-      let a = SwitchRow(text: "Same", switchValue: true, action: nil)
+      let row = SwitchRow(text: "Same", switchValue: true, action: nil)
 
       context("identical parameters") {
-        let b = SwitchRow(text: "Same", switchValue: true, action: nil)
+        let this = SwitchRow(text: "Same", switchValue: true, action: nil)
         it("should be qeaul") {
-          expect(a) == b
+          expect(this) == row
         }
       }
 
-      context("different titles") {
-        let c = SwitchRow(text: "Different", switchValue: true, action: nil)
+      context("different texts") {
+        let this = SwitchRow(text: "Different", switchValue: true, action: nil)
         it("should not be eqaul") {
-          expect(a) != c
+          expect(this) != row
+        }
+      }
+
+      context("different detail texts") {
+        let this = SwitchRow(text: "Same", detailText: .subtitle("Different"), switchValue: true, action: nil)
+        it("should not be equal") {
+          expect(this) != row
         }
       }
 
       context("different switch values") {
-        let d = SwitchRow(text: "Same", switchValue: false, action: nil)
+        let this = SwitchRow(text: "Same", switchValue: false, action: nil)
         it("should not be equal") {
-          expect(a) != d
+          expect(this) != row
         }
       }
 
       context("different icons") {
-        let e = SwitchRow(text: "Same", switchValue: true, icon: .image(UIImage()), action: nil)
+        let this = SwitchRow(text: "Same", switchValue: true, icon: .image(UIImage()), action: nil)
         it("should not be equal") {
-          expect(a) != e
+          expect(this) != row
         }
       }
 
       context("different actions") {
-        let f = SwitchRow(text: "Same", switchValue: true, action: { _ in })
+        let this = SwitchRow(text: "Same", switchValue: true, action: { _ in })
         it("should be equal regardless of the actions attached") {
-          expect(a) == f
+          expect(this) == row
         }
       }
     }

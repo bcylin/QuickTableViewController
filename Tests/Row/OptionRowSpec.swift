@@ -62,40 +62,47 @@ internal final class OptionRowSpec: QuickSpec {
     }
 
     describe("equatable") {
-      let a = OptionRow(text: "Same", isSelected: true, action: nil)
+      let row = OptionRow(text: "Same", isSelected: true, action: nil)
 
       context("identical parameters") {
-        let b = OptionRow(text: "Same", isSelected: true, action: nil)
+        let this = OptionRow(text: "Same", isSelected: true, action: nil)
         it("should be qeaul") {
-          expect(a) == b
+          expect(this) == row
         }
       }
 
-      context("different titles") {
-        let c = OptionRow(text: "Different", isSelected: true, action: nil)
+      context("different texts") {
+        let this = OptionRow(text: "Different", isSelected: true, action: nil)
         it("should not be eqaul") {
-          expect(a) != c
+          expect(this) != row
+        }
+      }
+
+      context("different detail texts") {
+        let this = OptionRow(text: "Same", detailText: .subtitle("Different"), isSelected: true, action: nil)
+        it("should not be equal") {
+          expect(this) != row
         }
       }
 
       context("different selection state") {
-        let d = OptionRow(text: "Same", isSelected: false, action: nil)
+        let this = OptionRow(text: "Same", isSelected: false, action: nil)
         it("should not be equal") {
-          expect(a) != d
+          expect(this) != row
         }
       }
 
       context("different icons") {
-        let e = OptionRow(text: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
+        let this = OptionRow(text: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
         it("should not be equal") {
-          expect(a) != e
+          expect(this) != row
         }
       }
 
       context("different actions") {
-        let f = OptionRow(text: "Same", isSelected: true, action: { _ in })
+        let this = OptionRow(text: "Same", isSelected: true, action: { _ in })
         it("should be equal regardless of the actions attached") {
-          expect(a) == f
+          expect(this) == row
         }
       }
     }

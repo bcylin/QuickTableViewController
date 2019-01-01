@@ -49,26 +49,26 @@ internal final class TapActionRowSpec: QuickSpec {
     }
 
     describe("equatable") {
-      let a = TapActionRow(text: "Same", action: nil)
+      let row = TapActionRow(text: "Same", action: nil)
 
       context("identical titles") {
-        let b = TapActionRow(text: "Same", action: nil)
+        let this = TapActionRow(text: "Same", action: nil)
         it("should be equal") {
-          expect(a) == b
+          expect(this) == row
         }
       }
 
-      context("different titles") {
-        let c = TapActionRow(text: "Different", action: nil)
+      context("different texts") {
+        let this = TapActionRow(text: "Different", action: nil)
         it("should not be equal") {
-          expect(a) != c
+          expect(this) != row
         }
       }
 
       context("different actions") {
-        let d = TapActionRow(text: "Same", action: { _ in })
+        let this = TapActionRow(text: "Same", action: { _ in })
         it("should be equal regardless of the actions attached") {
-          expect(a) == d
+          expect(this) == row
         }
       }
     }
