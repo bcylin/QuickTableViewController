@@ -45,6 +45,7 @@ public extension Row {
 
 public extension NavigationRow {
 
+  @available(*, deprecated, message: "Use `init(text:detailText:icon:customization:action:)` instead.")
   public convenience init(
     title: String,
     subtitle: Subtitle,
@@ -67,6 +68,7 @@ public extension NavigationRow {
 
 public extension OptionRow {
 
+  @available(*, deprecated, message: "Use `init(text:detailText:isSelected:icon:customization:action:)` instead.")
   public convenience init(
     title: String,
     subtitle: Subtitle? = nil,
@@ -91,6 +93,7 @@ public extension OptionRow {
 
 public extension SwitchRow {
 
+  @available(*, deprecated, message: "Use `init(text:detailText:switchValue:icon:customization:action:)` instead.")
   public convenience init(
     title: String,
     subtitle: Subtitle? = nil,
@@ -115,6 +118,7 @@ public extension SwitchRow {
 
 public extension TapActionRow {
 
+  @available(*, deprecated, message: "Use `init(text:customization:action:)` instead.")
   public convenience init(
     title: String,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,

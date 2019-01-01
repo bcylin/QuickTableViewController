@@ -40,19 +40,19 @@ internal final class RootViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Default", rows: [
-        NavigationRow(title: "Use default cell types", subtitle: .none, action: { [weak self] _ in
+        NavigationRow(text: "Use default cell types", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(DefaultViewController(), animated: true)
         })
       ]),
 
       Section(title: "Customization", rows: [
-        NavigationRow(title: "Use custom cell types", subtitle: .none, action: { [weak self] _ in
+        NavigationRow(text: "Use custom cell types", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(CustomizationViewController(), animated: true)
         })
       ]),
 
       Section(title: "UIAppearance", rows: [
-        NavigationRow(title: "UILabel customization", subtitle: .none, action: { [weak self] _ in
+        NavigationRow(text: "UILabel customization", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(AppearanceViewController(), animated: true)
         })
       ])

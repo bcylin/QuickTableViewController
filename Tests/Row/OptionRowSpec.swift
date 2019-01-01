@@ -62,38 +62,38 @@ internal final class OptionRowSpec: QuickSpec {
     }
 
     describe("equatable") {
-      let a = OptionRow(title: "Same", isSelected: true, action: nil)
+      let a = OptionRow(text: "Same", isSelected: true, action: nil)
 
       context("identical parameters") {
-        let b = OptionRow(title: "Same", isSelected: true, action: nil)
+        let b = OptionRow(text: "Same", isSelected: true, action: nil)
         it("should be qeaul") {
           expect(a) == b
         }
       }
 
       context("different titles") {
-        let c = OptionRow(title: "Different", isSelected: true, action: nil)
+        let c = OptionRow(text: "Different", isSelected: true, action: nil)
         it("should not be eqaul") {
           expect(a) != c
         }
       }
 
       context("different selection state") {
-        let d = OptionRow(title: "Same", isSelected: false, action: nil)
+        let d = OptionRow(text: "Same", isSelected: false, action: nil)
         it("should not be equal") {
           expect(a) != d
         }
       }
 
       context("different icons") {
-        let e = OptionRow(title: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
+        let e = OptionRow(text: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
         it("should not be equal") {
           expect(a) != e
         }
       }
 
       context("different actions") {
-        let f = OptionRow(title: "Same", isSelected: true, action: { _ in })
+        let f = OptionRow(text: "Same", isSelected: true, action: { _ in })
         it("should be equal regardless of the actions attached") {
           expect(a) == f
         }
@@ -103,7 +103,7 @@ internal final class OptionRowSpec: QuickSpec {
     describe("action invocation") {
       context("when the selection is toggled") {
         var invoked = false
-        let row = OptionRow(title: "", isSelected: false) { _ in invoked = true }
+        let row = OptionRow(text: "", isSelected: false) { _ in invoked = true }
 
         it("should invoke the action closure") {
           row.isSelected = true
@@ -114,7 +114,7 @@ internal final class OptionRowSpec: QuickSpec {
 
       context("when the selection stays the same") {
         var invoked = false
-        let row = OptionRow(title: "", isSelected: false) { _ in invoked = true }
+        let row = OptionRow(text: "", isSelected: false) { _ in invoked = true }
 
         it("should not invoke the action closure") {
           row.isSelected = false

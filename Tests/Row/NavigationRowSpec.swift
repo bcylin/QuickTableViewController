@@ -54,10 +54,10 @@ internal final class NavigationRowSpec: QuickSpec {
     }
 
     describe("cellReuseIdentifier") {
-      let a = NavigationRow(title: "", subtitle: .none)
-      let b = NavigationRow(title: "", subtitle: .belowTitle(""))
-      let c = NavigationRow(title: "", subtitle: .rightAligned(""))
-      let d = NavigationRow(title: "", subtitle: .leftAligned(""))
+      let a = NavigationRow(text: "", detailText: .none)
+      let b = NavigationRow(text: "", detailText: .subtitle(""))
+      let c = NavigationRow(text: "", detailText: .value1(""))
+      let d = NavigationRow(text: "", detailText: .value2(""))
 
       it("should return the backward compatible strings") {
         expect(a.cellReuseIdentifier) == "UITableViewCell.default"
@@ -69,38 +69,38 @@ internal final class NavigationRowSpec: QuickSpec {
 
     describe("equatable") {
       let image = UIImage()
-      let a = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(image), action: nil)
+      let a = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
 
       context("identical parameters") {
-        let b = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(image), action: nil)
+        let b = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
         it("should be equal") {
           expect(a) == b
         }
       }
 
       context("different titles") {
-        let c = NavigationRow(title: "Different", subtitle: .belowTitle("Same"), icon: .image(image), action: nil)
+        let c = NavigationRow(text: "Different", detailText: .subtitle("Same"), icon: .image(image), action: nil)
         it("should not be equal") {
           expect(a) != c
         }
       }
 
       context("different subtitles") {
-        let d = NavigationRow(title: "Same", subtitle: .belowTitle("Different"), icon: .image(image), action: nil)
+        let d = NavigationRow(text: "Same", detailText: .subtitle("Different"), icon: .image(image), action: nil)
         it("should not be equal") {
           expect(a) != d
         }
       }
 
       context("different icons") {
-        let e = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(UIImage()), action: nil)
+        let e = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(UIImage()), action: nil)
         it("should not be equal") {
           expect(a) != e
         }
       }
 
       context("different actions") {
-        let f = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(image), action: { _ in })
+        let f = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: { _ in })
         it("should be equal regardless of the actions attached") {
           expect(a) == f
         }

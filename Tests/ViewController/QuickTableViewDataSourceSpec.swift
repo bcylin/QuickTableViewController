@@ -53,13 +53,13 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
       controller.tableContents = [
         Section(title: nil, rows: []),
         Section(title: nil, rows: [
-          NavigationRow(title: "", subtitle: .none),
-          NavigationRow(title: "", subtitle: .none)
+          NavigationRow(text: "", detailText: .none),
+          NavigationRow(text: "", detailText: .none)
         ]),
         RadioSection(title: nil, options: []),
         RadioSection(title: nil, options: [
-          OptionRow(title: "", isSelected: false, action: { _ in }),
-          OptionRow(title: "", isSelected: false, action: { _ in })
+          OptionRow(text: "", isSelected: false, action: { _ in }),
+          OptionRow(text: "", isSelected: false, action: { _ in })
         ])
       ]
       it("should return the number of sections") {
@@ -113,10 +113,10 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
           let controller = QuickTableViewController()
           controller.tableContents = [
             Section(title: "Cell Styles", rows: [
-              CustomNavigationRow<CustomCell>(title: "CellStyle.default", subtitle: .none),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .belowTitle(".subtitle")),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1")),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .leftAligned(".value2"))
+              CustomNavigationRow<CustomCell>(text: "CellStyle.default", detailText: .none),
+              CustomNavigationRow<CustomCell>(text: "CellStyle", detailText: .subtitle(".subtitle")),
+              CustomNavigationRow<CustomCell>(text: "CellStyle", detailText: .value1(".value1")),
+              CustomNavigationRow<CustomCell>(text: "CellStyle", detailText: .value2(".value2"))
             ])
           ]
           let a = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
@@ -157,15 +157,15 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
 
           controller.tableContents = [
             Section(title: "NavigationRow", rows: [
-              CustomNavigationRow<CustomCell>(title: "CellStyle.default", subtitle: .none, icon: .named("icon")),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .image(image)),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .images(normal: image, highlighted: highlightedImage)),
-              CustomNavigationRow<CustomCell>(title: "CellStyle", subtitle: .leftAligned(".value2"), icon: .image(image))
+              CustomNavigationRow<CustomCell>(text: "CellStyle.default", detailText: .none, icon: .named("icon")),
+              CustomNavigationRow<CustomCell>(text: "CellStyle", detailText: .subtitle(".subtitle"), icon: .image(image)),
+              CustomNavigationRow<CustomCell>(text: "CellStyle", detailText: .value1(".value1"), icon: .images(normal: image, highlighted: highlightedImage)),
+              CustomNavigationRow<CustomCell>(text: "CellStyle", detailText: .value2(".value2"), icon: .image(image))
             ]),
             Section(title: "SwitchRow", rows: [
-              CustomSwitchRow<CustomSwitchCell>(title: "imageName", switchValue: true, icon: .named("icon"), action: nil),
-              CustomSwitchRow<CustomSwitchCell>(title: "image", switchValue: true, icon: .image(image), action: nil),
-              CustomSwitchRow<CustomSwitchCell>(title: "image + highlightedImage", switchValue: true, icon: .images(normal: image, highlighted: highlightedImage), action: nil)
+              CustomSwitchRow<CustomSwitchCell>(text: "imageName", switchValue: true, icon: .named("icon"), action: nil),
+              CustomSwitchRow<CustomSwitchCell>(text: "image", switchValue: true, icon: .image(image), action: nil),
+              CustomSwitchRow<CustomSwitchCell>(text: "image + highlightedImage", switchValue: true, icon: .images(normal: image, highlighted: highlightedImage), action: nil)
             ])
           ]
 
@@ -210,10 +210,10 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
           let controller = QuickTableViewController()
           controller.tableContents = [
             Section(title: "Navigation", rows: [
-              CustomNavigationRow<CustomCell>(title: "", subtitle: .none, action: { _ in }),
-              CustomNavigationRow<CustomCell>(title: "", subtitle: .belowTitle(""), action: { _ in }),
-              CustomNavigationRow<CustomCell>(title: "", subtitle: .rightAligned(""), action: { _ in }),
-              CustomNavigationRow<CustomCell>(title: "", subtitle: .leftAligned(""), action: { _ in })
+              CustomNavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in }),
+              CustomNavigationRow<CustomCell>(text: "", detailText: .subtitle(""), action: { _ in }),
+              CustomNavigationRow<CustomCell>(text: "", detailText: .value1(""), action: { _ in }),
+              CustomNavigationRow<CustomCell>(text: "", detailText: .value2(""), action: { _ in })
             ])
           ]
 
@@ -232,10 +232,10 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
         let controller = QuickTableViewController()
         controller.tableContents = [
           Section(title: "SwitchRow", rows: [
-            SwitchRow(title: "Setting 0", switchValue: true, action: nil),
-            CustomSwitchRow(title: "Setting 1", switchValue: true, action: nil),
-            SwitchRow<CustomSwitchCell>(title: "Setting 2", switchValue: true, action: nil),
-            CustomSwitchRow<CustomSwitchCell>(title: "Setting 3", switchValue: true, action: nil)
+            SwitchRow(text: "Setting 0", switchValue: true, action: nil),
+            CustomSwitchRow(text: "Setting 1", switchValue: true, action: nil),
+            SwitchRow<CustomSwitchCell>(text: "Setting 2", switchValue: true, action: nil),
+            CustomSwitchRow<CustomSwitchCell>(text: "Setting 3", switchValue: true, action: nil)
           ])
         ]
 
@@ -268,10 +268,10 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
         let controller = QuickTableViewController()
         controller.tableContents = [
           Section(title: "TapActionRow", rows: [
-            TapActionRow(title: "0", action: { _ in }),
-            CustomTapActionRow(title: "1", action: { _ in }),
-            TapActionRow<CustomTapActionCell>(title: "2", action: { _ in }),
-            CustomTapActionRow<CustomTapActionCell>(title: "3", action: { _ in })
+            TapActionRow(text: "0", action: { _ in }),
+            CustomTapActionRow(text: "1", action: { _ in }),
+            TapActionRow<CustomTapActionCell>(text: "2", action: { _ in }),
+            CustomTapActionRow<CustomTapActionCell>(text: "3", action: { _ in })
           ])
         ]
 
@@ -296,10 +296,10 @@ internal final class QuickTableViewDataSourceSpec: QuickSpec {
         let controller = QuickTableViewController()
         controller.tableContents = [
           Section(title: "OptionRow", rows: [
-            OptionRow(title: "0", isSelected: true, action: { _ in }),
-            CustomOptionRow(title: "1", isSelected: true, action: { _ in }),
-            OptionRow<CustomCell>(title: "2", isSelected: true, action: { _ in }),
-            CustomOptionRow<CustomCell>(title: "3", isSelected: true, action: { _ in })
+            OptionRow(text: "0", isSelected: true, action: { _ in }),
+            CustomOptionRow(text: "1", isSelected: true, action: { _ in }),
+            OptionRow<CustomCell>(text: "2", isSelected: true, action: { _ in }),
+            CustomOptionRow<CustomCell>(text: "3", isSelected: true, action: { _ in })
           ])
         ]
 

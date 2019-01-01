@@ -41,19 +41,19 @@ internal final class AppearanceViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "SwitchCell", switchValue: true, action: { _ in })
+        SwitchRow(text: "SwitchCell", switchValue: true, action: { _ in })
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "TapActionCell", action: { _ in })
+        TapActionRow(text: "TapActionCell", action: { _ in })
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "UITableViewCell", subtitle: .belowTitle(".subtitle"), action: { _ in })
+        NavigationRow(text: "UITableViewCell", detailText: .subtitle(".subtitle"), action: { _ in })
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "UITableViewCell", isSelected: true, action: { _ in })
+        OptionRow(text: "UITableViewCell", isSelected: true, action: { _ in })
       ])
     ]
   }

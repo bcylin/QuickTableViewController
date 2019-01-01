@@ -41,7 +41,7 @@ internal final class CustomizationViewController: QuickTableViewController {
 
   private let debugging = Section(
     title: nil,
-    rows: [NavigationRow(title: "", subtitle: .none)],
+    rows: [NavigationRow(text: "", detailText: .none)],
     footer: "Select or toggle each row to show their cell reuse identifiers."
   )
 
@@ -56,13 +56,13 @@ internal final class CustomizationViewController: QuickTableViewController {
 
       Section(title: "Switch", rows: [
         SwitchRow<CustomSwitchCell>(
-          title: "SwitchRow\n<CustomSwitchCell>",
+          text: "SwitchRow\n<CustomSwitchCell>",
           switchValue: true,
           customization: set(label: "0-0"),
           action: showLog()
         ),
         CustomSwitchRow<SwitchCell>(
-          title: "CustomSwitchRow\n<SwitchCell>",
+          text: "CustomSwitchRow\n<SwitchCell>",
           switchValue: false,
           customization: set(label: "0-1"),
           action: showLog()
@@ -71,12 +71,12 @@ internal final class CustomizationViewController: QuickTableViewController {
 
       Section(title: "Tap Action", rows: [
         TapActionRow<CustomTapActionCell>(
-          title: "TapActionRow\n<CustomTapActionCell>",
+          text: "TapActionRow\n<CustomTapActionCell>",
           customization: set(label: "1-0"),
           action: showLog()
         ),
         CustomTapActionRow<TapActionCell>(
-          title: "CustomTapActionRow\n<TapActionCell>",
+          text: "CustomTapActionRow\n<TapActionCell>",
           customization: set(label: "1-1"),
           action: showLog()
         )
@@ -84,26 +84,26 @@ internal final class CustomizationViewController: QuickTableViewController {
 
       Section(title: "Navigation", rows: [
         NavigationRow(
-          title: "NavigationRow",
-          subtitle: .none,
+          text: "NavigationRow",
+          detailText: .none,
           customization: set(label: "2-0"),
           action: showLog()
         ),
         NavigationRow<CustomCell>(
-          title: "NavigationRow<CustomCell>",
-          subtitle: .belowTitle(".subtitle"),
+          text: "NavigationRow<CustomCell>",
+          detailText: .subtitle(".subtitle"),
           customization: set(label: "2-1"),
           action: showLog()
         ),
         CustomNavigationRow(
-          title: "CustomNavigationRow",
-          subtitle: .rightAligned(".value1"),
+          text: "CustomNavigationRow",
+          detailText: .value1(".value1"),
           customization: set(label: "2-2"),
           action: showLog()
         ),
         CustomNavigationRow<CustomCell>(
-          title: "CustomNavigationRow<CustomCell>",
-          subtitle: .leftAligned(".value2"),
+          text: "CustomNavigationRow<CustomCell>",
+          detailText: .value2(".value2"),
           customization: set(label: "2-3"),
           action: showLog()
         )
@@ -111,19 +111,19 @@ internal final class CustomizationViewController: QuickTableViewController {
 
       RadioSection(title: "Radio Buttons", options: [
         OptionRow(
-          title: "OptionRow",
+          text: "OptionRow",
           isSelected: false,
           customization: set(label: "3-0"),
           action: showLog()
         ),
         CustomOptionRow(
-          title: "CustomOptionRow",
+          text: "CustomOptionRow",
           isSelected: false,
           customization: set(label: "3-1"),
           action: showLog()
         ),
         CustomOptionRow<CustomOptionCell>(
-          title: "CustomOptionRow<CustomOptionCell>",
+          text: "CustomOptionRow<CustomOptionCell>",
           isSelected: false,
           customization: set(label: "3-2"),
           action: showLog()
@@ -131,7 +131,7 @@ internal final class CustomizationViewController: QuickTableViewController {
       ]),
 
       Section(title: nil, rows: [
-        NavigationRow(title: "Customization closure", subtitle: .none, customization: { cell, _ in
+        NavigationRow(text: "Customization closure", detailText: .none, customization: { cell, _ in
           cell.accessibilityLabel = "4-0"
           cell.accessoryView = UIImageView(image: #imageLiteral(resourceName: "iconmonstr-x-mark"))
         })
@@ -162,7 +162,7 @@ internal final class CustomizationViewController: QuickTableViewController {
       }
       let identifier = ($0 as! RowStyle).cellReuseIdentifier
       self?.debugging.rows = [
-        NavigationRow(title: identifier, subtitle: .none, customization: self?.set(label: "debug"))
+        NavigationRow(text: identifier, detailText: .none, customization: self?.set(label: "debug"))
       ]
       print(identifier)
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
