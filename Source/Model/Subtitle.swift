@@ -26,7 +26,6 @@
 
 import UIKit
 
-/// An enum that represents a subtitle text with `UITableViewCellStyle`.
 public enum Subtitle: Equatable {
 
   /// Does not show a subtitle as `UITableViewCellStyle.default`.
@@ -40,47 +39,13 @@ public enum Subtitle: Equatable {
 
   /// Returns the corresponding table view cell style.
   public var style: UITableViewCell.CellStyle {
-    switch self {
-    case .none:          return .default
-    case .belowTitle:    return .subtitle
-    case .rightAligned:  return .value1
-    case .leftAligned:   return .value2
-    }
+    return detailText.style
   }
 
   /// Returns the associated text of the case.
   public var text: String? {
-    switch self {
-    case let .belowTitle(text):   return text
-    case let .rightAligned(text): return text
-    case let .leftAligned(text):  return text
-    default:                      return nil
-    }
+    return detailText.text
   }
-
-  // MARK: Equatable
-
-  /// Returns true iff `lhs` and `rhs` have equal texts in the same `Subtitle`.
-  public static func == (lhs: Subtitle, rhs: Subtitle) -> Bool {
-    switch (lhs, rhs) {
-    case (.none, .none):
-      return true
-    case let (.belowTitle(a), .belowTitle(b)):
-      return a == b
-    case let (.rightAligned(a), .rightAligned(b)):
-      return a == b
-    case let (.leftAligned(a), .leftAligned(b)):
-      return a == b
-    default:
-      return false
-    }
-  }
-
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-internal extension Subtitle {
 
   /// The conversion between Subtitle and DetailText.
   internal var detailText: DetailText {
@@ -94,7 +59,6 @@ internal extension Subtitle {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////
 
 internal extension DetailText {
 

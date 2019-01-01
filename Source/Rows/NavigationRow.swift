@@ -31,17 +31,17 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   // MARK: - Initializer
 
-  /// Initializes a `NavigationRow` with a title and a subtitle.
+  /// Initializes a `NavigationRow` with a text and a detail text.
   /// The icon, customization and action closures are optional.
   public init(
-    title: String,
-    subtitle: Subtitle,
+    text: String,
+    detailText: DetailText,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)? = nil
   ) {
-    self.title = title
-    self.subtitle = subtitle
+    self.text = text
+    self.detailText = detailText
     self.icon = icon
     self.customize = customization
     self.action = action
@@ -49,11 +49,11 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   // MARK: - Row
 
-  /// The title text of the row.
-  public let title: String
+  /// The text of the row.
+  public let text: String
 
-  /// The subtitle text of the row.
-  public let subtitle: Subtitle?
+  /// The detail text of the row.
+  public let detailText: DetailText?
 
   /// A closure that will be invoked when the row is selected.
   public let action: ((Row) -> Void)?
@@ -65,12 +65,12 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
-    return T.reuseIdentifier + (subtitle?.style.stringValue ?? "")
+    return T.reuseIdentifier + (detailText?.style.stringValue ?? "")
   }
 
   /// Returns the table view cell style for the specified subtitle.
   public var cellStyle: UITableViewCell.CellStyle {
-    return subtitle?.style ?? .default
+    return detailText?.style ?? .default
   }
 
   /// The icon of the row.
@@ -91,11 +91,11 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   // MARK: Equatable
 
-  /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
+  /// Returns true iff `lhs` and `rhs` have equal titles, detail texts and icons.
   public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
     return
-      lhs.title == rhs.title &&
-      lhs.subtitle == rhs.subtitle &&
+      lhs.text == rhs.text &&
+      lhs.detailText == rhs.detailText &&
       lhs.icon == rhs.icon
   }
 

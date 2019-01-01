@@ -110,7 +110,7 @@ internal final class DefaultViewController: QuickTableViewController {
 
   private func showDetail() -> (Row) -> Void {
     return { [weak self] in
-      let detail = $0.title + ($0.subtitle?.text ?? "")
+      let detail = $0.title + ($0.detailText?.text ?? "")
       let controller = UIViewController()
       controller.view.backgroundColor = .white
       controller.title = detail
