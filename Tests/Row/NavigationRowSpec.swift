@@ -32,15 +32,15 @@ internal final class NavigationRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {
-      let subtitle = Subtitle.belowTitle("subtitle")
+      let detailText = DetailText.subtitle("subtitle")
       let icon = Icon.named("icon")
 
       var invoked = false
-      let row = NavigationRow(title: "title", subtitle: subtitle, icon: icon, action: { _ in invoked = true })
+      let row = NavigationRow(text: "title", detailText: detailText, icon: icon, action: { _ in invoked = true })
 
       it("should initialize with given parameters") {
-        expect(row.title) == "title"
-        expect(row.subtitle) == subtitle
+        expect(row.text) == "title"
+        expect(row.detailText) == detailText
         expect(row.icon) == icon
         expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
 

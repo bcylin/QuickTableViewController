@@ -29,10 +29,12 @@ import Foundation
 
 public extension Row {
 
+  @available(*, deprecated, message: "Use `text` instead.")
   public var title: String {
     return text
   }
 
+  @available(*, deprecated, message: "Use `detailText` instead.")
   public var subtitle: Subtitle? {
     return detailText?.subtitle
   }

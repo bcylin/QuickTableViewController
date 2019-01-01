@@ -32,15 +32,16 @@ internal final class OptionRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialiation") {
+      let detailText = DetailText.subtitle("subtitle")
       let icon = Icon.named("icon")
 
       var invoked = false
-      let row = OptionRow(title: "title", isSelected: true, icon: icon) { _ in invoked = true }
+      let row = OptionRow(text: "title", detailText: detailText, isSelected: true, icon: icon) { _ in invoked = true }
 
       it("should initialize with given parameters") {
         // Row
-        expect(row.title) == "title"
-        expect(row.subtitle).to(beNil())
+        expect(row.text) == "title"
+        expect(row.detailText) == detailText
         expect(row.isSelected) == true
 
         row.action?(row)

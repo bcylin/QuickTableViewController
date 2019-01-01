@@ -36,7 +36,7 @@ internal final class TapActionRowSpec: QuickSpec {
       let row = TapActionRow(title: "title") { _ in invoked = true }
 
       it("should initialize with given parameters") {
-        expect(row.title) == "title"
+        expect(row.text) == "title"
         expect(row.cellReuseIdentifier) == "TapActionCell"
 
         row.action?(row)

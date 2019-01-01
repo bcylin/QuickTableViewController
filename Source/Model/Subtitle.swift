@@ -26,6 +26,7 @@
 
 import UIKit
 
+@available(*, deprecated, message: "Use `DetailText` instead.")
 public enum Subtitle: Equatable {
 
   /// Does not show a subtitle as `UITableViewCellStyle.default`.
@@ -47,7 +48,7 @@ public enum Subtitle: Equatable {
     return detailText.text
   }
 
-  /// The conversion between Subtitle and DetailText.
+  @available(*, deprecated, message: "The conversion between Subtitle and DetailText.")
   internal var detailText: DetailText {
     switch self {
     case .none:                   return .none
@@ -62,7 +63,7 @@ public enum Subtitle: Equatable {
 
 internal extension DetailText {
 
-  /// The conversion between DetailText and Subtitle.
+  @available(*, deprecated, message: "The conversion between DetailText and Subtitle.")
   internal var subtitle: Subtitle {
     switch self {
     case .none:               return .none

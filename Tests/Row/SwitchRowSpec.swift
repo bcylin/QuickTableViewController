@@ -36,7 +36,7 @@ internal final class SwitchRowSpec: QuickSpec {
       let row = SwitchRow(title: "title", switchValue: true) { _ in invoked = true }
 
       it("should initialize with given parameters") {
-        expect(row.title) == "title"
+        expect(row.text) == "title"
         expect(row.switchValue) == true
         expect(row.cellReuseIdentifier) == "SwitchCell"
 
