@@ -35,7 +35,7 @@ internal final class ConfigurableSpec: QuickSpec {
       context("default row and cell") {
         it("should set the switch to true") {
           let cell = SwitchCell()
-          let row = SwitchRow(title: "", switchValue: true, action: nil)
+          let row = SwitchRow(text: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl
@@ -48,7 +48,7 @@ internal final class ConfigurableSpec: QuickSpec {
 
         it("should set the switch to false") {
           let cell = SwitchCell()
-          let row = SwitchRow(title: "", switchValue: false, action: nil)
+          let row = SwitchRow(text: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl
@@ -63,7 +63,7 @@ internal final class ConfigurableSpec: QuickSpec {
       context("custom row") {
         it("should set the switch to true") {
           let cell = SwitchCell()
-          let row = CustomSwitchRow(title: "", switchValue: true, action: nil)
+          let row = CustomSwitchRow(text: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl
@@ -76,7 +76,7 @@ internal final class ConfigurableSpec: QuickSpec {
 
         it("should set the switch to false") {
           let cell = SwitchCell()
-          let row = CustomSwitchRow(title: "", switchValue: false, action: nil)
+          let row = CustomSwitchRow(text: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl
@@ -91,7 +91,7 @@ internal final class ConfigurableSpec: QuickSpec {
       context("custom cell") {
         it("should set the switch to true") {
           let cell = CustomSwitchCell()
-          let row = SwitchRow<CustomSwitchCell>(title: "", switchValue: true, action: nil)
+          let row = SwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl
@@ -104,7 +104,7 @@ internal final class ConfigurableSpec: QuickSpec {
 
         it("should set the switch to false") {
           let cell = CustomSwitchCell()
-          let row = SwitchRow<CustomSwitchCell>(title: "", switchValue: false, action: nil)
+          let row = SwitchRow<CustomSwitchCell>(text: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl
@@ -119,7 +119,7 @@ internal final class ConfigurableSpec: QuickSpec {
       context("custom row and cell") {
         it("should set the switch to true") {
           let cell = CustomSwitchCell()
-          let row = CustomSwitchRow<CustomSwitchCell>(title: "", switchValue: true, action: nil)
+          let row = CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl
@@ -132,7 +132,7 @@ internal final class ConfigurableSpec: QuickSpec {
 
         it("should set the switch to false") {
           let cell = CustomSwitchCell()
-          let row = CustomSwitchRow<CustomSwitchCell>(title: "", switchValue: false, action: nil)
+          let row = CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: false, action: nil)
           cell.configure(with: row)
           #if os(iOS)
             expect(cell.accessoryView) == cell.switchControl

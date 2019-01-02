@@ -31,25 +31,25 @@ open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
 
   // MARK: - Initializer
 
-  /// Initializes a `TapActionRow` with a title, an action closure,
+  /// Initializes a `TapActionRow` with a text, an action closure,
   /// and an optional customization closure.
   public init(
-    title: String,
+    text: String,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
-    self.title = title
+    self.text = text
     self.customize = customization
     self.action = action
   }
 
   // MARK: - Row
 
-  /// The title text of the row.
-  public let title: String
+  /// The text of the row.
+  public let text: String
 
-  /// The subtitle is disabled in `TapActionRow`.
-  public let subtitle: Subtitle? = nil
+  /// The detail text is disabled in `TapActionRow`.
+  public let detailText: DetailText? = nil
 
   /// A closure that will be invoked when the row is selected.
   public let action: ((Row) -> Void)?
@@ -81,9 +81,11 @@ open class TapActionRow<T: TapActionCell>: TapActionRowCompatible, Equatable {
 
   // MARK: - Equatable
 
-  /// Returns true iff `lhs` and `rhs` have equal titles and subtitles.
+  /// Returns true iff `lhs` and `rhs` have equal titles and detail texts.
   public static func == (lhs: TapActionRow, rhs: TapActionRow) -> Bool {
-    return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+    return
+      lhs.text == rhs.text &&
+      lhs.detailText == rhs.detailText
   }
 
 }

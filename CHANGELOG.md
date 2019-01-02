@@ -1,5 +1,13 @@
 # Change Log
 
+## v1.1.0
+
+#### Enhancements
+
+* Rename `Row`'s title and subtitle to text and detail text to align with `UITableViewCell`'s naming
+* `Subtitle` is deprecated and will be removed in **v2.0.0**
+* Enable **detailText** in `OptionRow` and `SwitchRow`
+
 ## v1.0.0
 
 #### Enhancements

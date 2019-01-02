@@ -61,18 +61,4 @@ public enum Icon: Equatable {
     }
   }
 
-  // MARK: Equatable
-
-  /// Returns true iff `lhs` and `rhs` have equal images and highlighted images.
-  public static func == (lhs: Icon, rhs: Icon) -> Bool {
-    switch (lhs, rhs) {
-    case let (.named(left), .named(right)):
-      return left == right
-    default:
-      return
-        lhs.image == rhs.image &&
-        lhs.highlightedImage == rhs.highlightedImage
-    }
-  }
-
 }

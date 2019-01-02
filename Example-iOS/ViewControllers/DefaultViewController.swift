@@ -31,7 +31,7 @@ internal final class DefaultViewController: QuickTableViewController {
 
   // MARK: - Properties
 
-  private let debugging = Section(title: nil, rows: [NavigationRow(title: "", subtitle: .none)])
+  private let debugging = Section(title: nil, rows: [NavigationRow(text: "", detailText: .none)])
 
   // MARK: - UIViewController
 
@@ -45,25 +45,25 @@ internal final class DefaultViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, icon: .image(globe), action: didToggleSwitch()),
-        SwitchRow(title: "Setting 2", switchValue: false, icon: .image(time), action: didToggleSwitch())
+        SwitchRow(text: "Setting 1", switchValue: true, icon: .image(globe), action: didToggleSwitch()),
+        SwitchRow(text: "Setting 2", switchValue: false, icon: .image(time), action: didToggleSwitch())
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: showAlert())
+        TapActionRow(text: "Tap action", action: showAlert())
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .image(gear)),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .image(globe)),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .image(time), action: showDetail()),
-        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+        NavigationRow(text: "CellStyle.default", detailText: .none, icon: .image(gear)),
+        NavigationRow(text: "CellStyle", detailText: .subtitle(".subtitle"), icon: .image(globe)),
+        NavigationRow(text: "CellStyle", detailText: .value1(".value1"), icon: .image(time), action: showDetail()),
+        NavigationRow(text: "CellStyle", detailText: .value2(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: didToggleSelection()),
-        OptionRow(title: "Option 2", isSelected: false, action: didToggleSelection()),
-        OptionRow(title: "Option 3", isSelected: false, action: didToggleSelection())
+        OptionRow(text: "Option 1", isSelected: true, action: didToggleSelection()),
+        OptionRow(text: "Option 2", isSelected: false, action: didToggleSelection()),
+        OptionRow(text: "Option 3", isSelected: false, action: didToggleSelection())
       ], footer: "See RadioSection for more details."),
 
       debugging
@@ -83,7 +83,7 @@ internal final class DefaultViewController: QuickTableViewController {
   private func didToggleSelection() -> (Row) -> Void {
     return { [weak self] in
       if let option = $0 as? OptionRowCompatible {
-        let state = "\(option.title) is " + (option.isSelected ? "selected" : "deselected")
+        let state = "\(option.text) is " + (option.isSelected ? "selected" : "deselected")
         self?.showDebuggingText(state)
       }
     }
@@ -92,7 +92,7 @@ internal final class DefaultViewController: QuickTableViewController {
   private func didToggleSwitch() -> (Row) -> Void {
     return { [weak self] in
       if let row = $0 as? SwitchRowCompatible {
-        let state = "\(row.title) = \(row.switchValue)"
+        let state = "\(row.text) = \(row.switchValue)"
         self?.showDebuggingText(state)
       }
     }
@@ -110,7 +110,7 @@ internal final class DefaultViewController: QuickTableViewController {
 
   private func showDetail() -> (Row) -> Void {
     return { [weak self] in
-      let detail = $0.title + ($0.subtitle?.text ?? "")
+      let detail = $0.text + ($0.detailText?.text ?? "")
       let controller = UIViewController()
       controller.view.backgroundColor = .white
       controller.title = detail
@@ -121,7 +121,7 @@ internal final class DefaultViewController: QuickTableViewController {
 
   private func showDebuggingText(_ text: String) {
     print(text)
-    debugging.rows = [NavigationRow(title: text, subtitle: .none)]
+    debugging.rows = [NavigationRow(text: text, detailText: .none)]
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
       self?.tableView.reloadData()
     }

@@ -26,7 +26,7 @@
 
 import UIKit
 
-/// An enum that represents a subtitle text with `UITableViewCellStyle`.
+@available(*, deprecated, message: "Use `DetailText` instead.")
 public enum Subtitle: Equatable {
 
   /// Does not show a subtitle as `UITableViewCellStyle.default`.
@@ -40,53 +40,36 @@ public enum Subtitle: Equatable {
 
   /// Returns the corresponding table view cell style.
   public var style: UITableViewCell.CellStyle {
-    switch self {
-    case .none:          return .default
-    case .belowTitle:    return .subtitle
-    case .rightAligned:  return .value1
-    case .leftAligned:   return .value2
-    }
+    return detailText.style
   }
 
   /// Returns the associated text of the case.
   public var text: String? {
-    switch self {
-    case let .belowTitle(text):   return text
-    case let .rightAligned(text): return text
-    case let .leftAligned(text):  return text
-    default:                      return nil
-    }
+    return detailText.text
   }
 
-  // MARK: Equatable
-
-  /// Returns true iff `lhs` and `rhs` have equal texts in the same `Subtitle`.
-  public static func == (lhs: Subtitle, rhs: Subtitle) -> Bool {
-    switch (lhs, rhs) {
-    case (.none, .none):
-      return true
-    case let (.belowTitle(a), .belowTitle(b)):
-      return a == b
-    case let (.rightAligned(a), .rightAligned(b)):
-      return a == b
-    case let (.leftAligned(a), .leftAligned(b)):
-      return a == b
-    default:
-      return false
+  @available(*, deprecated, message: "The conversion between Subtitle and DetailText.")
+  internal var detailText: DetailText {
+    switch self {
+    case .none:                   return .none
+    case let .belowTitle(text):   return .subtitle(text)
+    case let .rightAligned(text): return .value1(text)
+    case let .leftAligned(text):  return .value2(text)
     }
   }
 
 }
 
 
-internal extension UITableViewCell.CellStyle {
+internal extension DetailText {
 
-  var stringValue: String {
+  @available(*, deprecated, message: "The conversion between DetailText and Subtitle.")
+  internal var subtitle: Subtitle {
     switch self {
-    case .default:  return ".default"
-    case .subtitle: return ".subtitle"
-    case .value1:   return ".value1"
-    case .value2:   return ".value2"
+    case .none:               return .none
+    case let .subtitle(text): return .belowTitle(text)
+    case let .value1(text):   return .rightAligned(text)
+    case let .value2(text):   return .leftAligned(text)
     }
   }
 

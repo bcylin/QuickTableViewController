@@ -31,25 +31,25 @@ class ViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
-        SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
+        SwitchRow(text: "Setting 1", switchValue: true, action: { _ in }),
+        SwitchRow(text: "Setting 2", switchValue: false, action: { _ in }),
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+        TapActionRow(text: "Tap action", action: { [weak self] in self?.showAlert($0) })
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
-        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+        NavigationRow(text: "CellStyle.default", subtitle: .none, icon: .named("gear")),
+        NavigationRow(text: "CellStyle", detailText: .subtitle(".subtitle"), icon: .named("globe")),
+        NavigationRow(text: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
+        NavigationRow(text: "CellStyle", subtitle: .leftAligned(".value2"))
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: didToggleOption()),
-        OptionRow(title: "Option 2", isSelected: false, action: didToggleOption()),
-        OptionRow(title: "Option 3", isSelected: false, action: didToggleOption())
+        OptionRow(text: "Option 1", isSelected: true, action: didToggleOption()),
+        OptionRow(text: "Option 2", isSelected: false, action: didToggleOption()),
+        OptionRow(text: "Option 3", isSelected: false, action: didToggleOption())
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -74,10 +74,10 @@ class ViewController: QuickTableViewController {
 #### Subtitle Styles
 
 ```swift
-NavigationRow(title: "UITableViewCellStyle.default", subtitle: .none)
-NavigationRow(title: "UITableViewCellStyle", subtitle: .belowTitle(".subtitle")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
+NavigationRow(text: "UITableViewCellStyle.default", subtitle: .none)
+NavigationRow(text: "UITableViewCellStyle", detailText: .subtitle(".subtitle")
+NavigationRow(text: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
+NavigationRow(text: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
 ```
 
 #### Disclosure Indicator
@@ -146,16 +146,16 @@ A customized table view cell type can be specified to rows during initialization
 
 ```swift
 // Default is UITableViewCell.
-NavigationRow<CustomCell>(title: "Navigation", subtitle: .none)
+NavigationRow<CustomCell>(text: "Navigation", subtitle: .none)
 
 // Default is SwitchCell.
-SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in })
+SwitchRow<CustomSwitchCell>(text: "Switch", switchValue: true, action: { _ in })
 
 // Default is TapActionCell.
-TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
+TapActionRow<CustomTapActionCell>(text: "Tap", action: { _ in })
 
 // Default is UITableViewCell.
-OptionRow<CustomOptionCell>(title: "Option", isSelected: true, action: { _ in })
+OptionRow<CustomOptionCell>(text: "Option", isSelected: true, action: { _ in })
 ```
 
 Since the rows carry different cell types, they can be matched using either the concrete types or the related protocol:
