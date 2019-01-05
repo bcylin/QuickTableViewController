@@ -22,7 +22,7 @@
 		A7A26A71AB271F9D402D1A12 /* Pods_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3454E57819285B32968564 /* Pods_Example_iOS.framework */; };
 		B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73841F2E1BC900481910 /* RowStyle.swift */; };
 		B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A41F417037009BC2C9 /* AppDelegate.swift */; };
-		B51F21A71F417037009BC2C9 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* DefaultViewController.swift */; };
+		B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* ExampleViewController.swift */; };
 		B51F21AC1F417037009BC2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51F21AB1F417037009BC2C9 /* Assets.xcassets */; };
 		B51F21B61F41709B009BC2C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51F21B41F41709B009BC2C9 /* LaunchScreen.xib */; };
 		B51F21C31F41E600009BC2C9 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21C21F41E600009BC2C9 /* ExampleUITests.swift */; };
@@ -54,7 +54,7 @@
 		B54A244D208883A300EEBA26 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */; };
 		B54A244E208883A300EEBA26 /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
 		B54A24562088D44A00EEBA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24552088D44A00EEBA26 /* AppDelegate.swift */; };
-		B54A24582088D44A00EEBA26 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24572088D44A00EEBA26 /* TableViewController.swift */; };
+		B54A24582088D44A00EEBA26 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24572088D44A00EEBA26 /* ExampleViewController.swift */; };
 		B54A245D2088D44D00EEBA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54A245C2088D44D00EEBA26 /* Assets.xcassets */; };
 		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
@@ -193,7 +193,7 @@
 		B50E73841F2E1BC900481910 /* RowStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowStyle.swift; sourceTree = "<group>"; };
 		B51F21A21F417037009BC2C9 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51F21A41F417037009BC2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B51F21A61F417037009BC2C9 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
+		B51F21A61F417037009BC2C9 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		B51F21AB1F417037009BC2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B51F21B01F417037009BC2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51F21B51F41709B009BC2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		B54A24352088816E00EEBA26 /* Info-tvOSTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOSTests.plist"; sourceTree = "<group>"; };
 		B54A24532088D44A00EEBA26 /* Example-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A24552088D44A00EEBA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B54A24572088D44A00EEBA26 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B54A24572088D44A00EEBA26 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		B54A245C2088D44D00EEBA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B54A245E2088D44D00EEBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
@@ -527,8 +527,8 @@
 			children = (
 				B54A24552088D44A00EEBA26 /* AppDelegate.swift */,
 				B54A245C2088D44D00EEBA26 /* Assets.xcassets */,
+				B54A24572088D44A00EEBA26 /* ExampleViewController.swift */,
 				B54A245E2088D44D00EEBA26 /* Info.plist */,
-				B54A24572088D44A00EEBA26 /* TableViewController.swift */,
 			);
 			path = "Example-tvOS";
 			sourceTree = "<group>";
@@ -571,7 +571,7 @@
 			children = (
 				B5A37EAD20208EF7009C075F /* AppearanceViewController.swift */,
 				B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */,
-				B51F21A61F417037009BC2C9 /* DefaultViewController.swift */,
+				B51F21A61F417037009BC2C9 /* ExampleViewController.swift */,
 				B5A67A13202069440075E0C8 /* RootViewController.swift */,
 			);
 			path = ViewControllers;
@@ -1106,7 +1106,7 @@
 				B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */,
 				B5A37EAE20208EF7009C075F /* AppearanceViewController.swift in Sources */,
 				B5A67A1220205F5C0075E0C8 /* CustomizationViewController.swift in Sources */,
-				B51F21A71F417037009BC2C9 /* DefaultViewController.swift in Sources */,
+				B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */,
 				B5A67A14202069440075E0C8 /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1218,7 +1218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54A24562088D44A00EEBA26 /* AppDelegate.swift in Sources */,
-				B54A24582088D44A00EEBA26 /* TableViewController.swift in Sources */,
+				B54A24582088D44A00EEBA26 /* ExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

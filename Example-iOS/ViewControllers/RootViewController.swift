@@ -41,7 +41,7 @@ internal final class RootViewController: QuickTableViewController {
     tableContents = [
       Section(title: "Default", rows: [
         NavigationRow(text: "Use default cell types", detailText: .none, action: { [weak self] _ in
-          self?.navigationController?.pushViewController(DefaultViewController(), animated: true)
+          self?.navigationController?.pushViewController(ExampleViewController(), animated: true)
         })
       ]),
 
