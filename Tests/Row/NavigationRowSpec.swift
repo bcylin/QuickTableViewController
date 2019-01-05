@@ -31,6 +31,39 @@ import Quick
 internal final class NavigationRowSpec: QuickSpec {
 
   override func spec() {
+
+#if os(iOS)
+    describe("initialization") {
+      let detailText = DetailText.subtitle("subtitle")
+      let icon = Icon.named("icon")
+
+      var actionInvoked = false
+      var accessoryButtonActionInvoked = false
+
+      let row = NavigationRow(
+        text: "title",
+        detailText: detailText,
+        icon: icon,
+        action: { _ in actionInvoked = true },
+        accessoryButtonAction: { _ in accessoryButtonActionInvoked = true }
+      )
+
+      it("should initialize with given parameters") {
+        expect(row.text) == "title"
+        expect(row.detailText) == detailText
+        expect(row.icon) == icon
+        expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
+
+        row.action?(row)
+        expect(actionInvoked) == true
+
+        row.accessoryButtonAction?(row)
+        expect(accessoryButtonActionInvoked) == true
+      }
+    }
+
+#elseif os(tvOS)
+
     describe("initialization") {
       let detailText = DetailText.subtitle("subtitle")
       let icon = Icon.named("icon")
@@ -53,6 +86,8 @@ internal final class NavigationRowSpec: QuickSpec {
       }
     }
 
+#endif
+
     describe("cellReuseIdentifier") {
       let a = NavigationRow(text: "", detailText: .none)
       let b = NavigationRow(text: "", detailText: .subtitle(""))
@@ -66,6 +101,36 @@ internal final class NavigationRowSpec: QuickSpec {
         expect(d.cellReuseIdentifier) == "UITableViewCell.value2"
       }
     }
+
+    #if os(iOS)
+
+    describe("accessoryType") {
+      let a = NavigationRow(text: "", detailText: .none)
+      let b = NavigationRow(text: "", detailText: .none, action: { _ in })
+      let c = NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in })
+      let d = NavigationRow(text: "", detailText: .none, action: { _ in }, accessoryButtonAction: { _ in })
+
+      it("should return the corresponding accessory type") {
+        expect(a.accessoryType) == UITableViewCell.AccessoryType.none
+        expect(b.accessoryType) == UITableViewCell.AccessoryType.disclosureIndicator
+        expect(c.accessoryType) == UITableViewCell.AccessoryType.detailButton
+        expect(d.accessoryType) == UITableViewCell.AccessoryType.detailDisclosureButton
+      }
+    }
+
+    #elseif os(iOS)
+
+    describe("accessoryType") {
+      let a = NavigationRow(text: "", detailText: .none)
+      let b = NavigationRow(text: "", detailText: .none, action: { _ in })
+
+      it("should return the the corresponding accessory type") {
+        expect(a.accessoryType) == UITableViewCell.AccessoryType.none
+        expect(b.accessoryType) == UITableViewCell.AccessoryType.disclosureIndicator
+      }
+    }
+
+    #endif
 
     describe("equatable") {
       let image = UIImage()
