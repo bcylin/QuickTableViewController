@@ -27,6 +27,7 @@ import Nimble
 import Quick
 @testable import QuickTableViewController
 
+@available(*, deprecated, message: "Compatibility tests")
 internal final class SubtitleSpec: QuickSpec {
 
   override func spec() {
