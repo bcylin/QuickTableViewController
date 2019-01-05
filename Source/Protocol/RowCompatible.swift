@@ -27,7 +27,12 @@
 import Foundation
 
 /// This protocol defines the compatible interface of a `NavigationRow` regardless of its associated cell type.
-public protocol NavigationRowCompatible: Row, RowStyle {}
+public protocol NavigationRowCompatible: Row, RowStyle {
+  #if os(iOS)
+  /// A closure that will be invoked when the accessory button is selected.
+  var accessoryButtonAction: ((Row) -> Void)? { get }
+  #endif
+}
 
 
 /// This protocol defines the compatible interface of a `TapActionRow` regardless of its associated cell type.
