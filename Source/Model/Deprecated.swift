@@ -5,7 +5,6 @@
 //  Created by bcylin on 01/01/2019.
 //  Copyright © 2019 bcylin.
 //
-//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
 //  in the Software without restriction, including without limitation the rights
@@ -71,7 +70,6 @@ public extension OptionRow {
   @available(*, deprecated, message: "Use `init(text:detailText:isSelected:icon:customization:action:)` instead.")
   public convenience init(
     title: String,
-    subtitle: Subtitle? = nil,
     isSelected: Bool,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
@@ -79,7 +77,7 @@ public extension OptionRow {
   ) {
     self.init(
       text: title,
-      detailText: subtitle?.detailText,
+      detailText: nil,
       isSelected: isSelected,
       icon: icon,
       customization: customization,
@@ -96,7 +94,6 @@ public extension SwitchRow {
   @available(*, deprecated, message: "Use `init(text:detailText:switchValue:icon:customization:action:)` instead.")
   public convenience init(
     title: String,
-    subtitle: Subtitle? = nil,
     switchValue: Bool,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
@@ -104,7 +101,7 @@ public extension SwitchRow {
   ) {
     self.init(
       text: title,
-      detailText: subtitle?.detailText,
+      detailText: nil,
       switchValue: switchValue,
       icon: icon,
       customization: customization,

@@ -37,6 +37,99 @@ internal final class SubtitleSpec: QuickSpec {
         expect(Subtitle.rightAligned("text").detailText) == .value1("text")
         expect(Subtitle.leftAligned("text").detailText) == .value2("text")
       }
+
+      context("NavigationRow") {
+        let subtitle = Subtitle.belowTitle("detail text")
+        let detailText = DetailText.subtitle("detail text")
+        let icon = Icon.named("icon")
+
+        var invoked = false
+        let row = NavigationRow(title: "text", subtitle: subtitle, icon: icon, action: { _ in invoked = true })
+
+        it("should support deprecated initializers") {
+          expect(row.text) == "text"
+          expect(row.detailText) == detailText
+          expect(row.icon) == icon
+          expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
+
+          row.action?(row)
+          expect(invoked) == true
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text) == "detail text"
+        }
+      }
+
+      context("OptionRow") {
+        let icon = Icon.named("icon")
+
+        var invoked = false
+        let row = OptionRow(title: "text", isSelected: true, icon: icon) { _ in invoked = true }
+
+        it("should support deprecated initializers") {
+          // Row
+          expect(row.text) == "text"
+          expect(row.detailText).to(beNil())
+          expect(row.isSelected) == true
+
+          row.action?(row)
+          expect(invoked) == true
+
+          // RowStyle
+          expect(row.cellReuseIdentifier) == "UITableViewCell"
+          expect(row.cellStyle) == UITableViewCell.CellStyle.default
+          expect(row.icon) == icon
+          expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
+          expect(row.isSelectable) == true
+          expect(row.customize).to(beNil())
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text).to(beNil())
+        }
+      }
+
+      context("SwitchRow") {
+        var invoked = false
+        let row = SwitchRow(title: "text", switchValue: true) { _ in invoked = true }
+
+        it("should support deprecated initializers") {
+          expect(row.text) == "text"
+          expect(row.detailText).to(beNil())
+          expect(row.switchValue) == true
+          expect(row.cellReuseIdentifier) == "SwitchCell"
+
+          row.action?(row)
+          expect(invoked) == true
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text).to(beNil())
+        }
+      }
+
+      context("TapActionRow") {
+        var invoked = false
+        let row = TapActionRow(title: "text") { _ in invoked = true }
+
+        it("should initialize with given parameters") {
+          expect(row.text) == "text"
+          expect(row.detailText).to(beNil())
+          expect(row.cellReuseIdentifier) == "TapActionCell"
+
+          row.action?(row)
+          expect(invoked) == true
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text).to(beNil())
+        }
+      }
     }
   }
 
