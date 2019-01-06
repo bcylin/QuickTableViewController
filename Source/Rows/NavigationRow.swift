@@ -33,7 +33,7 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   #if os(iOS)
 
-  /// Initializes a `NavigationRow` with a text and a detail text.
+  /// Designated initializer on iOS. Returns a `NavigationRow` with a text and a detail text.
   /// The icon, customization, action and accessory button action closures are optional.
   public init(
     text: String,
@@ -53,7 +53,7 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   #elseif os(tvOS)
 
-  /// Initializes a `NavigationRow` with a text and a detail text.
+  /// Designated initializer on tvOS. Returns a `NavigationRow` with a text and a detail text.
   /// The icon, customization and action closures are optional.
   public init(
     text: String,

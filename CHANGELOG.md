@@ -4,8 +4,10 @@
 
 #### Enhancements
 
+* Swift 4.2, [#20](https://github.com/bcylin/QuickTableViewController/pull/20) by [@getaaron](https://github.com/getaaron) and [#28](https://github.com/bcylin/QuickTableViewController/pull/28) by [@ mttcrsp](https://github.com/mttcrsp)
+* tvOS UI tests, [#27](https://github.com/bcylin/QuickTableViewController/pull/27) by [@FraDeliro](https://github.com/FraDeliro)
+* `Subtitle` is deprecated and will be removed in [**v2.0.0**](https://github.com/bcylin/QuickTableViewController/releases/tag/v2.0.0)
 * Rename `Row`'s title and subtitle to text and detail text to align with `UITableViewCell`'s naming
-* `Subtitle` is deprecated and will be removed in **v2.0.0**
 * Enable **detailText** in `OptionRow` and `SwitchRow`
 * Add **accessoryButtonAction** to `NavigationRow`
 
