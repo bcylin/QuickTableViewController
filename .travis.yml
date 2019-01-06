@@ -22,7 +22,7 @@ script:
   - make -B carthage
   - make -B docs
 after_success:
-  - sh scripts/update-docs.sh
+  - sh scripts/push-docs.sh
 notifications:
   email: false
   slack:
