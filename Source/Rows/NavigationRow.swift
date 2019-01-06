@@ -31,6 +31,28 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   // MARK: - Initializer
 
+  #if os(iOS)
+
+  /// Initializes a `NavigationRow` with a text and a detail text.
+  /// The icon, customization, action and accessory button action closures are optional.
+  public init(
+    text: String,
+    detailText: DetailText,
+    icon: Icon? = nil,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    action: ((Row) -> Void)? = nil,
+    accessoryButtonAction: ((Row) -> Void)? = nil
+  ) {
+    self.text = text
+    self.detailText = detailText
+    self.icon = icon
+    self.customize = customization
+    self.action = action
+    self.accessoryButtonAction = accessoryButtonAction
+  }
+
+  #elseif os(tvOS)
+
   /// Initializes a `NavigationRow` with a text and a detail text.
   /// The icon, customization and action closures are optional.
   public init(
@@ -47,6 +69,8 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
     self.action = action
   }
 
+  #endif
+
   // MARK: - Row
 
   /// The text of the row.
@@ -57,6 +81,13 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   /// A closure that will be invoked when the row is selected.
   public let action: ((Row) -> Void)?
+
+  #if os(iOS)
+
+  /// A closure that will be invoked when the accessory button is selected.
+  public let accessoryButtonAction: ((Row) -> Void)?
+
+  #endif
 
   // MARK: - RowStyle
 
@@ -76,9 +107,19 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
   /// The icon of the row.
   public let icon: Icon?
 
-  /// Returns `.disclosureIndicator` when action is not nil, otherwise returns `.none`.
+  /// Returns the accessory type with the disclosure indicator when `action` is not nil,
+  /// and with the detail button when `accessoryButtonAction` is not nil.
   public var accessoryType: UITableViewCell.AccessoryType {
-    return (action == nil) ? .none : .disclosureIndicator
+    #if os(iOS)
+      switch (action, accessoryButtonAction) {
+      case (nil, nil):      return .none
+      case (.some, nil):    return .disclosureIndicator
+      case (nil, .some):    return .detailButton
+      case (.some, .some):  return .detailDisclosureButton
+      }
+    #elseif os(tvOS)
+      return (action == nil) ? .none : .disclosureIndicator
+    #endif
   }
 
   /// The `NavigationRow` is selectable when action is not nil.

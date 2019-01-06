@@ -1,5 +1,5 @@
 //
-//  DefaultViewController.swift
+//  ExampleViewController.swift
 //  Example-iOS
 //
 //  Created by Ben on 01/09/2015.
@@ -27,7 +27,7 @@
 import UIKit
 import QuickTableViewController
 
-internal final class DefaultViewController: QuickTableViewController {
+internal final class ExampleViewController: QuickTableViewController {
 
   // MARK: - Properties
 
@@ -55,7 +55,7 @@ internal final class DefaultViewController: QuickTableViewController {
 
       Section(title: "Navigation", rows: [
         NavigationRow(text: "CellStyle.default", detailText: .none, icon: .image(gear)),
-        NavigationRow(text: "CellStyle", detailText: .subtitle(".subtitle"), icon: .image(globe)),
+        NavigationRow(text: "CellStyle", detailText: .subtitle(".subtitle"), icon: .image(globe), accessoryButtonAction: showDetail()),
         NavigationRow(text: "CellStyle", detailText: .value1(".value1"), icon: .image(time), action: showDetail()),
         NavigationRow(text: "CellStyle", detailText: .value2(".value2"))
       ], footer: "UITableViewCellStyle.Value2 hides the image view."),

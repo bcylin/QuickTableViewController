@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  ExampleViewController.swift
 //  Example-tvOS
 //
 //  Created by Ben on 19/04/2018.
@@ -27,7 +27,7 @@
 import UIKit
 import QuickTableViewController
 
-internal final class TableViewController: QuickTableViewController {
+internal final class ExampleViewController: QuickTableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

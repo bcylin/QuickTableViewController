@@ -68,6 +68,11 @@ internal final class ExampleUITests: XCTestCase {
       return false
     }
 
+    tables.cells.containing(.staticText, identifier: ".subtitle").buttons["More Info"].tap()
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    expectation(for: existance, evaluatedWith: tables.staticTexts["CellStyle.subtitle is selected"], handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+
     tables.staticTexts[".value1"].tap()
     app.navigationBars.buttons.element(boundBy: 0).tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["CellStyle.value1 is selected"], handler: nil)

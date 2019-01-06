@@ -165,6 +165,17 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     }
   }
 
+  #if os(iOS)
+  public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    switch tableContents[indexPath.section].rows[indexPath.row] {
+    case let row as NavigationRowCompatible:
+      row.accessoryButtonAction?(row)
+    default:
+      break
+    }
+  }
+  #endif
+
 }
 
 

@@ -7,6 +7,7 @@
 * Rename `Row`'s title and subtitle to text and detail text to align with `UITableViewCell`'s naming
 * `Subtitle` is deprecated and will be removed in **v2.0.0**
 * Enable **detailText** in `OptionRow` and `SwitchRow`
+* Add **accessoryButtonAction** to `NavigationRow`
 
 ## v1.0.0
 

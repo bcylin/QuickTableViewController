@@ -264,6 +264,34 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           }
         }
       }
+
+      #if os(iOS)
+
+      // MARK: - tableView(_:accessoryButtonTappedForRowWith:)
+      describe("tableView(_:accessoryButtonTappedForRowWith:)") {
+        let controller = QuickTableViewController()
+        _ = controller.view
+        var selectedIndex = -1
+
+        controller.tableContents = [
+          Section(title: "NavigationRow", rows: [
+            NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 0 }),
+            CustomNavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 1 }),
+            NavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 2 }),
+            CustomNavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 3 })
+          ])
+        ]
+
+        for index in 0...3 {
+          it("should invoke action when accessory button at \(index) is selected") {
+            controller.tableView(controller.tableView, accessoryButtonTappedForRowWith: IndexPath(row: index, section: 0))
+            expect(selectedIndex).toEventually(equal(index))
+          }
+        }
+      }
+
+      #endif
+
     }
   }
 
