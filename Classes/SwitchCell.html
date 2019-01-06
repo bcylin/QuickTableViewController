@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           QuickTableViewController Docs
         </a>
-         (91% documented)
+         (86% documented)
       </p>
 
       <p class="header-col--secondary">
@@ -86,10 +86,10 @@
             <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
+                <a class="nav-group-task-link" href="../Enums/DetailText.html">DetailText</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/Subtitle.html">Subtitle</a>
+                <a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
               </li>
             </ul>
           </li>
@@ -100,7 +100,7 @@
                 <a class="nav-group-task-link" href="../Protocols/Configurable.html">Configurable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+                <a class="nav-group-task-link" href="../Protocols/NavigationRowCompatible.html">NavigationRowCompatible</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
@@ -131,7 +131,7 @@
             <h1>SwitchCell</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">SwitchCell</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Configurable.html">Configurable</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">SwitchCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Configurable.html">Configurable</a></span></code></pre>
 
                 </div>
               </div>
@@ -157,19 +157,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code>UISwitch</code> as the <code>accessoryView</code>.</p>
+                        <p>A <code>UISwitch</code> as the <code>accessoryView</code>. Not available on tvOS.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">switchControl</span><span class="p">:</span> <span class="kt">UISwitch</span> <span class="o">=</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(tvOS, unavailable, message: "switchControl is not available on tvOS.")</span>
+<span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">switchControl</span><span class="p">:</span> <span class="kt">UISwitch</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L40">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L44">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -187,19 +188,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The switch cell&rsquo;s delegate object, which should conform to <code><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></code>.</p>
+                        <p>The switch cell&rsquo;s delegate object, which should conform to <code><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></code>. Not available on tvOS.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(tvOS, unavailable, message: "SwitchCellDelegate is not available on tvOS.")</span>
+<span class="kd">open</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SwitchCellDelegate.html">SwitchCellDelegate</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L47">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L54">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -235,7 +237,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewCellStyle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">.</span><span class="kt">CellStyle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -275,7 +277,7 @@
                         <p>An initialized <code>SwitchCell</code> object.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L59-L62">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L66-L69">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -328,7 +330,7 @@
                         <p><code>self</code>, initialized using the data in decoder.</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L71-L74">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L78-L81">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -347,9 +349,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController10SwitchCellC9configureyAA3Row_AA0H5Stylep4with_tF"></a>
+                    <a name="/s:24QuickTableViewController10SwitchCellC9configure4withyAA3Row_AA0I5Stylep_tF"></a>
                     <a name="//apple_ref/swift/Method/configure(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController10SwitchCellC9configureyAA3Row_AA0H5Stylep4with_tF">configure(with:)</a>
+                    <a class="token" href="#/s:24QuickTableViewController10SwitchCellC9configure4withyAA3Row_AA0I5Stylep_tF">configure(with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -357,7 +359,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set up the switch control with the provided row.</p>
+                        <p>Set up the switch control (iOS) or accessory type (tvOS) with the provided row.</p>
 
                       </div>
                       <div class="declaration">
@@ -369,7 +371,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L79-L84">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L86-L96">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -382,8 +384,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2019-01-06)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -14,6 +14,7 @@
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Protocols" class="dashAnchor"></a>
 
     <a title="Protocols  Reference"></a>
 
@@ -22,7 +23,7 @@
         <a class="header-link" href="index.html">
           QuickTableViewController Docs
         </a>
-         (91% documented)
+         (86% documented)
       </p>
 
       <p class="header-col--secondary">
@@ -85,10 +86,10 @@
             <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/Icon.html">Icon</a>
+                <a class="nav-group-task-link" href="Enums/DetailText.html">DetailText</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/Subtitle.html">Subtitle</a>
+                <a class="nav-group-task-link" href="Enums/Icon.html">Icon</a>
               </li>
             </ul>
           </li>
@@ -99,7 +100,7 @@
                 <a class="nav-group-task-link" href="Protocols/Configurable.html">Configurable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols.html#/s:24QuickTableViewController23NavigationRowCompatibleP">NavigationRowCompatible</a>
+                <a class="nav-group-task-link" href="Protocols/NavigationRowCompatible.html">NavigationRowCompatible</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/OptionRowCompatible.html">OptionRowCompatible</a>
@@ -193,7 +194,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Row</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Row</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -222,17 +223,18 @@
                       <div class="abstract">
                         <p>This protocol defines the compatible interface of a <code><a href="Classes/NavigationRow.html">NavigationRow</a></code> regardless of its associated cell type.</p>
 
+                        <a href="Protocols/NavigationRowCompatible.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NavigationRowCompatible</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NavigationRowCompatible</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L30">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L30-L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -257,12 +259,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TapActionRowCompatible</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TapActionRowCompatible</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L34">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L39">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -288,12 +290,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">OptionRowCompatible</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">OptionRowCompatible</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L38-L41">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L43-L46">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -319,12 +321,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchRowCompatible</span><span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchRowCompatible</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Row.html">Row</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/RowStyle.html">RowStyle</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L45-L48">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Protocol/RowCompatible.swift#L50-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -381,7 +383,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>SwitchCellDelegate</code> protocol allows the adopting delegate to respond to the UI interaction.</p>
+                        <p>The <code>SwitchCellDelegate</code> protocol allows the adopting delegate to respond to the UI interaction. Not available on tvOS.</p>
 
                         <a href="Protocols/SwitchCellDelegate.html" class="slightly-smaller">See more</a>
                       </div>
@@ -389,12 +391,13 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchCellDelegate</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@available(tvOS, unavailable, message: "SwitchCellDelegate is not available on tvOS.")</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwitchCellDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L30-L33">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Views/SwitchCell.swift#L31-L34">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -407,8 +410,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2018-04-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2019-01-06)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Icon Enumeration Reference</title>
+    <title>DetailText Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/Icon" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Enum/DetailText" class="dashAnchor"></a>
 
-    <a title="Icon Enumeration Reference"></a>
+    <a title="DetailText Enumeration Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">QuickTableViewController Reference</a>
       <img class="carat" src="../img/carat.png" />
-      Icon Enumeration Reference
+      DetailText Enumeration Reference
     </p>
 
     <div class="content-wrapper">
@@ -128,14 +128,14 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>Icon</h1>
+            <h1>DetailText</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Icon</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DetailText</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
 
                 </div>
               </div>
-            <p>A struct that represents the image used in a row.</p>
+            <p>An enum that represents a detail text with <code>UITableViewCell.CellStyle</code>.</p>
 
           </div>
         </section>
@@ -147,9 +147,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController4IconO5namedyACSScACmF"></a>
-                    <a name="//apple_ref/swift/Element/named(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController4IconO5namedyACSScACmF">named(_:)</a>
+                    <a name="/s:24QuickTableViewController10DetailTextO4noneyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/none" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController10DetailTextO4noneyA2CmF">none</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -157,20 +157,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Icon with an image of the given name for the normal state.
-The <q>-highlighted</q> suffix is appended to the name for the highlighted image.</p>
+                        <p>Does not show a detail text in <code>UITableViewCell.CellStyle.default</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">named</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="k">none</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Icon.swift#L34">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/DetailText.swift#L33">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -178,9 +177,9 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController4IconO5imageyACSo7UIImageCcACmF"></a>
-                    <a name="//apple_ref/swift/Element/image(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController4IconO5imageyACSo7UIImageCcACmF">image(_:)</a>
+                    <a name="/s:24QuickTableViewController10DetailTextO8subtitleyACSScACmF"></a>
+                    <a name="//apple_ref/swift/Element/subtitle(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController10DetailTextO8subtitleyACSScACmF">subtitle(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -188,19 +187,19 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Icon with an image for the normal state.</p>
+                        <p>Shows the detail text in <code>UITableViewCell.CellStyle.subtitle</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">image</span><span class="p">(</span><span class="kt">UIImage</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">subtitle</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Icon.swift#L36">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/DetailText.swift#L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -208,9 +207,9 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController4IconO6imagesyACSo7UIImageC_AFtcACmF"></a>
-                    <a name="//apple_ref/swift/Element/images(normal:highlighted:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController4IconO6imagesyACSo7UIImageC_AFtcACmF">images(normal:highlighted:)</a>
+                    <a name="/s:24QuickTableViewController10DetailTextO6value1yACSScACmF"></a>
+                    <a name="//apple_ref/swift/Element/value1(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController10DetailTextO6value1yACSScACmF">value1(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -218,19 +217,19 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Icon with images for the normal and highlighted states.</p>
+                        <p>Shows the detail text in <code>UITableViewCell.CellStyle.value1</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">images</span><span class="p">(</span><span class="nv">normal</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">,</span> <span class="nv">highlighted</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">value1</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Icon.swift#L38">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/DetailText.swift#L37">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -238,9 +237,9 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController4IconO5imageSo7UIImageCSgvp"></a>
-                    <a name="//apple_ref/swift/Property/image" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController4IconO5imageSo7UIImageCSgvp">image</a>
+                    <a name="/s:24QuickTableViewController10DetailTextO6value2yACSScACmF"></a>
+                    <a name="//apple_ref/swift/Element/value2(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController10DetailTextO6value2yACSScACmF">value2(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -248,19 +247,19 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The image for the normal state.</p>
+                        <p>Shows the detail text in <code>UITableViewCell.CellStyle.value2</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">value2</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Icon.swift#L41-L50">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/DetailText.swift#L39">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -268,9 +267,9 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController4IconO16highlightedImageSo7UIImageCSgvp"></a>
-                    <a name="//apple_ref/swift/Property/highlightedImage" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController4IconO16highlightedImageSo7UIImageCSgvp">highlightedImage</a>
+                    <a name="/s:24QuickTableViewController10DetailTextO5styleSo07UITableC9CellStyleVvp"></a>
+                    <a name="//apple_ref/swift/Property/style" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController10DetailTextO5styleSo07UITableC9CellStyleVvp">style</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,19 +277,49 @@ The <q>-highlighted</q> suffix is appended to the name for the highlighted image
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The image for the highlighted state.</p>
+                        <p>Returns the corresponding table view cell style.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">highlightedImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">style</span><span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">.</span><span class="kt">CellStyle</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Icon.swift#L53-L62">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/DetailText.swift#L42-L49">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:24QuickTableViewController10DetailTextO4textSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/text" class="dashAnchor"></a>
+                    <a class="token" href="#/s:24QuickTableViewController10DetailTextO4textSSSgvp">text</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the associated text of the case.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/DetailText.swift#L52-L59">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
