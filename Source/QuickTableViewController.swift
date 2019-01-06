@@ -51,7 +51,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
    - returns: An initialized `QuickTableViewController` object.
    */
-  public convenience init(style: UITableViewStyle) {
+  public convenience init(style: UITableView.Style) {
     self.init(nibName: nil, bundle: nil)
     tableView = UITableView(frame: .zero, style: style)
   }
@@ -68,7 +68,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     view.addSubview(tableView)
     tableView.frame = view.bounds
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 44
     tableView.dataSource = self
     tableView.delegate = self
@@ -164,6 +164,17 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
       break
     }
   }
+
+  #if os(iOS)
+  public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    switch tableContents[indexPath.section].rows[indexPath.row] {
+    case let row as NavigationRowCompatible:
+      row.accessoryButtonAction?(row)
+    default:
+      break
+    }
+  }
+  #endif
 
 }
 

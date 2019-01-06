@@ -31,16 +31,49 @@ import Quick
 internal final class NavigationRowSpec: QuickSpec {
 
   override func spec() {
+
+#if os(iOS)
     describe("initialization") {
-      let subtitle = Subtitle.belowTitle("subtitle")
+      let detailText = DetailText.subtitle("subtitle")
+      let icon = Icon.named("icon")
+
+      var actionInvoked = false
+      var accessoryButtonActionInvoked = false
+
+      let row = NavigationRow(
+        text: "title",
+        detailText: detailText,
+        icon: icon,
+        action: { _ in actionInvoked = true },
+        accessoryButtonAction: { _ in accessoryButtonActionInvoked = true }
+      )
+
+      it("should initialize with given parameters") {
+        expect(row.text) == "title"
+        expect(row.detailText) == detailText
+        expect(row.icon) == icon
+        expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
+
+        row.action?(row)
+        expect(actionInvoked) == true
+
+        row.accessoryButtonAction?(row)
+        expect(accessoryButtonActionInvoked) == true
+      }
+    }
+
+#elseif os(tvOS)
+
+    describe("initialization") {
+      let detailText = DetailText.subtitle("subtitle")
       let icon = Icon.named("icon")
 
       var invoked = false
-      let row = NavigationRow(title: "title", subtitle: subtitle, icon: icon, action: { _ in invoked = true })
+      let row = NavigationRow(text: "title", detailText: detailText, icon: icon, action: { _ in invoked = true })
 
       it("should initialize with given parameters") {
-        expect(row.title) == "title"
-        expect(row.subtitle) == subtitle
+        expect(row.text) == "title"
+        expect(row.detailText) == detailText
         expect(row.icon) == icon
         expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
 
@@ -53,11 +86,13 @@ internal final class NavigationRowSpec: QuickSpec {
       }
     }
 
+#endif
+
     describe("cellReuseIdentifier") {
-      let a = NavigationRow(title: "", subtitle: .none)
-      let b = NavigationRow(title: "", subtitle: .belowTitle(""))
-      let c = NavigationRow(title: "", subtitle: .rightAligned(""))
-      let d = NavigationRow(title: "", subtitle: .leftAligned(""))
+      let a = NavigationRow(text: "", detailText: .none)
+      let b = NavigationRow(text: "", detailText: .subtitle(""))
+      let c = NavigationRow(text: "", detailText: .value1(""))
+      let d = NavigationRow(text: "", detailText: .value2(""))
 
       it("should return the backward compatible strings") {
         expect(a.cellReuseIdentifier) == "UITableViewCell.default"
@@ -67,42 +102,72 @@ internal final class NavigationRowSpec: QuickSpec {
       }
     }
 
+    #if os(iOS)
+
+    describe("accessoryType") {
+      let a = NavigationRow(text: "", detailText: .none)
+      let b = NavigationRow(text: "", detailText: .none, action: { _ in })
+      let c = NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in })
+      let d = NavigationRow(text: "", detailText: .none, action: { _ in }, accessoryButtonAction: { _ in })
+
+      it("should return the corresponding accessory type") {
+        expect(a.accessoryType) == UITableViewCell.AccessoryType.none
+        expect(b.accessoryType) == UITableViewCell.AccessoryType.disclosureIndicator
+        expect(c.accessoryType) == UITableViewCell.AccessoryType.detailButton
+        expect(d.accessoryType) == UITableViewCell.AccessoryType.detailDisclosureButton
+      }
+    }
+
+    #elseif os(iOS)
+
+    describe("accessoryType") {
+      let a = NavigationRow(text: "", detailText: .none)
+      let b = NavigationRow(text: "", detailText: .none, action: { _ in })
+
+      it("should return the the corresponding accessory type") {
+        expect(a.accessoryType) == UITableViewCell.AccessoryType.none
+        expect(b.accessoryType) == UITableViewCell.AccessoryType.disclosureIndicator
+      }
+    }
+
+    #endif
+
     describe("equatable") {
       let image = UIImage()
-      let a = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(image), action: nil)
+      let row = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
 
       context("identical parameters") {
-        let b = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(image), action: nil)
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
         it("should be equal") {
-          expect(a) == b
+          expect(this) == row
         }
       }
 
-      context("different titles") {
-        let c = NavigationRow(title: "Different", subtitle: .belowTitle("Same"), icon: .image(image), action: nil)
+      context("different texts") {
+        let this = NavigationRow(text: "Different", detailText: .subtitle("Same"), icon: .image(image), action: nil)
         it("should not be equal") {
-          expect(a) != c
+          expect(this) != row
         }
       }
 
-      context("different subtitles") {
-        let d = NavigationRow(title: "Same", subtitle: .belowTitle("Different"), icon: .image(image), action: nil)
+      context("different detail texts") {
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Different"), icon: .image(image), action: nil)
         it("should not be equal") {
-          expect(a) != d
+          expect(this) != row
         }
       }
 
       context("different icons") {
-        let e = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(UIImage()), action: nil)
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(UIImage()), action: nil)
         it("should not be equal") {
-          expect(a) != e
+          expect(this) != row
         }
       }
 
       context("different actions") {
-        let f = NavigationRow(title: "Same", subtitle: .belowTitle("Same"), icon: .image(image), action: { _ in })
+        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: { _ in })
         it("should be equal regardless of the actions attached") {
-          expect(a) == f
+          expect(this) == row
         }
       }
     }

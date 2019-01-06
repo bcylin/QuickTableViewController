@@ -33,10 +33,10 @@ internal final class TapActionRowSpec: QuickSpec {
   override func spec() {
     describe("initialization") {
       var invoked = false
-      let row = TapActionRow(title: "title") { _ in invoked = true }
+      let row = TapActionRow(text: "title") { _ in invoked = true }
 
       it("should initialize with given parameters") {
-        expect(row.title) == "title"
+        expect(row.text) == "title"
         expect(row.cellReuseIdentifier) == "TapActionCell"
 
         row.action?(row)
@@ -49,26 +49,26 @@ internal final class TapActionRowSpec: QuickSpec {
     }
 
     describe("equatable") {
-      let a = TapActionRow(title: "Same", action: nil)
+      let row = TapActionRow(text: "Same", action: nil)
 
       context("identical titles") {
-        let b = TapActionRow(title: "Same", action: nil)
+        let this = TapActionRow(text: "Same", action: nil)
         it("should be equal") {
-          expect(a) == b
+          expect(this) == row
         }
       }
 
-      context("different titles") {
-        let c = TapActionRow(title: "Different", action: nil)
+      context("different texts") {
+        let this = TapActionRow(text: "Different", action: nil)
         it("should not be equal") {
-          expect(a) != c
+          expect(this) != row
         }
       }
 
       context("different actions") {
-        let d = TapActionRow(title: "Same", action: { _ in })
+        let this = TapActionRow(text: "Same", action: { _ in })
         it("should be equal regardless of the actions attached") {
-          expect(a) == d
+          expect(this) == row
         }
       }
     }

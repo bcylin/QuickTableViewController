@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  ExampleViewController.swift
 //  Example-tvOS
 //
 //  Created by Ben on 19/04/2018.
@@ -27,7 +27,7 @@
 import UIKit
 import QuickTableViewController
 
-final class TableViewController: QuickTableViewController {
+internal final class ExampleViewController: QuickTableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,25 +35,25 @@ final class TableViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, action: showLog()),
-        SwitchRow(title: "Setting 2", switchValue: false, action: showLog())
+        SwitchRow(text: "Setting 1", switchValue: true, action: showLog()),
+        SwitchRow(text: "Setting 2", switchValue: false, action: showLog())
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: showAlert())
+        TapActionRow(text: "Tap action", action: showAlert())
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none, action: showDetail()),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), action: showDetail()),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1")),
-        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+        NavigationRow(text: "CellStyle.default", detailText: .none, action: showDetail()),
+        NavigationRow(text: "CellStyle", detailText: .subtitle(".subtitle"), action: showDetail()),
+        NavigationRow(text: "CellStyle", detailText: .value1(".value1")),
+        NavigationRow(text: "CellStyle", detailText: .value2(".value2"))
       ]),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: showLog()),
-        OptionRow(title: "Option 2", isSelected: false, action: showLog()),
-        OptionRow(title: "Option 3", isSelected: false, action: showLog())
+        OptionRow(text: "Option 1", isSelected: true, action: showLog()),
+        OptionRow(text: "Option 2", isSelected: false, action: showLog()),
+        OptionRow(text: "Option 3", isSelected: false, action: showLog())
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -63,8 +63,8 @@ final class TableViewController: QuickTableViewController {
   private func showAlert() -> (Row) -> Void {
     return { [weak self] row in
       let alert = UIAlertController(
-        title: row.title,
-        message: row.subtitle.flatMap({ $0.text }),
+        title: row.text,
+        message: row.detailText.flatMap({ $0.text }),
         preferredStyle: .alert
       )
       alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -75,7 +75,7 @@ final class TableViewController: QuickTableViewController {
   private func showDetail() -> (Row) -> Void {
     return { [weak self] row in
       let controller = UIViewController()
-      controller.title = row.title + (row.subtitle?.text ?? "")
+      controller.title = row.text + (row.detailText?.text ?? "")
       self?.navigationController?.pushViewController(controller, animated: true)
     }
   }
@@ -84,9 +84,9 @@ final class TableViewController: QuickTableViewController {
     return {
       switch $0 {
       case let row as SwitchRowCompatible:
-        print("\(row.title) = \(row.switchValue)")
+        print("\(row.text) = \(row.switchValue)")
       case let option as OptionRowCompatible where option.isSelected:
-        print("\(option.title) is selected")
+        print("\(option.text) is selected")
       default:
         break
       }

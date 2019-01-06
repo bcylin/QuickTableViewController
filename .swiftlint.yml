@@ -3,6 +3,7 @@ disabled_rules:
   - force_cast
   - function_body_length
   - identifier_name
+  - line_length
   - vertical_whitespace
 opt_in_rules:
   - closure_end_indentation
@@ -30,10 +31,10 @@ opt_in_rules:
 included:
   - "Example-iOS"
   - "Example-iOSUITests"
-  - "QuickTableViewController-iOS"
-  - "QuickTableViewController-iOSTests"
+  - "Example-tvOS"
+  - "Example-tvOSUITests"
   - "Source"
+  - "Tests"
 excluded:
   - Carthage
   - Pods
-line_length: 192

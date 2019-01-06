@@ -29,11 +29,11 @@ import Foundation
 /// Any type that conforms to this protocol is capable of representing a row in a table view.
 public protocol Row: class {
 
-  /// The title text of the row.
-  var title: String { get }
+  /// The text of the row.
+  var text: String { get }
 
-  /// The subtitle text of the row.
-  var subtitle: Subtitle? { get }
+  /// The detail text of the row.
+  var detailText: DetailText? { get }
 
   /// A closure related to the action of the row.
   var action: ((Row) -> Void)? { get }

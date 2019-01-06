@@ -40,45 +40,45 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
 
       controller.tableContents = [
         Section(title: "NavigationRow", rows: [
-          NavigationRow(title: "", subtitle: .none),
-          CustomNavigationRow(title: "", subtitle: .none),
-          NavigationRow<CustomCell>(title: "", subtitle: .none),
-          CustomNavigationRow<CustomCell>(title: "", subtitle: .none)
+          NavigationRow(text: "", detailText: .none),
+          CustomNavigationRow(text: "", detailText: .none),
+          NavigationRow<CustomCell>(text: "", detailText: .none),
+          CustomNavigationRow<CustomCell>(text: "", detailText: .none)
         ]),
 
         Section(title: "NavigationRow", rows: [
-          NavigationRow(title: "", subtitle: .none, action: { _ in }),
-          CustomNavigationRow(title: "", subtitle: .none, action: { _ in }),
-          NavigationRow<CustomCell>(title: "", subtitle: .none, action: { _ in }),
-          CustomNavigationRow<CustomCell>(title: "", subtitle: .none, action: { _ in })
+          NavigationRow(text: "", detailText: .none, action: { _ in }),
+          CustomNavigationRow(text: "", detailText: .none, action: { _ in }),
+          NavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in }),
+          CustomNavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in })
         ]),
 
         Section(title: "SwitchRow", rows: [
-          SwitchRow(title: "", switchValue: true, action: nil),
-          CustomSwitchRow(title: "", switchValue: true, action: nil),
-          SwitchRow<CustomSwitchCell>(title: "", switchValue: true, action: nil),
-          CustomSwitchRow<CustomSwitchCell>(title: "", switchValue: true, action: nil)
+          SwitchRow(text: "", switchValue: true, action: nil),
+          CustomSwitchRow(text: "", switchValue: true, action: nil),
+          SwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil),
+          CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
         ]),
 
         Section(title: "TapActionRow", rows: [
-          TapActionRow(title: "", action: { _ in }),
-          CustomTapActionRow(title: "", action: { _ in }),
-          TapActionRow<CustomTapActionCell>(title: "", action: { _ in }),
-          CustomTapActionRow<CustomTapActionCell>(title: "", action: { _ in })
+          TapActionRow(text: "", action: { _ in }),
+          CustomTapActionRow(text: "", action: { _ in }),
+          TapActionRow<CustomTapActionCell>(text: "", action: { _ in }),
+          CustomTapActionRow<CustomTapActionCell>(text: "", action: { _ in })
         ]),
 
         Section(title: "OptionRow", rows: [
-          OptionRow(title: "", isSelected: false, action: nil),
-          CustomOptionRow(title: "", isSelected: false, action: nil),
-          OptionRow<CustomCell>(title: "", isSelected: false, action: nil),
-          CustomOptionRow<CustomCell>(title: "", isSelected: false, action: nil)
+          OptionRow(text: "", isSelected: false, action: nil),
+          CustomOptionRow(text: "", isSelected: false, action: nil),
+          OptionRow<CustomCell>(text: "", isSelected: false, action: nil),
+          CustomOptionRow<CustomCell>(text: "", isSelected: false, action: nil)
         ]),
 
         RadioSection(title: "RadioSection", options: [
-          OptionRow(title: "", isSelected: false, action: { _ in }),
-          CustomOptionRow(title: "", isSelected: false, action: { _ in }),
-          OptionRow<CustomCell>(title: "", isSelected: false, action: { _ in }),
-          CustomOptionRow<CustomCell>(title: "", isSelected: false, action: { _ in })
+          OptionRow(text: "", isSelected: false, action: { _ in }),
+          CustomOptionRow(text: "", isSelected: false, action: { _ in }),
+          OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in }),
+          CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in })
         ])
       ]
 
@@ -143,10 +143,10 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
 
           controller.tableContents = [
             Section(title: "NavigationRow", rows: [
-              NavigationRow(title: "", subtitle: .none, action: { _ in selectedIndex = 0 }),
-              CustomNavigationRow(title: "", subtitle: .none, action: { _ in selectedIndex = 1 }),
-              NavigationRow<CustomCell>(title: "", subtitle: .none, action: { _ in selectedIndex = 2 }),
-              CustomNavigationRow<CustomCell>(title: "", subtitle: .none, action: { _ in selectedIndex = 3 })
+              NavigationRow(text: "", detailText: .none, action: { _ in selectedIndex = 0 }),
+              CustomNavigationRow(text: "", detailText: .none, action: { _ in selectedIndex = 1 }),
+              NavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in selectedIndex = 2 }),
+              CustomNavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in selectedIndex = 3 })
             ])
           ]
 
@@ -165,10 +165,10 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
 
           controller.tableContents = [
             Section(title: "TapActionRow", rows: [
-              TapActionRow(title: "", action: { _ in selectedIndex = 0 }),
-              CustomTapActionRow(title: "", action: { _ in selectedIndex = 1 }),
-              TapActionRow<CustomTapActionCell>(title: "", action: { _ in selectedIndex = 2 }),
-              CustomTapActionRow<CustomTapActionCell>(title: "", action: { _ in selectedIndex = 3 })
+              TapActionRow(text: "", action: { _ in selectedIndex = 0 }),
+              CustomTapActionRow(text: "", action: { _ in selectedIndex = 1 }),
+              TapActionRow<CustomTapActionCell>(text: "", action: { _ in selectedIndex = 2 }),
+              CustomTapActionRow<CustomTapActionCell>(text: "", action: { _ in selectedIndex = 3 })
             ])
           ]
 
@@ -186,10 +186,10 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           var toggledIndex = -1
 
           let section = Section(title: "OptionRow", rows: [
-            OptionRow(title: "", isSelected: false, action: { _ in toggledIndex = 0 }),
-            CustomOptionRow(title: "", isSelected: false, action: { _ in toggledIndex = 1 }),
-            OptionRow<CustomCell>(title: "", isSelected: false, action: { _ in toggledIndex = 2 }),
-            CustomOptionRow<CustomCell>(title: "", isSelected: false, action: { _ in toggledIndex = 3 })
+            OptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 0 }),
+            CustomOptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 1 }),
+            OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 2 }),
+            CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 3 })
           ])
           controller.tableContents = [section]
 
@@ -214,10 +214,10 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           var toggledIndex = -1
 
           let radio = RadioSection(title: "alwaysSelectsOneOption = false", options: [
-            OptionRow(title: "", isSelected: false, action: { _ in toggledIndex = 0 }),
-            CustomOptionRow(title: "", isSelected: false, action: { _ in toggledIndex = 1 }),
-            OptionRow<CustomCell>(title: "", isSelected: false, action: { _ in toggledIndex = 2 }),
-            CustomOptionRow<CustomCell>(title: "", isSelected: false, action: { _ in toggledIndex = 3 })
+            OptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 0 }),
+            CustomOptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 1 }),
+            OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 2 }),
+            CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 3 })
           ])
           controller.tableContents = [radio]
 
@@ -241,10 +241,10 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           var toggledIndex = -1
 
           let radio = RadioSection(title: "alwaysSelectsOneOption = true", options: [
-            OptionRow(title: "", isSelected: false, action: { _ in toggledIndex = 0 }),
-            CustomOptionRow(title: "", isSelected: false, action: { _ in toggledIndex = 1 }),
-            OptionRow<CustomCell>(title: "", isSelected: false, action: { _ in toggledIndex = 2 }),
-            CustomOptionRow<CustomCell>(title: "", isSelected: false, action: { _ in toggledIndex = 3 })
+            OptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 0 }),
+            CustomOptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 1 }),
+            OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 2 }),
+            CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 3 })
           ])
           radio.alwaysSelectsOneOption = true
           controller.tableContents = [radio]
@@ -264,6 +264,34 @@ internal final class QuickTableViewDelegateSpec: QuickSpec {
           }
         }
       }
+
+      #if os(iOS)
+
+      // MARK: - tableView(_:accessoryButtonTappedForRowWith:)
+      describe("tableView(_:accessoryButtonTappedForRowWith:)") {
+        let controller = QuickTableViewController()
+        _ = controller.view
+        var selectedIndex = -1
+
+        controller.tableContents = [
+          Section(title: "NavigationRow", rows: [
+            NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 0 }),
+            CustomNavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 1 }),
+            NavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 2 }),
+            CustomNavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 3 })
+          ])
+        ]
+
+        for index in 0...3 {
+          it("should invoke action when accessory button at \(index) is selected") {
+            controller.tableView(controller.tableView, accessoryButtonTappedForRowWith: IndexPath(row: index, section: 0))
+            expect(selectedIndex).toEventually(equal(index))
+          }
+        }
+      }
+
+      #endif
+
     }
   }
 

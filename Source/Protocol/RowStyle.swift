@@ -36,13 +36,13 @@ public protocol RowStyle {
   var cellReuseIdentifier: String { get }
 
   /// The style of the table view cell to display the row.
-  var cellStyle: UITableViewCellStyle { get }
+  var cellStyle: UITableViewCell.CellStyle { get }
 
   /// The icon of the row.
   var icon: Icon? { get }
 
   /// The type of standard accessory view the cell should use.
-  var accessoryType: UITableViewCellAccessoryType { get }
+  var accessoryType: UITableViewCell.AccessoryType { get }
 
   /// The flag that indicates whether the table view cell should trigger the action when selected.
   var isSelectable: Bool { get }

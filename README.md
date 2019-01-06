@@ -13,7 +13,7 @@ A simple way to create a table view for settings, including:
 * Table view cells with center aligned text for tap actions
 * A section that provides mutually exclusive options
 * Actions performed when the row reacts to the user interaction
-* Customizable table view cell image, cell style and accessory type
+* Easy to specify table view cell image, cell style and accessory type
 
 <img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png" width="80%"></img>
 
@@ -24,32 +24,32 @@ Set up `tableContents` in `viewDidLoad`:
 ```swift
 import QuickTableViewController
 
-class ViewController: QuickTableViewController {
+final class ViewController: QuickTableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
-        SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
+        SwitchRow(text: "Setting 1", switchValue: true, action: { _ in }),
+        SwitchRow(text: "Setting 2", switchValue: false, action: { _ in })
       ]),
 
       Section(title: "Tap Action", rows: [
-        TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+        TapActionRow(text: "Tap action", action: { [weak self] in self?.showAlert($0) })
       ]),
 
       Section(title: "Navigation", rows: [
-        NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
-        NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-        NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
-        NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
-      ]),
+        NavigationRow(text: "CellStyle.default", detailText: .none, icon: .named("gear")),
+        NavigationRow(text: "CellStyle", detailText: .subtitle(".subtitle"), icon: .named("globe")),
+        NavigationRow(text: "CellStyle", detailText: .value1(".value1"), icon: .named("time"), action: { _ in }),
+        NavigationRow(text: "CellStyle", detailText: .value2(".value2"))
+      ], footer: "UITableViewCellStyle.Value2 hides the image view."),
 
       RadioSection(title: "Radio Buttons", options: [
-        OptionRow(title: "Option 1", isSelected: true, action: didToggleOption()),
-        OptionRow(title: "Option 2", isSelected: false, action: didToggleOption()),
-        OptionRow(title: "Option 3", isSelected: false, action: didToggleOption())
+        OptionRow(text: "Option 1", isSelected: true, action: didToggleSelection()),
+        OptionRow(text: "Option 2", isSelected: false, action: didToggleSelection()),
+        OptionRow(text: "Option 3", isSelected: false, action: didToggleSelection())
       ], footer: "See RadioSection for more details.")
     ]
   }
@@ -60,7 +60,7 @@ class ViewController: QuickTableViewController {
     // ...
   }
 
-  private func didToggleOption() -> (Row) -> Void {
+  private func didToggleSelection() -> (Row) -> Void {
     return { [weak self] row in
       // ...
     }
@@ -71,19 +71,34 @@ class ViewController: QuickTableViewController {
 
 ### NavigationRow
 
-#### Subtitle Styles
+#### Detail Text Styles
 
 ```swift
-NavigationRow(title: "UITableViewCellStyle.default", subtitle: .none)
-NavigationRow(title: "UITableViewCellStyle", subtitle: .belowTitle(".subtitle")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .rightAligned(".value1")
-NavigationRow(title: "UITableViewCellStyle", subtitle: .leftAligned(".value2"))
+NavigationRow(text: "UITableViewCellStyle.default", detailText: .none)
+NavigationRow(text: "UITableViewCellStyle", detailText: .subtitle(".subtitle")
+NavigationRow(text: "UITableViewCellStyle", detailText: .value1(".value1")
+NavigationRow(text: "UITableViewCellStyle", detailText: .value2(".value2"))
 ```
 
-#### Disclosure Indicator
+[`Subtitle`](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Subtitle.swift) and the [initializers with title/subtitle](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/Model/Deprecated.swift) are deprecated and will be removed in **v2.0.0**.
 
-* A `NavigationRow` with an `action` will be displayed in a table view cell with `.disclosureIndicator`.
+#### Accessory Type
+
+* The `NavigationRow` shows with different accessory types based on the `action` and `accessoryButtonAction` closures:
+
+```swift
+var accessoryType: UITableViewCell.AccessoryType {
+  switch (action, accessoryButtonAction) {
+  case (nil, nil):      return .none
+  case (.some, nil):    return .disclosureIndicator
+  case (nil, .some):    return .detailButton
+  case (.some, .some):  return .detailDisclosureButton
+  }
+}
+```
+
 * The `action` will be invoked when the table view cell is selected.
+* The `accessoryButtonAction` will be invoked when the accessory button is selected.
 
 #### Images
 
@@ -102,32 +117,31 @@ enum Icon {
 
 * A `SwitchRow` is representing a table view cell with a `UISwitch` as its `accessoryView`.
 * The `action` will be invoked when the switch value changes.
-* The subtitle is disabled in `SwitchRow `.
 
 ### TapActionRow
 
 * A `TapActionRow` is representing a button-like table view cell.
 * The `action` will be invoked when the table view cell is selected.
-* The icon and subtitle are disabled in `TapActionRow`.
+* The icon, detail text, and accessory type are disabled in `TapActionRow`.
 
 ### OptionRow
 
 * An `OptionRow` is representing a table view cell with `.checkmark`.
-* The subtitle is disabled in `OptionRow`.
 * The `action` will be invoked when the selected state is toggled.
 
 ```swift
-let didToggleOption: (Row) -> Void = { [weak self] in
+let didToggleSelection: (Row) -> Void = { [weak self] in
   if let option = $0 as? OptionRowCompatible, option.isSelected {
-    // to exclude the option that's toggled off
+    // to exclude the event where the option is toggled off
   }
 }
 ```
 
 ### RadioSection
 
-* `OptionRow` can be used with or without `RadioSection`, which allows only one selected option.
+* `RadioSection` allows only one selected option at a time.
 * Setting `alwaysSelectsOneOption` to true will keep one of the options selected.
+* `OptionRow` can also be used with `Section` for multiple selections.
 
 ## Customization
 
@@ -146,16 +160,16 @@ A customized table view cell type can be specified to rows during initialization
 
 ```swift
 // Default is UITableViewCell.
-NavigationRow<CustomCell>(title: "Navigation", subtitle: .none)
+NavigationRow<CustomCell>(text: "Navigation", detailText: .none)
 
 // Default is SwitchCell.
-SwitchRow<CustomSwitchCell>(title: "Switch", switchValue: true, action: { _ in })
+SwitchRow<CustomSwitchCell>(text: "Switch", switchValue: true, action: { _ in })
 
 // Default is TapActionCell.
-TapActionRow<CustomTapActionCell>(title: "Tap", action: { _ in })
+TapActionRow<CustomTapActionCell>(text: "Tap", action: { _ in })
 
 // Default is UITableViewCell.
-OptionRow<CustomOptionCell>(title: "Option", isSelected: true, action: { _ in })
+OptionRow<CustomOptionCell>(text: "Option", isSelected: true, action: { _ in })
 ```
 
 Since the rows carry different cell types, they can be matched using either the concrete types or the related protocol:
@@ -193,7 +207,7 @@ protocol RowStyle {
 }
 ```
 
-The `customize` closure overwrites the `Configurable` setup.
+The `customize` closure [overwrites](https://github.com/bcylin/QuickTableViewController/blob/develop/Source/QuickTableViewController.swift#L104-L109) the `Configurable` setup.
 
 ### UIAppearance
 
@@ -203,6 +217,7 @@ As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/i
 
 * `UISwitch` is replaced by a checkmark in `SwitchCell`.
 * `TapActionCell` does not use center aligned text.
+* `NavigationRow.accessoryButtonAction` is not available.
 * Cell image view's left margin is 0.
 
 ## Limitation
@@ -236,6 +251,7 @@ QuickTableViewController | iOS  | tvOS | Xcode | Swift
 `~> 0.8.0`               | 8.0+ | -    | 9.1   | 4.0
 `~> 0.9.0`               | 8.0+ | -    | 9.3   | 4.1
 `~> 1.0.0`               | 8.0+ | 9.0+ | 9.4   | 4.1
+`~> 1.1.0`               | 8.0+ | 9.0+ | 10.1  | 4.2
 
 ## Installation
 

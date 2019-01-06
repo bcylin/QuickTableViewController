@@ -31,32 +31,63 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   // MARK: - Initializer
 
-  /// Initializes a `NavigationRow` with a title and a subtitle.
+  #if os(iOS)
+
+  /// Designated initializer on iOS. Returns a `NavigationRow` with a text and a detail text.
+  /// The icon, customization, action and accessory button action closures are optional.
+  public init(
+    text: String,
+    detailText: DetailText,
+    icon: Icon? = nil,
+    customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
+    action: ((Row) -> Void)? = nil,
+    accessoryButtonAction: ((Row) -> Void)? = nil
+  ) {
+    self.text = text
+    self.detailText = detailText
+    self.icon = icon
+    self.customize = customization
+    self.action = action
+    self.accessoryButtonAction = accessoryButtonAction
+  }
+
+  #elseif os(tvOS)
+
+  /// Designated initializer on tvOS. Returns a `NavigationRow` with a text and a detail text.
   /// The icon, customization and action closures are optional.
   public init(
-    title: String,
-    subtitle: Subtitle,
+    text: String,
+    detailText: DetailText,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)? = nil
   ) {
-    self.title = title
-    self.subtitle = subtitle
+    self.text = text
+    self.detailText = detailText
     self.icon = icon
     self.customize = customization
     self.action = action
   }
 
+  #endif
+
   // MARK: - Row
 
-  /// The title text of the row.
-  public let title: String
+  /// The text of the row.
+  public let text: String
 
-  /// The subtitle text of the row.
-  public let subtitle: Subtitle?
+  /// The detail text of the row.
+  public let detailText: DetailText?
 
   /// A closure that will be invoked when the row is selected.
   public let action: ((Row) -> Void)?
+
+  #if os(iOS)
+
+  /// A closure that will be invoked when the accessory button is selected.
+  public let accessoryButtonAction: ((Row) -> Void)?
+
+  #endif
 
   // MARK: - RowStyle
 
@@ -65,20 +96,30 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   /// Returns the reuse identifier of the table view cell to display the row.
   public var cellReuseIdentifier: String {
-    return T.reuseIdentifier + (subtitle?.style.stringValue ?? "")
+    return T.reuseIdentifier + (detailText?.style.stringValue ?? "")
   }
 
   /// Returns the table view cell style for the specified subtitle.
-  public var cellStyle: UITableViewCellStyle {
-    return subtitle?.style ?? .default
+  public var cellStyle: UITableViewCell.CellStyle {
+    return detailText?.style ?? .default
   }
 
   /// The icon of the row.
   public let icon: Icon?
 
-  /// Returns `.disclosureIndicator` when action is not nil, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
-    return (action == nil) ? .none : .disclosureIndicator
+  /// Returns the accessory type with the disclosure indicator when `action` is not nil,
+  /// and with the detail button when `accessoryButtonAction` is not nil.
+  public var accessoryType: UITableViewCell.AccessoryType {
+    #if os(iOS)
+      switch (action, accessoryButtonAction) {
+      case (nil, nil):      return .none
+      case (.some, nil):    return .disclosureIndicator
+      case (nil, .some):    return .detailButton
+      case (.some, .some):  return .detailDisclosureButton
+      }
+    #elseif os(tvOS)
+      return (action == nil) ? .none : .disclosureIndicator
+    #endif
   }
 
   /// The `NavigationRow` is selectable when action is not nil.
@@ -91,12 +132,26 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
   // MARK: Equatable
 
-  /// Returns true iff `lhs` and `rhs` have equal titles, subtitles and icons.
+  /// Returns true iff `lhs` and `rhs` have equal titles, detail texts and icons.
   public static func == (lhs: NavigationRow, rhs: NavigationRow) -> Bool {
     return
-      lhs.title == rhs.title &&
-      lhs.subtitle == rhs.subtitle &&
+      lhs.text == rhs.text &&
+      lhs.detailText == rhs.detailText &&
       lhs.icon == rhs.icon
+  }
+
+}
+
+
+private extension UITableViewCell.CellStyle {
+
+  var stringValue: String {
+    switch self {
+    case .default:  return ".default"
+    case .subtitle: return ".subtitle"
+    case .value1:   return ".value1"
+    case .value2:   return ".value2"
+    }
   }
 
 }

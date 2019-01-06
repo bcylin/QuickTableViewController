@@ -31,16 +31,18 @@ open class OptionRow<T: UITableViewCell>: OptionRowCompatible, Equatable {
 
   // MARK: - Initializer
 
-  /// Initializes an `OptionRow` with a title, a selection state and an action closure.
-  /// The icon and the customization closure are optional.
+  /// Initializes an `OptionRow` with a text, a selection state and an action closure.
+  /// The detail text, icon, and the customization closure are optional.
   public init(
-    title: String,
+    text: String,
+    detailText: DetailText? = nil,
     isSelected: Bool,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
-    self.title = title
+    self.text = text
+    self.detailText = detailText
     self.isSelected = isSelected
     self.icon = icon
     self.customize = customization
@@ -63,11 +65,11 @@ open class OptionRow<T: UITableViewCell>: OptionRowCompatible, Equatable {
 
   // MARK: - Row
 
-  /// The title text of the row.
-  public let title: String
+  /// The text of the row.
+  public let text: String
 
-  /// Subtitle is disabled in `OptionRow`.
-  public let subtitle: Subtitle? = nil
+  /// The detail text of the row.
+  public let detailText: DetailText?
 
   /// A closure that will be invoked when the `isSelected` is changed.
   public let action: ((Row) -> Void)?
@@ -81,13 +83,13 @@ open class OptionRow<T: UITableViewCell>: OptionRowCompatible, Equatable {
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
-  public let cellStyle: UITableViewCellStyle = .default
+  public let cellStyle: UITableViewCell.CellStyle = .default
 
   /// The icon of the row.
   public let icon: Icon?
 
   /// Returns `.checkmark` when the row is selected, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
+  public var accessoryType: UITableViewCell.AccessoryType {
     return isSelected ? .checkmark : .none
   }
 
@@ -99,10 +101,11 @@ open class OptionRow<T: UITableViewCell>: OptionRowCompatible, Equatable {
 
   // MARK: - Equatable
 
-  /// Returns true iff `lhs` and `rhs` have equal titles, selection states, and icons.
+  /// Returns true iff `lhs` and `rhs` have equal titles, detail texts, selection states, and icons.
   public static func == (lhs: OptionRow, rhs: OptionRow) -> Bool {
     return
-      lhs.title == rhs.title &&
+      lhs.text == rhs.text &&
+      lhs.detailText == rhs.detailText &&
       lhs.isSelected == rhs.isSelected &&
       lhs.icon == rhs.icon
   }

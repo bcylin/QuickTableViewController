@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0313D389A7BCE29502848262 /* Pods_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2A67F5AE20173B6E17FFBE /* Pods_Example_tvOS.framework */; };
+		136DD300216A367B00F554F0 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DD2FF216A367B00F554F0 /* ExampleUITests.swift */; };
+		136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; };
+		136DD308216A36FA00F554F0 /* QuickTableViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DF796C7F4630ACDCE1DE189 /* Pods_QuickTableViewController_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51571B6D4B25D0BCCCFFBCF5 /* Pods_QuickTableViewController_iOSTests.framework */; };
+		3E45597A21DA81B100FC0C76 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597921DA81B100FC0C76 /* DetailText.swift */; };
+		3E45597F21DA8B5F00FC0C76 /* DetailTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */; };
+		3E45598021DA8B6000FC0C76 /* DetailTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */; };
+		3E45598221DC134800FC0C76 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45598121DC134800FC0C76 /* Deprecated.swift */; };
+		3E45598421DC181600FC0C76 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597921DA81B100FC0C76 /* DetailText.swift */; };
+		3E45598521DC184800FC0C76 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45598121DC134800FC0C76 /* Deprecated.swift */; };
 		A3895BA2FCD4633B9297CB06 /* Pods_QuickTableViewController_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EFDFBFA59BFFF7C494F9AE /* Pods_QuickTableViewController_tvOSTests.framework */; };
 		A7A26A71AB271F9D402D1A12 /* Pods_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3454E57819285B32968564 /* Pods_Example_iOS.framework */; };
 		B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73841F2E1BC900481910 /* RowStyle.swift */; };
 		B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A41F417037009BC2C9 /* AppDelegate.swift */; };
-		B51F21A71F417037009BC2C9 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* DefaultViewController.swift */; };
+		B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* ExampleViewController.swift */; };
 		B51F21AC1F417037009BC2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51F21AB1F417037009BC2C9 /* Assets.xcassets */; };
 		B51F21B61F41709B009BC2C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51F21B41F41709B009BC2C9 /* LaunchScreen.xib */; };
 		B51F21C31F41E600009BC2C9 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21C21F41E600009BC2C9 /* ExampleUITests.swift */; };
@@ -45,7 +54,7 @@
 		B54A244D208883A300EEBA26 /* TapActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */; };
 		B54A244E208883A300EEBA26 /* QuickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5334F2F1B8CC6AA00C64A6D /* QuickTableViewController.swift */; };
 		B54A24562088D44A00EEBA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24552088D44A00EEBA26 /* AppDelegate.swift */; };
-		B54A24582088D44A00EEBA26 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24572088D44A00EEBA26 /* TableViewController.swift */; };
+		B54A24582088D44A00EEBA26 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A24572088D44A00EEBA26 /* ExampleViewController.swift */; };
 		B54A245D2088D44D00EEBA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54A245C2088D44D00EEBA26 /* Assets.xcassets */; };
 		B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55475741F2DC3C00027F7C1 /* Configurable.swift */; };
 		B578B5091C5673240021F7C3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B578B5071C5673240021F7C3 /* icon.png */; };
@@ -98,6 +107,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		136DD302216A367B00F554F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5334F0A1B8CC5BD00C64A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B54A24522088D44A00EEBA26;
+			remoteInfo = "Example-tvOS";
+		};
 		B51A0E912069360500F42693 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5334F0A1B8CC5BD00C64A6D /* Project object */;
@@ -136,6 +152,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		136DD309216A36FA00F554F0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				136DD308216A36FA00F554F0 /* QuickTableViewController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F21CE1F41F32D009BC2C9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,6 +177,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-tvOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		136DD2FF216A367B00F554F0 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
+		136DD301216A367B00F554F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E45597921DA81B100FC0C76 /* DetailText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
+		3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextSpec.swift; sourceTree = "<group>"; };
+		3E45598121DC134800FC0C76 /* Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
 		466DB8C8ACDE64B9E0EF8D74 /* Pods-QuickTableViewController-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		4AAC8E26F072FAB5027928F8 /* Pods-Example-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example-tvOS/Pods-Example-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4D38F5DD6F45D1136A106B9F /* Pods-QuickTableViewController-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,7 +193,7 @@
 		B50E73841F2E1BC900481910 /* RowStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowStyle.swift; sourceTree = "<group>"; };
 		B51F21A21F417037009BC2C9 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51F21A41F417037009BC2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B51F21A61F417037009BC2C9 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
+		B51F21A61F417037009BC2C9 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		B51F21AB1F417037009BC2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B51F21B01F417037009BC2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51F21B51F41709B009BC2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -185,7 +218,7 @@
 		B54A24352088816E00EEBA26 /* Info-tvOSTests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOSTests.plist"; sourceTree = "<group>"; };
 		B54A24532088D44A00EEBA26 /* Example-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54A24552088D44A00EEBA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B54A24572088D44A00EEBA26 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B54A24572088D44A00EEBA26 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		B54A245C2088D44D00EEBA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B54A245E2088D44D00EEBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B55475741F2DC3C00027F7C1 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
@@ -229,6 +262,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		136DD2FA216A367B00F554F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F219F1F417037009BC2C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,12 +321,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0313D389A7BCE29502848262 /* Pods_Example_tvOS.framework in Frameworks */,
+				136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		136DD2FE216A367B00F554F0 /* Example-tvOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				136DD2FF216A367B00F554F0 /* ExampleUITests.swift */,
+				136DD301216A367B00F554F0 /* Info.plist */,
+			);
+			path = "Example-tvOSUITests";
+			sourceTree = "<group>";
+		};
 		942C1FAD68407A74DB056C2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +376,7 @@
 		B51A0E2E20692B1100F42693 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */,
 				B5DB7D251C4B7F0E007B84D2 /* IconSpec.swift */,
 				B5E619D61F4589F7005200E1 /* RadioSectionSpec.swift */,
 				B5DB7D341C4CBB74007B84D2 /* SectionSpec.swift */,
@@ -415,6 +466,7 @@
 				B51F21A31F417037009BC2C9 /* Example-iOS */,
 				B51F21C11F41E600009BC2C9 /* Example-iOSUITests */,
 				B54A24542088D44A00EEBA26 /* Example-tvOS */,
+				136DD2FE216A367B00F554F0 /* Example-tvOSUITests */,
 				B5DB7D241C4A4BEC007B84D2 /* Frameworks */,
 				942C1FAD68407A74DB056C2B /* Pods */,
 				B5334F141B8CC5BD00C64A6D /* Products */,
@@ -436,6 +488,7 @@
 				B51F21A21F417037009BC2C9 /* Example-iOS.app */,
 				B51F21C01F41E600009BC2C9 /* Example-iOSUITests.xctest */,
 				B54A24532088D44A00EEBA26 /* Example-tvOS.app */,
+				136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */,
 				B5334F131B8CC5BD00C64A6D /* QuickTableViewController.framework */,
 				B54A24262088816D00EEBA26 /* QuickTableViewController.framework */,
 				B54A242E2088816E00EEBA26 /* QuickTableViewControllerTests.xctest */,
@@ -474,8 +527,8 @@
 			children = (
 				B54A24552088D44A00EEBA26 /* AppDelegate.swift */,
 				B54A245C2088D44D00EEBA26 /* Assets.xcassets */,
+				B54A24572088D44A00EEBA26 /* ExampleViewController.swift */,
 				B54A245E2088D44D00EEBA26 /* Info.plist */,
-				B54A24572088D44A00EEBA26 /* TableViewController.swift */,
 			);
 			path = "Example-tvOS";
 			sourceTree = "<group>";
@@ -483,6 +536,8 @@
 		B55475721F2DC29B0027F7C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E45598121DC134800FC0C76 /* Deprecated.swift */,
+				3E45597921DA81B100FC0C76 /* DetailText.swift */,
 				B5E029221DC8B3EC00B5C90E /* Icon.swift */,
 				B5E619CE1F454CF0005200E1 /* RadioSection.swift */,
 				B5E029201DC7A39200B5C90E /* Section.swift */,
@@ -516,7 +571,7 @@
 			children = (
 				B5A37EAD20208EF7009C075F /* AppearanceViewController.swift */,
 				B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */,
-				B51F21A61F417037009BC2C9 /* DefaultViewController.swift */,
+				B51F21A61F417037009BC2C9 /* ExampleViewController.swift */,
 				B5A67A13202069440075E0C8 /* RootViewController.swift */,
 			);
 			path = ViewControllers;
@@ -555,6 +610,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		136DD2FC216A367B00F554F0 /* Example-tvOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 136DD306216A367B00F554F0 /* Build configuration list for PBXNativeTarget "Example-tvOSUITests" */;
+			buildPhases = (
+				136DD2F9216A367B00F554F0 /* Sources */,
+				136DD2FA216A367B00F554F0 /* Frameworks */,
+				136DD2FB216A367B00F554F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				136DD303216A367B00F554F0 /* PBXTargetDependency */,
+			);
+			name = "Example-tvOSUITests";
+			productName = "Example-tvOSUITests";
+			productReference = 136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B51F21A11F417037009BC2C9 /* Example-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B51F21B31F417037009BC2C9 /* Build configuration list for PBXNativeTarget "Example-iOS" */;
@@ -656,6 +729,7 @@
 			buildConfigurationList = B54A243C2088816E00EEBA26 /* Build configuration list for PBXNativeTarget "QuickTableViewController-tvOSTests" */;
 			buildPhases = (
 				E5D972CCDEB057DA678D5651 /* [CP] Check Pods Manifest.lock */,
+				B51EE1432177EB3C0039C9B2 /* SwiftLint */,
 				B54A242A2088816E00EEBA26 /* Sources */,
 				B54A242B2088816E00EEBA26 /* Frameworks */,
 				B54A242C2088816E00EEBA26 /* Resources */,
@@ -680,6 +754,7 @@
 				B54A244F2088D44A00EEBA26 /* Sources */,
 				B54A24502088D44A00EEBA26 /* Frameworks */,
 				B54A24512088D44A00EEBA26 /* Resources */,
+				136DD309216A36FA00F554F0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -697,24 +772,29 @@
 		B5334F0A1B8CC5BD00C64A6D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = bcylin;
 				TargetAttributes = {
+					136DD2FC216A367B00F554F0 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Manual;
+						TestTargetID = B54A24522088D44A00EEBA26;
+					};
 					B51F21A11F417037009BC2C9 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 					};
 					B51F21BF1F41E600009BC2C9 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						TestTargetID = B51F21A11F417037009BC2C9;
 					};
 					B5334F121B8CC5BD00C64A6D = {
 						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 					};
 					B5334F1D1B8CC5BD00C64A6D = {
 						CreatedOnToolsVersion = 6.4;
@@ -722,6 +802,7 @@
 					};
 					B54A24252088816D00EEBA26 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					B54A242D2088816E00EEBA26 = {
@@ -730,6 +811,7 @@
 					};
 					B54A24522088D44A00EEBA26 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -754,11 +836,19 @@
 				B51F21A11F417037009BC2C9 /* Example-iOS */,
 				B51F21BF1F41E600009BC2C9 /* Example-iOSUITests */,
 				B54A24522088D44A00EEBA26 /* Example-tvOS */,
+				136DD2FC216A367B00F554F0 /* Example-tvOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		136DD2FB216A367B00F554F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F21A01F417037009BC2C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -902,6 +992,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B51EE1432177EB3C0039C9B2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh scripts/swiftlint.sh\n";
+		};
 		B51F21BB1F417269009BC2C9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -914,7 +1022,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "sh scripts/swiftlint.sh\n";
 		};
 		B54582FB212D7F89004376C8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -928,7 +1036,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "sh scripts/swiftlint.sh\n";
 		};
 		B5C335A91D07CBD000C706A4 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -942,7 +1050,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --config .swiftlint.yml";
+			shellScript = "sh scripts/swiftlint.sh\n";
 		};
 		D6A5837800B2AEA91500816C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -983,6 +1091,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		136DD2F9216A367B00F554F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136DD300216A367B00F554F0 /* ExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B51F219E1F417037009BC2C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -990,7 +1106,7 @@
 				B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */,
 				B5A37EAE20208EF7009C075F /* AppearanceViewController.swift in Sources */,
 				B5A67A1220205F5C0075E0C8 /* CustomizationViewController.swift in Sources */,
-				B51F21A71F417037009BC2C9 /* DefaultViewController.swift in Sources */,
+				B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */,
 				B5A67A14202069440075E0C8 /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1008,6 +1124,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B55475751F2DC3C00027F7C1 /* Configurable.swift in Sources */,
+				3E45598221DC134800FC0C76 /* Deprecated.swift in Sources */,
+				3E45597A21DA81B100FC0C76 /* DetailText.swift in Sources */,
 				B5E029231DC8B3EC00B5C90E /* Icon.swift in Sources */,
 				B5F0FFE81E9CC6E8007BF1C9 /* NavigationRow.swift in Sources */,
 				B5E619D21F454EEF005200E1 /* OptionRow.swift in Sources */,
@@ -1032,6 +1150,7 @@
 			files = (
 				B5824E8C1FF3BA0A009666C8 /* ConfigurableSpec.swift in Sources */,
 				B52677711FF7EA7500DC1362 /* CustomTypes.swift in Sources */,
+				3E45597F21DA8B5F00FC0C76 /* DetailTextSpec.swift in Sources */,
 				B5DB7D271C4B7F74007B84D2 /* IconSpec.swift in Sources */,
 				B5DB7D2D1C4B8294007B84D2 /* NavigationRowSpec.swift in Sources */,
 				B5E619D51F45744B005200E1 /* OptionRowSpec.swift in Sources */,
@@ -1052,6 +1171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54A2443208883A300EEBA26 /* Configurable.swift in Sources */,
+				3E45598521DC184800FC0C76 /* Deprecated.swift in Sources */,
+				3E45598421DC181600FC0C76 /* DetailText.swift in Sources */,
 				B54A243F208883A300EEBA26 /* Icon.swift in Sources */,
 				B54A2448208883A300EEBA26 /* NavigationRow.swift in Sources */,
 				B54A2449208883A300EEBA26 /* OptionRow.swift in Sources */,
@@ -1076,6 +1197,7 @@
 			files = (
 				B5C9174F20B1831800C7999C /* ConfigurableSpec.swift in Sources */,
 				B5C9175420B1831800C7999C /* CustomTypes.swift in Sources */,
+				3E45598021DA8B6000FC0C76 /* DetailTextSpec.swift in Sources */,
 				B5C9174720B1831800C7999C /* IconSpec.swift in Sources */,
 				B5C9174B20B1831800C7999C /* NavigationRowSpec.swift in Sources */,
 				B5C9174C20B1831800C7999C /* OptionRowSpec.swift in Sources */,
@@ -1096,13 +1218,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54A24562088D44A00EEBA26 /* AppDelegate.swift in Sources */,
-				B54A24582088D44A00EEBA26 /* TableViewController.swift in Sources */,
+				B54A24582088D44A00EEBA26 /* ExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		136DD303216A367B00F554F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B54A24522088D44A00EEBA26 /* Example-tvOS */;
+			targetProxy = 136DD302216A367B00F554F0 /* PBXContainerItemProxy */;
+		};
 		B51A0E922069360500F42693 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B51F21A11F417037009BC2C9 /* Example-iOS */;
@@ -1142,6 +1269,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		136DD304216A367B00F554F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Example-tvOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.bcylin.QuickTableViewController.Example-tvOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "Example-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Debug;
+		};
+		136DD305216A367B00F554F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Example-tvOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.bcylin.QuickTableViewController.Example-tvOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = "Example-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Release;
+		};
 		B51F21B11F417037009BC2C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A57FEA19A020A7DE44AE8BCE /* Pods-Example-iOS.debug.xcconfig */;
@@ -1160,8 +1343,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1182,8 +1363,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1206,8 +1385,6 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Example-iOS";
 			};
 			name = Debug;
@@ -1230,8 +1407,6 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Example-iOS";
 			};
 			name = Release;
@@ -1294,7 +1469,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1350,7 +1525,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1375,8 +1550,6 @@
 				PRODUCT_NAME = QuickTableViewController;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1397,8 +1570,6 @@
 				PRODUCT_NAME = QuickTableViewController;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1420,7 +1591,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.bcylin.QuickTableViewControllerTests;
 				PRODUCT_NAME = QuickTableViewControllerTests;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1439,7 +1609,6 @@
 				PRODUCT_NAME = QuickTableViewControllerTests;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1468,7 +1637,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1498,7 +1666,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1524,7 +1691,6 @@
 				PRODUCT_NAME = QuickTableViewControllerTests;
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
@@ -1549,7 +1715,6 @@
 				PRODUCT_NAME = QuickTableViewControllerTests;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
@@ -1559,6 +1724,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AAC8E26F072FAB5027928F8 /* Pods-Example-tvOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1576,7 +1742,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1586,6 +1751,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C846A13C763FF2B7B3A6029A /* Pods-Example-tvOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1602,7 +1768,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1611,6 +1776,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		136DD306216A367B00F554F0 /* Build configuration list for PBXNativeTarget "Example-tvOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136DD304216A367B00F554F0 /* Debug */,
+				136DD305216A367B00F554F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B51F21B31F417037009BC2C9 /* Build configuration list for PBXNativeTarget "Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

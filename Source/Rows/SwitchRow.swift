@@ -32,15 +32,17 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   // MARK: - Initializer
 
   /// Initializes a `SwitchRow` with a title, a switch state and an action closure.
-  /// The icon and the customization closure are optional.
+  /// The detail text, icon and the customization closure are optional.
   public init(
-    title: String,
+    text: String,
+    detailText: DetailText? = nil,
     switchValue: Bool,
     icon: Icon? = nil,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
   ) {
-    self.title = title
+    self.text = text
+    self.detailText = detailText
     self.switchValue = switchValue
     self.icon = icon
     self.customize = customization
@@ -63,11 +65,11 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
 
   // MARK: - Row
 
-  /// The title text of the row.
-  public let title: String
+  /// The text of the row.
+  public let text: String
 
-  /// The subtitle is disabled in `SwitchRow`.
-  public let subtitle: Subtitle? = nil
+  /// The detail text of the row.
+  public let detailText: DetailText?
 
   /// A closure that will be invoked when the `switchValue` is changed.
   public let action: ((Row) -> Void)?
@@ -81,7 +83,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
-  public let cellStyle: UITableViewCellStyle = .default
+  public let cellStyle: UITableViewCell.CellStyle = .default
 
   /// The icon of the row.
   public let icon: Icon?
@@ -89,7 +91,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   #if os(iOS)
 
   /// The default accessory type is `.none`.
-  public let accessoryType: UITableViewCellAccessoryType = .none
+  public let accessoryType: UITableViewCell.AccessoryType = .none
 
   /// The `SwitchRow` should not be selectable.
   public let isSelectable: Bool = false
@@ -97,7 +99,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   #elseif os(tvOS)
 
   /// Returns `.checkmark` when the `switchValue` is on, otherwise returns `.none`.
-  public var accessoryType: UITableViewCellAccessoryType {
+  public var accessoryType: UITableViewCell.AccessoryType {
     return switchValue ? .checkmark : .none
   }
 
@@ -111,10 +113,11 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
 
   // MARK: - Equatable
 
-  /// Returns true iff `lhs` and `rhs` have equal titles, switch values, and icons.
+  /// Returns true iff `lhs` and `rhs` have equal titles, detail texts, switch values, and icons.
   public static func == (lhs: SwitchRow, rhs: SwitchRow) -> Bool {
     return
-      lhs.title == rhs.title &&
+      lhs.text == rhs.text &&
+      lhs.detailText == rhs.detailText &&
       lhs.switchValue == rhs.switchValue &&
       lhs.icon == rhs.icon
   }

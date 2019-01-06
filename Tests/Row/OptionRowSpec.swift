@@ -32,15 +32,16 @@ internal final class OptionRowSpec: QuickSpec {
 
   override func spec() {
     describe("initialiation") {
+      let detailText = DetailText.subtitle("subtitle")
       let icon = Icon.named("icon")
 
       var invoked = false
-      let row = OptionRow(title: "title", isSelected: true, icon: icon) { _ in invoked = true }
+      let row = OptionRow(text: "title", detailText: detailText, isSelected: true, icon: icon) { _ in invoked = true }
 
       it("should initialize with given parameters") {
         // Row
-        expect(row.title) == "title"
-        expect(row.subtitle).to(beNil())
+        expect(row.text) == "title"
+        expect(row.detailText) == detailText
         expect(row.isSelected) == true
 
         row.action?(row)
@@ -48,9 +49,9 @@ internal final class OptionRowSpec: QuickSpec {
 
         // RowStyle
         expect(row.cellReuseIdentifier) == "UITableViewCell"
-        expect(row.cellStyle) == UITableViewCellStyle.default
+        expect(row.cellStyle) == UITableViewCell.CellStyle.default
         expect(row.icon) == icon
-        expect(row.accessoryType) == UITableViewCellAccessoryType.checkmark
+        expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
         expect(row.isSelectable) == true
         expect(row.customize).to(beNil())
       }
@@ -61,40 +62,47 @@ internal final class OptionRowSpec: QuickSpec {
     }
 
     describe("equatable") {
-      let a = OptionRow(title: "Same", isSelected: true, action: nil)
+      let row = OptionRow(text: "Same", isSelected: true, action: nil)
 
       context("identical parameters") {
-        let b = OptionRow(title: "Same", isSelected: true, action: nil)
+        let this = OptionRow(text: "Same", isSelected: true, action: nil)
         it("should be qeaul") {
-          expect(a) == b
+          expect(this) == row
         }
       }
 
-      context("different titles") {
-        let c = OptionRow(title: "Different", isSelected: true, action: nil)
+      context("different texts") {
+        let this = OptionRow(text: "Different", isSelected: true, action: nil)
         it("should not be eqaul") {
-          expect(a) != c
+          expect(this) != row
+        }
+      }
+
+      context("different detail texts") {
+        let this = OptionRow(text: "Same", detailText: .subtitle("Different"), isSelected: true, action: nil)
+        it("should not be equal") {
+          expect(this) != row
         }
       }
 
       context("different selection state") {
-        let d = OptionRow(title: "Same", isSelected: false, action: nil)
+        let this = OptionRow(text: "Same", isSelected: false, action: nil)
         it("should not be equal") {
-          expect(a) != d
+          expect(this) != row
         }
       }
 
       context("different icons") {
-        let e = OptionRow(title: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
+        let this = OptionRow(text: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
         it("should not be equal") {
-          expect(a) != e
+          expect(this) != row
         }
       }
 
       context("different actions") {
-        let f = OptionRow(title: "Same", isSelected: true, action: { _ in })
+        let this = OptionRow(text: "Same", isSelected: true, action: { _ in })
         it("should be equal regardless of the actions attached") {
-          expect(a) == f
+          expect(this) == row
         }
       }
     }
@@ -102,22 +110,22 @@ internal final class OptionRowSpec: QuickSpec {
     describe("action invocation") {
       context("when the selection is toggled") {
         var invoked = false
-        let row = OptionRow(title: "", isSelected: false) { _ in invoked = true }
+        let row = OptionRow(text: "", isSelected: false) { _ in invoked = true }
 
         it("should invoke the action closure") {
           row.isSelected = true
-          expect(row.accessoryType) == UITableViewCellAccessoryType.checkmark
+          expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
           expect(invoked).toEventually(beTrue())
         }
       }
 
       context("when the selection stays the same") {
         var invoked = false
-        let row = OptionRow(title: "", isSelected: false) { _ in invoked = true }
+        let row = OptionRow(text: "", isSelected: false) { _ in invoked = true }
 
         it("should not invoke the action closure") {
           row.isSelected = false
-          expect(row.accessoryType) == UITableViewCellAccessoryType.none
+          expect(row.accessoryType) == UITableViewCell.AccessoryType.none
           expect(invoked).toEventually(beFalse())
         }
       }

@@ -23,88 +23,112 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
-
 import Nimble
 import Quick
 @testable import QuickTableViewController
 
+@available(*, deprecated, message: "Compatibility tests")
 internal final class SubtitleSpec: QuickSpec {
 
   override func spec() {
-    describe("subtitle style") {
-      it("should return the descriptive name of the style") {
-        expect(Subtitle.none.style.stringValue) == ".default"
-        expect(Subtitle.belowTitle("text").style.stringValue) == ".subtitle"
-        expect(Subtitle.rightAligned("text").style.stringValue) == ".value1"
-        expect(Subtitle.leftAligned("text").style.stringValue) == ".value2"
+    describe("compatibility") {
+      it("should return the corresponding detail text") {
+        expect(Subtitle.none.detailText) == DetailText.none
+        expect(Subtitle.belowTitle("text").detailText) == .subtitle("text")
+        expect(Subtitle.rightAligned("text").detailText) == .value1("text")
+        expect(Subtitle.leftAligned("text").detailText) == .value2("text")
       }
-    }
 
-    describe("associtated value") {
-      let none = Subtitle.none
-      let belowTitle = Subtitle.belowTitle("text")
-      let rightAligned = Subtitle.rightAligned("text")
-      let leftAligned = Subtitle.leftAligned("text")
+      context("NavigationRow") {
+        let subtitle = Subtitle.belowTitle("detail text")
+        let detailText = DetailText.subtitle("detail text")
+        let icon = Icon.named("icon")
 
-      it("should return the associated text") {
-        expect(none.text).to(beNil())
-        expect(belowTitle.text) == "text"
-        expect(rightAligned.text) == "text"
-        expect(leftAligned.text) == "text"
-      }
-    }
+        var invoked = false
+        let row = NavigationRow(title: "text", subtitle: subtitle, icon: icon, action: { _ in invoked = true })
 
-    describe("equatable") {
-      context(".none") {
-        it("should be equal when both are .none") {
-          let a = Subtitle.none
-          let b = Subtitle.none
-          expect(a) == b
+        it("should support deprecated initializers") {
+          expect(row.text) == "text"
+          expect(row.detailText) == detailText
+          expect(row.icon) == icon
+          expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
+
+          row.action?(row)
+          expect(invoked) == true
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text) == "detail text"
         }
       }
 
-      context(".belowTitle") {
-        let a = Subtitle.belowTitle("Same")
-        let b = Subtitle.belowTitle("Same")
-        let c = Subtitle.belowTitle("Different")
-        let d = Subtitle.rightAligned("Same")
-        let e = Subtitle.none
+      context("OptionRow") {
+        let icon = Icon.named("icon")
 
-        it("should be equal only when type and associated value match") {
-          expect(a) == b
-          expect(a) != c
-          expect(a) != d
-          expect(a) != e
+        var invoked = false
+        let row = OptionRow(title: "text", isSelected: true, icon: icon) { _ in invoked = true }
+
+        it("should support deprecated initializers") {
+          // Row
+          expect(row.text) == "text"
+          expect(row.detailText).to(beNil())
+          expect(row.isSelected) == true
+
+          row.action?(row)
+          expect(invoked) == true
+
+          // RowStyle
+          expect(row.cellReuseIdentifier) == "UITableViewCell"
+          expect(row.cellStyle) == UITableViewCell.CellStyle.default
+          expect(row.icon) == icon
+          expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
+          expect(row.isSelectable) == true
+          expect(row.customize).to(beNil())
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text).to(beNil())
         }
       }
 
-      context(".rightAligned") {
-        let a = Subtitle.rightAligned("Same")
-        let b = Subtitle.rightAligned("Same")
-        let c = Subtitle.rightAligned("Different")
-        let d = Subtitle.leftAligned("Same")
-        let e = Subtitle.none
+      context("SwitchRow") {
+        var invoked = false
+        let row = SwitchRow(title: "text", switchValue: true) { _ in invoked = true }
 
-        it("should be equal only when type and associated value match") {
-          expect(a) == b
-          expect(a) != c
-          expect(a) != d
-          expect(a) != e
+        it("should support deprecated initializers") {
+          expect(row.text) == "text"
+          expect(row.detailText).to(beNil())
+          expect(row.switchValue) == true
+          expect(row.cellReuseIdentifier) == "SwitchCell"
+
+          row.action?(row)
+          expect(invoked) == true
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text).to(beNil())
         }
       }
 
-      context(".leftAligned") {
-        let a = Subtitle.leftAligned("Same")
-        let b = Subtitle.leftAligned("Same")
-        let c = Subtitle.leftAligned("Different")
-        let d = Subtitle.belowTitle("Same")
-        let e = Subtitle.none
+      context("TapActionRow") {
+        var invoked = false
+        let row = TapActionRow(title: "text") { _ in invoked = true }
 
-        it("should be equal only when type and associated value match") {
-          expect(a) == b
-          expect(a) != c
-          expect(a) != d
-          expect(a) != e
+        it("should initialize with given parameters") {
+          expect(row.text) == "text"
+          expect(row.detailText).to(beNil())
+          expect(row.cellReuseIdentifier) == "TapActionCell"
+
+          row.action?(row)
+          expect(invoked) == true
+        }
+
+        it("should support deprecated properties") {
+          expect(row.title) == "text"
+          expect(row.subtitle?.text).to(beNil())
         }
       }
     }

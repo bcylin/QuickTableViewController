@@ -32,7 +32,7 @@ internal final class RadioSectionSpec: QuickSpec {
 
   override func spec() {
     describe("initialization") {
-      let row = OptionRow(title: "", isSelected: false, action: nil)
+      let row = OptionRow(text: "", isSelected: false, action: nil)
       let section = RadioSection(title: "title", options: [row], footer: "footer")
 
       it("should initialize with given parameters") {
@@ -48,8 +48,8 @@ internal final class RadioSectionSpec: QuickSpec {
     describe("rows") {
       context("getter") {
         let options = [
-          OptionRow(title: "0", isSelected: false, action: nil),
-          OptionRow(title: "1", isSelected: true, action: nil)
+          OptionRow(text: "0", isSelected: false, action: nil),
+          OptionRow(text: "1", isSelected: true, action: nil)
         ]
         let section = RadioSection(title: "", options: options)
 
@@ -62,7 +62,7 @@ internal final class RadioSectionSpec: QuickSpec {
       context("setter") {
         context("given empty array") {
           let section = RadioSection(title: "", options: [
-            OptionRow(title: "", isSelected: true, action: nil)
+            OptionRow(text: "", isSelected: true, action: nil)
           ])
 
           it("should change rows") {
@@ -73,14 +73,14 @@ internal final class RadioSectionSpec: QuickSpec {
         }
 
         context("given incompatible type") {
-          let options = [OptionRow(title: "0", isSelected: false, action: nil)]
+          let options = [OptionRow(text: "0", isSelected: false, action: nil)]
           let section = RadioSection(title: "", options: options)
 
           it("should not change rows") {
             expect(section.rows).to(haveCount(1))
             section.rows = [
-              NavigationRow(title: "", subtitle: .none),
-              NavigationRow(title: "", subtitle: .none)
+              NavigationRow(text: "", detailText: .none),
+              NavigationRow(text: "", detailText: .none)
             ]
             expect(section.rows).to(haveCount(1))
             expect(section.rows as? [OptionRow]) == options
@@ -89,8 +89,8 @@ internal final class RadioSectionSpec: QuickSpec {
 
         context("given compatible type") {
           let options = [
-            OptionRow(title: "0", isSelected: false, action: nil),
-            OptionRow(title: "1", isSelected: true, action: nil)
+            OptionRow(text: "0", isSelected: false, action: nil),
+            OptionRow(text: "1", isSelected: true, action: nil)
           ]
           let section = RadioSection(title: "", options: [])
 
@@ -107,7 +107,7 @@ internal final class RadioSectionSpec: QuickSpec {
     describe("always selects one option") {
       context("when set to false") {
         let section = RadioSection(title: "title", options: [
-          OptionRow(title: "Option 1", isSelected: false, action: nil)
+          OptionRow(text: "Option 1", isSelected: false, action: nil)
         ])
         section.alwaysSelectsOneOption = false
 
@@ -129,8 +129,8 @@ internal final class RadioSectionSpec: QuickSpec {
 
       context("when set to true with nothing selected") {
         let section = RadioSection(title: "title", options: [
-          OptionRow(title: "Option 1", isSelected: false, action: nil),
-          OptionRow(title: "Option 2", isSelected: false, action: nil)
+          OptionRow(text: "Option 1", isSelected: false, action: nil),
+          OptionRow(text: "Option 2", isSelected: false, action: nil)
         ])
         section.alwaysSelectsOneOption = true
 
@@ -143,8 +143,8 @@ internal final class RadioSectionSpec: QuickSpec {
 
       context("when set to true with something selected") {
         let section = RadioSection(title: "title", options: [
-          OptionRow(title: "Option 1", isSelected: false, action: nil),
-          OptionRow(title: "Option 2", isSelected: true, action: nil)
+          OptionRow(text: "Option 1", isSelected: false, action: nil),
+          OptionRow(text: "Option 2", isSelected: true, action: nil)
         ])
         section.alwaysSelectsOneOption = true
 
@@ -158,16 +158,16 @@ internal final class RadioSectionSpec: QuickSpec {
 
     describe("toggle options") {
       let mock = {
-        return RadioSection(title: "Radio", options: [
-          OptionRow(title: "Option 1", isSelected: true, action: nil),
-          OptionRow(title: "Option 2", isSelected: false, action: nil),
-          OptionRow(title: "Option 3", isSelected: false, action: nil)
+        RadioSection(title: "Radio", options: [
+          OptionRow(text: "Option 1", isSelected: true, action: nil),
+          OptionRow(text: "Option 2", isSelected: false, action: nil),
+          OptionRow(text: "Option 3", isSelected: false, action: nil)
         ])
       }
 
       context("when the option to toggle is not in the section") {
         let section = mock()
-        let option = OptionRow(title: "", isSelected: true, action: nil)
+        let option = OptionRow(text: "", isSelected: true, action: nil)
         let result = section.toggle(option)
 
         it("should return an empty index set") {
