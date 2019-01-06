@@ -5,7 +5,7 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
 ![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
 [![codecov](https://codecov.io/gh/bcylin/QuickTableViewController/branch/master/graph/badge.svg)](https://codecov.io/gh/bcylin/QuickTableViewController)
-![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg)
+![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg)
 
 A simple way to create a table view for settings, including:
 
