@@ -122,8 +122,8 @@ internal final class ExampleViewController: QuickTableViewController {
   private func showDebuggingText(_ text: String) {
     print(text)
     debugging.rows = [NavigationRow(text: text, detailText: .none)]
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-      self?.tableView.reloadData()
+    if let section = tableContents.index(where: { $0 === debugging }) {
+      tableView.reloadSections([section], with: .none)
     }
   }
 

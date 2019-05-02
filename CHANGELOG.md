@@ -1,5 +1,12 @@
 # Change Log
 
+## v1.1.1
+
+#### Fixes
+
+* Fix the animated `OptionRow` deselection
+* Invoke `accessoryButtonAction` asynchronously to match the behaviour of row `action`
+
 ## v1.1.0
 
 #### Enhancements

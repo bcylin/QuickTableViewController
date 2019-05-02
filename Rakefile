@@ -1,5 +1,11 @@
 require "fileutils"
 
+ios_device = "iPhone X"
+ios_version = "12.1"
+tvos_device = "Apple TV"
+tvos_version = "12.1"
+
+
 def xcodebuild(params)
   return ":" unless params[:scheme]
   [
@@ -11,6 +17,15 @@ def xcodebuild(params)
     params[:action],
     %(| xcpretty -c && exit ${PIPESTATUS[0]})
   ].reject(&:nil?).join " "
+end
+
+
+namespace :launch do
+  desc "Launch iOS and tvOS simulators"
+  task :simulators do
+    sh %(xcrun instruments -w "#{ios_device} (#{ios_version}) [" || true)
+    sh %(xcrun instruments -w "#{tvos_device} (#{tvos_version}) [" || true)
+  end
 end
 
 
@@ -46,7 +61,7 @@ namespace :test do
 
     sh xcodebuild(args.to_hash.merge({
       action: "-enableCodeCoverage YES clean test",
-      destination: %(-destination "name=iPhone 8,OS=latest"),
+      destination: %(-destination "name=#{ios_device},OS=#{ios_version}"),
       simulator: "iphonesimulator"
     }))
     exit $?.exitstatus if not $?.success?
@@ -58,7 +73,7 @@ namespace :test do
 
     sh xcodebuild(args.to_hash.merge({
       action: "-enableCodeCoverage YES clean test",
-      destination: %(-destination "name=Apple TV,OS=latest"),
+      destination: %(-destination "name=#{tvos_device},OS=#{tvos_version}"),
       simulator: "appletvsimulator"
     }))
     exit $?.exitstatus if not $?.success?
