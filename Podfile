@@ -3,16 +3,19 @@ use_frameworks!
 workspace "QuickTableViewController"
 project "QuickTableViewController"
 
+def testing_frameworks
+  pod "Nimble", git: "https://github.com/Quick/Nimble.git", tag: "v8.0.1", inhibit_warnings: true
+  pod "Quick", git: "https://github.com/Quick/Quick.git", tag: "v2.0.0", inhibit_warnings: true
+end
+
 target "QuickTableViewController-iOSTests" do
   platform :ios, "8.0"
-  pod "Nimble", git: "https://github.com/Quick/Nimble.git", tag: "v7.1.3"
-  pod "Quick", git: "https://github.com/Quick/Quick.git", tag: "v1.3.1", inhibit_warnings: true
+  testing_frameworks
 end
 
 target "QuickTableViewController-tvOSTests" do
   platform :tvos, "9.0"
-  pod "Nimble", git: "https://github.com/Quick/Nimble.git", tag: "v7.1.3"
-  pod "Quick", git: "https://github.com/Quick/Quick.git", tag: "v1.3.1", inhibit_warnings: true
+  testing_frameworks
 end
 
 target "Example-iOS" do

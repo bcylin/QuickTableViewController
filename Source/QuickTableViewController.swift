@@ -133,7 +133,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
       if changes.isEmpty {
         tableView.deselectRow(at: indexPath, animated: false)
       } else {
-        tableView.reloadData()
+        tableView.reloadRows(at: changes, with: .automatic)
       }
 
     case let (_, option as OptionRowCompatible):
@@ -169,7 +169,9 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
     switch tableContents[indexPath.section].rows[indexPath.row] {
     case let row as NavigationRowCompatible:
-      row.accessoryButtonAction?(row)
+      DispatchQueue.main.async {
+        row.accessoryButtonAction?(row)
+      }
     default:
       break
     }
