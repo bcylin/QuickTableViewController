@@ -2,10 +2,10 @@ clean: true
 author: bcylin
 author_url: https://github.com/bcylin
 github_url: https://github.com/bcylin/QuickTableViewController
-github_file_prefix: https://github.com/bcylin/QuickTableViewController/blob/v1.1.0
+github_file_prefix: https://github.com/bcylin/QuickTableViewController/blob/v1.1.1
 xcodebuild_arguments: [-project, QuickTableViewController.xcodeproj, -scheme, QuickTableViewController-iOS]
 module: QuickTableViewController
-module_version: 1.1.0
+module_version: 1.1.1
 output: docs/output
 theme: fullwidth
 skip_undocumented: true

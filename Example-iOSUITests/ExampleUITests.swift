@@ -1,6 +1,6 @@
 //
 //  ExampleUITests.swift
-//  ExampleUITests
+//  Example-iOSUITests
 //
 //  Created by Ben on 14/08/2017.
 //  Copyright © 2017 bcylin.
