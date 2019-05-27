@@ -29,12 +29,12 @@ import Foundation
 public extension Row {
 
   @available(*, deprecated, message: "Use `text` instead.")
-  public var title: String {
+  var title: String {
     return text
   }
 
   @available(*, deprecated, message: "Use `detailText` instead.")
-  public var subtitle: Subtitle? {
+  var subtitle: Subtitle? {
     return detailText?.subtitle
   }
 
@@ -45,7 +45,7 @@ public extension Row {
 public extension NavigationRow {
 
   @available(*, deprecated, message: "Use `init(text:detailText:icon:customization:action:)` instead.")
-  public convenience init(
+  convenience init(
     title: String,
     subtitle: Subtitle,
     icon: Icon? = nil,
@@ -68,7 +68,7 @@ public extension NavigationRow {
 public extension OptionRow {
 
   @available(*, deprecated, message: "Use `init(text:detailText:isSelected:icon:customization:action:)` instead.")
-  public convenience init(
+  convenience init(
     title: String,
     isSelected: Bool,
     icon: Icon? = nil,
@@ -92,7 +92,7 @@ public extension OptionRow {
 public extension SwitchRow {
 
   @available(*, deprecated, message: "Use `init(text:detailText:switchValue:icon:customization:action:)` instead.")
-  public convenience init(
+  convenience init(
     title: String,
     switchValue: Bool,
     icon: Icon? = nil,
@@ -116,7 +116,7 @@ public extension SwitchRow {
 public extension TapActionRow {
 
   @available(*, deprecated, message: "Use `init(text:customization:action:)` instead.")
-  public convenience init(
+  convenience init(
     title: String,
     customization: ((UITableViewCell, Row & RowStyle) -> Void)? = nil,
     action: ((Row) -> Void)?
