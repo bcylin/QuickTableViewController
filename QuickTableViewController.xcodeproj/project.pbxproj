@@ -818,10 +818,9 @@
 			};
 			buildConfigurationList = B5334F0D1B8CC5BD00C64A6D /* Build configuration list for PBXProject "QuickTableViewController" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
