@@ -20,10 +20,10 @@ end
 
 target "Example-iOS" do
   platform :ios, "8.0"
-  pod "SwiftLint", git: "https://github.com/realm/SwiftLint.git", tag: "0.32.0", inhibit_warnings: true
+  pod "SwiftLint", podspec: "https://raw.githubusercontent.com/CocoaPods/Specs/e3dd78c1879b219e3cb65096c75c5cb3f4db2a64/Specs/4/0/1/SwiftLint/0.32.0/SwiftLint.podspec.json"
 end
 
 target "Example-tvOS" do
   platform :tvos, "9.0"
-  pod "SwiftLint", git: "https://github.com/realm/SwiftLint.git", tag: "0.32.0", inhibit_warnings: true
+  pod "SwiftLint", podspec: "https://raw.githubusercontent.com/CocoaPods/Specs/e3dd78c1879b219e3cb65096c75c5cb3f4db2a64/Specs/4/0/1/SwiftLint/0.32.0/SwiftLint.podspec.json"
 end
