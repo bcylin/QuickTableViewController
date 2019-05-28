@@ -1,12 +1,10 @@
 PODS:
   - Nimble (8.0.1)
   - Quick (2.0.0)
-  - SwiftLint (0.32.0)
 
 DEPENDENCIES:
   - Nimble (from `https://github.com/Quick/Nimble.git`, tag `v8.0.1`)
   - Quick (from `https://github.com/Quick/Quick.git`, tag `v2.0.0`)
-  - SwiftLint (from `https://raw.githubusercontent.com/CocoaPods/Specs/e3dd78c1879b219e3cb65096c75c5cb3f4db2a64/Specs/4/0/1/SwiftLint/0.32.0/SwiftLint.podspec.json`)
 
 EXTERNAL SOURCES:
   Nimble:
@@ -15,8 +13,6 @@ EXTERNAL SOURCES:
   Quick:
     :git: https://github.com/Quick/Quick.git
     :tag: v2.0.0
-  SwiftLint:
-    :podspec: https://raw.githubusercontent.com/CocoaPods/Specs/e3dd78c1879b219e3cb65096c75c5cb3f4db2a64/Specs/4/0/1/SwiftLint/0.32.0/SwiftLint.podspec.json
 
 CHECKOUT OPTIONS:
   Nimble:
@@ -25,15 +21,11 @@ CHECKOUT OPTIONS:
   Quick:
     :git: https://github.com/Quick/Quick.git
     :tag: v2.0.0
-  SwiftLint:
-    :git: https://github.com/realm/SwiftLint.git
-    :tag: 0.32.0
 
 SPEC CHECKSUMS:
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   Quick: 7143820c017e20f5b67967d60741f3b9ba0652d7
-  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: c2b3624ca86aac41f65de787db50717db553cd5f
+PODFILE CHECKSUM: 6543ce111a57d93e0d3c881d8e4e9e36188d6c7b
 
 COCOAPODS: 1.6.1

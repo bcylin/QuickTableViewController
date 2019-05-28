@@ -60,7 +60,7 @@ namespace :test do
     puts "Usage: rake 'test:ios[scheme]'" unless args[:scheme]
 
     sh xcodebuild(args.to_hash.merge({
-      action: "-enableCodeCoverage YES clean test",
+      action: "-enableCodeCoverage YES clean build test",
       destination: %(-destination "name=#{ios_device},OS=#{ios_version}"),
       simulator: "iphonesimulator"
     }))
@@ -72,7 +72,7 @@ namespace :test do
     puts "Usage: rake 'test:tvos[scheme]'" unless args[:scheme]
 
     sh xcodebuild(args.to_hash.merge({
-      action: "-enableCodeCoverage YES clean test",
+      action: "-enableCodeCoverage YES clean build test",
       destination: %(-destination "name=#{tvos_device},OS=#{tvos_version}"),
       simulator: "appletvsimulator"
     }))

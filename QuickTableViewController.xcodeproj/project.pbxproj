@@ -17,9 +17,7 @@
 		3E45598221DC134800FC0C76 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45598121DC134800FC0C76 /* Deprecated.swift */; };
 		3E45598421DC181600FC0C76 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597921DA81B100FC0C76 /* DetailText.swift */; };
 		3E45598521DC184800FC0C76 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45598121DC134800FC0C76 /* Deprecated.swift */; };
-		669474717425C37D37BEC0F8 /* Pods_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B4618CA6E4D2B833E81465 /* Pods_Example_iOS.framework */; };
 		92542623F7FDF3D1A1D05C23 /* Pods_QuickTableViewController_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F762195FA5E16AA5B27D4E8 /* Pods_QuickTableViewController_iOSTests.framework */; };
-		96189945132917D1E5443445 /* Pods_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5E475DF3BA6564F4A5036F /* Pods_Example_tvOS.framework */; };
 		B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E73841F2E1BC900481910 /* RowStyle.swift */; };
 		B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A41F417037009BC2C9 /* AppDelegate.swift */; };
 		B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51F21A61F417037009BC2C9 /* ExampleViewController.swift */; };
@@ -178,17 +176,13 @@
 
 /* Begin PBXFileReference section */
 		037DFCD4BDF28ECB615D80A8 /* Pods-QuickTableViewController-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		08CDCE9685BB3089D2C3AFEF /* Pods-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example-iOS/Pods-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-tvOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DD2FF216A367B00F554F0 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		136DD301216A367B00F554F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BF165A3F9C45505FABE871E /* Pods-Example-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example-tvOS/Pods-Example-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		1DB58CD519DFE5D9EF7515AA /* Pods-Example-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example-tvOS/Pods-Example-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		1F0BC6B8F7C674D42151AF6E /* Pods-QuickTableViewController-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E45597921DA81B100FC0C76 /* DetailText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
 		3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextSpec.swift; sourceTree = "<group>"; };
 		3E45598121DC134800FC0C76 /* Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
-		3FE9148F3EE51991F4E7AF00 /* Pods-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example-iOS/Pods-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		78AB2AB635DD585665C8299B /* Pods-QuickTableViewController-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		8003A1058E05F7C13D280A70 /* Pods-QuickTableViewController-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F762195FA5E16AA5B27D4E8 /* Pods_QuickTableViewController_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickTableViewController_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,8 +251,6 @@
 		B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRow.swift; sourceTree = "<group>"; };
 		B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRow.swift; sourceTree = "<group>"; };
 		B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
-		BC5E475DF3BA6564F4A5036F /* Pods_Example_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3B4618CA6E4D2B833E81465 /* Pods_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,7 +265,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				669474717425C37D37BEC0F8 /* Pods_Example_iOS.framework in Frameworks */,
 				B51F21CC1F41F32C009BC2C9 /* QuickTableViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +311,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96189945132917D1E5443445 /* Pods_Example_tvOS.framework in Frameworks */,
 				136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,10 +330,6 @@
 		8C6CEEE3B0A0A83B161533E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				08CDCE9685BB3089D2C3AFEF /* Pods-Example-iOS.debug.xcconfig */,
-				3FE9148F3EE51991F4E7AF00 /* Pods-Example-iOS.release.xcconfig */,
-				1BF165A3F9C45505FABE871E /* Pods-Example-tvOS.debug.xcconfig */,
-				1DB58CD519DFE5D9EF7515AA /* Pods-Example-tvOS.release.xcconfig */,
 				8003A1058E05F7C13D280A70 /* Pods-QuickTableViewController-iOSTests.debug.xcconfig */,
 				037DFCD4BDF28ECB615D80A8 /* Pods-QuickTableViewController-iOSTests.release.xcconfig */,
 				1F0BC6B8F7C674D42151AF6E /* Pods-QuickTableViewController-tvOSTests.debug.xcconfig */,
@@ -580,8 +566,6 @@
 		DC2649918C33230B7E02933D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3B4618CA6E4D2B833E81465 /* Pods_Example_iOS.framework */,
-				BC5E475DF3BA6564F4A5036F /* Pods_Example_tvOS.framework */,
 				8F762195FA5E16AA5B27D4E8 /* Pods_QuickTableViewController_iOSTests.framework */,
 				A468C1C7F21AF005E793AB39 /* Pods_QuickTableViewController_tvOSTests.framework */,
 			);
@@ -632,7 +616,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B51F21B31F417037009BC2C9 /* Build configuration list for PBXNativeTarget "Example-iOS" */;
 			buildPhases = (
-				66B137905D7FAAD5CF96A3A8 /* [CP] Check Pods Manifest.lock */,
 				B51F21BB1F417269009BC2C9 /* SwiftLint */,
 				B51F219E1F417037009BC2C9 /* Sources */,
 				B51F219F1F417037009BC2C9 /* Frameworks */,
@@ -749,7 +732,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54A24612088D44D00EEBA26 /* Build configuration list for PBXNativeTarget "Example-tvOS" */;
 			buildPhases = (
-				40C872DBC5DC6B8DF469CAA5 /* [CP] Check Pods Manifest.lock */,
 				B54582FB212D7F89004376C8 /* SwiftLint */,
 				B54A244F2088D44A00EEBA26 /* Sources */,
 				B54A24502088D44A00EEBA26 /* Frameworks */,
@@ -919,16 +901,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble-tvOS/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick-tvOS/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
@@ -936,50 +914,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		40C872DBC5DC6B8DF469CAA5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66B137905D7FAAD5CF96A3A8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		836E5B7438A64BC9CFF69C6F /* [CP] Check Pods Manifest.lock */ = {
@@ -1042,7 +976,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sh scripts/swiftlint.sh\n";
+			shellScript = "ruby scripts/swiftlint.rb\n";
 		};
 		B51F21BB1F417269009BC2C9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1056,7 +990,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sh scripts/swiftlint.sh\n";
+			shellScript = "ruby scripts/swiftlint.rb\n";
 		};
 		B54582FB212D7F89004376C8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1070,7 +1004,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sh scripts/swiftlint.sh\n";
+			shellScript = "ruby scripts/swiftlint.rb\n";
 		};
 		B5C335A91D07CBD000C706A4 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1084,14 +1018,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sh scripts/swiftlint.sh\n";
+			shellScript = "ruby scripts/swiftlint.rb\n";
 		};
 		F7FFC04098F120999A1188C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests-frameworks.sh",
@@ -1099,8 +1031,6 @@
 				"${BUILT_PRODUCTS_DIR}/Quick-iOS/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
@@ -1349,7 +1279,6 @@
 		};
 		B51F21B11F417037009BC2C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08CDCE9685BB3089D2C3AFEF /* Pods-Example-iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1371,7 +1300,6 @@
 		};
 		B51F21B21F417037009BC2C9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FE9148F3EE51991F4E7AF00 /* Pods-Example-iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1752,7 +1680,6 @@
 		};
 		B54A245F2088D44D00EEBA26 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BF165A3F9C45505FABE871E /* Pods-Example-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -1780,7 +1707,6 @@
 		};
 		B54A24602088D44D00EEBA26 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DB58CD519DFE5D9EF7515AA /* Pods-Example-tvOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
