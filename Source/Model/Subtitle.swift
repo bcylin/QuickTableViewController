@@ -64,7 +64,7 @@ public enum Subtitle: Equatable {
 internal extension DetailText {
 
   @available(*, deprecated, message: "The conversion between DetailText and Subtitle.")
-  internal var subtitle: Subtitle {
+  var subtitle: Subtitle {
     switch self {
     case .none:               return .none
     case let .subtitle(text): return .belowTitle(text)

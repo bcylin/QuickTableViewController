@@ -122,7 +122,7 @@ internal final class ExampleViewController: QuickTableViewController {
   private func showDebuggingText(_ text: String) {
     print(text)
     debugging.rows = [NavigationRow(text: text, detailText: .none)]
-    if let section = tableContents.index(where: { $0 === debugging }) {
+    if let section = tableContents.firstIndex(where: { $0 === debugging }) {
       tableView.reloadSections([section], with: .none)
     }
   }
