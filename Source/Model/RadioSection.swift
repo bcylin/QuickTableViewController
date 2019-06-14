@@ -69,7 +69,7 @@ open class RadioSection: Section {
 
   /// Returns the selected index, or nil when nothing is selected.
   open var indexOfSelectedOption: Int? {
-    return options.index { $0.isSelected }
+    return options.firstIndex { $0.isSelected }
   }
 
   /// Returns the selected option row, or nil when nothing is selected.
@@ -97,7 +97,7 @@ open class RadioSection: Section {
 
     if option.isSelected {
       // Deselect the selected option.
-      return options.index(where: { $0 === option }).map { [$0] } ?? []
+      return options.firstIndex(where: { $0 === option }).map { [$0] } ?? []
     }
 
     var toggledIndexes: IndexSet = []
