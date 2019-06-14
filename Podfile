@@ -4,7 +4,7 @@ workspace "QuickTableViewController"
 project "QuickTableViewController"
 
 def testing_frameworks
-  pod "Nimble", git: "https://github.com/Quick/Nimble.git", tag: "v8.0.1", inhibit_warnings: true
+  pod "Nimble", git: "https://github.com/Quick/Nimble.git", tag: "v8.0.2", inhibit_warnings: true
   pod "Quick", git: "https://github.com/Quick/Quick.git", tag: "v2.1.0", inhibit_warnings: true
 end
 

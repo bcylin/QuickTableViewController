@@ -5,7 +5,7 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
 ![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
 [![codecov](https://codecov.io/gh/bcylin/QuickTableViewController/branch/master/graph/badge.svg)](https://codecov.io/gh/bcylin/QuickTableViewController)
-![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg)
+![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg)
 
 A simple way to create a table view for settings, including:
 
@@ -252,6 +252,7 @@ QuickTableViewController | iOS  | tvOS | Xcode | Swift
 `~> 0.9.0`               | 8.0+ | -    | 9.3   | 4.1
 `~> 1.0.0`               | 8.0+ | 9.0+ | 9.4   | 4.1
 `~> 1.1.0`               | 8.0+ | 9.0+ | 10.1  | 4.2
+`~> 1.2.0`               | 8.0+ | 9.0+ | 10.2  | 5.0
 
 ## Installation
 
