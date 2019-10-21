@@ -31,10 +31,10 @@ import Quick
 internal final class IconSpec: QuickSpec {
 
   override func spec() {
+    let image = UIImage(named: "icon", in: Bundle.init(for: IconSpec.self), compatibleWith: nil)!
+    let highlighted = UIImage(named: "icon-highlighted", in: Bundle.init(for: IconSpec.self), compatibleWith: nil)!
 
     describe("initialization") {
-      let image = UIImage()
-
       context("image") {
         let icon = Icon.image(image)
         it("should initialize with the image") {
@@ -53,7 +53,6 @@ internal final class IconSpec: QuickSpec {
     }
 
     describe("equatable") {
-      let image = UIImage()
       let a = Icon.image(image)
 
       context("identical images") {
@@ -64,14 +63,14 @@ internal final class IconSpec: QuickSpec {
       }
 
       context("different images") {
-        let c = Icon.image(UIImage())
+        let c = Icon.image(highlighted)
         it("should not be equal") {
           expect(a) != c
         }
       }
 
       context("different highlighted images") {
-        let d = Icon.images(normal: image, highlighted: UIImage())
+        let d = Icon.images(normal: image, highlighted: highlighted)
         let e = Icon.images(normal: image, highlighted: UIImage())
         it("should not be equal") {
           expect(d) != e
