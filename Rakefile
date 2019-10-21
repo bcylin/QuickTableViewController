@@ -1,9 +1,9 @@
 require "fileutils"
 
-ios_device = "iPhone X"
-ios_version = "12.1"
+ios_device = "iPhone 11"
+ios_version = "13.1"
 tvos_device = "Apple TV"
-tvos_version = "12.1"
+tvos_version = "13.0"
 
 
 def xcodebuild(params)
