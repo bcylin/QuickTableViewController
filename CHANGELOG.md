@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.2.1
+
+* Support Swift Package
+
 ## v1.2.0
 
 * Swift 5, [#38](https://github.com/bcylin/QuickTableViewController/pull/38) by [@getaaron](https://github.com/getaaron)
