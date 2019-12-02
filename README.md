@@ -256,6 +256,10 @@ QuickTableViewController | iOS  | tvOS | Xcode | Swift
 
 ## Installation
 
+### Use Swift Package Manager
+
+Follow the instructions at [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) and use version `v1.2.1` or later. (requires Xcode 11)
+
 ### Use [CocoaPods](http://guides.cocoapods.org/)
 
 Create a `Podfile` with the following specification and run `pod install`.
