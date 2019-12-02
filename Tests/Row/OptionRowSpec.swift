@@ -1,5 +1,5 @@
 //
-//  OptionRowSpec.swift
+//  OptionRowTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 17/08/2017.
@@ -24,112 +24,139 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 import QuickTableViewController
+import XCTest
 
-internal final class OptionRowSpec: QuickSpec {
+internal final class OptionRowTests: XCTestCase {
 
-  override func spec() {
-    describe("initialiation") {
-      let detailText = DetailText.subtitle("subtitle")
-      let icon = Icon.named("icon")
+  // MARK: - Initialization
 
-      var invoked = false
-      let row = OptionRow(text: "title", detailText: detailText, isSelected: true, icon: icon) { _ in invoked = true }
+  func testInitialiation() {
+    // Given
+    let detailText = DetailText.subtitle("subtitle")
+    let icon = Icon.named("icon")
+    var actionInvoked = false
 
-      it("should initialize with given parameters") {
-        // Row
-        expect(row.text) == "title"
-        expect(row.detailText) == detailText
-        expect(row.isSelected) == true
+    // When
+    let row = OptionRow(text: "title", detailText: detailText, isSelected: true, icon: icon) { _ in actionInvoked = true }
 
-        row.action?(row)
-        expect(invoked) == true
+    // Then it should have the given parameters
+    XCTAssertEqual(row.text, "title")
+    XCTAssertEqual(row.detailText, detailText)
+    XCTAssertEqual(row.isSelected, true)
 
-        // RowStyle
-        expect(row.cellReuseIdentifier) == "UITableViewCell"
-        expect(row.cellStyle) == UITableViewCell.CellStyle.default
-        expect(row.icon) == icon
-        expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
-        expect(row.isSelectable) == true
-        expect(row.customize).to(beNil())
-      }
+    // With RowStyle
+    XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell")
+    XCTAssertEqual(row.cellStyle, .default)
+    XCTAssertEqual(row.icon, icon)
+    XCTAssertEqual(row.accessoryType, .checkmark)
+    XCTAssertEqual(row.isSelectable, true)
+    XCTAssertNil(row.customize)
 
-      it("should conform to the protocol") {
-        expect(row).to(beAKindOf(OptionRowCompatible.self))
-      }
-    }
+    // When
+    row.action?(row)
 
-    describe("equatable") {
-      let row = OptionRow(text: "Same", isSelected: true, action: nil)
+    // Then
+    XCTAssertEqual(actionInvoked, true)
+  }
 
-      context("identical parameters") {
-        let this = OptionRow(text: "Same", isSelected: true, action: nil)
-        it("should be qeaul") {
-          expect(this) == row
-        }
-      }
+  // MARK: - Equatable
 
-      context("different texts") {
-        let this = OptionRow(text: "Different", isSelected: true, action: nil)
-        it("should not be eqaul") {
-          expect(this) != row
-        }
-      }
+  func testEquatable_withIdenticalParameters() {
+    // Given
+    let one = OptionRow(text: "Same", isSelected: true, action: nil)
 
-      context("different detail texts") {
-        let this = OptionRow(text: "Same", detailText: .subtitle("Different"), isSelected: true, action: nil)
-        it("should not be equal") {
-          expect(this) != row
-        }
-      }
+    // When
+    let another = OptionRow(text: "Same", isSelected: true, action: nil)
 
-      context("different selection state") {
-        let this = OptionRow(text: "Same", isSelected: false, action: nil)
-        it("should not be equal") {
-          expect(this) != row
-        }
-      }
+    // Then
+    XCTAssert(one == another)
+  }
 
-      context("different icons") {
-        let this = OptionRow(text: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
-        it("should not be equal") {
-          expect(this) != row
-        }
-      }
+  func testEquatable_withDifferentTexts() {
+    // Given
+    let one = OptionRow(text: "Same", isSelected: true, action: nil)
 
-      context("different actions") {
-        let this = OptionRow(text: "Same", isSelected: true, action: { _ in })
-        it("should be equal regardless of the actions attached") {
-          expect(this) == row
-        }
-      }
-    }
+    // When
+    let another = OptionRow(text: "Different", isSelected: true, action: nil)
 
-    describe("action invocation") {
-      context("when the selection is toggled") {
-        var invoked = false
-        let row = OptionRow(text: "", isSelected: false) { _ in invoked = true }
+    // Then
+    XCTAssert(one != another)
+  }
 
-        it("should invoke the action closure") {
-          row.isSelected = true
-          expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
-          expect(invoked).toEventually(beTrue())
-        }
-      }
+  func testEquatable_withDifferentDetailTexts() {
+    // Given
+    let one = OptionRow(text: "Same", isSelected: true, action: nil)
 
-      context("when the selection stays the same") {
-        var invoked = false
-        let row = OptionRow(text: "", isSelected: false) { _ in invoked = true }
+    // When
+    let another = OptionRow(text: "Same", detailText: .subtitle("Different"), isSelected: true, action: nil)
 
-        it("should not invoke the action closure") {
-          row.isSelected = false
-          expect(row.accessoryType) == UITableViewCell.AccessoryType.none
-          expect(invoked).toEventually(beFalse())
-        }
-      }
-    }
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentSelectionStates() {
+    // Given
+    let one = OptionRow(text: "Same", isSelected: true, action: nil)
+
+    // When
+    let another = OptionRow(text: "Same", isSelected: false, action: nil)
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentIcons() {
+    // Given
+    let one = OptionRow(text: "Same", isSelected: true, action: nil)
+
+    // When
+    let another = OptionRow(text: "Same", isSelected: true, icon: .image(UIImage()), action: nil)
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentActions() {
+    // Given
+    let one = OptionRow(text: "Same", isSelected: true, action: nil)
+
+    // When
+    let another = OptionRow(text: "Same", isSelected: true, action: { _ in })
+
+    // Then it should be equal regardless of the actions attached
+    XCTAssert(one == another)
+  }
+
+  // MARK: - Action Invocation
+
+  func testActionInvocationWhenSelectionIsToggled() {
+    let expectation = self.expectation(description: "it should invoke the action closure")
+
+    // Given an option row that's not selected
+    let row = OptionRow(text: "", isSelected: false) { _ in expectation.fulfill() }
+
+    // When the selection is toggled
+    row.isSelected = true
+
+    // Then
+    waitForExpectations(timeout: 1, handler: nil)
+    XCTAssertEqual(row.accessoryType, .checkmark)
+  }
+
+  func testActionInvocationWhenSelectionIsNotToggled() {
+    let expectation = self.expectation(description: "it should not invoke the action closure")
+    expectation.isInverted = true
+
+    // Given an option row that's not selected
+    let row = OptionRow(text: "", isSelected: false) { _ in expectation.fulfill() }
+
+    // When the selection is not toggled
+    row.isSelected = false
+
+    // Then
+    waitForExpectations(timeout: 1, handler: nil)
+    XCTAssertEqual(row.accessoryType, .none)
   }
 
 }
