@@ -1,11 +1,13 @@
+install! "cocoapods", generate_multiple_pod_projects: true
+inhibit_all_warnings!
 use_frameworks!
 
 workspace "QuickTableViewController"
 project "QuickTableViewController"
 
 def testing_frameworks
-  pod "Nimble", git: "https://github.com/Quick/Nimble.git", tag: "v8.0.2", inhibit_warnings: true
-  pod "Quick", git: "https://github.com/Quick/Quick.git", tag: "v2.1.0", inhibit_warnings: true
+  pod "Nimble", git: "https://github.com/Quick/Nimble.git", tag: "v8.0.4"
+  pod "Quick", git: "https://github.com/Quick/Quick.git", tag: "v2.2.0"
 end
 
 def linter

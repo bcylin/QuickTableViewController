@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode10.2
+osx_image: xcode11.1
 cache:
   - bundler
   - cocoapods
@@ -15,10 +15,8 @@ before_script:
 script:
   - set -e
   - bundle exec rake "test:ios[QuickTableViewController-iOS]"
-  # - bundle exec rake "test:tvos[QuickTableViewController-tvOS]"
   - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
   - bundle exec rake "test:ios[Example-iOS]"
-  - bundle exec rake "test:tvos[Example-tvOS]"
   - make -B carthage
   - make -B docs
 after_success:
