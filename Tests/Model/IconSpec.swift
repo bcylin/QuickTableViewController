@@ -31,8 +31,8 @@ import Quick
 internal final class IconSpec: QuickSpec {
 
   override func spec() {
-    let image = UIImage(named: "icon", in: Bundle.init(for: IconSpec.self), compatibleWith: nil)!
-    let highlighted = UIImage(named: "icon-highlighted", in: Bundle.init(for: IconSpec.self), compatibleWith: nil)!
+    let image = UIImage(named: "icon", in: Bundle(for: IconSpec.self), compatibleWith: nil)!
+    let highlighted = UIImage(named: "icon-highlighted", in: Bundle(for: IconSpec.self), compatibleWith: nil)!
 
     describe("initialization") {
       context("image") {

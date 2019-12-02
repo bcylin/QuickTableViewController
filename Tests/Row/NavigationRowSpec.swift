@@ -158,7 +158,7 @@ internal final class NavigationRowSpec: QuickSpec {
       }
 
       context("different icons") {
-        let image = UIImage(named: "icon", in: Bundle.init(for: IconSpec.self), compatibleWith: nil)!
+        let image = UIImage(named: "icon", in: Bundle(for: IconSpec.self), compatibleWith: nil)!
         let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
         it("should not be equal") {
           expect(this) != row
