@@ -32,6 +32,8 @@ public enum Icon: Equatable {
   /// Icon with an image of the given name for the normal state.
   /// The "-highlighted" suffix is appended to the name for the highlighted image.
   case named(String)
+  /// System icon with the given name
+  case system(String)
   /// Icon with an image for the normal state.
   case image(UIImage)
   /// Icon with images for the normal and highlighted states.
@@ -42,6 +44,8 @@ public enum Icon: Equatable {
     switch self {
     case let .named(name):
       return UIImage(named: name)
+    case let .system(name):
+      return UIImage(systemName: name)
     case let .image(image):
       return image
     case let .images(normal: image, highlighted: _):
@@ -54,7 +58,7 @@ public enum Icon: Equatable {
     switch self {
     case let .named(name):
       return UIImage(named: name + "-highlighted")
-    case .image:
+    case .system, .image:
       return nil
     case let .images(normal: _, highlighted: image):
       return image
