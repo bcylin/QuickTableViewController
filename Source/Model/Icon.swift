@@ -46,7 +46,11 @@ public enum Icon: Equatable {
     case let .named(name):
       return UIImage(named: name)
     case let .system(name):
-      return UIImage(systemName: name)
+      if #available(iOS 13.0, *) {
+        return UIImage(systemName: name)
+      } else {
+        return nil
+      }
     case let .image(image):
       return image
     case let .images(normal: image, highlighted: _):
