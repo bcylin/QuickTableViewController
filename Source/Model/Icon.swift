@@ -33,6 +33,7 @@ public enum Icon: Equatable {
   /// The "-highlighted" suffix is appended to the name for the highlighted image.
   case named(String)
   /// System icon with the given name
+  @available(iOS 13.0, *)
   case system(String)
   /// Icon with an image for the normal state.
   case image(UIImage)
