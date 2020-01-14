@@ -1,5 +1,5 @@
 //
-//  SubtitleSpec.swift
+//  SubtitleTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 28/10/2015.
@@ -24,115 +24,123 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 @testable import QuickTableViewController
+import XCTest
 
 @available(*, deprecated, message: "Compatibility tests")
-internal final class SubtitleSpec: QuickSpec {
+internal final class SubtitleTests: XCTestCase {
 
-  override func spec() {
-    describe("compatibility") {
-      it("should return the corresponding detail text") {
-        expect(Subtitle.none.detailText) == DetailText.none
-        expect(Subtitle.belowTitle("text").detailText) == .subtitle("text")
-        expect(Subtitle.rightAligned("text").detailText) == .value1("text")
-        expect(Subtitle.leftAligned("text").detailText) == .value2("text")
-      }
+  func testCompatibility() {
+    XCTAssertEqual(Subtitle.none.detailText, .none)
+    XCTAssertEqual(Subtitle.belowTitle("text").detailText, .subtitle("text"))
+    XCTAssertEqual(Subtitle.rightAligned("text").detailText, .value1("text"))
+    XCTAssertEqual(Subtitle.leftAligned("text").detailText, .value2("text"))
+  }
 
-      context("NavigationRow") {
-        let subtitle = Subtitle.belowTitle("detail text")
-        let detailText = DetailText.subtitle("detail text")
-        let icon = Icon.named("icon")
+  func testNavigationRow() {
+    // Given
+    let subtitle = Subtitle.belowTitle("detail text")
+    let detailText = DetailText.subtitle("detail text")
+    let icon = Icon.named("icon")
+    var invoked = false
 
-        var invoked = false
-        let row = NavigationRow(title: "text", subtitle: subtitle, icon: icon, action: { _ in invoked = true })
+    // When
+    let row = NavigationRow(title: "text", subtitle: subtitle, icon: icon, action: { _ in invoked = true })
 
-        it("should support deprecated initializers") {
-          expect(row.text) == "text"
-          expect(row.detailText) == detailText
-          expect(row.icon) == icon
-          expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
+    // Then it should have the given parameters
+    XCTAssertEqual(row.text, "text")
+    XCTAssertEqual(row.detailText, detailText)
+    XCTAssertEqual(row.icon, icon)
+    XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell.subtitle")
 
-          row.action?(row)
-          expect(invoked) == true
-        }
+    // It should support deprecated properties
+    XCTAssertEqual(row.title, "text")
+    XCTAssertEqual(row.subtitle?.text, "detail text")
 
-        it("should support deprecated properties") {
-          expect(row.title) == "text"
-          expect(row.subtitle?.text) == "detail text"
-        }
-      }
+    // When
+    row.action?(row)
 
-      context("OptionRow") {
-        let icon = Icon.named("icon")
+    // Then
+    XCTAssertEqual(invoked, true)
+  }
 
-        var invoked = false
-        let row = OptionRow(title: "text", isSelected: true, icon: icon) { _ in invoked = true }
+  func testOptionRow() {
+    // Given
+    let icon = Icon.named("icon")
+    var invoked = false
 
-        it("should support deprecated initializers") {
-          // Row
-          expect(row.text) == "text"
-          expect(row.detailText).to(beNil())
-          expect(row.isSelected) == true
+    // When
+    let row = OptionRow(title: "text", isSelected: true, icon: icon) { _ in invoked = true }
 
-          row.action?(row)
-          expect(invoked) == true
+    // Then it should have the given parameters
+    XCTAssertEqual(row.text, "text")
+    XCTAssertNil(row.detailText)
+    XCTAssertEqual(row.isSelected, true)
 
-          // RowStyle
-          expect(row.cellReuseIdentifier) == "UITableViewCell"
-          expect(row.cellStyle) == UITableViewCell.CellStyle.default
-          expect(row.icon) == icon
-          expect(row.accessoryType) == UITableViewCell.AccessoryType.checkmark
-          expect(row.isSelectable) == true
-          expect(row.customize).to(beNil())
-        }
+    // With RowStyle
+    XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell")
+    XCTAssertEqual(row.cellStyle, .default)
+    XCTAssertEqual(row.icon, icon)
+    XCTAssertEqual(row.accessoryType, .checkmark)
+    XCTAssertEqual(row.isSelectable, true)
+    XCTAssertNil(row.customize)
 
-        it("should support deprecated properties") {
-          expect(row.title) == "text"
-          expect(row.subtitle?.text).to(beNil())
-        }
-      }
+    // It should support deprecated properties
+    XCTAssertEqual(row.title, "text")
+    XCTAssertNil(row.subtitle?.text)
 
-      context("SwitchRow") {
-        var invoked = false
-        let row = SwitchRow(title: "text", switchValue: true) { _ in invoked = true }
+    // When
+    row.action?(row)
 
-        it("should support deprecated initializers") {
-          expect(row.text) == "text"
-          expect(row.detailText).to(beNil())
-          expect(row.switchValue) == true
-          expect(row.cellReuseIdentifier) == "SwitchCell"
+    // Then
+    XCTAssertEqual(invoked, true)
+  }
 
-          row.action?(row)
-          expect(invoked) == true
-        }
+  func testSwitchRow() {
+    // Given
+    var invoked = false
 
-        it("should support deprecated properties") {
-          expect(row.title) == "text"
-          expect(row.subtitle?.text).to(beNil())
-        }
-      }
+    // When
+    let row = SwitchRow(title: "text", switchValue: true) { _ in invoked = true }
 
-      context("TapActionRow") {
-        var invoked = false
-        let row = TapActionRow(title: "text") { _ in invoked = true }
+    // Then it should have the given parameters
+    XCTAssertEqual(row.text, "text")
+    XCTAssertNil(row.detailText)
+    XCTAssertEqual(row.switchValue, true)
+    XCTAssertEqual(row.cellReuseIdentifier, "SwitchCell")
 
-        it("should initialize with given parameters") {
-          expect(row.text) == "text"
-          expect(row.detailText).to(beNil())
-          expect(row.cellReuseIdentifier) == "TapActionCell"
+    // It should support deprecated properties
+    XCTAssertEqual(row.title, "text")
+    XCTAssertNil(row.subtitle?.text)
 
-          row.action?(row)
-          expect(invoked) == true
-        }
+    // When
+    row.action?(row)
 
-        it("should support deprecated properties") {
-          expect(row.title) == "text"
-          expect(row.subtitle?.text).to(beNil())
-        }
-      }
-    }
+    // Then
+    XCTAssertEqual(invoked, true)
+  }
+
+  func testTapActionRow() {
+    // Given
+    var invoked = false
+
+    // When
+    let row = TapActionRow(title: "text") { _ in invoked = true }
+
+    // Then it should initialize with given parameters
+    XCTAssertEqual(row.text, "text")
+    XCTAssertNil(row.detailText)
+    XCTAssertEqual(row.cellReuseIdentifier, "TapActionCell")
+
+    // It should support deprecated properties
+    XCTAssertEqual(row.title, "text")
+    XCTAssertNil(row.subtitle?.text)
+
+    // When
+    row.action?(row)
+
+    // Then
+    XCTAssertEqual(invoked, true)
   }
 
 }

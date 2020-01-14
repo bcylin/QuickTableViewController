@@ -1,5 +1,5 @@
 //
-//  RadioSectionSpec.swift
+//  RadioSectionTests.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 17/08/2017.
@@ -24,207 +24,230 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 import QuickTableViewController
+import XCTest
 
-internal final class RadioSectionSpec: QuickSpec {
+internal final class RadioSectionTests: XCTestCase {
 
-  override func spec() {
-    describe("initialization") {
-      let row = OptionRow(text: "", isSelected: false, action: nil)
-      let section = RadioSection(title: "title", options: [row], footer: "footer")
+  // MARK: - Initialization
 
-      it("should initialize with given parameters") {
-        expect(section.title) == "title"
-        expect(section.rows).to(haveCount(1))
-        expect(section.rows.first as? OptionRow) == row
-        expect(section.options).to(haveCount(1))
-        expect(section.options.first) === row
-        expect(section.footer) == "footer"
-      }
-    }
+  func testInitialiation() {
+    // Given
+    let row = OptionRow(text: "", isSelected: false, action: nil)
 
-    describe("rows") {
-      context("getter") {
-        let options = [
-          OptionRow(text: "0", isSelected: false, action: nil),
-          OptionRow(text: "1", isSelected: true, action: nil)
-        ]
-        let section = RadioSection(title: "", options: options)
+    // When
+    let section = RadioSection(title: "title", options: [row], footer: "footer")
 
-        it("should return options as rows") {
-          expect(section.rows).to(beAKindOf([OptionRowCompatible].self))
-          expect(section.rows as? [OptionRow]) == options
-        }
-      }
+    // Then it should have the given parameters
+    XCTAssertEqual(section.title, "title")
+    XCTAssertEqual(section.rows.count, 1)
+    XCTAssertEqual(section.rows.first as? OptionRow, row)
+    XCTAssertEqual(section.options.count, 1)
+    XCTAssertEqual(section.options.first as? OptionRow, row)
+    XCTAssertEqual(section.footer, "footer")
+  }
 
-      context("setter") {
-        context("given empty array") {
-          let section = RadioSection(title: "", options: [
-            OptionRow(text: "", isSelected: true, action: nil)
-          ])
+  // MARK: - Rows
 
-          it("should change rows") {
-            expect(section.rows).to(haveCount(1))
-            section.rows = []
-            expect(section.rows).to(beEmpty())
-          }
-        }
+  func testRowsGetter() {
+    // Given
+    let options = [
+      OptionRow(text: "0", isSelected: false, action: nil),
+      OptionRow(text: "1", isSelected: true, action: nil)
+    ]
 
-        context("given incompatible type") {
-          let options = [OptionRow(text: "0", isSelected: false, action: nil)]
-          let section = RadioSection(title: "", options: options)
+    // When
+    let section = RadioSection(title: "", options: options)
 
-          it("should not change rows") {
-            expect(section.rows).to(haveCount(1))
-            section.rows = [
-              NavigationRow(text: "", detailText: .none),
-              NavigationRow(text: "", detailText: .none)
-            ]
-            expect(section.rows).to(haveCount(1))
-            expect(section.rows as? [OptionRow]) == options
-          }
-        }
+    // Then it should return options as rows
+    XCTAssert(section.rows is [OptionRowCompatible])
+    XCTAssertEqual(section.rows as? [OptionRow], options)
+  }
 
-        context("given compatible type") {
-          let options = [
-            OptionRow(text: "0", isSelected: false, action: nil),
-            OptionRow(text: "1", isSelected: true, action: nil)
-          ]
-          let section = RadioSection(title: "", options: [])
+  func testRowsSetter_empty() {
+    // Given
+    let section = RadioSection(title: "", options: [
+      OptionRow(text: "", isSelected: true, action: nil)
+    ])
 
-          it("should change rows") {
-            expect(section.rows).to(beEmpty())
-            section.rows = options
-            expect(section.rows).to(haveCount(2))
-            expect(section.rows as? [OptionRow]) == options
-          }
-        }
-      }
-    }
+    // When
+    section.rows = []
 
-    describe("always selects one option") {
-      context("when set to false") {
-        let section = RadioSection(title: "title", options: [
-          OptionRow(text: "Option 1", isSelected: false, action: nil)
-        ])
-        section.alwaysSelectsOneOption = false
+    // Then
+    XCTAssert(section.rows.isEmpty)
+  }
 
-        it("should do nothing") {
-          expect(section.options).to(haveCount(1))
-          expect(section.selectedOption).to(beNil())
-        }
-      }
+  func testRowsSetter_incompatibleType() {
+    // Given
+    let unchanged = [OptionRow(text: "0", isSelected: false, action: nil)]
+    let section = RadioSection(title: "", options: unchanged)
 
-      context("when set to true with empty options") {
-        let section = RadioSection(title: "title", options: [])
-        section.alwaysSelectsOneOption = true
+    // When
+    section.rows = [
+      NavigationRow(text: "", detailText: .none),
+      NavigationRow(text: "", detailText: .none)
+    ]
 
-        it("should do nothing") {
-          expect(section.options).to(beEmpty())
-          expect(section.selectedOption).to(beNil())
-        }
-      }
+    // Then the rows should not change
+    XCTAssertEqual(section.rows as? [OptionRow], unchanged)
+  }
 
-      context("when set to true with nothing selected") {
-        let section = RadioSection(title: "title", options: [
-          OptionRow(text: "Option 1", isSelected: false, action: nil),
-          OptionRow(text: "Option 2", isSelected: false, action: nil)
-        ])
-        section.alwaysSelectsOneOption = true
+  func testRowsSetter_compatibleType() {
+    // Given
+    let section = RadioSection(title: "", options: [])
 
-        it("should select the first option") {
-          expect(section.selectedOption) === section.options[0]
-          expect(section.options[0].isSelected) == true
-          expect(section.options[1].isSelected) == false
-        }
-      }
+    // When
+    let changed = [
+      OptionRow(text: "0", isSelected: false, action: nil),
+      OptionRow(text: "1", isSelected: true, action: nil)
+    ]
+    section.rows = changed
 
-      context("when set to true with something selected") {
-        let section = RadioSection(title: "title", options: [
-          OptionRow(text: "Option 1", isSelected: false, action: nil),
-          OptionRow(text: "Option 2", isSelected: true, action: nil)
-        ])
-        section.alwaysSelectsOneOption = true
+    // Then the rows should change
+    XCTAssertEqual(section.rows as? [OptionRow], changed)
+  }
 
-        it("should do nothing") {
-          expect(section.selectedOption) === section.options[1]
-          expect(section.options[0].isSelected) == false
-          expect(section.options[1].isSelected) == true
-        }
-      }
-    }
+  // MARK: - Always Selects One Option
 
-    describe("toggle options") {
-      let mock = {
-        RadioSection(title: "Radio", options: [
-          OptionRow(text: "Option 1", isSelected: true, action: nil),
-          OptionRow(text: "Option 2", isSelected: false, action: nil),
-          OptionRow(text: "Option 3", isSelected: false, action: nil)
-        ])
-      }
+  func testAlwaysSelectsOneOption_whenSetToFalse() {
+    // Given
+    let section = RadioSection(title: "title", options: [
+      OptionRow(text: "Option 1", isSelected: false, action: nil)
+    ])
 
-      context("when the option to toggle is not in the section") {
-        let section = mock()
-        let option = OptionRow(text: "", isSelected: true, action: nil)
-        let result = section.toggle(option)
+    // When
+    section.alwaysSelectsOneOption = false
 
-        it("should return an empty index set") {
-          expect(result) == []
-        }
-      }
+    // Then it should do nothing
+    XCTAssertEqual(section.options.count, 1)
+    XCTAssertNil(section.selectedOption)
+  }
 
-      context("when the option is selected and it allows none selected") {
-        let section = mock()
-        _ = section.toggle(section.options[0])
+  func testAlwaysSelectsOneOption_whenSetToTrueWithEmptyOptions() {
+    // Given
+    let section = RadioSection(title: "title", options: [])
 
-        it("should deselect the option") {
-          expect(section.selectedOption).to(beNil())
-          expect(section.options[0].isSelected) == false
-          expect(section.options[1].isSelected) == false
-          expect(section.options[2].isSelected) == false
-        }
-      }
+    // When
+    section.alwaysSelectsOneOption = true
 
-      context("when the option is selected and it doesn't allow none selected") {
-        let section = mock()
-        section.alwaysSelectsOneOption = true
-        _ = section.toggle(section.options[0])
+    // Then it should do nothing
+    XCTAssert(section.options.isEmpty)
+    XCTAssertNil(section.selectedOption)
+  }
 
-        it("should do nothing") {
-          expect(section.selectedOption) === section.options[0]
-          expect(section.options[0].isSelected) == true
-          expect(section.options[1].isSelected) == false
-          expect(section.options[2].isSelected) == false
-        }
-      }
+  func testAlwaysSelectsOneOption_whenSetToTrueWithNothingSelected() {
+    // Given
+    let section = RadioSection(title: "title", options: [
+      OptionRow(text: "Option 1", isSelected: false, action: nil),
+      OptionRow(text: "Option 2", isSelected: false, action: nil)
+    ])
 
-      context("when there's nothing selected") {
-        let section = mock()
-        _ = section.toggle(section.options[0])
-        _ = section.toggle(section.options[1])
+    // When
+    section.alwaysSelectsOneOption = true
 
-        it("should select the option") {
-          expect(section.selectedOption) === section.options[1]
-          expect(section.options[0].isSelected) == false
-          expect(section.options[1].isSelected) == true
-          expect(section.options[2].isSelected) == false
-        }
-      }
+    // Then it should select the first option
+    XCTAssert(section.selectedOption === section.options[0])
+    XCTAssertEqual(section.options[0].isSelected, true)
+    XCTAssertEqual(section.options[1].isSelected, false)
+  }
 
-      context("when there's already another option selected") {
-        let section = mock()
-        _ = section.toggle(section.options[2])
+  func testAlwaysSelectsOneOption_whenSetToTrueWithSomethingSelected() {
+    // Given
+    let section = RadioSection(title: "title", options: [
+      OptionRow(text: "Option 1", isSelected: false, action: nil),
+      OptionRow(text: "Option 2", isSelected: true, action: nil)
+    ])
 
-        it("should deselect the other option") {
-          expect(section.selectedOption) === section.options[2]
-          expect(section.options[0].isSelected) == false
-          expect(section.options[1].isSelected) == false
-          expect(section.options[2].isSelected) == true
-        }
-      }
-    }
+    // When
+    section.alwaysSelectsOneOption = true
+
+    // Then it should do nothing
+    XCTAssert(section.selectedOption === section.options[1])
+    XCTAssertEqual(section.options[0].isSelected, false)
+    XCTAssertEqual(section.options[1].isSelected, true)
+  }
+
+  // MARK: - Toggle Options
+
+  private func sectionWithThreeRows() -> RadioSection {
+    return RadioSection(title: "Radio", options: [
+      OptionRow(text: "Option 1", isSelected: true, action: nil),
+      OptionRow(text: "Option 2", isSelected: false, action: nil),
+      OptionRow(text: "Option 3", isSelected: false, action: nil)
+    ])
+  }
+
+  func testToggleOptions_whenOptionToToggleNotInSection() {
+    // Given
+    let section = sectionWithThreeRows()
+
+    // When
+    let option = OptionRow(text: "", isSelected: true, action: nil)
+    let result = section.toggle(option)
+
+    // Then it should return an empty index set
+    XCTAssert(result.isEmpty)
+  }
+
+  func testToggleOptions_whenOptionIsSelected() {
+    // Given
+    let section = sectionWithThreeRows()
+
+    // When
+    _ = section.toggle(section.options[0])
+
+    // Then it should deselect the option
+    XCTAssertNil(section.selectedOption)
+    XCTAssertEqual(section.options[0].isSelected, false)
+    XCTAssertEqual(section.options[1].isSelected, false)
+    XCTAssertEqual(section.options[2].isSelected, false)
+  }
+
+  func testToggleOptions_withAlwaysSelectsOneOption() {
+    // Given
+    let section = sectionWithThreeRows()
+    section.alwaysSelectsOneOption = true
+
+    // When
+    _ = section.toggle(section.options[0])
+
+    // Then it should do nothing
+    XCTAssert(section.selectedOption === section.options[0])
+    XCTAssertEqual(section.options[0].isSelected, true)
+    XCTAssertEqual(section.options[1].isSelected, false)
+    XCTAssertEqual(section.options[2].isSelected, false)
+  }
+
+  func testToggleOptions_whenNothingIsSelected() {
+    // Given
+    let section = RadioSection(title: "Radio", options: [
+      OptionRow(text: "Option 1", isSelected: false, action: nil),
+      OptionRow(text: "Option 2", isSelected: false, action: nil),
+      OptionRow(text: "Option 3", isSelected: false, action: nil)
+    ])
+
+    // When
+    _ = section.toggle(section.options[1])
+
+    // Then it should select the option
+    XCTAssert(section.selectedOption === section.options[1])
+    XCTAssertEqual(section.options[0].isSelected, false)
+    XCTAssertEqual(section.options[1].isSelected, true)
+    XCTAssertEqual(section.options[2].isSelected, false)
+  }
+
+  func testToggleOptions_whenAnotherOptionIsSelected() {
+    // Given
+    let section = sectionWithThreeRows()
+
+    // When
+    _ = section.toggle(section.options[2])
+
+    // Then it should deselect the other option
+    XCTAssert(section.selectedOption === section.options[2])
+    XCTAssertEqual(section.options[0].isSelected, false)
+    XCTAssertEqual(section.options[1].isSelected, false)
+    XCTAssertEqual(section.options[2].isSelected, true)
   }
 
 }
