@@ -26,6 +26,6 @@
 
 import Foundation
 
-internal protocol QuickTableViewDelegate {
+internal protocol QuickTableViewDelegate: class {
     func quickReload()
 }

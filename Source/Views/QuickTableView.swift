@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 open class QuickTableView: UITableView {
-    internal var quickDelegate: QuickTableViewDelegate? = nil
+    internal weak var quickDelegate: QuickTableViewDelegate?
 
     override open func reloadData() {
         self.quickDelegate?.quickReload()
