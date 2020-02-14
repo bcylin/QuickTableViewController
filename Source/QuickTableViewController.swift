@@ -61,16 +61,16 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     tableView = QuickTableView(frame: .zero, style: style)
     
   }
-  
+
   override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     self.cachedTableContents = self.tableContents
   }
-  
+
   required public init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   deinit {
     tableView.dataSource = nil
     tableView.delegate = nil

@@ -15,12 +15,12 @@ open class QuickTableView: UITableView {
         self.quickDelegate?.quickReload()
         super.reloadData()
     }
-  
+
   override open func reloadSectionIndexTitles() {
     self.quickDelegate?.quickReload()
     super.reloadSectionIndexTitles()
   }
-  
+
   override open func reloadSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
     self.quickDelegate?.quickReload()
     super.reloadSections(sections, with: animation)
