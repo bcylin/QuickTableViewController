@@ -34,7 +34,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
   /// Returns the table view managed by the controller object.
   open private(set) var tableView: QuickTableView = QuickTableView(frame: .zero, style: .grouped)
-    
+
    public private(set) var cachedTableContents: [Section] = []
   /// The layout of sections and rows to display in the table view.
   open var tableContents: [Section] {
@@ -59,7 +59,6 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   public convenience init(style: UITableView.Style) {
     self.init(nibName: nil, bundle: nil)
     tableView = QuickTableView(frame: .zero, style: style)
-    
   }
 
   override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

@@ -44,14 +44,12 @@ internal final class DynamicViewController: QuickTableViewController {
           )
         })
       ] + dynamicRows
-    
+
       return [
         Section(title: "Tap Action", rows: rows as! [Row & RowStyle])
       ]
     }
-    set  {
-
-    }
+    set {}
   }
 
   override func viewDidLoad() {
