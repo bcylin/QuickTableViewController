@@ -34,7 +34,7 @@ internal final class DynamicViewController: QuickTableViewController {
       self.tableView.reloadData()
     }
   }
-  
+
   override var tableContents: [Section] {
     get {
       let rows = [
@@ -50,10 +50,10 @@ internal final class DynamicViewController: QuickTableViewController {
       ]
     }
     set  {
-      
+
     }
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Dynamic"

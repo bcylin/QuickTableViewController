@@ -10,7 +10,7 @@ import UIKit
 
 open class QuickTableView: UITableView {
     internal var quickDelegate: QuickTableViewDelegate? = nil
-    
+
     override open func reloadData() {
         self.quickDelegate?.quickReload()
         super.reloadData()
@@ -25,7 +25,7 @@ open class QuickTableView: UITableView {
     self.quickDelegate?.quickReload()
     super.reloadSections(sections, with: animation)
   }
-  
+
   override open func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
     self.quickDelegate?.quickReload()
     super.reloadRows(at: indexPaths, with: animation)
