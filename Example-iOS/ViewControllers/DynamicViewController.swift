@@ -31,7 +31,7 @@ internal final class DynamicViewController: QuickTableViewController {
 
   var dynamicRows: [Row] = [] {
     didSet {
-      self.tableView.reloadData()
+      self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
   }
 
