@@ -40,7 +40,7 @@ internal final class DynamicViewController: QuickTableViewController {
       let rows = [
         TapActionRow(text: "AddCell", action: { _ in
           self.dynamicRows.append(
-            NavigationRow(text: "UITableViewCell", detailText: .subtitle(".subtitle"), action: { _ in })
+            NavigationRow(text: "UITableViewCell", detailText: .value1(String(describing: (self.dynamicRows.count + 1))), action: { _ in })
           )
         })
       ] + dynamicRows
@@ -55,12 +55,6 @@ internal final class DynamicViewController: QuickTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Dynamic"
-
-    // Register the nib files to the table view for UIAppearance customization (in AppDelegate) to work.
-    tableView.register(UINib(nibName: "SwitchCell", bundle: .main), forCellReuseIdentifier: "SwitchCell")
-    tableView.register(UINib(nibName: "TapActionCell", bundle: .main), forCellReuseIdentifier: "TapActionCell")
-    tableView.register(UINib(nibName: "UITableViewCell", bundle: .main), forCellReuseIdentifier: "UITableViewCell.subtitle")
-    tableView.register(UINib(nibName: "OptionCell", bundle: .main), forCellReuseIdentifier: "UITableViewCell")
   }
 
 }
