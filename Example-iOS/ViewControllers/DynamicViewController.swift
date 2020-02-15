@@ -29,19 +29,16 @@ import QuickTableViewController
 
 internal final class DynamicViewController: QuickTableViewController {
 
-  var dynamicRows: [Row] = [] {
-    didSet {
-      self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-    }
-  }
+  var dynamicRows: [Row] = []
 
   override var tableContents: [Section] {
     get {
       let rows = [
         TapActionRow(text: "AddCell", action: { _ in
           self.dynamicRows.append(
-            NavigationRow(text: "UITableViewCell", detailText: .value1(String(describing: (self.dynamicRows.count + 1))), action: { _ in })
+            NavigationRow(text: "UITableViewCell", detailText: .value1(String(describing: (self.dynamicRows.count + 1))), action: nil)
           )
+          self.tableView.insertRows(at: [IndexPath(row: self.dynamicRows.count, section: 0)], with: .automatic)
         })
       ] + dynamicRows
 

@@ -35,18 +35,42 @@ open class QuickTableView: UITableView {
         super.reloadData()
     }
 
-  override open func reloadSectionIndexTitles() {
+  //MARK: Rows -
+
+  override open func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
     self.quickDelegate?.quickReload()
-    super.reloadSectionIndexTitles()
+    super.reloadRows(at: indexPaths, with: animation)
   }
+
+  override open func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+    self.quickDelegate?.quickReload()
+    super.insertRows(at: indexPaths, with: animation)
+  }
+
+  override open func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+    self.quickDelegate?.quickReload()
+    super.deleteRows(at: indexPaths, with: animation)
+  }
+
+  // MARK: Sections -
 
   override open func reloadSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
     self.quickDelegate?.quickReload()
     super.reloadSections(sections, with: animation)
   }
 
-  override open func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+  override open func deleteSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
     self.quickDelegate?.quickReload()
-    super.reloadRows(at: indexPaths, with: animation)
+    super.deleteSections(sections, with: animation)
+  }
+
+  override open func insertSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
+    self.quickDelegate?.quickReload()
+    super.insertSections(sections, with: animation)
+  }
+
+  override open func reloadSectionIndexTitles() {
+    self.quickDelegate?.quickReload()
+    super.reloadSectionIndexTitles()
   }
 }
