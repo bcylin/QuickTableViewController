@@ -1,8 +1,8 @@
 //
-//  SwitchCell.swift
+//  QuickTableViewDelegate.swift
 //  QuickTableViewController
 //
-//  Created by Ben on 03/09/2015.
+//  Created by Zac on 14/02/2020.
 //  Copyright (c) 2015 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
