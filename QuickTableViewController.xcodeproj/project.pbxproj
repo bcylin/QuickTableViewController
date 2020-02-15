@@ -105,6 +105,7 @@
 		F6B15A5623F74268001DB252 /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5523F74268001DB252 /* DynamicViewController.swift */; };
 		F6B15A5923F745ED001DB252 /* QuickTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5723F7458C001DB252 /* QuickTableViewDelegate.swift */; };
 		F6B15A5A23F745ED001DB252 /* QuickTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5723F7458C001DB252 /* QuickTableViewDelegate.swift */; };
+		F6B15A5B23F7855A001DB252 /* QuickTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5323F73E48001DB252 /* QuickTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1136,6 +1137,7 @@
 				B54A2443208883A300EEBA26 /* Configurable.swift in Sources */,
 				3E45598521DC184800FC0C76 /* Deprecated.swift in Sources */,
 				3E45598421DC181600FC0C76 /* DetailText.swift in Sources */,
+				F6B15A5B23F7855A001DB252 /* QuickTableView.swift in Sources */,
 				B54A243F208883A300EEBA26 /* Icon.swift in Sources */,
 				B54A2448208883A300EEBA26 /* NavigationRow.swift in Sources */,
 				B54A2449208883A300EEBA26 /* OptionRow.swift in Sources */,
