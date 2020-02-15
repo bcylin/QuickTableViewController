@@ -46,7 +46,7 @@ internal final class DynamicViewController: QuickTableViewController {
         Section(title: "Tap Action", rows: rows as! [Row & RowStyle])
       ]
     }
-    set {}
+    set {} // swiftlint:disable:this unused_setter_value
   }
 
   override func viewDidLoad() {
