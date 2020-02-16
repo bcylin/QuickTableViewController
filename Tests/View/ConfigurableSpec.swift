@@ -1,5 +1,5 @@
 //
-//  ConfigurableSpec.swift
+//  ConfigurableTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 27/12/2017.
@@ -24,125 +24,122 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 @testable import QuickTableViewController
+import XCTest
 
-internal final class ConfigurableSpec: QuickSpec {
+internal final class ConfigurableTests: XCTestCase {
 
-  override func spec() {
-    describe("configure(with:)") {
-      context("default row and cell") {
-        it("should set the switch to true") {
-          let cell = SwitchCell()
-          let row = SwitchRow(text: "", switchValue: true, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == true
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
-          #endif
-        }
+  func testConfiguration_default() {
+    do {
+      // Given
+      let cell = SwitchCell()
+      let row = SwitchRow(text: "", switchValue: true, action: nil)
 
-        it("should set the switch to false") {
-          let cell = SwitchCell()
-          let row = SwitchRow(text: "", switchValue: false, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == false
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
-          #endif
-        }
-      }
+      // When
+      cell.configure(with: row)
 
-      context("custom row") {
-        it("should set the switch to true") {
-          let cell = SwitchCell()
-          let row = CustomSwitchRow(text: "", switchValue: true, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == true
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
-          #endif
-        }
+      // Then
+      #if os(iOS)
+        XCTAssertEqual(cell.accessoryView, cell.switchControl)
+        XCTAssertEqual(cell.switchControl.isOn, true)
+      #elseif os(tvOS)
+        XCTAssertNil(cell.accessoryView)
+        XCTAssertEqual(cell.accessoryType, .checkmark)
+      #endif
+    }
 
-        it("should set the switch to false") {
-          let cell = SwitchCell()
-          let row = CustomSwitchRow(text: "", switchValue: false, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == false
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
-          #endif
-        }
-      }
+    do {
+      // Given
+      let cell = SwitchCell()
+      let row = SwitchRow(text: "", switchValue: false, action: nil)
 
-      context("custom cell") {
-        it("should set the switch to true") {
-          let cell = CustomSwitchCell()
-          let row = SwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == true
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
-          #endif
-        }
+      // When
+      cell.configure(with: row)
 
-        it("should set the switch to false") {
-          let cell = CustomSwitchCell()
-          let row = SwitchRow<CustomSwitchCell>(text: "", switchValue: false, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == false
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
-          #endif
-        }
-      }
+      // Then
+      #if os(iOS)
+        XCTAssertEqual(cell.accessoryView, cell.switchControl)
+        XCTAssertEqual(cell.switchControl.isOn, false)
+      #elseif os(tvOS)
+        XCTAssertNil(cell.accessoryView)
+        XCTAssertEqual(cell.accessoryType, .none)
+      #endif
+    }
+  }
 
-      context("custom row and cell") {
-        it("should set the switch to true") {
-          let cell = CustomSwitchCell()
-          let row = CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == true
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.checkmark
-          #endif
-        }
+  func testConfiguration_customRow() {
+    do {
+      // Given
+      let cell = SwitchCell()
+      let row = CustomSwitchRow(text: "", switchValue: true, action: nil)
 
-        it("should set the switch to false") {
-          let cell = CustomSwitchCell()
-          let row = CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: false, action: nil)
-          cell.configure(with: row)
-          #if os(iOS)
-            expect(cell.accessoryView) == cell.switchControl
-            expect(cell.switchControl.isOn) == false
-          #elseif os(tvOS)
-            expect(cell.accessoryView).to(beNil())
-            expect(cell.accessoryType) == UITableViewCell.AccessoryType.none
-          #endif
-        }
-      }
+      // When
+      cell.configure(with: row)
+
+      // Then
+      #if os(iOS)
+        XCTAssertEqual(cell.accessoryView, cell.switchControl)
+        XCTAssertEqual(cell.switchControl.isOn, true)
+      #elseif os(tvOS)
+        XCTAssertNil(cell.accessoryView)
+        XCTAssertEqual(cell.accessoryType, .checkmark)
+      #endif
+    }
+
+    do {
+      // Given
+      let cell = SwitchCell()
+      let row = CustomSwitchRow(text: "", switchValue: false, action: nil)
+
+      // When
+      cell.configure(with: row)
+
+      // Then
+      #if os(iOS)
+        XCTAssertEqual(cell.accessoryView, cell.switchControl)
+        XCTAssertEqual(cell.switchControl.isOn, false)
+      #elseif os(tvOS)
+        XCTAssertNil(cell.accessoryView)
+        XCTAssertEqual(cell.accessoryType, .none)
+      #endif
+    }
+  }
+
+  func testConfiguration_customCell() {
+    do {
+      // Given
+      let cell = CustomSwitchCell()
+      let row = CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
+
+      // When
+      cell.configure(with: row)
+
+      // Then
+      #if os(iOS)
+        XCTAssertEqual(cell.accessoryView, cell.switchControl)
+        XCTAssertEqual(cell.switchControl.isOn, true)
+      #elseif os(tvOS)
+        XCTAssertNil(cell.accessoryView)
+        XCTAssertEqual(cell.accessoryType, .checkmark)
+      #endif
+    }
+
+    do {
+      // Given
+      let cell = CustomSwitchCell()
+      let row = CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: false, action: nil)
+
+      // When
+      cell.configure(with: row)
+
+      // Then
+      #if os(iOS)
+        XCTAssertEqual(cell.accessoryView, cell.switchControl)
+        XCTAssertEqual(cell.switchControl.isOn, false)
+      #elseif os(tvOS)
+        XCTAssertNil(cell.accessoryView)
+        XCTAssertEqual(cell.accessoryType, .none)
+      #endif
     }
   }
 
