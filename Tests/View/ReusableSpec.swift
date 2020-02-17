@@ -1,5 +1,5 @@
 //
-//  ReusableSpec.swift
+//  ReusableTests.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 21/08/2017.
@@ -24,57 +24,62 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 @testable import QuickTableViewController
+import XCTest
 
-internal final class ReusableSpec: QuickSpec {
+internal final class ReusableTests: XCTestCase {
 
   private class CustomCell: UITableViewCell {}
 
-  override func spec() {
-    describe("matches of pattern") {
-      let pattern = String.typeDescriptionPattern
+  private let pattern = String.typeDescriptionPattern
 
-      context("invalid pattern") {
-        it("should return an empty array") {
-          let matches = String(describing: type(of: self)).matches(of: "\\")
-          expect(matches).to(beEmpty())
-        }
-      }
+  func testTypeString_withInvalidPattern() {
+    // Given
+    let typeString = String(describing: type(of: self))
 
-      context("type with special format") {
-        it("should match the pattern") {
-          let type = "(CustomCell in _B5334F301B8CC6AA00C64A6D)"
-          let matches = type.matches(of: pattern)
-          expect(matches).to(haveCount(2))
-        }
-      }
+    // When
+    let matches = typeString.matches(of: "\\")
 
-      context("type with name only") {
-        it("should not match the pattern") {
-          let type = "CustomCell"
-          let matches = type.matches(of: pattern)
-          expect(matches).to(beEmpty())
-        }
-      }
-    }
+    // Then it should return an empty array
+    XCTAssert(matches.isEmpty)
+  }
 
-    describe("reuse identifier") {
-      context("custom type") {
-        it("should be the type name") {
-          let identifier = CustomCell.reuseIdentifier
-          expect(identifier) == "CustomCell"
-        }
-      }
+  func testTypeString_withSpecialFormat() {
+    // Given
+    let typeString = "(CustomCell in _B5334F301B8CC6AA00C64A6D)"
 
-      context("type in the module") {
-        it("should be the type name") {
-          let identifier = SwitchCell.reuseIdentifier
-          expect(identifier) == "SwitchCell"
-        }
-      }
-    }
+    // When
+    let matches = typeString.matches(of: pattern)
+
+    // Then it should match the pattern
+    XCTAssertEqual(matches.count, 2)
+  }
+
+  func testTypeString_withNameOnly() {
+    // Given
+    let typeString = "CustomCell"
+
+    // When
+    let matches = typeString.matches(of: pattern)
+
+    // Then it should not match the pattern
+    XCTAssert(matches.isEmpty)
+  }
+
+  func testReuseIdentifier_withCustomType() {
+    // When
+    let identifier = CustomCell.reuseIdentifier
+
+    // Then
+    XCTAssertEqual(identifier, "CustomCell")
+  }
+
+  func testReuseIdentifier_withTypeInModule() {
+    // When
+    let identifier = SwitchCell.reuseIdentifier
+
+    // Then
+    XCTAssertEqual(identifier, "SwitchCell")
   }
 
 }

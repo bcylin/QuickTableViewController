@@ -1,5 +1,5 @@
 //
-//  TapActionRowSpec.swift
+//  TapActionRowTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 17/01/2016.
@@ -24,54 +24,64 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 import QuickTableViewController
+import XCTest
 
-internal final class TapActionRowSpec: QuickSpec {
+internal final class TapActionRowTests: XCTestCase {
 
-  override func spec() {
-    describe("initialization") {
-      var invoked = false
-      let row = TapActionRow(text: "title") { _ in invoked = true }
+  // MARK: - Initialization
 
-      it("should initialize with given parameters") {
-        expect(row.text) == "title"
-        expect(row.cellReuseIdentifier) == "TapActionCell"
+  func testInitialiation() {
+    // Given
+    var actionInvoked = false
 
-        row.action?(row)
-        expect(invoked) == true
-      }
+    // When
+    let row = TapActionRow(text: "title") { _ in actionInvoked = true }
 
-      it("should conform to the protocol") {
-        expect(row).to(beAKindOf(TapActionRowCompatible.self))
-      }
-    }
+    // Then it should have the given parameters
+    XCTAssertEqual(row.text, "title")
+    XCTAssertEqual(row.cellReuseIdentifier, "TapActionCell")
 
-    describe("equatable") {
-      let row = TapActionRow(text: "Same", action: nil)
+    // When
+    row.action?(row)
 
-      context("identical titles") {
-        let this = TapActionRow(text: "Same", action: nil)
-        it("should be equal") {
-          expect(this) == row
-        }
-      }
+    // Then
+    XCTAssertEqual(actionInvoked, true)
+  }
 
-      context("different texts") {
-        let this = TapActionRow(text: "Different", action: nil)
-        it("should not be equal") {
-          expect(this) != row
-        }
-      }
+  // MARK: - Equatable
 
-      context("different actions") {
-        let this = TapActionRow(text: "Same", action: { _ in })
-        it("should be equal regardless of the actions attached") {
-          expect(this) == row
-        }
-      }
-    }
+  func testEquatable_withIdenticalParameters() {
+    // Given
+    let one = TapActionRow(text: "Same", action: nil)
+
+    // When
+    let another = TapActionRow(text: "Same", action: nil)
+
+    // Then
+    XCTAssert(one == another)
+  }
+
+  func testEquatable_withDifferentTexts() {
+    // Given
+    let one = TapActionRow(text: "Same", action: nil)
+
+    // When
+    let another = TapActionRow(text: "Different", action: nil)
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentActions() {
+    // Given
+    let one = TapActionRow(text: "Same", action: nil)
+
+    // When
+    let another = TapActionRow(text: "Same", action: { _ in })
+
+    // Then it should be equal regardless of the actions attached
+    XCTAssert(one == another)
   }
 
 }

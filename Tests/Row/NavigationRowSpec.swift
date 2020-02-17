@@ -1,5 +1,5 @@
 //
-//  NavigationRowSpec.swift
+//  NavigationRowTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 17/01/2016.
@@ -24,154 +24,192 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
-@testable import QuickTableViewController
+import QuickTableViewController
+import XCTest
 
-internal final class NavigationRowSpec: QuickSpec {
+internal final class NavigationRowTests: XCTestCase {
 
-  override func spec() {
+  // MARK: - Initialization
 
-#if os(iOS)
-    describe("initialization") {
-      let detailText = DetailText.subtitle("subtitle")
-      let icon = Icon.named("icon")
+  #if os(iOS)
+  func testInitialiation_iOS() {
+    // Given
+    let detailText = DetailText.subtitle("subtitle")
+    let icon = Icon.named("icon")
+    var actionInvoked = false
+    var accessoryButtonActionInvoked = false
 
-      var actionInvoked = false
-      var accessoryButtonActionInvoked = false
+    // When
+    let row = NavigationRow(
+      text: "title",
+      detailText: detailText,
+      icon: icon,
+      action: { _ in actionInvoked = true },
+      accessoryButtonAction: { _ in accessoryButtonActionInvoked = true }
+    )
 
-      let row = NavigationRow(
-        text: "title",
-        detailText: detailText,
-        icon: icon,
-        action: { _ in actionInvoked = true },
-        accessoryButtonAction: { _ in accessoryButtonActionInvoked = true }
-      )
+    // Then it should have the given parameters
+    XCTAssertEqual(row.text, "title")
+    XCTAssertEqual(row.detailText, detailText)
 
-      it("should initialize with given parameters") {
-        expect(row.text) == "title"
-        expect(row.detailText) == detailText
-        expect(row.icon) == icon
-        expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
+    // With RowStyle
+    XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell.subtitle")
+    XCTAssertEqual(row.cellStyle, .subtitle)
+    XCTAssertEqual(row.icon, icon)
+    XCTAssertEqual(row.accessoryType, .detailDisclosureButton)
+    XCTAssertEqual(row.isSelectable, true)
+    XCTAssertNil(row.customize)
 
-        row.action?(row)
-        expect(actionInvoked) == true
+    // When
+    row.action?(row)
+    row.accessoryButtonAction?(row)
 
-        row.accessoryButtonAction?(row)
-        expect(accessoryButtonActionInvoked) == true
-      }
-    }
-
-#elseif os(tvOS)
-
-    describe("initialization") {
-      let detailText = DetailText.subtitle("subtitle")
-      let icon = Icon.named("icon")
-
-      var invoked = false
-      let row = NavigationRow(text: "title", detailText: detailText, icon: icon, action: { _ in invoked = true })
-
-      it("should initialize with given parameters") {
-        expect(row.text) == "title"
-        expect(row.detailText) == detailText
-        expect(row.icon) == icon
-        expect(row.cellReuseIdentifier) == "UITableViewCell.subtitle"
-
-        row.action?(row)
-        expect(invoked) == true
-      }
-
-      it("should conform to the protocol") {
-        expect(row).to(beAKindOf(NavigationRowCompatible.self))
-      }
-    }
-
-#endif
-
-    describe("cellReuseIdentifier") {
-      let a = NavigationRow(text: "", detailText: .none)
-      let b = NavigationRow(text: "", detailText: .subtitle(""))
-      let c = NavigationRow(text: "", detailText: .value1(""))
-      let d = NavigationRow(text: "", detailText: .value2(""))
-
-      it("should return the backward compatible strings") {
-        expect(a.cellReuseIdentifier) == "UITableViewCell.default"
-        expect(b.cellReuseIdentifier) == "UITableViewCell.subtitle"
-        expect(c.cellReuseIdentifier) == "UITableViewCell.value1"
-        expect(d.cellReuseIdentifier) == "UITableViewCell.value2"
-      }
-    }
-
-    #if os(iOS)
-
-    describe("accessoryType") {
-      let a = NavigationRow(text: "", detailText: .none)
-      let b = NavigationRow(text: "", detailText: .none, action: { _ in })
-      let c = NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in })
-      let d = NavigationRow(text: "", detailText: .none, action: { _ in }, accessoryButtonAction: { _ in })
-
-      it("should return the corresponding accessory type") {
-        expect(a.accessoryType) == UITableViewCell.AccessoryType.none
-        expect(b.accessoryType) == UITableViewCell.AccessoryType.disclosureIndicator
-        expect(c.accessoryType) == UITableViewCell.AccessoryType.detailButton
-        expect(d.accessoryType) == UITableViewCell.AccessoryType.detailDisclosureButton
-      }
-    }
-
-    #elseif os(iOS)
-
-    describe("accessoryType") {
-      let a = NavigationRow(text: "", detailText: .none)
-      let b = NavigationRow(text: "", detailText: .none, action: { _ in })
-
-      it("should return the the corresponding accessory type") {
-        expect(a.accessoryType) == UITableViewCell.AccessoryType.none
-        expect(b.accessoryType) == UITableViewCell.AccessoryType.disclosureIndicator
-      }
-    }
-
-    #endif
-
-    describe("equatable") {
-      let image = UIImage()
-      let row = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
-
-      context("identical parameters") {
-        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
-        it("should be equal") {
-          expect(this) == row
-        }
-      }
-
-      context("different texts") {
-        let this = NavigationRow(text: "Different", detailText: .subtitle("Same"), icon: .image(image), action: nil)
-        it("should not be equal") {
-          expect(this) != row
-        }
-      }
-
-      context("different detail texts") {
-        let this = NavigationRow(text: "Same", detailText: .subtitle("Different"), icon: .image(image), action: nil)
-        it("should not be equal") {
-          expect(this) != row
-        }
-      }
-
-      context("different icons") {
-        let image = UIImage(named: "icon", in: Bundle(for: IconSpec.self), compatibleWith: nil)!
-        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: nil)
-        it("should not be equal") {
-          expect(this) != row
-        }
-      }
-
-      context("different actions") {
-        let this = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(image), action: { _ in })
-        it("should be equal regardless of the actions attached") {
-          expect(this) == row
-        }
-      }
-    }
+    // Then
+    XCTAssertEqual(actionInvoked, true)
+    XCTAssertEqual(accessoryButtonActionInvoked, true)
   }
+  #endif
+
+  #if os(tvOS)
+  func testInitialiation_tvOS() {
+    // Given
+    let detailText = DetailText.subtitle("subtitle")
+    let icon = Icon.named("icon")
+    var actionInvoked = false
+
+    // When
+    let row = NavigationRow(text: "title", detailText: detailText, icon: icon, action: { _ in actionInvoked = true })
+
+    // Then it should have the given parameters
+    XCTAssertEqual(row.text, "title")
+    XCTAssertEqual(row.detailText, detailText)
+
+    // With RowStyle
+    XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell.subtitle")
+    XCTAssertEqual(row.cellStyle, .subtitle)
+    XCTAssertEqual(row.icon, icon)
+    XCTAssertEqual(row.accessoryType, .disclosureIndicator)
+    XCTAssertEqual(row.isSelectable, true)
+    XCTAssertNil(row.customize)
+
+    // When
+    row.action?(row)
+
+    // Then
+    XCTAssertEqual(actionInvoked, true)
+  }
+  #endif
+
+  func testCellReuseIdentifier() {
+    // When
+    let a = NavigationRow(text: "", detailText: .none)
+    let b = NavigationRow(text: "", detailText: .subtitle(""))
+    let c = NavigationRow(text: "", detailText: .value1(""))
+    let d = NavigationRow(text: "", detailText: .value2(""))
+
+    // Then
+    XCTAssertEqual(a.cellReuseIdentifier, "UITableViewCell.default")
+    XCTAssertEqual(b.cellReuseIdentifier, "UITableViewCell.subtitle")
+    XCTAssertEqual(c.cellReuseIdentifier, "UITableViewCell.value1")
+    XCTAssertEqual(d.cellReuseIdentifier, "UITableViewCell.value2")
+  }
+
+  #if os(iOS)
+  func testAccessoryType_iOS() {
+    // When
+    let a = NavigationRow(text: "", detailText: .none)
+    let b = NavigationRow(text: "", detailText: .none, action: { _ in })
+    let c = NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in })
+    let d = NavigationRow(text: "", detailText: .none, action: { _ in }, accessoryButtonAction: { _ in })
+
+    // Then
+    XCTAssertEqual(a.accessoryType, .none)
+    XCTAssertEqual(b.accessoryType, .disclosureIndicator)
+    XCTAssertEqual(c.accessoryType, .detailButton)
+    XCTAssertEqual(d.accessoryType, .detailDisclosureButton)
+  }
+  #endif
+
+  #if os(tvOS)
+  func testAccessoryType_tvOS() {
+    // When
+    let a = NavigationRow(text: "", detailText: .none)
+    let b = NavigationRow(text: "", detailText: .none, action: { _ in })
+
+    // Then
+    XCTAssertEqual(a.accessoryType, .none)
+    XCTAssertEqual(b.accessoryType, .disclosureIndicator)
+  }
+  #endif
+
+  // MARK: - Equatable
+
+  func testEquatable_withIdenticalParameters() {
+    // Given
+    let one = NavigationRow(text: "Same", detailText: .subtitle("Same"), action: nil)
+
+    // When
+    let another = NavigationRow(text: "Same", detailText: .subtitle("Same"), action: nil)
+
+    // Then
+    XCTAssert(one == another)
+  }
+
+  func testEquatable_withDifferentTexts() {
+    // Given
+    let one = NavigationRow(text: "Same", detailText: .subtitle("Same"), action: nil)
+
+    // When
+    let another = NavigationRow(text: "Different", detailText: .subtitle("Same"), action: nil)
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentDetailTexts() {
+    // Given
+    let one = NavigationRow(text: "Same", detailText: .subtitle("Same"), action: nil)
+
+    // When
+    let another = NavigationRow(text: "Same", detailText: .subtitle("Different"), action: nil)
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentIcons() {
+    // Given
+    let one = NavigationRow(text: "Same", detailText: .subtitle("Same"), action: nil)
+
+    // When
+    let another = NavigationRow(text: "Same", detailText: .subtitle("Same"), icon: .image(UIImage()), action: nil)
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentActions() {
+    // Given
+    let one = NavigationRow(text: "Same", detailText: .subtitle("Same"), action: nil)
+
+    // When
+    let another = NavigationRow(text: "Same", detailText: .subtitle("Same"), action: { _ in })
+
+    // Then it should be equal regardless of the actions attached
+    XCTAssert(one == another)
+  }
+
+  #if os(iOS)
+  func testEquatable_withDifferentAccessoryButtonActions() {
+    // Given
+    let one = NavigationRow(text: "Same", detailText: .subtitle("Same"), accessoryButtonAction: nil)
+
+    // When
+    let another = NavigationRow(text: "Same", detailText: .subtitle("Same"), accessoryButtonAction: { _ in })
+
+    // Then it should be equal regardless of the actions attached
+    XCTAssert(one == another)
+  }
+  #endif
 
 }
