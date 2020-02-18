@@ -52,6 +52,11 @@ open class QuickTableView: UITableView {
     super.deleteRows(at: indexPaths, with: animation)
   }
 
+  override open func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
+    self.quickDelegate?.quickReload()
+    super.moveRow(at: indexPath, to: newIndexPath)
+  }
+
   // MARK: Sections
 
   override open func reloadSections(_ sections: IndexSet, with animation: UITableView.RowAnimation) {
@@ -72,5 +77,10 @@ open class QuickTableView: UITableView {
   override open func reloadSectionIndexTitles() {
     self.quickDelegate?.quickReload()
     super.reloadSectionIndexTitles()
+  }
+
+  override open func moveSection(_ section: Int, toSection newSection: Int) {
+    self.quickDelegate?.quickReload()
+    super.moveSection(section, toSection: newSection)
   }
 }

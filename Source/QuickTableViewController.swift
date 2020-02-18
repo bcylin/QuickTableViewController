@@ -213,7 +213,6 @@ extension QuickTableViewController: SwitchCellDelegate {
 }
 #endif
 
-
 extension QuickTableViewController: QuickTableViewDelegate {
     internal func quickReload() {
         self.cachedTableContents = self.tableContents
