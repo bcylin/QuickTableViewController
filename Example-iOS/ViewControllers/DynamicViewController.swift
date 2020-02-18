@@ -29,11 +29,11 @@ import QuickTableViewController
 
 internal final class DynamicViewController: QuickTableViewController {
 
-  var dynamicRows: [Row] = []
+  var dynamicRows: [Row & RowStyle] = []
 
   override var tableContents: [Section] {
     get {
-      let rows = [
+      let rows: [Row & RowStyle] = [
         TapActionRow(text: "AddCell", action: { _ in
           self.dynamicRows.append(
             NavigationRow(text: "UITableViewCell", detailText: .value1(String(describing: (self.dynamicRows.count + 1))), action: nil)
@@ -43,7 +43,7 @@ internal final class DynamicViewController: QuickTableViewController {
       ] + dynamicRows
 
       return [
-        Section(title: "Tap Action", rows: rows as! [Row & RowStyle])
+        Section(title: "Tap Action", rows: rows)
       ]
     }
     set {} // swiftlint:disable:this unused_setter_value

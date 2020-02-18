@@ -63,7 +63,6 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
   override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    self.cachedTableContents = self.tableContents
   }
 
   required public init?(coder: NSCoder) {
@@ -111,7 +110,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   }
 
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let row = tableContents[indexPath.section].rows[indexPath.row]
+    let row = cachedTableContents[indexPath.section].rows[indexPath.row]
     let cell =
       tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
       row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellReuseIdentifier)
@@ -137,7 +136,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   }
 
   open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let section = tableContents[indexPath.section]
+    let section = cachedTableContents[indexPath.section]
     let row = section.rows[indexPath.row]
 
     switch (section, row) {
@@ -182,7 +181,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
   #if os(iOS)
   public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-    switch tableContents[indexPath.section].rows[indexPath.row] {
+    switch cachedTableContents[indexPath.section].rows[indexPath.row] {
     case let row as NavigationRowCompatible:
       DispatchQueue.main.async {
         row.accessoryButtonAction?(row)
@@ -204,7 +203,7 @@ extension QuickTableViewController: SwitchCellDelegate {
   open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard
       let indexPath = tableView.indexPath(for: cell),
-      let row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRowCompatible
+      let row = cachedTableContents[indexPath.section].rows[indexPath.row] as? SwitchRowCompatible
     else {
       return
     }
