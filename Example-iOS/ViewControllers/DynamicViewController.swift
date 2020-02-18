@@ -31,10 +31,27 @@ internal final class DynamicViewController: QuickTableViewController {
 
   var dynamicRows: [Row & RowStyle] = []
 
+  private var cachedTableContents: [Section] = []
+
   override var tableContents: [Section] {
     get {
+      return cachedTableContents
+    }
+    set {} // swiftlint:disable:this unused_setter_value
+  }
+
+  private let quickTableView = QuickTableView(frame: .zero, style: .grouped)
+
+  override var tableView: UITableView {
+    get {
+      return quickTableView
+    }
+    set {} // swiftlint:disable:this unused_setter_value
+  }
+
+  private func buildContents() -> [Section] {
       let rows: [Row & RowStyle] = [
-        TapActionRow(text: "AddCell", action: { _ in
+        TapActionRow(text: "AddCell", action: { [unowned self] _ in
           self.dynamicRows.append(
             NavigationRow(text: "UITableViewCell", detailText: .value1(String(describing: (self.dynamicRows.count + 1))), action: nil)
           )
@@ -45,13 +62,19 @@ internal final class DynamicViewController: QuickTableViewController {
       return [
         Section(title: "Tap Action", rows: rows)
       ]
-    }
-    set {} // swiftlint:disable:this unused_setter_value
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Dynamic"
+    cachedTableContents = buildContents()
+    quickTableView.quickDelegate = self
   }
 
+}
+
+extension DynamicViewController: QuickTableViewDelegate {
+  func quickReload() {
+    cachedTableContents = buildContents()
+  }
 }
