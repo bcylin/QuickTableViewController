@@ -11,6 +11,8 @@
 		136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; };
 		136DD308216A36FA00F554F0 /* QuickTableViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2E72C6FDAAB1ACD925E74017 /* Pods_QuickTableViewController_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468C1C7F21AF005E793AB39 /* Pods_QuickTableViewController_tvOSTests.framework */; };
+		3E27069B23FC4D14003516B8 /* QuickTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5323F73E48001DB252 /* QuickTableView.swift */; };
+		3E27069C23FC4D1F003516B8 /* QuickTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5723F7458C001DB252 /* QuickTableViewDelegate.swift */; };
 		3E45597A21DA81B100FC0C76 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597921DA81B100FC0C76 /* DetailText.swift */; };
 		3E45597F21DA8B5F00FC0C76 /* DetailTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */; };
 		3E45598021DA8B6000FC0C76 /* DetailTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */; };
@@ -101,11 +103,7 @@
 		B5F0FFEA1E9CC6F9007BF1C9 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */; };
 		B5F0FFEC1E9CC72D007BF1C9 /* TapActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */; };
 		B5F0FFEE1E9CC73D007BF1C9 /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */; };
-		F6B15A5423F73E48001DB252 /* QuickTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5323F73E48001DB252 /* QuickTableView.swift */; };
 		F6B15A5623F74268001DB252 /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5523F74268001DB252 /* DynamicViewController.swift */; };
-		F6B15A5923F745ED001DB252 /* QuickTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5723F7458C001DB252 /* QuickTableViewDelegate.swift */; };
-		F6B15A5A23F745ED001DB252 /* QuickTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5723F7458C001DB252 /* QuickTableViewDelegate.swift */; };
-		F6B15A5B23F7855A001DB252 /* QuickTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5323F73E48001DB252 /* QuickTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,7 +348,6 @@
 				B55475741F2DC3C00027F7C1 /* Configurable.swift */,
 				B522E1DF1F4AA750004DA5AD /* Reusable.swift */,
 				B5EC18221B95FD7F0015C665 /* Row.swift */,
-				F6B15A5723F7458C001DB252 /* QuickTableViewDelegate.swift */,
 				B5374C8F1FDD7AF700A3EA28 /* RowCompatible.swift */,
 				B50E73841F2E1BC900481910 /* RowStyle.swift */,
 			);
@@ -543,7 +540,6 @@
 			isa = PBXGroup;
 			children = (
 				B5F0FFE51E9CC69C007BF1C9 /* SwitchCell.swift */,
-				F6B15A5323F73E48001DB252 /* QuickTableView.swift */,
 				B595627A1B9758BC00D6DAB1 /* TapActionCell.swift */,
 			);
 			path = Views;
@@ -568,6 +564,8 @@
 				B51F21A61F417037009BC2C9 /* ExampleViewController.swift */,
 				B5A67A13202069440075E0C8 /* RootViewController.swift */,
 				F6B15A5523F74268001DB252 /* DynamicViewController.swift */,
+				F6B15A5323F73E48001DB252 /* QuickTableView.swift */,
+				F6B15A5723F7458C001DB252 /* QuickTableViewDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1066,6 +1064,8 @@
 			files = (
 				F6B15A5623F74268001DB252 /* DynamicViewController.swift in Sources */,
 				B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */,
+				3E27069C23FC4D1F003516B8 /* QuickTableViewDelegate.swift in Sources */,
+				3E27069B23FC4D14003516B8 /* QuickTableView.swift in Sources */,
 				B5A37EAE20208EF7009C075F /* AppearanceViewController.swift in Sources */,
 				B5A67A1220205F5C0075E0C8 /* CustomizationViewController.swift in Sources */,
 				B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */,
@@ -1095,7 +1095,6 @@
 				B5E619CF1F454CF0005200E1 /* RadioSection.swift in Sources */,
 				B522E1E01F4AA750004DA5AD /* Reusable.swift in Sources */,
 				B5EC18231B95FD7F0015C665 /* Row.swift in Sources */,
-				F6B15A5A23F745ED001DB252 /* QuickTableViewDelegate.swift in Sources */,
 				B5374C901FDD7AF800A3EA28 /* RowCompatible.swift in Sources */,
 				B50E73851F2E1BC900481910 /* RowStyle.swift in Sources */,
 				B5E029211DC7A39200B5C90E /* Section.swift in Sources */,
@@ -1103,7 +1102,6 @@
 				B5F0FFE61E9CC69C007BF1C9 /* SwitchCell.swift in Sources */,
 				B5F0FFEA1E9CC6F9007BF1C9 /* SwitchRow.swift in Sources */,
 				B595627B1B9758BC00D6DAB1 /* TapActionCell.swift in Sources */,
-				F6B15A5423F73E48001DB252 /* QuickTableView.swift in Sources */,
 				B5F0FFEC1E9CC72D007BF1C9 /* TapActionRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1137,7 +1135,6 @@
 				B54A2443208883A300EEBA26 /* Configurable.swift in Sources */,
 				3E45598521DC184800FC0C76 /* Deprecated.swift in Sources */,
 				3E45598421DC181600FC0C76 /* DetailText.swift in Sources */,
-				F6B15A5B23F7855A001DB252 /* QuickTableView.swift in Sources */,
 				B54A243F208883A300EEBA26 /* Icon.swift in Sources */,
 				B54A2448208883A300EEBA26 /* NavigationRow.swift in Sources */,
 				B54A2449208883A300EEBA26 /* OptionRow.swift in Sources */,
@@ -1150,7 +1147,6 @@
 				B54A2441208883A300EEBA26 /* Section.swift in Sources */,
 				B54A2442208883A300EEBA26 /* Subtitle.swift in Sources */,
 				B54A244C208883A300EEBA26 /* SwitchCell.swift in Sources */,
-				F6B15A5923F745ED001DB252 /* QuickTableViewDelegate.swift in Sources */,
 				B54A244A208883A300EEBA26 /* SwitchRow.swift in Sources */,
 				B54A244D208883A300EEBA26 /* TapActionCell.swift in Sources */,
 				B54A244B208883A300EEBA26 /* TapActionRow.swift in Sources */,

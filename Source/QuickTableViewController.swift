@@ -33,17 +33,12 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   open var clearsSelectionOnViewWillAppear = true
 
   /// Returns the table view managed by the controller object.
-  open private(set) var tableView: QuickTableView = QuickTableView(frame: .zero, style: .grouped)
+  open private(set) var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
 
-   public private(set) var cachedTableContents: [Section] = []
   /// The layout of sections and rows to display in the table view.
-  open var tableContents: [Section] {
-    get {
-        return self.cachedTableContents
-    }
-    set {
-        self.cachedTableContents = newValue
-        self.tableView.reloadData()
+  open var tableContents: [Section] = [] {
+    didSet {
+      tableView.reloadData()
     }
   }
 
@@ -58,15 +53,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
    */
   public convenience init(style: UITableView.Style) {
     self.init(nibName: nil, bundle: nil)
-    tableView = QuickTableView(frame: .zero, style: style)
-  }
-
-  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-  }
-
-  required public init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+    tableView = UITableView(frame: .zero, style: style)
   }
 
   deinit {
@@ -85,7 +72,6 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     tableView.estimatedRowHeight = 44
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.quickDelegate = self
   }
 
   open override func viewWillAppear(_ animated: Bool) {
@@ -98,19 +84,19 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   // MARK: - UITableViewDataSource
 
   open func numberOfSections(in tableView: UITableView) -> Int {
-    return cachedTableContents.count
+    return tableContents.count
   }
 
   open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return cachedTableContents[section].rows.count
+    return tableContents[section].rows.count
   }
 
   open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return cachedTableContents[section].title
+    return tableContents[section].title
   }
 
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let row = cachedTableContents[indexPath.section].rows[indexPath.row]
+    let row = tableContents[indexPath.section].rows[indexPath.row]
     let cell =
       tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
       row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellReuseIdentifier)
@@ -126,17 +112,17 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   }
 
   open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-    return cachedTableContents[section].footer
+    return tableContents[section].footer
   }
 
   // MARK: - UITableViewDelegate
 
   open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-    return cachedTableContents[indexPath.section].rows[indexPath.row].isSelectable
+    return tableContents[indexPath.section].rows[indexPath.row].isSelectable
   }
 
   open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let section = cachedTableContents[indexPath.section]
+    let section = tableContents[indexPath.section]
     let row = section.rows[indexPath.row]
 
     switch (section, row) {
@@ -181,7 +167,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
   #if os(iOS)
   public func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-    switch cachedTableContents[indexPath.section].rows[indexPath.row] {
+    switch tableContents[indexPath.section].rows[indexPath.row] {
     case let row as NavigationRowCompatible:
       DispatchQueue.main.async {
         row.accessoryButtonAction?(row)
@@ -203,7 +189,7 @@ extension QuickTableViewController: SwitchCellDelegate {
   open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard
       let indexPath = tableView.indexPath(for: cell),
-      let row = cachedTableContents[indexPath.section].rows[indexPath.row] as? SwitchRowCompatible
+      let row = tableContents[indexPath.section].rows[indexPath.row] as? SwitchRowCompatible
     else {
       return
     }
@@ -212,9 +198,3 @@ extension QuickTableViewController: SwitchCellDelegate {
 
 }
 #endif
-
-extension QuickTableViewController: QuickTableViewDelegate {
-    internal func quickReload() {
-        self.cachedTableContents = self.tableContents
-    }
-}
