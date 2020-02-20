@@ -1,5 +1,5 @@
 //
-//  IconSpec.swift
+//  IconTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 17/01/2016.
@@ -24,81 +24,93 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 @testable import QuickTableViewController
+import XCTest
 
-internal final class IconSpec: QuickSpec {
+internal final class IconTests: XCTestCase {
 
-  override func spec() {
-    let image = UIImage(named: "icon", in: Bundle(for: IconSpec.self), compatibleWith: nil)!
-    let highlighted = UIImage(named: "icon-highlighted", in: Bundle(for: IconSpec.self), compatibleWith: nil)!
+  private let image = UIImage(named: "icon", in: Bundle(for: IconTests.self), compatibleWith: nil)!
+  private let highlighted = UIImage(named: "icon-highlighted", in: Bundle(for: IconTests.self), compatibleWith: nil)!
 
-    describe("initialization") {
-      context("image") {
-        let icon = Icon.image(image)
-        it("should initialize with the image") {
-          expect(icon.image) == image
-          expect(icon.highlightedImage).to(beNil())
-        }
-      }
+  // MARK: - Initialization
 
-      context("image name") {
-        let icon = Icon.named("name")
-        it("should initialize with the image name") {
-          expect(icon.image).to(beNil())
-          expect(icon.highlightedImage).to(beNil())
-        }
-      }
-    }
+  func testInitialiation() {
+    // Given
+    let image = self.image
 
-    describe("equatable") {
-      let a = Icon.image(image)
+    // When
+    let icon = Icon.image(image)
 
-      context("identical images") {
-        let b = Icon.image(image)
-        it("should be equal") {
-          expect(a) == b
-        }
-      }
-
-      context("different images") {
-        let c = Icon.image(highlighted)
-        it("should not be equal") {
-          expect(a) != c
-        }
-      }
-
-      context("different highlighted images") {
-        let d = Icon.images(normal: image, highlighted: highlighted)
-        let e = Icon.images(normal: image, highlighted: UIImage())
-        it("should not be equal") {
-          expect(d) != e
-        }
-      }
-
-      let f = Icon.named("Same")
-
-      context("different image specification") {
-        it("should not be queal") {
-          expect(a) != f
-        }
-      }
-
-      context("identical image names") {
-        let g = Icon.named("Same")
-        it("should be eqaul") {
-          expect(f) == g
-        }
-      }
-
-      context("different image names") {
-        let h = Icon.named("Different")
-        it("should not be equal") {
-          expect(f) != h
-        }
-      }
-    }
+    // Then
+    XCTAssertEqual(icon.image, image)
+    XCTAssertNil(icon.highlightedImage)
   }
 
+  // MARK: - Equatable
+
+  func testEquatable_withIdenticalParameters() {
+    // Given
+    let one = Icon.image(image)
+
+    // When
+    let another = Icon.image(image)
+
+    // Then
+    XCTAssert(one == another)
+  }
+
+  func testEquatable_withDifferentImages() {
+    // Given
+    let one = Icon.image(image)
+
+    // When
+    let another = Icon.image(highlighted)
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentHighlightedImages() {
+    // Given
+    let one = Icon.images(normal: image, highlighted: highlighted)
+
+    // When
+    let another = Icon.images(normal: image, highlighted: UIImage())
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withDifferentImageSpecifications() {
+    // Given
+    let one = Icon.image(image)
+
+    // When
+    let another = Icon.named("image")
+
+    // Then
+    XCTAssert(one != another)
+  }
+
+  func testEquatable_withIdenticalImageNames() {
+    // Given
+    let one = Icon.named("Same")
+
+    // When
+    let another = Icon.named("Same")
+
+    // Then
+    XCTAssert(one == another)
+  }
+
+  func testEquatable_withDifferentImageNames() {
+    // Given
+    let one = Icon.named("Same")
+
+    // When
+    let another = Icon.named("Different")
+
+    // Then
+    XCTAssert(one != another)
+  }
 }

@@ -1,5 +1,5 @@
 //
-//  QuickTableViewControllerSpec.swift
+//  QuickTableViewControllerTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 21/01/2016.
@@ -24,44 +24,39 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 @testable import QuickTableViewController
+import XCTest
 
-internal final class QuickTableViewControllerSpec: QuickSpec {
+internal final class QuickTableViewControllerTests: XCTestCase {
 
-  override func spec() {
+  func testInitialization() {
+    // When
+    let controller = QuickTableViewController()
 
-    // MARK: - Initializer
+    // Then it should set up table view with style
+    XCTAssertEqual(controller.tableView.style, .grouped)
+  }
 
-    describe("init(style:)") {
-      it("should set up table view with style") {
-        expect(QuickTableViewController().tableView.style) == UITableView.Style.grouped
-        expect(QuickTableViewController(style: .plain).tableView.style) == UITableView.Style.plain
-      }
-    }
+  func testInitialization_withStyle() {
+    // When
+    let controller = QuickTableViewController(style: .plain)
 
-    // MARK: - UIViewController
+    // Then it should set up table view with style
+    XCTAssertEqual(controller.tableView.style, .plain)
+  }
 
-    describe("lifecycle") {
-      var tableView: UITableView! // swiftlint:disable:this implicitly_unwrapped_optional
+  func testViewConfiguration() {
+    // Given
+    let controller = QuickTableViewController(style: .grouped)
 
-      it("should set up table view") {
-        let controller = QuickTableViewController(style: .grouped)
-        let view = controller.view
-        tableView = controller.tableView
+    // When
+    let view = controller.view
+    let tableView = controller.tableView
 
-        expect(view?.subviews).to(contain(tableView))
-        expect(tableView.dataSource as? QuickTableViewController) == controller
-        expect(tableView.delegate as? QuickTableViewController) == controller
-      }
-
-      it("should nullify the references after controller is gone") {
-        expect(tableView).notTo(beNil())
-        expect(tableView.dataSource).toEventually(beNil())
-        expect(tableView.delegate).toEventually(beNil())
-      }
-    }
+    // Than it should set up table view
+    XCTAssert(try XCTUnwrap(view?.subviews.contains(tableView)))
+    XCTAssertEqual(tableView.dataSource as? QuickTableViewController, controller)
+    XCTAssertEqual(tableView.delegate as? QuickTableViewController, controller)
   }
 
 }

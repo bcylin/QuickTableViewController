@@ -1,5 +1,5 @@
 //
-//  SectionSpec.swift
+//  SectionTests.swift
 //  QuickTableViewController
 //
 //  Created by Ben on 18/01/2016.
@@ -24,23 +24,23 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 import QuickTableViewController
+import XCTest
 
-internal final class SectionSpec: QuickSpec {
+internal final class SectionTests: XCTestCase {
 
-  override func spec() {
-    describe("initialization") {
-      let row = NavigationRow(text: "", detailText: .none)
-      let section = Section(title: "title", rows: [row], footer: "footer")
-      it("should initialize with given parameters") {
-        expect(section.title) == "title"
-        expect(section.rows).to(haveCount(1))
-        expect(section.rows.first as? NavigationRow) == row
-        expect(section.footer) == "footer"
-      }
-    }
+  func testInitialiation() {
+    // Given
+    let row = NavigationRow(text: "", detailText: .none)
+
+    // When
+    let section = Section(title: "title", rows: [row], footer: "footer")
+
+    // Then it should have the given parameters
+    XCTAssertEqual(section.title, "title")
+    XCTAssertEqual(section.rows.count, 1)
+    XCTAssertEqual(section.rows.first as? NavigationRow, row)
+    XCTAssertEqual(section.footer, "footer")
   }
 
 }
