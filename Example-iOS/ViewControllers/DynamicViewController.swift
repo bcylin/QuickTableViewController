@@ -2,7 +2,7 @@
 //  AppearanceViewController.swift
 //  Example-iOS
 //
-//  Created by Ben on 30/01/2018.
+//  Created by Zac on 30/01/2018.
 //  Copyright © 2018 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy

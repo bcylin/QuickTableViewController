@@ -27,6 +27,10 @@
 import Foundation
 import UIKit
 
+internal protocol QuickTableViewDelegate: class {
+    func quickReload()
+}
+
 open class QuickTableView: UITableView {
     internal weak var quickDelegate: QuickTableViewDelegate?
 
