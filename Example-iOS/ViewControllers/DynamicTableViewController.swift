@@ -1,9 +1,8 @@
 //
-//  AppearanceViewController.swift
+//  DynamicTableViewController.swift
 //  Example-iOS
 //
 //  Created by Zac on 30/01/2018.
-//  Copyright © 2018 bcylin.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
