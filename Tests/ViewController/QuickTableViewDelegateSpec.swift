@@ -1,5 +1,5 @@
 //
-//  QuickTableViewDelegateSpec.swift
+//  QuickTableViewDelegateTests.swift
 //  QuickTableViewControllerTests
 //
 //  Created by Ben on 31/12/2017.
@@ -24,275 +24,289 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 @testable import QuickTableViewController
+import XCTest
 
-internal final class QuickTableViewDelegateSpec: QuickSpec {
+internal final class QuickTableViewDelegateTests: XCTestCase {
 
-  override func spec() {
+  private var controller: QuickTableViewController!
 
-    // MARK: tableView(_:shouldHighlightRowAt:)
+  override func setUp() {
+    super.setUp()
+    controller = QuickTableViewController()
+    _ = controller.view
+  }
 
-    describe("tableView(_:shouldHighlightRowAt:)") {
-      let controller = QuickTableViewController()
-      _ = controller.view
+  // MARK: - tableView(_:shouldHighlightRowAt:)
 
-      controller.tableContents = [
-        Section(title: "NavigationRow", rows: [
-          NavigationRow(text: "", detailText: .none),
-          CustomNavigationRow(text: "", detailText: .none),
-          NavigationRow<CustomCell>(text: "", detailText: .none),
-          CustomNavigationRow<CustomCell>(text: "", detailText: .none)
-        ]),
+  func testTableViewShouldHighlightRowAt_navigationRow() {
+    // Given
+    controller.tableContents = [
+      Section(title: "NavigationRow without actions", rows: [
+        NavigationRow(text: "", detailText: .none),
+        CustomNavigationRow(text: "", detailText: .none),
+        NavigationRow<CustomCell>(text: "", detailText: .none),
+        CustomNavigationRow<CustomCell>(text: "", detailText: .none)
+      ]),
 
-        Section(title: "NavigationRow", rows: [
-          NavigationRow(text: "", detailText: .none, action: { _ in }),
-          CustomNavigationRow(text: "", detailText: .none, action: { _ in }),
-          NavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in }),
-          CustomNavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in })
-        ]),
+      Section(title: "NavigationRow with actions", rows: [
+        NavigationRow(text: "", detailText: .none, action: { _ in }),
+        CustomNavigationRow(text: "", detailText: .none, action: { _ in }),
+        NavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in }),
+        CustomNavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in })
+      ])
+    ]
 
-        Section(title: "SwitchRow", rows: [
-          SwitchRow(text: "", switchValue: true, action: nil),
-          CustomSwitchRow(text: "", switchValue: true, action: nil),
-          SwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil),
-          CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
-        ]),
+    for row in 0...3 {
+      let section = 0
 
-        Section(title: "TapActionRow", rows: [
-          TapActionRow(text: "", action: { _ in }),
-          CustomTapActionRow(text: "", action: { _ in }),
-          TapActionRow<CustomTapActionCell>(text: "", action: { _ in }),
-          CustomTapActionRow<CustomTapActionCell>(text: "", action: { _ in })
-        ]),
+      // When
+      let highlighted = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: row, section: section))
 
-        Section(title: "OptionRow", rows: [
-          OptionRow(text: "", isSelected: false, action: nil),
-          CustomOptionRow(text: "", isSelected: false, action: nil),
-          OptionRow<CustomCell>(text: "", isSelected: false, action: nil),
-          CustomOptionRow<CustomCell>(text: "", isSelected: false, action: nil)
-        ]),
-
-        RadioSection(title: "RadioSection", options: [
-          OptionRow(text: "", isSelected: false, action: { _ in }),
-          CustomOptionRow(text: "", isSelected: false, action: { _ in }),
-          OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in }),
-          CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in })
-        ])
-      ]
-
-      it("should not highlight NavigationRow without an action") {
-        for index in 0...3 {
-          let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 0))
-          expect(highlight) == false
-        }
-      }
-
-      it("should highlight NavigationRow with an action") {
-        for index in 0...3 {
-          let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 1))
-          expect(highlight) == true
-        }
-      }
-
-      it("should not highlight SwitchRow") {
-        for index in 0...3 {
-          let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 2))
-          #if os(iOS)
-            expect(highlight) == false
-          #elseif os(tvOS)
-            expect(highlight) == true
-          #endif
-        }
-      }
-
-      it("should highlight TapActionRow") {
-        for index in 0...3 {
-          let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 3))
-          expect(highlight) == true
-        }
-      }
-
-      it("should highlight OptionRow without an action") {
-        for index in 0...3 {
-          let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 4))
-          expect(highlight) == true
-        }
-      }
-
-      it("should highlight OptionRow with an action") {
-        for index in 0...3 {
-          let highlight = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: index, section: 5))
-          expect(highlight) == true
-        }
-      }
+      // Then it should not highlight NavigationRow without an action
+      XCTAssertEqual(highlighted, false)
     }
 
-    // MARK: - tableView(_:didSelectRowAt:)
+    for row in 0...3 {
+      let section = 1
 
-    describe("tableView(_:didSelectRowAt:)") {
+      // When
+      let highlighted = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: row, section: section))
 
-      // MARK: Section
-
-      context("Section") {
-        context("NavigationRow") {
-          let controller = QuickTableViewController()
-          _ = controller.view
-          var selectedIndex = -1
-
-          controller.tableContents = [
-            Section(title: "NavigationRow", rows: [
-              NavigationRow(text: "", detailText: .none, action: { _ in selectedIndex = 0 }),
-              CustomNavigationRow(text: "", detailText: .none, action: { _ in selectedIndex = 1 }),
-              NavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in selectedIndex = 2 }),
-              CustomNavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in selectedIndex = 3 })
-            ])
-          ]
-
-          for index in 0...3 {
-            it("should invoke action when \(index) is selected") {
-              controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(selectedIndex).toEventually(equal(index))
-            }
-          }
-        }
-
-        context("TapActionRow") {
-          let controller = QuickTableViewController()
-          _ = controller.view
-          var selectedIndex = -1
-
-          controller.tableContents = [
-            Section(title: "TapActionRow", rows: [
-              TapActionRow(text: "", action: { _ in selectedIndex = 0 }),
-              CustomTapActionRow(text: "", action: { _ in selectedIndex = 1 }),
-              TapActionRow<CustomTapActionCell>(text: "", action: { _ in selectedIndex = 2 }),
-              CustomTapActionRow<CustomTapActionCell>(text: "", action: { _ in selectedIndex = 3 })
-            ])
-          ]
-
-          for index in 0...3 {
-            it("should invoke action when \(index) is selected") {
-              controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(selectedIndex).toEventually(equal(index))
-            }
-          }
-        }
-
-        context("OptionRow") {
-          let controller = QuickTableViewController()
-          _ = controller.view
-          var toggledIndex = -1
-
-          let section = Section(title: "OptionRow", rows: [
-            OptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 0 }),
-            CustomOptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 1 }),
-            OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 2 }),
-            CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 3 })
-          ])
-          controller.tableContents = [section]
-
-          for index in 0...3 {
-            it("should invoke action when \(index) is selected") {
-              controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(toggledIndex).toEventually(equal(index))
-
-              let option = section.rows[index] as? OptionRowCompatible
-              expect(option?.isSelected) == true
-            }
-          }
-        }
-      }
-
-      // MARK: Radio Section
-
-      context("RadioSection") {
-        context("default") {
-          let controller = QuickTableViewController()
-          _ = controller.view
-          var toggledIndex = -1
-
-          let radio = RadioSection(title: "alwaysSelectsOneOption = false", options: [
-            OptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 0 }),
-            CustomOptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 1 }),
-            OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 2 }),
-            CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 3 })
-          ])
-          controller.tableContents = [radio]
-
-          for index in 0...3 {
-            it("should invoke action when \(index) is selected") {
-              controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(toggledIndex).toEventually(equal(index))
-
-              let option = radio.rows[index] as? OptionRowCompatible
-              expect(option?.isSelected) == true
-
-              controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(option?.isSelected) == false
-            }
-          }
-        }
-
-        context("alwaysSelectsOneOption") {
-          let controller = QuickTableViewController()
-          _ = controller.view
-          var toggledIndex = -1
-
-          let radio = RadioSection(title: "alwaysSelectsOneOption = true", options: [
-            OptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 0 }),
-            CustomOptionRow(text: "", isSelected: false, action: { _ in toggledIndex = 1 }),
-            OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 2 }),
-            CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in toggledIndex = 3 })
-          ])
-          radio.alwaysSelectsOneOption = true
-          controller.tableContents = [radio]
-
-          for index in 0...3 {
-            it("should invoke action when \(index) is selected") {
-              controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(toggledIndex).toEventually(equal(index))
-
-              let option = controller.tableContents[0].rows[index] as? OptionRowCompatible
-              expect(option?.isSelected) == true
-
-              controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
-              expect(option?.isSelected) == true
-              expect(radio.indexOfSelectedOption) == index
-            }
-          }
-        }
-      }
-
-      #if os(iOS)
-
-      // MARK: - tableView(_:accessoryButtonTappedForRowWith:)
-      describe("tableView(_:accessoryButtonTappedForRowWith:)") {
-        let controller = QuickTableViewController()
-        _ = controller.view
-        var selectedIndex = -1
-
-        controller.tableContents = [
-          Section(title: "NavigationRow", rows: [
-            NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 0 }),
-            CustomNavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 1 }),
-            NavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 2 }),
-            CustomNavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in selectedIndex = 3 })
-          ])
-        ]
-
-        for index in 0...3 {
-          it("should invoke action when accessory button at \(index) is selected") {
-            controller.tableView(controller.tableView, accessoryButtonTappedForRowWith: IndexPath(row: index, section: 0))
-            expect(selectedIndex).toEventually(equal(index))
-          }
-        }
-      }
-
-      #endif
-
+      // Then it should highlight NavigationRow with an action
+      XCTAssertEqual(highlighted, true)
     }
   }
+
+  func testTableViewShouldHighlightRowAt_switchRow() {
+    // Given
+    controller.tableContents = [
+      Section(title: "SwitchRow", rows: [
+        SwitchRow(text: "", switchValue: true, action: nil),
+        CustomSwitchRow(text: "", switchValue: true, action: nil),
+        SwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil),
+        CustomSwitchRow<CustomSwitchCell>(text: "", switchValue: true, action: nil)
+      ])
+    ]
+
+    for row in 0...3 {
+      // When
+      let highlighted = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: row, section: 0))
+
+      // Then
+      #if os(iOS)
+        XCTAssertEqual(highlighted, false)
+      #elseif os(tvOS)
+        XCTAssertEqual(highlighted, true)
+      #endif
+    }
+  }
+
+  func testTableViewShouldHighlightRowAt_tapActionRow() {
+    // Given
+    controller.tableContents = [
+      Section(title: "TapActionRow", rows: [
+        TapActionRow(text: "", action: { _ in }),
+        CustomTapActionRow(text: "", action: { _ in }),
+        TapActionRow<CustomTapActionCell>(text: "", action: { _ in }),
+        CustomTapActionRow<CustomTapActionCell>(text: "", action: { _ in })
+      ])
+    ]
+
+    for row in 0...3 {
+      // When
+      let highlighted = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: row, section: 0))
+
+      // Then
+      XCTAssertEqual(highlighted, true)
+    }
+  }
+
+  func testTableViewShouldHighlightRowAt_optionRow() {
+    // Given
+    controller.tableContents = [
+      Section(title: "OptionRow withou actions", rows: [
+        OptionRow(text: "", isSelected: false, action: nil),
+        CustomOptionRow(text: "", isSelected: false, action: nil),
+        OptionRow<CustomCell>(text: "", isSelected: false, action: nil),
+        CustomOptionRow<CustomCell>(text: "", isSelected: false, action: nil)
+      ]),
+
+      RadioSection(title: "RadioSection with actions", options: [
+        OptionRow(text: "", isSelected: false, action: { _ in }),
+        CustomOptionRow(text: "", isSelected: false, action: { _ in }),
+        OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in }),
+        CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in })
+      ])
+    ]
+
+    for row in 0...3 {
+      let section = 0
+
+      // When
+      let highlighted = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: row, section: section))
+
+      // Then it should highlight OptionRow without an action
+      XCTAssertEqual(highlighted, true)
+    }
+
+    for row in 0...3 {
+      let section = 1
+
+      // When
+      let highlighted = controller.tableView(controller.tableView, shouldHighlightRowAt: IndexPath(row: row, section: section))
+
+      // Then it should highlight OptionRow with an action
+      XCTAssertEqual(highlighted, true)
+    }
+  }
+
+  // MARK: - tableView(_:didSelectRowAt:)
+
+  func testTableViewDidSelectRowAt_sectionWithNavigationRow() {
+    // Given
+    let expectations = (0...3).map { expectation(description: "it should invoke the action closure at index \($0)") }
+
+    controller.tableContents = [
+      Section(title: "NavigationRow", rows: [
+        NavigationRow(text: "", detailText: .none, action: { _ in expectations[0].fulfill() }),
+        CustomNavigationRow(text: "", detailText: .none, action: { _ in expectations[1].fulfill() }),
+        NavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in expectations[2].fulfill() }),
+        CustomNavigationRow<CustomCell>(text: "", detailText: .none, action: { _ in expectations[3].fulfill() })
+      ])
+    ]
+
+    // When
+    for row in 0...3 {
+      controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: row, section: 0))
+    }
+
+    // Then it should invoke the action when row is selected
+    waitForExpectations(timeout: 1, handler: nil)
+  }
+
+  func testTableViewDidSelectRowAt_sectionWithTapActionRow() {
+    // Given
+    let expectations = (0...3).map { expectation(description: "it should invoke the action closure at index \($0)") }
+
+    controller.tableContents = [
+      Section(title: "TapActionRow", rows: [
+        TapActionRow(text: "", action: { _ in expectations[0].fulfill() }),
+        CustomTapActionRow(text: "", action: { _ in expectations[1].fulfill() }),
+        TapActionRow<CustomTapActionCell>(text: "", action: { _ in expectations[2].fulfill() }),
+        CustomTapActionRow<CustomTapActionCell>(text: "", action: { _ in expectations[3].fulfill() })
+      ])
+    ]
+
+    // When
+    for row in 0...3 {
+      controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: row, section: 0))
+    }
+
+    // Then it should invoke the action when row is selected
+    waitForExpectations(timeout: 1, handler: nil)
+  }
+
+  func testTableViewDidSelectRowAt_sectionWithOptionRow() {
+    // Given
+    let expectations = (0...3).map { expectation(description: "it should invoke the action closure at index \($0)") }
+
+    controller.tableContents = [
+      Section(title: "OptionRow", rows: [
+        OptionRow(text: "", isSelected: false, action: { _ in expectations[0].fulfill() }),
+        CustomOptionRow(text: "", isSelected: false, action: { _ in expectations[1].fulfill() }),
+        OptionRow<CustomCell>(text: "", isSelected: false, action: { _ in expectations[2].fulfill() }),
+        CustomOptionRow<CustomCell>(text: "", isSelected: false, action: { _ in expectations[3].fulfill() })
+      ])
+    ]
+
+    // When
+    for row in 0...3 {
+      controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: row, section: 0))
+    }
+
+    // Then it should invoke the action when row is selected
+    waitForExpectations(timeout: 1, handler: nil)
+  }
+
+  func testTableViewDidSelectRowAt_radioSectionWithOptionRow() {
+    // Given
+    let radio = RadioSection(title: "alwaysSelectsOneOption = false", options: [
+      OptionRow(text: "", isSelected: false, action: nil),
+      CustomOptionRow(text: "", isSelected: false, action: nil),
+      OptionRow<CustomCell>(text: "", isSelected: false, action: nil),
+      CustomOptionRow<CustomCell>(text: "", isSelected: false, action: nil)
+    ])
+    controller.tableContents = [radio]
+
+    for index in 0...3 {
+      // When
+      controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
+
+      // Then the row should be selected
+      let option = radio.rows[index] as? OptionRowCompatible
+      XCTAssertEqual(option?.isSelected, true)
+
+      // When
+      controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
+
+      // The selection should be toggled when selected again
+      XCTAssertEqual(option?.isSelected, false)
+    }
+  }
+
+  func testTableViewDidSelectRowAt_radioSectionThatAlwaysSelectsOneOption() {
+    // Given
+    let radio = RadioSection(title: "alwaysSelectsOneOption = true", options: [
+      OptionRow(text: "", isSelected: false, action: nil),
+      CustomOptionRow(text: "", isSelected: false, action: nil),
+      OptionRow<CustomCell>(text: "", isSelected: false, action: nil),
+      CustomOptionRow<CustomCell>(text: "", isSelected: false, action: nil)
+    ])
+    radio.alwaysSelectsOneOption = true
+    controller.tableContents = [radio]
+
+    for index in 0...3 {
+      // When
+      controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
+
+      // The row should be selected
+      let option = radio.rows[index] as? OptionRowCompatible
+      XCTAssertEqual(option?.isSelected, true)
+
+      // When
+      controller.tableView(controller.tableView, didSelectRowAt: IndexPath(row: index, section: 0))
+
+      // The row should not be deselected
+      XCTAssertEqual(option?.isSelected, true)
+      XCTAssertEqual(radio.indexOfSelectedOption, index)
+    }
+  }
+
+  // MARK: -
+
+  #if os(iOS)
+  func testTableViewAccessoryButtonTappedForRowWith() {
+    // Given
+    let expectations = (0...3).map { expectation(description: "it should invoke the action closure at index \($0)") }
+
+    controller.tableContents = [
+      Section(title: "NavigationRow", rows: [
+        NavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in expectations[0].fulfill() }),
+        CustomNavigationRow(text: "", detailText: .none, accessoryButtonAction: { _ in expectations[1].fulfill() }),
+        NavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in expectations[2].fulfill() }),
+        CustomNavigationRow<CustomCell>(text: "", detailText: .none, accessoryButtonAction: { _ in expectations[3].fulfill() })
+      ])
+    ]
+
+    // When
+    for index in 0...3 {
+      controller.tableView(controller.tableView, accessoryButtonTappedForRowWith: IndexPath(row: index, section: 0))
+    }
+
+    // Then it should invoke action when accessory button is selected
+    waitForExpectations(timeout: 1, handler: nil)
+  }
+  #endif
 
 }

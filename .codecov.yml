@@ -1,6 +1,9 @@
 coverage:
   status:
     patch: off
+    project:
+      default:
+        target: 90%
 comment:
   layout: "diff, files"
 ignore:

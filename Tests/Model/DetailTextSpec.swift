@@ -1,5 +1,5 @@
 //
-//  DetailTextSpec.swift
+//  DetailTextTests.swift
 //  QuickTableViewController
 //
 //  Created by bcylin on 31/12/2018.
@@ -24,85 +24,80 @@
 //  SOFTWARE.
 //
 
-import Nimble
-import Quick
 @testable import QuickTableViewController
+import XCTest
 
-internal final class DetailTextSpec: QuickSpec {
+internal final class DetailTextTests: XCTestCase {
 
-  override func spec() {
-    describe("cell style") {
-      it("should return the descriptive name of the style") {
-        expect(DetailText.none.style) == .default
-        expect(DetailText.subtitle("text").style) == .subtitle
-        expect(DetailText.value1("text").style) == .value1
-        expect(DetailText.value2("text").style) == .value2
-      }
-    }
-
-    describe("associtated value") {
-      it("should return the associated text") {
-        expect(DetailText.none.text).to(beNil())
-        expect(DetailText.subtitle("3").text) == "3"
-        expect(DetailText.value1("1").text) == "1"
-        expect(DetailText.value2("2").text) == "2"
-      }
-    }
-
-    describe("equatable") {
-      context(".none") {
-        it("should be equal when both are .none") {
-          let a = DetailText.none
-          let b = DetailText.none
-          expect(a) == b
-        }
-      }
-
-      context(".subtitle") {
-        let a = DetailText.subtitle("Same")
-        let b = DetailText.subtitle("Same")
-        let c = DetailText.subtitle("Different")
-        let d = DetailText.value1("Same")
-        let e = DetailText.none
-
-        it("should be equal only when type and associated value match") {
-          expect(a) == b
-          expect(a) != c
-          expect(a) != d
-          expect(a) != e
-        }
-      }
-
-      context(".value1") {
-        let a = DetailText.value1("Same")
-        let b = DetailText.value1("Same")
-        let c = DetailText.value1("Different")
-        let d = DetailText.value2("Same")
-        let e = DetailText.none
-
-        it("should be equal only when type and associated value match") {
-          expect(a) == b
-          expect(a) != c
-          expect(a) != d
-          expect(a) != e
-        }
-      }
-
-      context(".value2") {
-        let a = DetailText.value2("Same")
-        let b = DetailText.value2("Same")
-        let c = DetailText.value2("Different")
-        let d = DetailText.subtitle("Same")
-        let e = DetailText.none
-
-        it("should be equal only when type and associated value match") {
-          expect(a) == b
-          expect(a) != c
-          expect(a) != d
-          expect(a) != e
-        }
-      }
-    }
+  func testCellStyle() {
+    // It should return the descriptive name of the style
+    XCTAssertEqual(DetailText.none.style, .default)
+    XCTAssertEqual(DetailText.subtitle("text").style, .subtitle)
+    XCTAssertEqual(DetailText.value1("text").style, .value1)
+    XCTAssertEqual(DetailText.value2("text").style, .value2)
   }
 
+  func testAssocitatedValue() {
+    // It should return the associated text
+    XCTAssertNil(DetailText.none.text)
+    XCTAssertEqual(DetailText.subtitle("3").text, "3")
+    XCTAssertEqual(DetailText.value1("1").text, "1")
+    XCTAssertEqual(DetailText.value2("2").text, "2")
+  }
+
+  // MARK: - Equatable
+
+  func testEquatableNone() {
+    // Given
+    let a = DetailText.none
+    let b = DetailText.none
+
+    // Then it should be equal when both are .none
+    XCTAssert(a == b)
+  }
+
+  func testEquatableSubtitle() {
+    // Given
+    let a = DetailText.subtitle("Same")
+    let b = DetailText.subtitle("Same")
+    let c = DetailText.subtitle("Different")
+    let d = DetailText.value1("Same")
+    let e = DetailText.none
+
+    // Then it should be equal only when both type and associated value match
+    XCTAssert(a == b)
+    XCTAssert(a != c)
+    XCTAssert(a != d)
+    XCTAssert(a != e)
+  }
+
+  func testEquatableValue1() {
+    // Given
+    let a = DetailText.value1("Same")
+    let b = DetailText.value1("Same")
+    let c = DetailText.value1("Different")
+    let d = DetailText.value2("Same")
+    let e = DetailText.none
+
+    // Then it should be equal only when both type and associated value match
+    XCTAssert(a == b)
+    XCTAssert(a != c)
+    XCTAssert(a != d)
+    XCTAssert(a != e)
+  }
+
+  func testEquatableValue2() {
+    // Given
+    let a = DetailText.value2("Same")
+    let b = DetailText.value2("Same")
+    let c = DetailText.value2("Different")
+    let d = DetailText.subtitle("Same")
+    let e = DetailText.none
+
+    // Then it should be equal only when both type and associated value match
+    XCTAssert(a == b)
+    XCTAssert(a != c)
+    XCTAssert(a != d)
+    XCTAssert(a != e)
+  }
 }

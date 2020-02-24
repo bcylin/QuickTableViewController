@@ -10,7 +10,7 @@
 		136DD300216A367B00F554F0 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DD2FF216A367B00F554F0 /* ExampleUITests.swift */; };
 		136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; };
 		136DD308216A36FA00F554F0 /* QuickTableViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2E72C6FDAAB1ACD925E74017 /* Pods_QuickTableViewController_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468C1C7F21AF005E793AB39 /* Pods_QuickTableViewController_tvOSTests.framework */; };
+		3E27069B23FC4D14003516B8 /* DynamicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5323F73E48001DB252 /* DynamicTableView.swift */; };
 		3E45597A21DA81B100FC0C76 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597921DA81B100FC0C76 /* DetailText.swift */; };
 		3E45597F21DA8B5F00FC0C76 /* DetailTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */; };
 		3E45598021DA8B6000FC0C76 /* DetailTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */; };
@@ -101,6 +101,7 @@
 		B5F0FFEA1E9CC6F9007BF1C9 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */; };
 		B5F0FFEC1E9CC72D007BF1C9 /* TapActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */; };
 		B5F0FFEE1E9CC73D007BF1C9 /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */; };
+		F6B15A5623F74268001DB252 /* DynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5523F74268001DB252 /* DynamicTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,14 +179,11 @@
 		136DD2FD216A367B00F554F0 /* Example-tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-tvOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136DD2FF216A367B00F554F0 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		136DD301216A367B00F554F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F0BC6B8F7C674D42151AF6E /* Pods-QuickTableViewController-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E45597921DA81B100FC0C76 /* DetailText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
 		3E45597D21DA8B3400FC0C76 /* DetailTextSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextSpec.swift; sourceTree = "<group>"; };
 		3E45598121DC134800FC0C76 /* Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
-		78AB2AB635DD585665C8299B /* Pods-QuickTableViewController-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		8003A1058E05F7C13D280A70 /* Pods-QuickTableViewController-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickTableViewController-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F762195FA5E16AA5B27D4E8 /* Pods_QuickTableViewController_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickTableViewController_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A468C1C7F21AF005E793AB39 /* Pods_QuickTableViewController_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickTableViewController_tvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50E73841F2E1BC900481910 /* RowStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowStyle.swift; sourceTree = "<group>"; };
 		B51F21A21F417037009BC2C9 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51F21A41F417037009BC2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +248,8 @@
 		B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRow.swift; sourceTree = "<group>"; };
 		B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRow.swift; sourceTree = "<group>"; };
 		B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
+		F6B15A5323F73E48001DB252 /* DynamicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableView.swift; sourceTree = "<group>"; };
+		F6B15A5523F74268001DB252 /* DynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,7 +301,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E72C6FDAAB1ACD925E74017 /* Pods_QuickTableViewController_tvOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,8 +329,6 @@
 			children = (
 				8003A1058E05F7C13D280A70 /* Pods-QuickTableViewController-iOSTests.debug.xcconfig */,
 				037DFCD4BDF28ECB615D80A8 /* Pods-QuickTableViewController-iOSTests.release.xcconfig */,
-				1F0BC6B8F7C674D42151AF6E /* Pods-QuickTableViewController-tvOSTests.debug.xcconfig */,
-				78AB2AB635DD585665C8299B /* Pods-QuickTableViewController-tvOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -555,6 +552,8 @@
 			children = (
 				B5A37EAD20208EF7009C075F /* AppearanceViewController.swift */,
 				B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */,
+				F6B15A5323F73E48001DB252 /* DynamicTableView.swift */,
+				F6B15A5523F74268001DB252 /* DynamicTableViewController.swift */,
 				B51F21A61F417037009BC2C9 /* ExampleViewController.swift */,
 				B5A67A13202069440075E0C8 /* RootViewController.swift */,
 			);
@@ -565,7 +564,6 @@
 			isa = PBXGroup;
 			children = (
 				8F762195FA5E16AA5B27D4E8 /* Pods_QuickTableViewController_iOSTests.framework */,
-				A468C1C7F21AF005E793AB39 /* Pods_QuickTableViewController_tvOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -675,7 +673,6 @@
 				B5334F1A1B8CC5BD00C64A6D /* Sources */,
 				B5334F1B1B8CC5BD00C64A6D /* Frameworks */,
 				B5334F1C1B8CC5BD00C64A6D /* Resources */,
-				F7FFC04098F120999A1188C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -709,12 +706,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54A243C2088816E00EEBA26 /* Build configuration list for PBXNativeTarget "QuickTableViewController-tvOSTests" */;
 			buildPhases = (
-				9A0C27E207AFCC00990C91F3 /* [CP] Check Pods Manifest.lock */,
 				B51EE1432177EB3C0039C9B2 /* SwiftLint */,
 				B54A242A2088816E00EEBA26 /* Sources */,
 				B54A242B2088816E00EEBA26 /* Frameworks */,
 				B54A242C2088816E00EEBA26 /* Resources */,
-				2BFDF0ADB176B8E5F9EA1B30 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -894,26 +889,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2BFDF0ADB176B8E5F9EA1B30 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble-tvOS/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick-tvOS/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QuickTableViewController-tvOSTests/Pods-QuickTableViewController-tvOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		836E5B7438A64BC9CFF69C6F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -930,28 +905,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-QuickTableViewController-iOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A0C27E207AFCC00990C91F3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QuickTableViewController-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1018,26 +971,6 @@
 			shellPath = /bin/sh;
 			shellScript = "ruby scripts/swiftlint.rb\n";
 		};
-		F7FFC04098F120999A1188C5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble-iOS/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick-iOS/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QuickTableViewController-iOSTests/Pods-QuickTableViewController-iOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1056,6 +989,8 @@
 				B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */,
 				B5A37EAE20208EF7009C075F /* AppearanceViewController.swift in Sources */,
 				B5A67A1220205F5C0075E0C8 /* CustomizationViewController.swift in Sources */,
+				3E27069B23FC4D14003516B8 /* DynamicTableView.swift in Sources */,
+				F6B15A5623F74268001DB252 /* DynamicTableViewController.swift in Sources */,
 				B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */,
 				B5A67A14202069440075E0C8 /* RootViewController.swift in Sources */,
 			);
@@ -1627,7 +1562,6 @@
 		};
 		B54A24392088816E00EEBA26 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F0BC6B8F7C674D42151AF6E /* Pods-QuickTableViewController-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1653,7 +1587,6 @@
 		};
 		B54A243A2088816E00EEBA26 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78AB2AB635DD585665C8299B /* Pods-QuickTableViewController-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ANALYZER_NONNULL = YES;

@@ -4,7 +4,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
 ![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
-[![codecov](https://codecov.io/gh/bcylin/QuickTableViewController/branch/master/graph/badge.svg)](https://codecov.io/gh/bcylin/QuickTableViewController)
+[![Codecov](https://img.shields.io/codecov/c/github/bcylin/QuickTableViewController)](https://codecov.io/gh/bcylin/QuickTableViewController)
 ![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg)
 
 A simple way to create a table view for settings, including:
