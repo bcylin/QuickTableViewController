@@ -235,7 +235,6 @@ QuickTableViewController is not designed for inserting and deleting rows. It doe
 ## Documentation
 
 * [QuickTableViewController Reference](https://bcylin.github.io/QuickTableViewController)
-* [Example Project](https://github.com/bcylin/QuickTableViewController/tree/develop/Example)
 
 ## Requirements
 
