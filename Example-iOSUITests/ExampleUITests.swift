@@ -42,11 +42,11 @@ internal final class ExampleUITests: XCTestCase {
     let tables = XCUIApplication().tables
     let existance = NSPredicate(format: "exists == true")
 
-    tables.switches["Setting 1"].tap()
+    tables.switches.firstMatch.tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 1 = false"], handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
 
-    tables.switches["Setting 1"].tap()
+    tables.switches.firstMatch.tap()
     expectation(for: existance, evaluatedWith: tables.staticTexts["Setting 1 = true"], handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
 
