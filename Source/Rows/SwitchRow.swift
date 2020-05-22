@@ -83,7 +83,9 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// Returns the table view cell style for the specified detail text.
-  public let cellStyle: UITableViewCell.CellStyle = .subtitle
+  public var cellStyle: UITableViewCell.CellStyle {
+    return detailText?.style ?? .subtitle
+  }
 
   /// The icon of the row.
   public let icon: Icon?
