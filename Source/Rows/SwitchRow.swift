@@ -83,7 +83,7 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
   /// The cell style is `.default`.
-  public let cellStyle: UITableViewCell.CellStyle = .default
+  public let cellStyle: UITableViewCell.CellStyle = .subtitle
 
   /// The icon of the row.
   public let icon: Icon?
