@@ -22,8 +22,8 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: Test
         run: |
-          bundle exec rake "test:ios[QuickTableViewController-iOS]"
-          bundle exec rake "test:tvos[QuickTableViewController-tvOS]"
+          bundle exec fastlane ios unit_tests
+          bundle exec fastlane tvos unit_tests
       - name: Report coverage
         run: |
           bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
