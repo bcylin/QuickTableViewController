@@ -3,7 +3,11 @@ author: bcylin
 author_url: https://github.com/bcylin
 github_url: https://github.com/bcylin/QuickTableViewController
 github_file_prefix: https://github.com/bcylin/QuickTableViewController/blob/v1.2.1
-xcodebuild_arguments: [-project, QuickTableViewController.xcodeproj, -scheme, QuickTableViewController-iOS]
+xcodebuild_arguments: [
+  -project, QuickTableViewController.xcodeproj,
+  -scheme, QuickTableViewController-iOS,
+  -sdk, iphonesimulator
+]
 module: QuickTableViewController
 module_version: 1.2.1
 output: docs/output
