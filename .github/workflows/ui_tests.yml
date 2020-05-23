@@ -28,7 +28,7 @@ jobs:
       - name: Pod install
         run: |
           bundle exec pod install
-      - name: Test
+      - name: Build and test
         run: |
           bundle exec fastlane ios ui_tests
           bundle exec fastlane tvos ui_tests

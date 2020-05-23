@@ -20,7 +20,10 @@ jobs:
           gem install bundler:2.1.4
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
-      - name: Test
+      - name: Pod install
+        run: |
+          bundle exec pod install
+      - name: Build and test
         run: |
           bundle exec fastlane ios unit_tests
           bundle exec fastlane tvos unit_tests
