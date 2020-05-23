@@ -1,0 +1,24 @@
+name: UI tests
+on: push
+
+jobs:
+  test:
+    name: build and test
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.x'
+      - name: Bundle install
+        run: |
+          gem list bundler
+          bundle install --without development --deployment --jobs=3 --retry=3
+      - name: Pod install
+        run: |
+          bundle exec pod install
+      - name: Test
+        run: |
+          xcrun instruments -s devices
+          bundle exec rake "test:ios[Example-iOS]"
+          bundle exec rake "test:tvos[Example-tvOS]"
