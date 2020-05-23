@@ -1,47 +1,45 @@
 name: Run tests
 on: [push, pull_request]
 
+defaults:
+  runs-on: macOS-latest
+  steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.6.x'
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: ${{ runner.os }}-gems-
+    - uses: actions/cache@v1
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: ${{ runner.os }}-pods-
+    - name: Bundle install
+      run: |
+        gem install bundler:2.1.4
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - name: Pod install
+      run: |
+        bundle exec pod install
+
 jobs:
-  install-dependencies:
-    name: Install dependencies
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.6.x'
-      - uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: ${{ runner.os }}-gems-
-      - uses: actions/cache@v1
-        with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: ${{ runner.os }}-pods-
-      - name: Bundle install
-        run: |
-          gem install bundler:2.1.4
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-      - name: Pod install
-        run: |
-          bundle exec pod install
-  run-unit-tests:
+  unit-tests:
     name: Run unit tests
     runs-on: macOS-latest
-    needs: install-dependencies
     steps:
       - run: bundle exec fastlane ios unit_tests
       - run: bundle exec fastlane tvos unit_tests
       - name: Report coverage
         run: |
           bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
-  run-ui-tests:
+  ui-tests:
     name: Run UI tests
     runs-on: macOS-latest
-    needs: install-dependencies
     steps:
       - run: bundle exec fastlane ios ui_tests
       - run: bundle exec fastlane tvos ui_tests
