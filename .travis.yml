@@ -8,15 +8,9 @@ before_install:
   - xcrun instruments -s devices
 install:
   - bundle install --without development --deployment --jobs=3 --retry=3
-  - bundle exec rake launch:simulators
   - bundle exec pod install
 script:
   - set -e
-  - bundle exec rake "test:ios[QuickTableViewController-iOS]"
-  - bundle exec rake "test:tvos[QuickTableViewController-tvOS]"
-  - bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
-  - bundle exec rake "test:ios[Example-iOS]"
-  - bundle exec rake "test:tvos[Example-tvOS]"
   - make -B carthage
   - make -B docs
 after_success:
