@@ -1,0 +1,41 @@
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  run-tests:
+    name: Build and test
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.x'
+      - uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-gems-
+      - uses: actions/cache@v1
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: ${{ runner.os }}-pods-
+      - name: Bundle install
+        run: |
+          gem install bundler:2.1.4
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Pod install
+        run: |
+          bundle exec pod install
+      - name: Run unit tests
+        run: |
+          bundle exec fastlane ios unit_tests
+          bundle exec fastlane tvos unit_tests
+      - name: Report coverage
+        run: |
+          bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
+      - name: Run UI tests
+        run: |
+          bundle exec fastlane ios ui_tests
+          bundle exec fastlane tvos ui_tests

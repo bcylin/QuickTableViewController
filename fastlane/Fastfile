@@ -1,0 +1,32 @@
+default_platform(:ios)
+
+config = {
+  workspace: "QuickTableViewController.xcworkspace",
+  clean: true,
+  skip_build: true,
+  code_coverage: true
+}
+
+platform :ios do
+  desc "Run iOS unit tests"
+  lane :unit_tests do
+    run_tests(config.merge(scheme: "QuickTableViewController-iOS"))
+  end
+
+  desc "Run iOS UI tests"
+  lane :ui_tests do
+    run_tests(config.merge(scheme: "Example-iOS"))
+  end
+end
+
+platform :tvos do
+  desc "Run tvOS unit tests"
+  lane :unit_tests do
+    run_tests(config.merge(scheme: "QuickTableViewController-tvOS"))
+  end
+
+  desc "Run tvOS UI tests"
+  lane :ui_tests do
+    run_tests(config.merge(scheme: "Example-tvOS"))
+  end
+end
