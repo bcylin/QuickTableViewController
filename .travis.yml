@@ -2,13 +2,11 @@ language: objective-c
 osx_image: xcode11.3
 cache:
   - bundler
-  - cocoapods
 before_install:
   - export LANG=en_US.UTF-8
   - xcrun instruments -s devices
 install:
   - bundle install --without development --deployment --jobs=3 --retry=3
-  - bundle exec pod install
 script:
   - set -e
   - make -B carthage
