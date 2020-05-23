@@ -12,7 +12,7 @@ jobs:
           ruby-version: '2.6.x'
       - name: Bundle install
         run: |
-          gem list bundler
+          gem install bundler:2.1.4
           bundle install --without development --deployment --jobs=3 --retry=3
       - name: Test
         run: |
