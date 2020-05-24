@@ -82,8 +82,10 @@ open class OptionRow<T: UITableViewCell>: OptionRowCompatible, Equatable {
   /// The reuse identifier of the table view cell to display the row. The default value is **UITableViewCell**.
   public let cellReuseIdentifier: String = T.reuseIdentifier
 
-  /// The cell style is `.default`.
-  public let cellStyle: UITableViewCell.CellStyle = .default
+  /// Returns the table view cell style for the specified detail text.
+  public var cellStyle: UITableViewCell.CellStyle {
+    return detailText?.style ?? .default
+  }
 
   /// The icon of the row.
   public let icon: Icon?

@@ -46,8 +46,18 @@ internal final class SwitchRowTests: XCTestCase {
     XCTAssertEqual(row.switchValue, true)
 
     // With RowStyle
-    XCTAssertEqual(row.icon, icon)
     XCTAssertEqual(row.cellReuseIdentifier, "SwitchCell")
+    XCTAssertEqual(row.cellStyle, .subtitle)
+    XCTAssertEqual(row.icon, icon)
+    XCTAssertNil(row.customize)
+
+    #if os(iOS)
+      XCTAssertEqual(row.accessoryType, .none)
+      XCTAssertEqual(row.isSelectable, false)
+    #elseif os(tvOS)
+      XCTAssertEqual(row.accessoryType, .checkmark)
+      XCTAssertEqual(row.isSelectable, true)
+    #endif
 
     // When
     row.action?(row)

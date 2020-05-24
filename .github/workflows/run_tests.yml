@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   run-tests:
-    name: Build and test
+    name: Run tests
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
@@ -28,14 +28,14 @@ jobs:
       - name: Pod install
         run: |
           bundle exec pod install
-      - name: Run unit tests
-        run: |
+      - run: |
           bundle exec fastlane ios unit_tests
+      - run: |
           bundle exec fastlane tvos unit_tests
       - name: Report coverage
         run: |
           bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
-      - name: Run UI tests
-        run: |
+      - run: |
           bundle exec fastlane ios ui_tests
+      - run: |
           bundle exec fastlane tvos ui_tests
