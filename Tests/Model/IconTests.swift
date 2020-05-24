@@ -46,6 +46,30 @@ internal final class IconTests: XCTestCase {
     XCTAssertNil(icon.highlightedImage)
   }
 
+  @available(iOS 13.0, tvOS 13.0, *)
+  func testSFSymbol() {
+    // Given
+    let name = "gear"
+
+    // When
+    let icon: Icon? = .sfSymbol(name)
+
+    // Then
+    let expectedImage = UIImage(systemName: name)
+    XCTAssertEqual(icon?.image, expectedImage)
+    XCTAssertNil(icon?.highlightedImage)
+  }
+
+  @available(iOS 13.0, tvOS 13.0, *)
+  func testSFSymbol_notFound() {
+    // When
+    let icon: Icon? = .sfSymbol("not-found")
+
+    // Then
+    XCTAssertNil(icon?.image)
+    XCTAssertNil(icon?.highlightedImage)
+  }
+
   // MARK: - Equatable
 
   func testEquatable_withIdenticalParameters() {
