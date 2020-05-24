@@ -3,6 +3,7 @@ disabled_rules:
   - force_cast
   - function_body_length
   - identifier_name
+  - implicit_return
   - line_length
   - vertical_whitespace
 opt_in_rules:
@@ -14,7 +15,6 @@ opt_in_rules:
   - explicit_top_level_acl
   - fatal_error_message
   - first_where
-  - implicit_return
   - implicitly_unwrapped_optional
   - let_var_whitespace
   - multiline_parameters
