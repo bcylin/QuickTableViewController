@@ -29,7 +29,7 @@ import XCTest
 
 internal final class QuickTableViewDelegateTests: XCTestCase {
 
-  private var controller: QuickTableViewController!
+  private var controller: QuickTableViewController! // swiftlint:disable:this implicitly_unwrapped_optional
 
   override func setUp() {
     super.setUp()

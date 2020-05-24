@@ -1,9 +1,9 @@
 #!/usr/local/env ruby
 
-not_ci = !ENV["TRAVIS"] || ENV["TRAVIS"]&.empty?
+is_ci = !!ENV["CI"]
 
-if not_ci
-  system "${PODS_ROOT}/SwiftLint/swiftlint --config .swiftlint.yml"
-else
+if is_ci
   puts "Skip SwiftLint"
+else
+  system "./Pods/SwiftLint/swiftlint --config .swiftlint.yml"
 end

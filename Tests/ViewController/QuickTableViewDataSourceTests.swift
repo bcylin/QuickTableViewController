@@ -29,7 +29,7 @@ import XCTest
 
 internal final class QuickTableViewDataSourceTests: XCTestCase {
 
-  private var controller: QuickTableViewController!
+  private var controller: QuickTableViewController! // swiftlint:disable:this implicitly_unwrapped_optional
 
   override func setUp() {
     super.setUp()
@@ -252,7 +252,7 @@ internal final class QuickTableViewDataSourceTests: XCTestCase {
       ])
     ]
 
-    for index in [2, 3]  {
+    for index in [2, 3] {
       // When
       let cell = controller.tableView(controller.tableView, cellForRowAt: IndexPath(row: index, section: 0))
 

@@ -45,7 +45,7 @@ internal final class ExampleViewController: QuickTableViewController {
 
     tableContents = [
       Section(title: "Switch", rows: [
-        SwitchRow(text: "Setting 1", switchValue: true, icon: .image(globe), action: didToggleSwitch()),
+        SwitchRow(text: "Setting 1", detailText: .subtitle("Example subtitle"), switchValue: true, icon: .image(globe), action: didToggleSwitch()),
         SwitchRow(text: "Setting 2", switchValue: false, icon: .image(time), action: didToggleSwitch())
       ]),
 
