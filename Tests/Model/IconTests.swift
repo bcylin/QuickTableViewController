@@ -46,6 +46,8 @@ internal final class IconTests: XCTestCase {
     XCTAssertNil(icon.highlightedImage)
   }
 
+  // MARK: - SFSymbols
+
   @available(iOS 13.0, tvOS 13.0, *)
   func testSFSymbol() {
     // Given
@@ -55,7 +57,22 @@ internal final class IconTests: XCTestCase {
     let icon: Icon? = .sfSymbol(name)
 
     // Then
-    let expectedImage = UIImage(systemName: name)
+    let expectedImage = UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
+    XCTAssertEqual(icon?.image, expectedImage)
+    XCTAssertNil(icon?.highlightedImage)
+  }
+
+  @available(iOS 13.0, tvOS 13.0, *)
+  func testSFSymbol_withConfiguration() {
+    // Given
+    let name = "camera"
+    let configuration = UIImage.SymbolConfiguration(scale: .large)
+
+    // When
+    let icon: Icon? = .sfSymbol(name, withConfiguration: configuration)
+
+    // Then
+    let expectedImage = UIImage(systemName: name, withConfiguration: configuration)
     XCTAssertEqual(icon?.image, expectedImage)
     XCTAssertNil(icon?.highlightedImage)
   }
