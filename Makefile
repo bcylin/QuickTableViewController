@@ -3,14 +3,12 @@ default: test
 test: unit-test ui-test
 
 unit-test:
-	bundle exec rake \
-		"test:ios[QuickTableViewController-iOS]" \
-		"test:tvos[QuickTableViewController-tvOS]" \
+	bundle exec fastlane ios unit_tests
+	bundle exec fastlane tvos unit_tests
 
 ui-test:
-	bundle exec rake \
-		"test:ios[Example-iOS]" \
-		"test:tvos[Example-tvOS]"
+	bundle exec fastlane ios ui_tests
+	bundle exec fastlane tvos ui_tests
 
 ci-test: unit-test ui-test
 	make -B carthage
@@ -27,9 +25,6 @@ endif
 
 carthage:
 	set -o pipefail && carthage build --no-skip-current --verbose | bundle exec xcpretty -c
-
-coverage:
-	slather coverage -s --input-format profdata --workspace QuickTableViewController.xcworkspace --scheme QuickTableViewController-iOS QuickTableViewController.xcodeproj
 
 docs:
 	test -d docs || git clone -b gh-pages --single-branch https://github.com/bcylin/QuickTableViewController.git docs
