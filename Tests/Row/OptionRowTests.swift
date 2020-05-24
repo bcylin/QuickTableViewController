@@ -47,7 +47,7 @@ internal final class OptionRowTests: XCTestCase {
 
     // With RowStyle
     XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell")
-    XCTAssertEqual(row.cellStyle, .default)
+    XCTAssertEqual(row.cellStyle, .subtitle)
     XCTAssertEqual(row.icon, icon)
     XCTAssertEqual(row.accessoryType, .checkmark)
     XCTAssertEqual(row.isSelectable, true)

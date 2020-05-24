@@ -1,5 +1,17 @@
 # Change Log
 
+## v1.2.2
+
+#### Fixes
+
+* Fix `SwitchRow` subtitles, [#45](https://github.com/bcylin/QuickTableViewController/pull/45) by [@dnicolson](https://github.com/dnicolson)
+
+#### Project Updates
+
+* Add an example of dynamic table, [#42](https://github.com/bcylin/QuickTableViewController/pull/42) by [@twodayslate](https://github.com/twodayslate)
+* Convert specs to XCTests
+* Move tests to GitHub Actions
+
 ## v1.2.1
 
 * Support Swift Package

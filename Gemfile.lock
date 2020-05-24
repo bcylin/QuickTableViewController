@@ -198,7 +198,6 @@ GEM
     os (1.1.0)
     plist (3.5.0)
     public_suffix (2.0.5)
-    rake (13.0.1)
     redcarpet (3.5.0)
     representable (3.0.4)
       declarative (< 0.1.0)
@@ -259,7 +258,6 @@ DEPENDENCIES
   cocoapods
   fastlane
   jazzy (>= 0.9.0)
-  rake
   xcpretty
 
 BUNDLED WITH
