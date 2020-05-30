@@ -29,6 +29,19 @@ import UIKit
 /// A struct that represents the image used in a row.
 public struct Icon: Equatable {
 
+  /// The initializer is kept private until v2.0 when `methodSignature` is removed.
+  private init(methodSignature: String, image: UIImage?, highlightedImage: UIImage?) {
+    self.methodSignature = methodSignature
+    self.image = image
+    self.highlightedImage = highlightedImage
+  }
+
+  // MARK: - Properties
+
+  /// A string to keep track of how the struct is initialized.
+  /// It's used internally to avoid the breaking Equatable changes of Icon (as enum) until v2.0.
+  private let methodSignature: String
+
   /// The image for the normal state.
   public let image: UIImage?
 
@@ -46,6 +59,7 @@ public struct Icon: Equatable {
   ///   - traitCollection: The traits associated with the intended environment for the image. Specify nil to use the traits associated with the main screen.
   public static func named(_ name: String, in bundle: Bundle? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> Self {
     return Icon(
+      methodSignature: "\(#function):\(name)",
       image: UIImage(named: name, in: bundle, compatibleWith: traitCollection),
       highlightedImage: UIImage(named: name + "-highlighted", in: bundle, compatibleWith: traitCollection)
     )
@@ -54,13 +68,13 @@ public struct Icon: Equatable {
   /// Returns `Icon` with an image for the normal state. The image for the highlighted state is nil.
   /// A method to provide backward compatiblility with the previous enum `case image(UIImage)`.
   public static func image(_ image: UIImage) -> Self {
-    return Icon(image: image, highlightedImage: nil)
+    return Icon(methodSignature: #function, image: image, highlightedImage: nil)
   }
 
   /// Returns `Icon` with images for the normal and highlighted states.
   /// A method to provide backward compatiblility with the previous enum `case images(normal: UIImage, highlighted: UIImage)`.
   public static func images(normal: UIImage, highlighted: UIImage) -> Self {
-    return Icon(image: normal, highlightedImage: highlighted)
+    return Icon(methodSignature: #function, image: normal, highlightedImage: highlighted)
   }
 
   /// Returns `Icon` with the specified SF Symbol as the image for the normal state.
@@ -73,7 +87,11 @@ public struct Icon: Equatable {
   public static func sfSymbol(_ name: String, withConfiguration configuration: UIImage.Configuration? = nil) -> Self {
     // Make sure the image scales with the Dynamic Type settings.
     let fallback = UIImage.SymbolConfiguration(textStyle: .body)
-    return Icon(image: UIImage(systemName: name, withConfiguration: configuration ?? fallback), highlightedImage: nil)
+    return Icon(
+      methodSignature: "\(#function):\(name)",
+      image: UIImage(systemName: name, withConfiguration: configuration ?? fallback),
+      highlightedImage: nil
+    )
   }
 
 }
