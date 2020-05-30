@@ -35,7 +35,9 @@ public struct Icon: Equatable {
   /// The image for the highlighted state.
   public let highlightedImage: UIImage?
 
-  /// Icon with an image of the given name for the normal state.
+  // MARK: -
+
+  /// Returns `Icon` with an image of the given name for the normal state.
   /// The "-highlighted" suffix is appended to the name for the highlighted image.
   ///
   /// - Parameters:
@@ -49,27 +51,29 @@ public struct Icon: Equatable {
     )
   }
 
-  /// Icon with an image for the normal state.
+  /// Returns `Icon` with an image for the normal state. The image for the highlighted state is nil.
   /// A method to provide backward compatiblility with the previous enum `case image(UIImage)`.
   public static func image(_ image: UIImage) -> Self {
     return Icon(image: image, highlightedImage: nil)
   }
 
-  /// Icon with images for the normal and highlighted states.
+  /// Returns `Icon` with images for the normal and highlighted states.
   /// A method to provide backward compatiblility with the previous enum `case images(normal: UIImage, highlighted: UIImage)`.
   public static func images(normal: UIImage, highlighted: UIImage) -> Self {
     return Icon(image: normal, highlightedImage: highlighted)
   }
 
-  /// Returns `Icon.image` with the specified SF Symbol.
+  /// Returns `Icon` with the specified SF Symbol as the image for the normal state.
+  /// The image for the highlighted state is nil.
+  ///
   /// - Parameters:
   ///   - name: The name of the system symbol image.
   ///   - configuration: The configuration to specify traits and other details that define the variant of image.
   @available(iOS 13.0, tvOS 13.0, *)
-  public static func sfSymbol(_ name: String, withConfiguration configuration: UIImage.Configuration? = nil) -> Self? {
+  public static func sfSymbol(_ name: String, withConfiguration configuration: UIImage.Configuration? = nil) -> Self {
     // Make sure the image scales with the Dynamic Type settings.
     let fallback = UIImage.SymbolConfiguration(textStyle: .body)
-    return UIImage(systemName: name, withConfiguration: configuration ?? fallback).map { .image($0) }
+    return Icon(image: UIImage(systemName: name, withConfiguration: configuration ?? fallback), highlightedImage: nil)
   }
 
 }

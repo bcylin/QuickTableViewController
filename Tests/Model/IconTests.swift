@@ -86,12 +86,12 @@ internal final class IconTests: XCTestCase {
     let name = "gear"
 
     // When
-    let icon: Icon? = .sfSymbol(name)
+    let icon: Icon = .sfSymbol(name)
 
     // Then
     let expectedImage = UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
-    XCTAssertEqual(icon?.image, expectedImage)
-    XCTAssertNil(icon?.highlightedImage)
+    XCTAssertEqual(icon.image, expectedImage)
+    XCTAssertNil(icon.highlightedImage)
   }
 
   @available(iOS 13.0, tvOS 13.0, *)
@@ -101,22 +101,22 @@ internal final class IconTests: XCTestCase {
     let configuration = UIImage.SymbolConfiguration(scale: .large)
 
     // When
-    let icon: Icon? = .sfSymbol(name, withConfiguration: configuration)
+    let icon: Icon = .sfSymbol(name, withConfiguration: configuration)
 
     // Then
     let expectedImage = UIImage(systemName: name, withConfiguration: configuration)
-    XCTAssertEqual(icon?.image, expectedImage)
-    XCTAssertNil(icon?.highlightedImage)
+    XCTAssertEqual(icon.image, expectedImage)
+    XCTAssertNil(icon.highlightedImage)
   }
 
   @available(iOS 13.0, tvOS 13.0, *)
   func testSFSymbol_notFound() {
     // When
-    let icon: Icon? = .sfSymbol("not-found")
+    let icon: Icon = .sfSymbol("not-found")
 
     // Then
-    XCTAssertNil(icon?.image)
-    XCTAssertNil(icon?.highlightedImage)
+    XCTAssertNil(icon.image)
+    XCTAssertNil(icon.highlightedImage)
   }
 
   // MARK: - Equatable
