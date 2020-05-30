@@ -27,38 +27,38 @@
 import UIKit
 
 /// A struct that represents the image used in a row.
-public enum Icon: Equatable {
+public struct Icon: Equatable {
+
+  /// The image for the normal state.
+  public let image: UIImage?
+
+  /// The image for the highlighted state.
+  public let highlightedImage: UIImage?
 
   /// Icon with an image of the given name for the normal state.
   /// The "-highlighted" suffix is appended to the name for the highlighted image.
-  case named(String)
-  /// Icon with an image for the normal state.
-  case image(UIImage)
-  /// Icon with images for the normal and highlighted states.
-  case images(normal: UIImage, highlighted: UIImage)
-
-  /// The image for the normal state.
-  public var image: UIImage? {
-    switch self {
-    case let .named(name):
-      return UIImage(named: name)
-    case let .image(image):
-      return image
-    case let .images(normal: image, highlighted: _):
-      return image
-    }
+  ///
+  /// - Parameters:
+  ///   - name: The name of the image asset.
+  ///   - bundle: The bundle containing the image file or asset catalog. Specify nil to search the app’s main bundle.
+  ///   - traitCollection: The traits associated with the intended environment for the image. Specify nil to use the traits associated with the main screen.
+  public static func named(_ name: String, in bundle: Bundle? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> Self {
+    return Icon(
+      image: UIImage(named: name, in: bundle, compatibleWith: traitCollection),
+      highlightedImage: UIImage(named: name + "-highlighted", in: bundle, compatibleWith: traitCollection)
+    )
   }
 
-  /// The image for the highlighted state.
-  public var highlightedImage: UIImage? {
-    switch self {
-    case let .named(name):
-      return UIImage(named: name + "-highlighted")
-    case .image:
-      return nil
-    case let .images(normal: _, highlighted: image):
-      return image
-    }
+  /// Icon with an image for the normal state.
+  /// A method to provide backward compatiblility with the previous enum `case image(UIImage)`.
+  public static func image(_ image: UIImage) -> Self {
+    return Icon(image: image, highlightedImage: nil)
+  }
+
+  /// Icon with images for the normal and highlighted states.
+  /// A method to provide backward compatiblility with the previous enum `case images(normal: UIImage, highlighted: UIImage)`.
+  public static func images(normal: UIImage, highlighted: UIImage) -> Self {
+    return Icon(image: normal, highlightedImage: highlighted)
   }
 
   /// Returns `Icon.image` with the specified SF Symbol.
