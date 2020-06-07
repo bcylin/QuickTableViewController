@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.2.3
+
+* Fix Swift version in podspec
+
 ## v1.2.2
 
 #### Fixes

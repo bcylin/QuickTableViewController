@@ -2,9 +2,9 @@
 
 [![GitHub Actions](https://github.com/bcylin/QuickTableViewController/workflows/Tests/badge.svg)](https://github.com/bcylin/QuickTableViewController/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/bcylin/QuickTableViewController)](https://codecov.io/gh/bcylin/QuickTableViewController)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Carthage compatible](https://img.shields.io/badge/carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
-![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController.svg)
+[![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController?label=docs)](https://bcylin.github.io/QuickTableViewController)
 ![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg)
 
 A simple way to create a table view for settings, including:
@@ -15,7 +15,7 @@ A simple way to create a table view for settings, including:
 * Actions performed when the row reacts to the user interaction
 * Easy to specify table view cell image, cell style and accessory type
 
-<img src="https://bcylin.github.io/QuickTableViewController/img/screenshots.png" width="80%"></img>
+<img src="https://raw.githubusercontent.com/bcylin/QuickTableViewController/gh-pages/img/screenshots.png" width="80%"></img>
 
 ## Usage
 
@@ -259,7 +259,7 @@ QuickTableViewController | iOS  | tvOS | Xcode | Swift
 
 Follow the instructions at [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) and use version `v1.2.1` or later. (requires Xcode 11)
 
-### Use [CocoaPods](http://guides.cocoapods.org/)
+### Use [CocoaPods](https://guides.cocoapods.org)
 
 Create a `Podfile` with the following specification and run `pod install`.
 
@@ -292,4 +292,4 @@ git submodule add -b master git@github.com:bcylin/QuickTableViewController.git D
 
 QuickTableViewController is released under the MIT license.
 See [LICENSE](https://github.com/bcylin/QuickTableViewController/blob/master/LICENSE) for more details.
-Image source: [iconmonstr](http://iconmonstr.com/license/).
+Image source: [iconmonstr](https://iconmonstr.com/license).
