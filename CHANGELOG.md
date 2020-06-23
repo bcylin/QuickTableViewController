@@ -1,5 +1,9 @@
 # Change Log
 
+## Next release
+
+* Use SF Symbols as icon images, [#41](https://github.com/bcylin/QuickTableViewController/pull/41) by [@ezfe](https://github.com/ezfe)
+
 ## v1.2.3
 
 * Fix Swift version in podspec
