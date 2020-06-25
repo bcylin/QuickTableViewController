@@ -79,8 +79,10 @@ open class SwitchRow<T: SwitchCell>: SwitchRowCompatible, Equatable {
   /// The type of the table view cell to display the row.
   public let cellType: UITableViewCell.Type = T.self
 
-  /// The reuse identifier of the table view cell to display the row. The default value is **SwitchCell**.
-  public let cellReuseIdentifier: String = T.reuseIdentifier
+  /// Returns the reuse identifier of the table view cell to display the row.
+  public var cellReuseIdentifier: String {
+    return T.reuseIdentifier + (detailText?.style.stringValue ?? "")
+  }
 
   /// Returns the table view cell style for the specified detail text.
   public var cellStyle: UITableViewCell.CellStyle {

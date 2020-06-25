@@ -143,7 +143,7 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 }
 
 
-private extension UITableViewCell.CellStyle {
+internal extension UITableViewCell.CellStyle {
 
   var stringValue: String {
     switch self {
