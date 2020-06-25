@@ -30,6 +30,7 @@ import UIKit
 internal final class CustomCell: UITableViewCell {}
 internal final class CustomSwitchCell: SwitchCell {}
 internal final class CustomTapActionCell: TapActionCell {}
+internal final class CustomOptionCell: UITableViewCell {}
 
 internal final class CustomNavigationRow<T: UITableViewCell>: NavigationRow<T> {}
 internal final class CustomSwitchRow<T: SwitchCell>: SwitchRow<T> {}

@@ -100,7 +100,7 @@ internal final class NavigationRowTests: XCTestCase {
   }
   #endif
 
-  func testCellReuseIdentifier() {
+  func testCellStyleWithReuseIdentifier() {
     // When
     let a = NavigationRow(text: "", detailText: .none)
     let b = NavigationRow(text: "", detailText: .subtitle(""))
@@ -108,10 +108,34 @@ internal final class NavigationRowTests: XCTestCase {
     let d = NavigationRow(text: "", detailText: .value2(""))
 
     // Then
+    XCTAssertEqual(a.cellStyle, .default)
+    XCTAssertEqual(b.cellStyle, .subtitle)
+    XCTAssertEqual(c.cellStyle, .value1)
+    XCTAssertEqual(d.cellStyle, .value2)
+
     XCTAssertEqual(a.cellReuseIdentifier, "UITableViewCell.default")
     XCTAssertEqual(b.cellReuseIdentifier, "UITableViewCell.subtitle")
     XCTAssertEqual(c.cellReuseIdentifier, "UITableViewCell.value1")
     XCTAssertEqual(d.cellReuseIdentifier, "UITableViewCell.value2")
+  }
+
+  func testCellStyleWithReuseIdentifier_customCellType() {
+    // When
+    let a = NavigationRow<CustomCell>(text: "", detailText: .none)
+    let b = NavigationRow<CustomCell>(text: "", detailText: .subtitle(""))
+    let c = NavigationRow<CustomCell>(text: "", detailText: .value1(""))
+    let d = NavigationRow<CustomCell>(text: "", detailText: .value2(""))
+
+    // Then
+    XCTAssertEqual(a.cellStyle, .default)
+    XCTAssertEqual(b.cellStyle, .subtitle)
+    XCTAssertEqual(c.cellStyle, .value1)
+    XCTAssertEqual(d.cellStyle, .value2)
+
+    XCTAssertEqual(a.cellReuseIdentifier, "CustomCell.default")
+    XCTAssertEqual(b.cellReuseIdentifier, "CustomCell.subtitle")
+    XCTAssertEqual(c.cellReuseIdentifier, "CustomCell.value1")
+    XCTAssertEqual(d.cellReuseIdentifier, "CustomCell.value2")
   }
 
   #if os(iOS)

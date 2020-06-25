@@ -46,7 +46,7 @@ internal final class SwitchRowTests: XCTestCase {
     XCTAssertEqual(row.switchValue, true)
 
     // With RowStyle
-    XCTAssertEqual(row.cellReuseIdentifier, "SwitchCell")
+    XCTAssertEqual(row.cellReuseIdentifier, "SwitchCell.subtitle")
     XCTAssertEqual(row.cellStyle, .subtitle)
     XCTAssertEqual(row.icon, icon)
     XCTAssertNil(row.customize)
@@ -64,6 +64,50 @@ internal final class SwitchRowTests: XCTestCase {
 
     // Then
     XCTAssertEqual(actionInvoked, true)
+  }
+
+  func testCellStyleWithReuseIdentifier() {
+    // When
+    let a = SwitchRow(text: "", detailText: nil, switchValue: true, action: { _ in })
+    let b = SwitchRow(text: "", detailText: DetailText.none, switchValue: true, action: { _ in })
+    let c = SwitchRow(text: "", detailText: .subtitle(""), switchValue: true, action: { _ in })
+    let d = SwitchRow(text: "", detailText: .value1(""), switchValue: true, action: { _ in })
+    let e = SwitchRow(text: "", detailText: .value2(""), switchValue: true, action: { _ in })
+
+    // Then
+    XCTAssertEqual(a.cellStyle, .default)
+    XCTAssertEqual(b.cellStyle, .default)
+    XCTAssertEqual(c.cellStyle, .subtitle)
+    XCTAssertEqual(d.cellStyle, .value1)
+    XCTAssertEqual(e.cellStyle, .value2)
+
+    XCTAssertEqual(a.cellReuseIdentifier, "SwitchCell")
+    XCTAssertEqual(b.cellReuseIdentifier, "SwitchCell.default")
+    XCTAssertEqual(c.cellReuseIdentifier, "SwitchCell.subtitle")
+    XCTAssertEqual(d.cellReuseIdentifier, "SwitchCell.value1")
+    XCTAssertEqual(e.cellReuseIdentifier, "SwitchCell.value2")
+  }
+
+  func testCellStyleWithReuseIdentifier_customCellType() {
+    // When
+    let a = SwitchRow<CustomSwitchCell>(text: "", detailText: nil, switchValue: true, action: { _ in })
+    let b = SwitchRow<CustomSwitchCell>(text: "", detailText: DetailText.none, switchValue: true, action: { _ in })
+    let c = SwitchRow<CustomSwitchCell>(text: "", detailText: .subtitle(""), switchValue: true, action: { _ in })
+    let d = SwitchRow<CustomSwitchCell>(text: "", detailText: .value1(""), switchValue: true, action: { _ in })
+    let e = SwitchRow<CustomSwitchCell>(text: "", detailText: .value2(""), switchValue: true, action: { _ in })
+
+    // Then
+    XCTAssertEqual(a.cellStyle, .default)
+    XCTAssertEqual(b.cellStyle, .default)
+    XCTAssertEqual(c.cellStyle, .subtitle)
+    XCTAssertEqual(d.cellStyle, .value1)
+    XCTAssertEqual(e.cellStyle, .value2)
+
+    XCTAssertEqual(a.cellReuseIdentifier, "CustomSwitchCell")
+    XCTAssertEqual(b.cellReuseIdentifier, "CustomSwitchCell.default")
+    XCTAssertEqual(c.cellReuseIdentifier, "CustomSwitchCell.subtitle")
+    XCTAssertEqual(d.cellReuseIdentifier, "CustomSwitchCell.value1")
+    XCTAssertEqual(e.cellReuseIdentifier, "CustomSwitchCell.value2")
   }
 
   // MARK: - Equatable
