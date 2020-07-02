@@ -49,6 +49,15 @@ internal final class TapActionRowTests: XCTestCase {
     XCTAssertEqual(actionInvoked, true)
   }
 
+  func testCellStyleWithReuseIdentifier_customCellType() {
+    // When
+    let row = TapActionRow<CustomTapActionCell>(text: "", action: { _ in })
+
+    // Then
+    XCTAssertEqual(row.cellStyle, .default)
+    XCTAssertEqual(row.cellReuseIdentifier, "CustomTapActionCell")
+  }
+
   // MARK: - Equatable
 
   func testEquatable_withIdenticalParameters() {

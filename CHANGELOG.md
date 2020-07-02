@@ -4,6 +4,10 @@
 
 * Use SF Symbols as icon images, [#41](https://github.com/bcylin/QuickTableViewController/pull/41) by [@ezfe](https://github.com/ezfe)
 
+## v1.2.4
+
+* Fix an issue where the same identifier is used for different cell types [#50](https://github.com/bcylin/QuickTableViewController/issues/50)
+
 ## v1.2.3
 
 * Fix Swift version in podspec

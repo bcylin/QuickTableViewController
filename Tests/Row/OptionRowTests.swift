@@ -46,7 +46,7 @@ internal final class OptionRowTests: XCTestCase {
     XCTAssertEqual(row.isSelected, true)
 
     // With RowStyle
-    XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell")
+    XCTAssertEqual(row.cellReuseIdentifier, "UITableViewCell.subtitle")
     XCTAssertEqual(row.cellStyle, .subtitle)
     XCTAssertEqual(row.icon, icon)
     XCTAssertEqual(row.accessoryType, .checkmark)
@@ -58,6 +58,50 @@ internal final class OptionRowTests: XCTestCase {
 
     // Then
     XCTAssertEqual(actionInvoked, true)
+  }
+
+  func testCellStyleWithReuseIdentifier() {
+    // When
+    let a = OptionRow(text: "", detailText: nil, isSelected: true, action: { _ in })
+    let b = OptionRow(text: "", detailText: DetailText.none, isSelected: true, action: { _ in })
+    let c = OptionRow(text: "", detailText: .subtitle(""), isSelected: true, action: { _ in })
+    let d = OptionRow(text: "", detailText: .value1(""), isSelected: true, action: { _ in })
+    let e = OptionRow(text: "", detailText: .value2(""), isSelected: true, action: { _ in })
+
+    // Then
+    XCTAssertEqual(a.cellStyle, .default)
+    XCTAssertEqual(b.cellStyle, .default)
+    XCTAssertEqual(c.cellStyle, .subtitle)
+    XCTAssertEqual(d.cellStyle, .value1)
+    XCTAssertEqual(e.cellStyle, .value2)
+
+    XCTAssertEqual(a.cellReuseIdentifier, "UITableViewCell")
+    XCTAssertEqual(b.cellReuseIdentifier, "UITableViewCell.default")
+    XCTAssertEqual(c.cellReuseIdentifier, "UITableViewCell.subtitle")
+    XCTAssertEqual(d.cellReuseIdentifier, "UITableViewCell.value1")
+    XCTAssertEqual(e.cellReuseIdentifier, "UITableViewCell.value2")
+  }
+
+  func testCellStyleWithReuseIdentifier_customCellType() {
+    // When
+    let a = OptionRow<CustomOptionCell>(text: "", detailText: nil, isSelected: true, action: { _ in })
+    let b = OptionRow<CustomOptionCell>(text: "", detailText: DetailText.none, isSelected: true, action: { _ in })
+    let c = OptionRow<CustomOptionCell>(text: "", detailText: .subtitle(""), isSelected: true, action: { _ in })
+    let d = OptionRow<CustomOptionCell>(text: "", detailText: .value1(""), isSelected: true, action: { _ in })
+    let e = OptionRow<CustomOptionCell>(text: "", detailText: .value2(""), isSelected: true, action: { _ in })
+
+    // Then
+    XCTAssertEqual(a.cellStyle, .default)
+    XCTAssertEqual(b.cellStyle, .default)
+    XCTAssertEqual(c.cellStyle, .subtitle)
+    XCTAssertEqual(d.cellStyle, .value1)
+    XCTAssertEqual(e.cellStyle, .value2)
+
+    XCTAssertEqual(a.cellReuseIdentifier, "CustomOptionCell")
+    XCTAssertEqual(b.cellReuseIdentifier, "CustomOptionCell.default")
+    XCTAssertEqual(c.cellReuseIdentifier, "CustomOptionCell.subtitle")
+    XCTAssertEqual(d.cellReuseIdentifier, "CustomOptionCell.value1")
+    XCTAssertEqual(e.cellReuseIdentifier, "CustomOptionCell.value2")
   }
 
   // MARK: - Equatable
