@@ -29,6 +29,20 @@ import QuickTableViewController
 
 internal final class AppearanceViewController: QuickTableViewController {
 
+  init() {
+    if #available(iOS 13.0, *) {
+      super.init(style: .insetGrouped)
+    } else {
+      super.init(style: .grouped)
+    }
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  // MARK: - UIViewController
+
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "UIAppearance"
