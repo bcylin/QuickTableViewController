@@ -44,16 +44,28 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
   // MARK: - Initialization
 
-  /**
-   Initializes a table view controller to manage a table view of a given style.
-
-   - parameter style: A constant that specifies the style of table view that the controller object is to manage (`.plain` or `.grouped`).
-
-   - returns: An initialized `QuickTableViewController` object.
-   */
-  public convenience init(style: UITableView.Style) {
-    self.init(nibName: nil, bundle: nil)
+  /// Initializes a table view controller to manage a table view of a given style.
+  ///
+  /// - Parameter style: A constant that specifies the style of table view that the controller object is to manage.
+  public init(style: UITableView.Style) {
+    super.init(nibName: nil, bundle: nil)
     tableView = UITableView(frame: .zero, style: style)
+  }
+
+  /// Returns a newly initialized view controller with the nib file in the specified bundle.
+  ///
+  /// - Parameters:
+  ///   - nibNameOrNil: The name of the nib file to associate with the view controller.
+  ///   - nibBundleOrNil: The bundle in which to search for the nib file.
+  public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+  }
+
+  /// Returns an object initialized from data in a given unarchiver.
+  ///
+  /// - Parameter coder: An unarchiver object.
+  public required init?(coder: NSCoder) {
+    super.init(coder: coder)
   }
 
   deinit {
