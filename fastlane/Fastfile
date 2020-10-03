@@ -9,10 +9,10 @@ config = {
 
 desc "Test Swift Package"
 lane :swift_package do
-  Dir.chdir("..") do
+  Dir.chdir("../Package") do
     sh [
       %(set -o pipefail &&),
-      %(xcodebuild -workspace QuickTableViewController.xcworkspace -scheme Package -sdk iphonesimulator clean build),
+      %(xcodebuild -project Package.xcodeproj -scheme Package -sdk iphonesimulator clean build),
       %(| bundle exec xcpretty -c)
     ].join " "
   end
