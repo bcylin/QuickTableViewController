@@ -1,6 +1,6 @@
 # QuickTableViewController
 
-[![GitHub Actions](https://github.com/bcylin/QuickTableViewController/workflows/Tests/badge.svg)](https://github.com/bcylin/QuickTableViewController/actions)
+[![GitHub Actions](https://github.com/bcylin/QuickTableViewController/workflows/CI/badge.svg)](https://github.com/bcylin/QuickTableViewController/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/bcylin/QuickTableViewController)](https://codecov.io/gh/bcylin/QuickTableViewController)
 [![Carthage compatible](https://img.shields.io/badge/carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
