@@ -35,5 +35,5 @@ Pods/
 ## Carthage
 Carthage/
 
-## Packages with local file paths
-**/xcshareddata/swiftpm/Package.resolved
+## Swift Package tests
+Package.xcodeproj
