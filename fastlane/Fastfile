@@ -12,7 +12,7 @@ lane :swift_package do
   Dir.chdir("../Package") do
     sh [
       %(set -o pipefail &&),
-      %(xcodebuild -project Package.xcodeproj -scheme Package -sdk iphonesimulator clean build),
+      %(xcodebuild -project Package.xcodeproj -scheme App -sdk iphonesimulator clean build),
       %(| bundle exec xcpretty -c)
     ].join " "
   end

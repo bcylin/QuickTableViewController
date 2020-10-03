@@ -1,4 +1,4 @@
-name: CI
+name: Swift Package
 on: [push, pull_request]
 
 jobs:
@@ -7,7 +7,7 @@ jobs:
     runs-on: macOS-latest
     env:
       BUNDLE_PATH: vendor/bundle
-      POD_PATH: Pods
+      MINT_PATH: vendor/mint
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-ruby@v1.1.2
@@ -21,12 +21,12 @@ jobs:
           path: ${{ env.BUNDLE_PATH }}
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gems-
-      - name: Cache ${{ env.POD_PATH }}
+      - name: Cache ${{ env.MINT_PATH }}
         uses: actions/cache@v2.1.1
         with:
-          path: ${{ env.POD_PATH }}
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: ${{ runner.os }}-pods-
+          path: ${{ env.MINT_PATH }}
+          key: ${{ runner.os }}-mint-${{ hashFiles('Mintfile') }}
+          restore-keys: ${{ runner.os }}-mint-
 
       # Dependencies
       - name: Bundle install
@@ -34,19 +34,13 @@ jobs:
           gem install bundler -v `tail -1 Gemfile.lock`
           bundle config path ${{ env.BUNDLE_PATH }}
           bundle install --jobs 4 --retry 3
-      - name: Pod install
+      - name: Mint bootstrap
         run: |
-          bundle exec pod install
+          brew list mint > /dev/null || brew install mint
+          mint bootstrap
 
-      # Tests
+      # Build
       - run: |
-          bundle exec fastlane ios unit_tests
+          mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
       - run: |
-          bundle exec fastlane tvos unit_tests
-      - name: Report coverage
-        run: |
-          bash <(curl -s https://codecov.io/bash) -cF ios -J "QuickTableViewController"
-      - run: |
-          bundle exec fastlane ios ui_tests
-      - run: |
-          bundle exec fastlane tvos ui_tests
+          bundler exec fastlane swift_package
