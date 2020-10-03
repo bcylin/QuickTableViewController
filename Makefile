@@ -16,7 +16,7 @@ ci-test: unit-test ui-test
 
 swift-package-project:
 	rm -rf Package/Package.xcproj
-	TRAVIS_COMMIT=`git rev-parse HEAD` mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
+	mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
 	open Package/Package.xcodeproj
 
 bump:

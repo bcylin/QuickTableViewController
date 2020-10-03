@@ -1,8 +1,7 @@
 name: Package
 packages:
   QuickTableViewController:
-    url: file:./../../../QuickTableViewController
-    revision: ${TRAVIS_COMMIT}
+    path: ../
 options:
   deploymentTarget:
     iOS: "13.0"
