@@ -1,14 +1,21 @@
 language: objective-c
 osx_image: xcode11.3
 cache:
-  - bundler
+  directories:
+    - vendor/bundle
+    - vendor/mint
 before_install:
   - export LANG=en_US.UTF-8
   - xcrun instruments -s devices
 install:
+  - bundle config path vendor/bundle
   - bundle install --without development --deployment --jobs=3 --retry=3
+  - brew list mint > /dev/null || brew install mint
+  - mint bootstrap
 script:
   - set -e
+  - mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
+  - bundler exec fastlane swift_package
   - make -B carthage
   - make -B docs
 after_success:

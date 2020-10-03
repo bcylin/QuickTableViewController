@@ -2,7 +2,7 @@ name: Package
 packages:
   QuickTableViewController:
     url: file:./../../../QuickTableViewController
-    revision: ${GITHUB_SHA}
+    revision: ${TRAVIS_COMMIT}
 options:
   deploymentTarget:
     iOS: "13.0"
