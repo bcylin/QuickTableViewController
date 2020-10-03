@@ -1,0 +1,17 @@
+name: Package
+packages:
+  QuickTableViewController:
+    url: file:./../../../QuickTableViewController
+    revision: ${GITHUB_SHA}
+targets:
+  App:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: Package
+    settings:
+      base:
+        INFOPLIST_FILE: Package/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: "io.github.bcylin.QuickTableViewController.Package"
+    dependencies:
+      - package: QuickTableViewController
