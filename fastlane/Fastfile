@@ -7,6 +7,17 @@ config = {
   code_coverage: true
 }
 
+desc "Test Swift Package"
+lane :swift_package do
+  Dir.chdir("..") do
+    sh [
+      %(set -o pipefail &&),
+      %(xcodebuild -workspace QuickTableViewController.xcworkspace -scheme Package -sdk iphonesimulator clean build),
+      %(| bundle exec xcpretty -c)
+    ].join " "
+  end
+end
+
 platform :ios do
   desc "Run iOS unit tests"
   lane :unit_tests do

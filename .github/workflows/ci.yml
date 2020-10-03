@@ -1,4 +1,4 @@
-name: Tests
+name: CI
 on: [push, pull_request]
 
 jobs:
@@ -28,6 +28,8 @@ jobs:
       - name: Pod install
         run: |
           bundle exec pod install
+      - run: |
+          bundler exec fastlane swift_package
       - run: |
           bundle exec fastlane ios unit_tests
       - run: |
