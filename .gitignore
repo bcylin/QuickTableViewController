@@ -34,3 +34,6 @@ Pods/
 
 ## Carthage
 Carthage/
+
+## Packages with local file paths
+**/xcshareddata/swiftpm/Package.resolved

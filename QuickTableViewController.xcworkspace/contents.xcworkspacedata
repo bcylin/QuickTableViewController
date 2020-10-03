@@ -5,6 +5,9 @@
       location = "group:QuickTableViewController.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Package/Package.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
