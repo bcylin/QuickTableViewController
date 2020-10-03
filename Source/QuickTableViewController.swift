@@ -67,6 +67,11 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   public required init?(coder: NSCoder) {
     super.init(coder: coder)
   }
+  
+  public required init?(coder: NSCoder, style: UITableView.Style) {
+    super.init(coder: coder)
+    tableView = UITableView(frame: .zero, style: style)
+  }
 
   deinit {
     tableView.dataSource = nil
