@@ -2,8 +2,8 @@ name: Swift Package
 on: [push, pull_request]
 
 jobs:
-  run-tests:
-    name: Run tests
+  build:
+    name: Build
     runs-on: macOS-latest
     env:
       BUNDLE_PATH: vendor/bundle

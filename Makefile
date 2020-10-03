@@ -14,7 +14,7 @@ ci-test: unit-test ui-test
 	make -B carthage
 	make -B docs
 
-swift-package:
+swift-package-project:
 	rm -rf Package/Package.xcproj
 	GITHUB_SHA=`git rev-parse HEAD` mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
 	open Package/Package.xcodeproj

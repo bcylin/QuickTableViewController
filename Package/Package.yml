@@ -3,11 +3,13 @@ packages:
   QuickTableViewController:
     url: file:./../../../QuickTableViewController
     revision: ${GITHUB_SHA}
+options:
+  deploymentTarget:
+    iOS: "13.0"
 targets:
   App:
     type: application
     platform: iOS
-    deploymentTarget: "13.0"
     sources: Package
     settings:
       base:
