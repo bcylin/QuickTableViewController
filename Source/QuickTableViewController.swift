@@ -33,7 +33,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   open var clearsSelectionOnViewWillAppear = true
 
   /// Returns the table view managed by the controller object.
-  open private(set) var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
+  open var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
 
   /// The layout of sections and rows to display in the table view.
   open var tableContents: [Section] = [] {
@@ -66,11 +66,6 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   /// - Parameter coder: An unarchiver object.
   public required init?(coder: NSCoder) {
     super.init(coder: coder)
-  }
-
-  public init?(coder: NSCoder, style: UITableView.Style) {
-    super.init(coder: coder)
-    tableView = UITableView(frame: .zero, style: style)
   }
 
   deinit {
