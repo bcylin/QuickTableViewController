@@ -1,6 +1,6 @@
 # QuickTableViewController
 
-[![GitHub Actions](https://github.com/bcylin/QuickTableViewController/workflows/Tests/badge.svg)](https://github.com/bcylin/QuickTableViewController/actions)
+[![GitHub Actions](https://github.com/bcylin/QuickTableViewController/workflows/CI/badge.svg)](https://github.com/bcylin/QuickTableViewController/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/bcylin/QuickTableViewController)](https://codecov.io/gh/bcylin/QuickTableViewController)
 [![Carthage compatible](https://img.shields.io/badge/carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
@@ -252,6 +252,7 @@ QuickTableViewController | iOS  | tvOS | Xcode | Swift
 `~> 1.0.0`               | 8.0+ | 9.0+ | 9.4   | 4.1
 `~> 1.1.0`               | 8.0+ | 9.0+ | 10.1  | 4.2
 `~> 1.2.0`               | 8.0+ | 9.0+ | 10.2  | 5.0
+`~> 1.3.0`               | 9.0+ | 9.0+ | 12.0  | 5.3
 
 ## Installation
 

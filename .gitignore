@@ -34,3 +34,6 @@ Pods/
 
 ## Carthage
 Carthage/
+
+## Swift Package tests
+Package.xcodeproj

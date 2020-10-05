@@ -7,6 +7,18 @@ config = {
   code_coverage: true
 }
 
+desc "Test Swift Package"
+lane :swift_package do
+  Dir.chdir("../Package") do
+    sh [
+      %(set -o pipefail &&),
+      %(xcodebuild -resolvePackageDependencies &&),
+      %(xcodebuild -project Package.xcodeproj -scheme App -sdk iphonesimulator clean build),
+      %(| bundle exec xcpretty -c)
+    ].join " "
+  end
+end
+
 platform :ios do
   desc "Run iOS unit tests"
   lane :unit_tests do

@@ -1,33 +1,45 @@
-name: Tests
+name: CI
 on: [push, pull_request]
 
 jobs:
   run-tests:
     name: Run tests
     runs-on: macOS-latest
+    if: contains(github.event.head_commit.message, '[ci skip]') == false
+    env:
+      BUNDLE_PATH: vendor/bundle
+      POD_PATH: Pods
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-ruby@v1
+      - uses: actions/setup-ruby@v1.1.2
         with:
           ruby-version: '2.6.x'
-      - uses: actions/cache@v1
+
+      # Cache
+      - name: Cache ${{ env.BUNDLE_PATH }}
+        uses: actions/cache@v2.1.1
         with:
-          path: vendor/bundle
+          path: ${{ env.BUNDLE_PATH }}
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gems-
-      - uses: actions/cache@v1
+      - name: Cache ${{ env.POD_PATH }}
+        uses: actions/cache@v2.1.1
         with:
-          path: Pods
+          path: ${{ env.POD_PATH }}
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: ${{ runner.os }}-pods-
+
+      # Dependencies
       - name: Bundle install
         run: |
-          gem install bundler:2.1.4
-          bundle config path vendor/bundle
+          gem install bundler -v `tail -1 Gemfile.lock`
+          bundle config path ${{ env.BUNDLE_PATH }}
           bundle install --jobs 4 --retry 3
       - name: Pod install
         run: |
           bundle exec pod install
+
+      # Tests
       - run: |
           bundle exec fastlane ios unit_tests
       - run: |

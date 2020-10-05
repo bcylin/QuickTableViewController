@@ -39,6 +39,20 @@ private final class CustomOptionRow<T: UITableViewCell>: OptionRow<T> {}
 
 internal final class CustomizationViewController: QuickTableViewController {
 
+  init() {
+    if #available(iOS 13.0, *) {
+      super.init(style: .insetGrouped)
+    } else {
+      super.init(style: .grouped)
+    }
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  // MARK: - Properties
+
   private let debugging = Section(
     title: nil,
     rows: [NavigationRow(text: "", detailText: .none)],

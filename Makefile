@@ -14,6 +14,11 @@ ci-test: unit-test ui-test
 	make -B carthage
 	make -B docs
 
+swift-package-project:
+	rm -rf Package/Package.xcproj
+	mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
+	open Package/Package.xcodeproj
+
 bump:
 ifeq (,$(strip $(version)))
 	# Usage: make bump version=<number>

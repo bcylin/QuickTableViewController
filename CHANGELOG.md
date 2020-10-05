@@ -1,5 +1,12 @@
 # Change Log
 
+## v1.3.0
+
+* Use SF Symbols as icon images, [#41](https://github.com/bcylin/QuickTableViewController/pull/41) by [@ezfe](https://github.com/ezfe)
+* Make `init(style:)` a designated initializer
+* Add an option to override table view for style configuration, [#74](https://github.com/bcylin/QuickTableViewController/pull/74) by [@Tobisaninfo](https://github.com/Tobisaninfo)
+* Set IPHONEOS_DEPLOYMENT_TARGET to 9.0
+
 ## v1.2.4
 
 * Fix an issue where the same identifier is used for different cell types [#50](https://github.com/bcylin/QuickTableViewController/issues/50)

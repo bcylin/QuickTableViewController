@@ -29,24 +29,100 @@ import XCTest
 
 internal final class IconTests: XCTestCase {
 
-  private let image = UIImage(named: "icon", in: Bundle(for: IconTests.self), compatibleWith: nil)!
-  private let highlighted = UIImage(named: "icon-highlighted", in: Bundle(for: IconTests.self), compatibleWith: nil)!
+  private func testImageNamed(_ name: String) -> UIImage {
+    return UIImage(named: name, in: Bundle(for: IconTests.self), compatibleWith: nil)!
+  }
 
   // MARK: - Initialization
 
-  func testInitialiation() {
+  func testInitialiation_withName() {
+    // When
+    let icon: Icon = .named("icon", in: Bundle(for: IconTests.self))
+
+    // Then
+    XCTAssertEqual(icon.image, testImageNamed("icon"))
+    XCTAssertEqual(icon.highlightedImage, testImageNamed("icon-highlighted"))
+  }
+
+  func testInitialiation_withNameNotFound() {
+    // When
+    let icon: Icon = .named("not-found", in: Bundle(for: IconTests.self))
+
+    // Then
+    XCTAssertNil(icon.image)
+    XCTAssertNil(icon.highlightedImage)
+  }
+
+  func testInitialiation_withImage() {
     // Given
-    let image = self.image
+    let image = testImageNamed("icon")
 
     // When
-    let icon = Icon.image(image)
+    let icon: Icon = .image(image)
 
     // Then
     XCTAssertEqual(icon.image, image)
     XCTAssertNil(icon.highlightedImage)
   }
 
+  func testInitialiation_withImages() {
+    // Given
+    let imageA = testImageNamed("icon")
+    let imageB = testImageNamed("icon-highlighted")
+
+    // When
+    let icon: Icon = .images(normal: imageA, highlighted: imageB)
+
+    // Then
+    XCTAssertEqual(icon.image, imageA)
+    XCTAssertEqual(icon.highlightedImage, imageB)
+  }
+
+  // MARK: - SFSymbols
+
+  @available(iOS 13.0, tvOS 13.0, *)
+  func testSFSymbol() {
+    // Given
+    let name = "gear"
+
+    // When
+    let icon: Icon = .sfSymbol(name)
+
+    // Then
+    let expectedImage = UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
+    XCTAssertEqual(icon.image, expectedImage)
+    XCTAssertNil(icon.highlightedImage)
+  }
+
+  @available(iOS 13.0, tvOS 13.0, *)
+  func testSFSymbol_withConfiguration() {
+    // Given
+    let name = "camera"
+    let configuration = UIImage.SymbolConfiguration(scale: .large)
+
+    // When
+    let icon: Icon = .sfSymbol(name, withConfiguration: configuration)
+
+    // Then
+    let expectedImage = UIImage(systemName: name, withConfiguration: configuration)
+    XCTAssertEqual(icon.image, expectedImage)
+    XCTAssertNil(icon.highlightedImage)
+  }
+
+  @available(iOS 13.0, tvOS 13.0, *)
+  func testSFSymbol_notFound() {
+    // When
+    let icon: Icon = .sfSymbol("not-found")
+
+    // Then
+    XCTAssertNil(icon.image)
+    XCTAssertNil(icon.highlightedImage)
+  }
+
   // MARK: - Equatable
+
+  private lazy var image = testImageNamed("icon")
+  private lazy var highlighted = testImageNamed("icon-highlighted")
 
   func testEquatable_withIdenticalParameters() {
     // Given
@@ -113,4 +189,5 @@ internal final class IconTests: XCTestCase {
     // Then
     XCTAssert(one != another)
   }
+
 }
