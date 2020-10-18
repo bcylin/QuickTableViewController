@@ -5,10 +5,10 @@ packages:
 options:
   deploymentTarget:
     iOS: "9.0"
-targets:
-  App:
+    tvOS: "9.0"
+targetTemplates:
+  AppTemplate:
     type: application
-    platform: iOS
     sources: Package
     settings:
       base:
@@ -16,3 +16,10 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: "io.github.bcylin.QuickTableViewController.Package"
     dependencies:
       - package: QuickTableViewController
+targets:
+  App-iOS:
+    platform: iOS
+    templates: [AppTemplate]
+  App-tvOS:
+    platform: tvOS
+    templates: [AppTemplate]
