@@ -238,6 +238,8 @@ QuickTableViewController is not designed for inserting and deleting rows. It doe
 
 ## Requirements
 
+<details><summary><b>Pre 1.0 versions</b></summary>
+
 QuickTableViewController | iOS  | tvOS | Xcode | Swift
 ------------------------ | :--: | :--: | :---: | :---:
 `~> 0.1.0`               | 8.0+ | -    | 6.4   | 1.2
@@ -249,10 +251,15 @@ QuickTableViewController | iOS  | tvOS | Xcode | Swift
 `~> 0.7.0`               | 8.0+ | -    | 9.0   | 3.2
 `~> 0.8.0`               | 8.0+ | -    | 9.1   | 4.0
 `~> 0.9.0`               | 8.0+ | -    | 9.3   | 4.1
+
+</details><br>
+
+QuickTableViewController | iOS  | tvOS | Xcode | Swift
+------------------------ | :--: | :--: | :---: | :---:
 `~> 1.0.0`               | 8.0+ | 9.0+ | 9.4   | 4.1
 `~> 1.1.0`               | 8.0+ | 9.0+ | 10.1  | 4.2
 `~> 1.2.0`               | 8.0+ | 9.0+ | 10.2  | 5.0
-`~> 1.3.0`               | 9.0+ | 9.0+ | 12.0  | 5.3
+`~> 1.3.0`               | 9.0+ | 9.0+ | 11.7  | 5.2
 
 ## Installation
 
@@ -265,7 +272,7 @@ Follow the instructions at [Adding Package Dependencies to Your App](https://dev
 Create a `Podfile` with the following specification and run `pod install`.
 
 ```rb
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 pod 'QuickTableViewController'
@@ -279,6 +286,8 @@ Follow the [instructions](https://github.com/Carthage/Carthage#adding-frameworks
 ```
 github "bcylin/QuickTableViewController"
 ```
+
+Xcode 12 workaround Guide: https://github.com/Carthage/Carthage/blob/master/Documentation/Xcode12Workaround.mdx
 
 ### Use Git Submodule
 

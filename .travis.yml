@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode11.3
+osx_image: xcode11.7
 cache:
   directories:
     - vendor/bundle
@@ -15,7 +15,8 @@ install:
 script:
   - set -e
   - mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
-  - bundler exec fastlane swift_package
+  - bundle exec fastlane ios swift_package
+  - bundle exec fastlane tvos swift_package
   - make -B carthage
   - make -B docs
 after_success:
