@@ -28,8 +28,8 @@ import PackageDescription
 let package = Package(
     name: "QuickTableViewController",
     platforms: [
-        .iOS(.v13),
-        .tvOS(.v13),
+        .iOS(.v9),
+        .tvOS(.v9),
     ],
     products: [
         .library(

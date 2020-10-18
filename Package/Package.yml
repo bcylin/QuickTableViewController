@@ -4,7 +4,7 @@ packages:
     path: ../
 options:
   deploymentTarget:
-    iOS: "13.0"
+    iOS: "9.0"
 targets:
   App:
     type: application
