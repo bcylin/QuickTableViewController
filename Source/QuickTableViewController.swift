@@ -81,9 +81,15 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     tableView.frame = view.bounds
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     tableView.rowHeight = UITableView.automaticDimension
-    tableView.estimatedRowHeight = 44
     tableView.dataSource = self
     tableView.delegate = self
+
+    // Fixes bug where headers and footers were causing UITableView to act jumpy
+    // after a user has pushed a radio button and scrolls up. Originally came
+    // from https://developer.apple.com/forums/thread/86703.
+    tableView.estimatedRowHeight = 0
+    tableView.estimatedSectionHeaderHeight = 0
+    tableView.estimatedSectionFooterHeight = 0
   }
 
   open override func viewWillAppear(_ animated: Bool) {
