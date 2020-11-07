@@ -42,6 +42,8 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     }
   }
 
+  open var sectionCornerRadius: CGFloat = 0.0
+
   // MARK: - Initialization
 
   /// Initializes a table view controller to manage a table view of a given style.
@@ -112,6 +114,16 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     let cell =
       tableView.dequeueReusableCell(withIdentifier: row.cellReuseIdentifier) ??
       row.cellType.init(style: row.cellStyle, reuseIdentifier: row.cellReuseIdentifier)
+
+    // Ensure sections have rounded corners if user configures it
+    cell.clipsToBounds = true
+    if indexPath.row == 0 {
+      cell.layer.cornerRadius = sectionCornerRadius
+      cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    } else if indexPath.row == tableContents[indexPath.section].rows.count - 1 {
+      cell.layer.cornerRadius = sectionCornerRadius
+      cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    }
 
     cell.defaultSetUp(with: row)
     (cell as? Configurable)?.configure(with: row)
