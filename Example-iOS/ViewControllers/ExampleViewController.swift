@@ -87,6 +87,9 @@ internal final class ExampleViewController: QuickTableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = super.tableView(tableView, cellForRowAt: indexPath)
     // Alter the cells created by QuickTableViewController
+    if #available(iOS 11.0, *) {
+      cell.imageView?.adjustsImageSizeForAccessibilityContentSizeCategory = true
+    }
     return cell
   }
 

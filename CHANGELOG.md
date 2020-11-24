@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.3.1
+
+* Change the minimum deployment target to iOS 9 in Package.swift
+
 ## v1.3.0
 
 * Use SF Symbols as icon images, [#41](https://github.com/bcylin/QuickTableViewController/pull/41) by [@ezfe](https://github.com/ezfe)
