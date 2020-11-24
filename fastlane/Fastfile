@@ -7,13 +7,12 @@ config = {
   code_coverage: true
 }
 
-desc "Test Swift Package"
-lane :swift_package do
+def xcodebuild(scheme:, simulator:)
   Dir.chdir("../Package") do
     sh [
       %(set -o pipefail &&),
       %(xcodebuild -resolvePackageDependencies &&),
-      %(xcodebuild -project Package.xcodeproj -scheme App -sdk iphonesimulator clean build),
+      %(xcodebuild -project Package.xcodeproj -scheme #{scheme} -sdk #{simulator} clean build),
       %(| bundle exec xcpretty -c)
     ].join " "
   end
@@ -29,6 +28,11 @@ platform :ios do
   lane :ui_tests do
     run_tests(config.merge(scheme: "Example-iOS"))
   end
+
+  desc "Test Swift Package on iOS"
+  lane :swift_package do
+    xcodebuild(scheme: "App-iOS", simulator: "iphonesimulator")
+  end
 end
 
 platform :tvos do
@@ -40,5 +44,10 @@ platform :tvos do
   desc "Run tvOS UI tests"
   lane :ui_tests do
     run_tests(config.merge(scheme: "Example-tvOS"))
+  end
+
+  desc "Test Swift Package on tvOS"
+  lane :swift_package do
+    xcodebuild(scheme: "App-tvOS", simulator: "appletvsimulator")
   end
 end
