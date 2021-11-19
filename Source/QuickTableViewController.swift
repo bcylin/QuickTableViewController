@@ -95,6 +95,10 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
   // MARK: - UITableViewDataSource
 
+  open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return tableView.estimatedRowHeight
+  }
+  
   open func numberOfSections(in tableView: UITableView) -> Int {
     return tableContents.count
   }
