@@ -29,7 +29,7 @@ else
 endif
 
 carthage:
-	set -o pipefail && carthage build --no-skip-current --verbose | bundle exec xcpretty -c
+	set -o pipefail && mint run carthage build --use-xcframeworks --no-skip-current --verbose | bundle exec xcpretty -c
 
 docs:
 	test -d docs || git clone -b gh-pages --single-branch https://github.com/bcylin/QuickTableViewController.git docs

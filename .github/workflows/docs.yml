@@ -8,7 +8,7 @@ jobs:
     if: contains(github.event.head_commit.message, '[ci skip]') == false
     env:
       BUNDLE_PATH: vendor/bundle
-      POD_PATH: Pods
+      MINT_PATH: vendor/mint
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
@@ -22,12 +22,12 @@ jobs:
           path: ${{ env.BUNDLE_PATH }}
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gems-
-      - name: Cache ${{ env.POD_PATH }}
+      - name: Cache ${{ env.MINT_PATH }}
         uses: actions/cache@v2
         with:
-          path: ${{ env.POD_PATH }}
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: ${{ runner.os }}-pods-
+          path: ${{ env.MINT_PATH }}
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Mintfile') }}
+          restore-keys: ${{ runner.os }}-mint-
 
       # Dependencies
       - name: Bundle install
@@ -35,17 +35,13 @@ jobs:
           gem install bundler -v `tail -1 Gemfile.lock`
           bundle config path ${{ env.BUNDLE_PATH }}
           bundle install --jobs 4 --retry 3
-      - name: Pod install
-        run: |
-          bundle exec pod install
       - name: Mint bootstrap
         run: |
           brew list mint > /dev/null || brew install mint
           mint bootstrap
+          mint run xcodegen generate --project Package --spec Package/Package.yml
 
       # Tests
-      - run: |
-          mint run yonaskolb/XcodeGen xcodegen generate --project Package --spec Package/Package.yml
       - run: |
           bundle exec fastlane ios swift_package
       - run: |
