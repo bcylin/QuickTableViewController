@@ -50,3 +50,8 @@ jobs:
           make -B carthage
       - run: |
           make -B docs
+      - run: |
+          cd docs && pwd
+          git remote add upstream "https://${{ secrets.GH_PAGES_GITHUB_API_TOKEN }}@github.com/bcylin/QuickTableViewController.git"
+          git push --quiet upstream HEAD:gh-pages
+          git remote remove upstream
