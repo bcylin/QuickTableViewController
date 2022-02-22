@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          QuickTableViewController 1.2.3 Docs
+          QuickTableViewController 1.3.1 Docs
         </a>
          (87% documented)
       </p>
@@ -88,9 +88,6 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/DetailText.html">DetailText</a>
               </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/Icon.html">Icon</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -122,6 +119,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Icon.html">Icon</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -131,12 +136,16 @@
             <h1>NavigationRow</h1>
               <div class="declaration">
                 <div class="language">
+
                   <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">NavigationRow</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/NavigationRowCompatible.html">NavigationRowCompatible</a></span><span class="p">,</span> <span class="kt">Equatable</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
 
                 </div>
               </div>
             <p>A class that represents a row that triggers certain navigation when selected.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L30-L143">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -156,9 +165,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController13NavigationRowC4text10detailText4icon13customization6action21accessoryButtonActionACyxGSS_AA06DetailI0OAA4IconOSgySo07UITableC4CellC_AA0F0_AA0F5StyleptcSgyAaR_pcSgAUtcfc"></a>
+                    <a name="/s:24QuickTableViewController13NavigationRowC4text10detailText4icon13customization6action21accessoryButtonActionACyxGSS_AA06DetailI0OAA4IconVSgySo07UITableC4CellC_AA0F0_AA0F5StyleptcSgyAaR_pcSgAUtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(text:detailText:icon:customization:action:accessoryButtonAction:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController13NavigationRowC4text10detailText4icon13customization6action21accessoryButtonActionACyxGSS_AA06DetailI0OAA4IconOSgySo07UITableC4CellC_AA0F0_AA0F5StyleptcSgyAaR_pcSgAUtcfc">init(text:<wbr>detailText:<wbr>icon:<wbr>customization:<wbr>action:<wbr>accessoryButtonAction:<wbr>)</a>
+                    <a class="token" href="#/s:24QuickTableViewController13NavigationRowC4text10detailText4icon13customization6action21accessoryButtonActionACyxGSS_AA06DetailI0OAA4IconVSgySo07UITableC4CellC_AA0F0_AA0F5StyleptcSgyAaR_pcSgAUtcfc">init(text:<wbr>detailText:<wbr>icon:<wbr>customization:<wbr>action:<wbr>accessoryButtonAction:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -177,7 +186,7 @@ The icon, customization, action and accessory button action closures are optiona
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
   <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
   <span class="nv">detailText</span><span class="p">:</span> <span class="kt"><a href="../Enums/DetailText.html">DetailText</a></span><span class="p">,</span>
-  <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Enums/Icon.html">Icon</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+  <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/Icon.html">Icon</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
   <span class="nv">customization</span><span class="p">:</span> <span class="p">((</span><span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt"><a href="../Protocols/Row.html">Row</a></span> <span class="o">&amp;</span> <span class="kt"><a href="../Protocols/RowStyle.html">RowStyle</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
   <span class="nv">action</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
   <span class="nv">accessoryButtonAction</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Protocols/Row.html">Row</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
@@ -186,7 +195,7 @@ The icon, customization, action and accessory button action closures are optiona
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L38-L52">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L38-L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -249,7 +258,7 @@ The icon, customization and action closures are optional.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L77">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L77">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -279,7 +288,7 @@ The icon, customization and action closures are optional.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L80">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L80">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -309,7 +318,7 @@ The icon, customization and action closures are optional.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L83">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L83">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -339,7 +348,7 @@ The icon, customization and action closures are optional.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L88">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L88">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -382,7 +391,7 @@ The icon, customization and action closures are optional.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L95">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L95">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -412,7 +421,7 @@ The icon, customization and action closures are optional.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L98-L100">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L98-L100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -442,7 +451,7 @@ The icon, customization and action closures are optional.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L103-L105">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L103-L105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -450,9 +459,9 @@ The icon, customization and action closures are optional.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:24QuickTableViewController13NavigationRowC4iconAA4IconOSgvp"></a>
+                    <a name="/s:24QuickTableViewController13NavigationRowC4iconAA4IconVSgvp"></a>
                     <a name="//apple_ref/swift/Property/icon" class="dashAnchor"></a>
-                    <a class="token" href="#/s:24QuickTableViewController13NavigationRowC4iconAA4IconOSgvp">icon</a>
+                    <a class="token" href="#/s:24QuickTableViewController13NavigationRowC4iconAA4IconVSgvp">icon</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -467,12 +476,12 @@ The icon, customization and action closures are optional.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Enums/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">icon</span><span class="p">:</span> <span class="kt"><a href="../Structs/Icon.html">Icon</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L108">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -503,7 +512,7 @@ and with the detail button when <code><a href="../Classes/NavigationRow.html#/s:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L112-L123">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L112-L123">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -533,7 +542,7 @@ and with the detail button when <code><a href="../Classes/NavigationRow.html#/s:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L126-L128">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L126-L128">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -563,7 +572,7 @@ and with the detail button when <code><a href="../Classes/NavigationRow.html#/s:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L131">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L131">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -606,7 +615,7 @@ and with the detail button when <code><a href="../Classes/NavigationRow.html#/s:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.2.3/Source/Rows/NavigationRow.swift#L136-L141">Show on GitHub</a>
+                        <a href="https://github.com/bcylin/QuickTableViewController/blob/v1.3.1/Source/Rows/NavigationRow.swift#L136-L141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -619,8 +628,8 @@ and with the detail button when <code><a href="../Classes/NavigationRow.html#/s:
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2020-06-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://github.com/bcylin" target="_blank" rel="external">bcylin</a>. All rights reserved. (Last updated: 2022-02-22)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
