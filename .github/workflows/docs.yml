@@ -1,0 +1,60 @@
+name: Docs
+on: [push, pull_request]
+
+jobs:
+  build-docs:
+    name: Build docs
+    runs-on: macOS-latest
+    if: contains(github.event.head_commit.message, '[ci skip]') == false
+    env:
+      BUNDLE_PATH: vendor/bundle
+      MINT_PATH: vendor/mint
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+
+      # Cache
+      - name: Cache ${{ env.BUNDLE_PATH }}
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.BUNDLE_PATH }}
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-gems-
+      - name: Cache ${{ env.MINT_PATH }}
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.MINT_PATH }}
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Mintfile') }}
+          restore-keys: ${{ runner.os }}-mint-
+
+      # Dependencies
+      - name: Bundle install
+        run: |
+          gem install bundler -v `tail -1 Gemfile.lock`
+          bundle config path ${{ env.BUNDLE_PATH }}
+          bundle install --jobs 4 --retry 3
+      - name: Mint bootstrap
+        run: |
+          brew list mint > /dev/null || brew install mint
+          mint bootstrap
+          mint run xcodegen generate --project Package --spec Package/Package.yml
+
+      # Tests
+      - run: |
+          bundle exec fastlane ios swift_package
+      - run: |
+          bundle exec fastlane tvos swift_package
+      - run: |
+          make -B carthage
+      - run: |
+          make -B docs
+
+      - name: Push docs
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          cd docs && pwd
+          git remote add upstream "https://${{ secrets.GH_PAGES_GITHUB_API_TOKEN }}@github.com/bcylin/QuickTableViewController.git"
+          git push --quiet upstream HEAD:gh-pages
+          git remote remove upstream
