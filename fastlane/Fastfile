@@ -1,7 +1,6 @@
 default_platform(:ios)
 
 config = {
-  workspace: "QuickTableViewController.xcworkspace",
   clean: true,
   skip_build: true,
   code_coverage: true
