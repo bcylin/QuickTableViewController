@@ -922,7 +922,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby scripts/swiftlint.rb\n";
+			shellScript = "";
 		};
 		B51F21BB1F417269009BC2C9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -936,7 +936,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby scripts/swiftlint.rb\n";
+			shellScript = "";
 		};
 		B54582FB212D7F89004376C8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -950,7 +950,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby scripts/swiftlint.rb\n";
+			shellScript = "";
 		};
 		B5C335A91D07CBD000C706A4 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -964,7 +964,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby scripts/swiftlint.rb\n";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
