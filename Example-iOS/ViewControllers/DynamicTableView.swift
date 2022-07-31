@@ -26,7 +26,7 @@
 import Foundation
 import UIKit
 
-internal protocol QuickTableViewDelegate: class {
+internal protocol QuickTableViewDelegate: AnyObject {
     func quickReload()
 }
 

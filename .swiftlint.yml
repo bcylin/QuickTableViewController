@@ -6,6 +6,7 @@ disabled_rules:
   - implicit_return
   - line_length
   - vertical_whitespace
+  - unused_setter_value
 opt_in_rules:
   - closure_end_indentation
   - closure_spacing

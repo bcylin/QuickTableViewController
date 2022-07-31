@@ -36,7 +36,7 @@ internal final class DynamicViewController: QuickTableViewController {
     get {
       return cachedTableContents
     }
-    set {} // swiftlint:disable:this unused_setter_value
+    set {}
   }
 
   private let quickTableView = QuickTableView(frame: .zero, style: .grouped)
@@ -45,7 +45,7 @@ internal final class DynamicViewController: QuickTableViewController {
     get {
       return quickTableView
     }
-    set {} // swiftlint:disable:this unused_setter_value
+    set {}
   }
 
   private func buildContents() -> [Section] {
