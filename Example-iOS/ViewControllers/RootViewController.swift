@@ -69,8 +69,16 @@ internal final class RootViewController: QuickTableViewController {
         NavigationRow(text: "UILabel customization", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(AppearanceViewController(), animated: true)
         })
-      ]),
+      ])
+    ] + swiftUIExamples()
+  }
 
+  func swiftUIExamples() -> [Section] {
+    guard #available(iOS 13, *) else {
+      return []
+    }
+
+    return [
       Section(title: "Dynamic", rows: [
         NavigationRow(text: "Dynamic Rows", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(DynamicViewController(), animated: true)

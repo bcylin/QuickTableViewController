@@ -10,7 +10,6 @@
 		136DD300216A367B00F554F0 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DD2FF216A367B00F554F0 /* ExampleUITests.swift */; };
 		136DD307216A36FA00F554F0 /* QuickTableViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; };
 		136DD308216A36FA00F554F0 /* QuickTableViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B54A24262088816D00EEBA26 /* QuickTableViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3E27069B23FC4D14003516B8 /* DynamicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5323F73E48001DB252 /* DynamicTableView.swift */; };
 		3E45597A21DA81B100FC0C76 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597921DA81B100FC0C76 /* DetailText.swift */; };
 		3E45597F21DA8B5F00FC0C76 /* DetailTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextTests.swift */; };
 		3E45598021DA8B6000FC0C76 /* DetailTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45597D21DA8B3400FC0C76 /* DetailTextTests.swift */; };
@@ -82,6 +81,7 @@
 		B5C9175320B1831800C7999C /* QuickTableViewDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52677721FF7F08D00DC1362 /* QuickTableViewDelegateTests.swift */; };
 		B5C9175420B1831800C7999C /* CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526776F1FF7EA5A00DC1362 /* CustomTypes.swift */; };
 		B5C9175520B18A5C00C7999C /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5CE707628A8282F001DE6FE /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE707528A8282F001DE6FE /* DynamicViewController.swift */; };
 		B5DB7D271C4B7F74007B84D2 /* IconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D251C4B7F0E007B84D2 /* IconTests.swift */; };
 		B5DB7D2D1C4B8294007B84D2 /* NavigationRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2C1C4B8294007B84D2 /* NavigationRowTests.swift */; };
 		B5DB7D2F1C4B95D3007B84D2 /* SwitchRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2E1C4B95D3007B84D2 /* SwitchRowTests.swift */; };
@@ -100,7 +100,6 @@
 		B5F0FFEA1E9CC6F9007BF1C9 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */; };
 		B5F0FFEC1E9CC72D007BF1C9 /* TapActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */; };
 		B5F0FFEE1E9CC73D007BF1C9 /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */; };
-		F6B15A5623F74268001DB252 /* DynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B15A5523F74268001DB252 /* DynamicTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +224,7 @@
 		B5A37EB52020937A009C075F /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewController.swift; sourceTree = "<group>"; };
 		B5A67A13202069440075E0C8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		B5CE707528A8282F001DE6FE /* DynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicViewController.swift; sourceTree = "<group>"; };
 		B5DB7D251C4B7F0E007B84D2 /* IconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTests.swift; sourceTree = "<group>"; };
 		B5DB7D2C1C4B8294007B84D2 /* NavigationRowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRowTests.swift; sourceTree = "<group>"; };
 		B5DB7D2E1C4B95D3007B84D2 /* SwitchRowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRowTests.swift; sourceTree = "<group>"; };
@@ -245,8 +245,6 @@
 		B5F0FFE91E9CC6F9007BF1C9 /* SwitchRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRow.swift; sourceTree = "<group>"; };
 		B5F0FFEB1E9CC72D007BF1C9 /* TapActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapActionRow.swift; sourceTree = "<group>"; };
 		B5F0FFED1E9CC73D007BF1C9 /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
-		F6B15A5323F73E48001DB252 /* DynamicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTableView.swift; sourceTree = "<group>"; };
-		F6B15A5523F74268001DB252 /* DynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +414,7 @@
 		B51F21A31F417037009BC2C9 /* Example-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B5CE707728A8DB94001DE6FE /* SwiftUI */,
 				B5A37EB7202093A3009C075F /* UINibs */,
 				B5A37EB8202093C3009C075F /* ViewControllers */,
 				B51F21A41F417037009BC2C9 /* AppDelegate.swift */,
@@ -545,12 +544,19 @@
 			children = (
 				B5A37EAD20208EF7009C075F /* AppearanceViewController.swift */,
 				B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */,
-				F6B15A5323F73E48001DB252 /* DynamicTableView.swift */,
-				F6B15A5523F74268001DB252 /* DynamicTableViewController.swift */,
 				B51F21A61F417037009BC2C9 /* ExampleViewController.swift */,
 				B5A67A13202069440075E0C8 /* RootViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B5CE707728A8DB94001DE6FE /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				B5CE707528A8282F001DE6FE /* DynamicViewController.swift */,
+			);
+			indentWidth = 4;
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -991,8 +997,7 @@
 				B51F21A51F417037009BC2C9 /* AppDelegate.swift in Sources */,
 				B5A37EAE20208EF7009C075F /* AppearanceViewController.swift in Sources */,
 				B5A67A1220205F5C0075E0C8 /* CustomizationViewController.swift in Sources */,
-				3E27069B23FC4D14003516B8 /* DynamicTableView.swift in Sources */,
-				F6B15A5623F74268001DB252 /* DynamicTableViewController.swift in Sources */,
+				B5CE707628A8282F001DE6FE /* DynamicViewController.swift in Sources */,
 				B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */,
 				B5A67A14202069440075E0C8 /* RootViewController.swift in Sources */,
 			);
