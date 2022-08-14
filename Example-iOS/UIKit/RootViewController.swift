@@ -52,38 +52,44 @@ internal final class RootViewController: QuickTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    if #available(iOS 13.0, *) {
+      let appearance = UINavigationBarAppearance()
+      appearance.configureWithOpaqueBackground()
+      navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+
     tableContents = [
-      Section(title: "Default", rows: [
+      Section(title: "UIKit", rows: [
         NavigationRow(text: "Use default cell types", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(ExampleViewController(), animated: true)
-        })
-      ]),
-
-      Section(title: "Customization", rows: [
+        }),
         NavigationRow(text: "Use custom cell types", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(CustomizationViewController(), animated: true)
-        })
-      ]),
-
-      Section(title: "UIAppearance", rows: [
-        NavigationRow(text: "UILabel customization", detailText: .none, action: { [weak self] _ in
+        }),
+        NavigationRow(text: "UIAppearance customization", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(AppearanceViewController(), animated: true)
         })
       ])
     ] + swiftUIExamples()
   }
 
-  func swiftUIExamples() -> [Section] {
+  // MARK: - SwiftUI
+
+  private func swiftUIExamples() -> [Section] {
     guard #available(iOS 13, *) else {
       return []
     }
 
     return [
-      Section(title: "Dynamic", rows: [
-        NavigationRow(text: "Dynamic Rows", detailText: .none, action: { [weak self] _ in
+      Section(title: "SwiftUI", rows: [
+        NavigationRow(text: "Settings example", detailText: .none, action: { [weak self] _ in
+          let settings = SettingsViewModel()
+          self?.navigationController?.pushViewController(SettingsViewController(settings: settings), animated: true)
+        }),
+        NavigationRow(text: "Dynamic example", detailText: .none, action: { [weak self] _ in
           self?.navigationController?.pushViewController(DynamicViewController(), animated: true)
         })
-      ])
+      ], footer: "Replacement for QuickTableViewController in iOS 13 and above")
     ]
   }
 

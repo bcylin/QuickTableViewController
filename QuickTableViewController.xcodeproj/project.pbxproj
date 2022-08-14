@@ -82,6 +82,9 @@
 		B5C9175420B1831800C7999C /* CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526776F1FF7EA5A00DC1362 /* CustomTypes.swift */; };
 		B5C9175520B18A5C00C7999C /* QuickTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B5334F181B8CC5BD00C64A6D /* QuickTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5CE707628A8282F001DE6FE /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE707528A8282F001DE6FE /* DynamicViewController.swift */; };
+		B5CE707928A8E05A001DE6FE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE707828A8E05A001DE6FE /* SettingsViewController.swift */; };
+		B5CE707B28A8F534001DE6FE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE707A28A8F534001DE6FE /* SettingsViewModel.swift */; };
+		B5CE707D28A91265001DE6FE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE707C28A91265001DE6FE /* SettingsView.swift */; };
 		B5DB7D271C4B7F74007B84D2 /* IconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D251C4B7F0E007B84D2 /* IconTests.swift */; };
 		B5DB7D2D1C4B8294007B84D2 /* NavigationRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2C1C4B8294007B84D2 /* NavigationRowTests.swift */; };
 		B5DB7D2F1C4B95D3007B84D2 /* SwitchRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DB7D2E1C4B95D3007B84D2 /* SwitchRowTests.swift */; };
@@ -225,6 +228,9 @@
 		B5A67A1120205F5C0075E0C8 /* CustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewController.swift; sourceTree = "<group>"; };
 		B5A67A13202069440075E0C8 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		B5CE707528A8282F001DE6FE /* DynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicViewController.swift; sourceTree = "<group>"; };
+		B5CE707828A8E05A001DE6FE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B5CE707A28A8F534001DE6FE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		B5CE707C28A91265001DE6FE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B5DB7D251C4B7F0E007B84D2 /* IconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTests.swift; sourceTree = "<group>"; };
 		B5DB7D2C1C4B8294007B84D2 /* NavigationRowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRowTests.swift; sourceTree = "<group>"; };
 		B5DB7D2E1C4B95D3007B84D2 /* SwitchRowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRowTests.swift; sourceTree = "<group>"; };
@@ -415,8 +421,8 @@
 			isa = PBXGroup;
 			children = (
 				B5CE707728A8DB94001DE6FE /* SwiftUI */,
+				B5A37EB8202093C3009C075F /* UIKit */,
 				B5A37EB7202093A3009C075F /* UINibs */,
-				B5A37EB8202093C3009C075F /* ViewControllers */,
 				B51F21A41F417037009BC2C9 /* AppDelegate.swift */,
 				B51F21AB1F417037009BC2C9 /* Assets.xcassets */,
 				B51F21B01F417037009BC2C9 /* Info.plist */,
@@ -539,7 +545,7 @@
 			path = UINibs;
 			sourceTree = "<group>";
 		};
-		B5A37EB8202093C3009C075F /* ViewControllers */ = {
+		B5A37EB8202093C3009C075F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
 				B5A37EAD20208EF7009C075F /* AppearanceViewController.swift */,
@@ -547,13 +553,16 @@
 				B51F21A61F417037009BC2C9 /* ExampleViewController.swift */,
 				B5A67A13202069440075E0C8 /* RootViewController.swift */,
 			);
-			path = ViewControllers;
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		B5CE707728A8DB94001DE6FE /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				B5CE707528A8282F001DE6FE /* DynamicViewController.swift */,
+				B5CE707C28A91265001DE6FE /* SettingsView.swift */,
+				B5CE707828A8E05A001DE6FE /* SettingsViewController.swift */,
+				B5CE707A28A8F534001DE6FE /* SettingsViewModel.swift */,
 			);
 			indentWidth = 4;
 			path = SwiftUI;
@@ -1000,6 +1009,9 @@
 				B5CE707628A8282F001DE6FE /* DynamicViewController.swift in Sources */,
 				B51F21A71F417037009BC2C9 /* ExampleViewController.swift in Sources */,
 				B5A67A14202069440075E0C8 /* RootViewController.swift in Sources */,
+				B5CE707D28A91265001DE6FE /* SettingsView.swift in Sources */,
+				B5CE707928A8E05A001DE6FE /* SettingsViewController.swift in Sources */,
+				B5CE707B28A8F534001DE6FE /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
