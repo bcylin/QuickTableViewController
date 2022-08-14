@@ -60,6 +60,7 @@ public enum Subtitle: Equatable {
 
 }
 
+// MARK: -
 
 internal extension DetailText {
 

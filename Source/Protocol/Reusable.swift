@@ -28,11 +28,9 @@ import UIKit
 
 extension UITableViewCell: Reusable {}
 
-
 internal protocol Reusable {
   static var reuseIdentifier: String { get }
 }
-
 
 internal extension Reusable {
 
@@ -43,6 +41,7 @@ internal extension Reusable {
 
 }
 
+// MARK: -
 
 internal extension String {
 

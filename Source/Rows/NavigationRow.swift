@@ -142,6 +142,7 @@ open class NavigationRow<T: UITableViewCell>: NavigationRowCompatible, Equatable
 
 }
 
+// MARK: -
 
 internal extension UITableViewCell.CellStyle {
 

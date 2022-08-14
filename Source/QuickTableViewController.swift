@@ -192,11 +192,10 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 
 }
 
+// MARK: - SwitchCellDelegate
 
 #if os(iOS)
 extension QuickTableViewController: SwitchCellDelegate {
-
-  // MARK: - SwitchCellDelegate
 
   open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard

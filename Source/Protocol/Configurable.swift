@@ -32,6 +32,7 @@ public protocol Configurable {
   func configure(with row: Row & RowStyle)
 }
 
+// MARK: -
 
 extension UITableViewCell {
 

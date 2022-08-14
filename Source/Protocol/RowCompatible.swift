@@ -34,10 +34,12 @@ public protocol NavigationRowCompatible: Row, RowStyle {
   #endif
 }
 
+// MARK: -
 
 /// This protocol defines the compatible interface of a `TapActionRow` regardless of its associated cell type.
 public protocol TapActionRowCompatible: Row, RowStyle {}
 
+// MARK: -
 
 /// This protocol defines the compatible interface of an `OptionRow` regardless of its associated cell type.
 public protocol OptionRowCompatible: Row, RowStyle {
@@ -45,6 +47,7 @@ public protocol OptionRowCompatible: Row, RowStyle {
   var isSelected: Bool { get set }
 }
 
+// MARK: -
 
 /// This protocol defines the compatible interface of a `SwitchRow` regardless of its associated cell type.
 public protocol SwitchRowCompatible: Row, RowStyle {
