@@ -39,7 +39,7 @@ internal final class ExampleUITests: XCTestCase {
   func testInteractions() {
 
     let tables = XCUIApplication().tables
-    let existance = NSPredicate(format: "exists == true")
+    let existence = NSPredicate(format: "exists == true")
     let hasFocus = NSPredicate(format: "hasFocus == true")
 
     expectation(for: hasFocus, evaluatedWith: tables.cells.containing(.staticText, identifier: "Setting 1").element, handler: nil)
@@ -56,7 +56,7 @@ internal final class ExampleUITests: XCTestCase {
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
-    expectation(for: hasFocus, evaluatedWith: app.alerts["Tap action"].otherElements["OK"], handler: nil)
+    expectation(for: existence, evaluatedWith: app.alerts["Tap action"].buttons["OK"], handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
@@ -68,7 +68,7 @@ internal final class ExampleUITests: XCTestCase {
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
-    expectation(for: existance, evaluatedWith: app.otherElements.containing(.staticText, identifier: "CellStyle.default").element, handler: nil)
+    expectation(for: existence, evaluatedWith: app.otherElements.containing(.staticText, identifier: "CellStyle.default").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.menu)
 
@@ -80,7 +80,7 @@ internal final class ExampleUITests: XCTestCase {
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.select)
 
-    expectation(for: existance, evaluatedWith: app.otherElements.containing(.staticText, identifier: "CellStyle.subtitle").element, handler: nil)
+    expectation(for: existence, evaluatedWith: app.otherElements.containing(.staticText, identifier: "CellStyle.subtitle").element, handler: nil)
     waitForExpectations(timeout: 5, handler: nil)
     XCUIRemote.shared.press(.menu)
 

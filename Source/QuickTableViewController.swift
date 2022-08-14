@@ -84,6 +84,9 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     tableView.estimatedRowHeight = 44
     tableView.dataSource = self
     tableView.delegate = self
+    #if os(tvOS)
+    tableView.remembersLastFocusedIndexPath = true
+    #endif
   }
 
   open override func viewWillAppear(_ animated: Bool) {
@@ -187,6 +190,18 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     default:
       break
     }
+  }
+  #endif
+
+  #if os(tvOS)
+  private var currentFocusedIndexPath: IndexPath?
+
+  open override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+    currentFocusedIndexPath = (context.nextFocusedView as? UITableViewCell).flatMap(tableView.indexPath(for:))
+  }
+
+  public func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath? {
+    return currentFocusedIndexPath
   }
   #endif
 

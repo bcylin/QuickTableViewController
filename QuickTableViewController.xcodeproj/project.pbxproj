@@ -691,9 +691,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54A243B2088816E00EEBA26 /* Build configuration list for PBXNativeTarget "QuickTableViewController-tvOS" */;
 			buildPhases = (
+				B54A24232088816D00EEBA26 /* Headers */,
 				B54A24212088816D00EEBA26 /* Sources */,
 				B54A24222088816D00EEBA26 /* Frameworks */,
-				B54A24232088816D00EEBA26 /* Headers */,
 				B54A24242088816D00EEBA26 /* Resources */,
 			);
 			buildRules = (
