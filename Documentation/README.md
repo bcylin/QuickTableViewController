@@ -1,23 +1,17 @@
-# QuickTableViewController
+# Documentation
 
-[![GitHub Actions](https://github.com/bcylin/QuickTableViewController/workflows/CI/badge.svg)](https://github.com/bcylin/QuickTableViewController/actions)
-[![Codecov](https://img.shields.io/codecov/c/github/bcylin/QuickTableViewController)](https://codecov.io/gh/bcylin/QuickTableViewController)
-[![Carthage compatible](https://img.shields.io/badge/carthage-compatible-green.svg)](https://github.com/Carthage/Carthage)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/QuickTableViewController.svg)](https://cocoapods.org/pods/QuickTableViewController)
-[![Platform](https://img.shields.io/cocoapods/p/QuickTableViewController?label=docs)](https://bcylin.github.io/QuickTableViewController)
-![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg)
+This is the pre-release documentation on the `develop` branch. For the latest released version, please visit:
 
-A simple way to create a table view for settings, including:
-
-* Table view cells with `UISwitch`
-* Table view cells with center aligned text for tap actions
-* A section that provides mutually exclusive options
-* Actions performed when the row reacts to the user interaction
-* Easy to specify table view cell image, cell style and accessory type
-
-<img src="https://raw.githubusercontent.com/bcylin/QuickTableViewController/gh-pages/img/screenshots.png" width="80%"></img>
+* [QuickTableViewController documentation](https://bcylin.github.io/QuickTableViewController)
 
 ## Usage
+
+* Table view cell with `UISwitch`
+* Table view cell with different cell styles
+* Table view cell with center-aligned text for tap actions
+* Table view section that provides mutually exclusive options
+
+<img src="https://raw.githubusercontent.com/bcylin/QuickTableViewController/gh-pages/img/screenshots.png" width="600"></img>
 
 Set up `tableContents` in `viewDidLoad`:
 
@@ -220,7 +214,7 @@ As discussed in issue [#12](https://github.com/bcylin/QuickTableViewController/i
 * `NavigationRow.accessoryButtonAction` is not available.
 * Cell image view's left margin is 0.
 
-## Limitation
+## Limitations
 
 > When to use **QuickTableViewController**?
 
@@ -231,10 +225,6 @@ It's possible to update the table contents by replacing a specific section or ro
 > When **not** to use it?
 
 QuickTableViewController is not designed for inserting and deleting rows. It doesn't handle table view reload animation either. If your table view needs to update dynamically, you might want to consider other solutions such as [IGListKit](https://github.com/Instagram/IGListKit).
-
-## Documentation
-
-* [QuickTableViewController Reference](https://bcylin.github.io/QuickTableViewController)
 
 ## Requirements
 
@@ -297,9 +287,3 @@ git submodule add -b master git@github.com:bcylin/QuickTableViewController.git D
 
 * Drag **QuickTableViewController.xcodeproj** to your app project as a subproject.
 * On your application target's **Build Phases** settings tab, add **QuickTableViewController-iOS** to **Target Dependencies**.
-
-## License
-
-QuickTableViewController is released under the MIT license.
-See [LICENSE](https://github.com/bcylin/QuickTableViewController/blob/master/LICENSE) for more details.
-Image source: [iconmonstr](https://iconmonstr.com/license).
