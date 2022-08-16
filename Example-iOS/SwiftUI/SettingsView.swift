@@ -56,10 +56,9 @@ struct SettingsView: View {
                     .leadingIcon("gear")
                 subtitleCellStyle(title: "CellStyle.default", subtitle: ".subtitle")
                     .leadingIcon("globe")
-                NavigationLink(destination: EmptyView()) {
-                    value1CellStyle(title: "CellStyle", detailText: ".value1")
-                        .leadingIcon("clock.arrow.circlepath")
-                }
+                value1CellStyle(title: "CellStyle", detailText: ".value1")
+                    .leadingIcon("clock.arrow.circlepath")
+                    .navigationFlow { viewModel.startNavigationFlow() }
             }
 
             Section(header: Text("Picker")) {
@@ -88,7 +87,7 @@ struct SettingsView: View {
 
     private func value1CellStyle(title: String, detailText: String) -> some View {
         HStack {
-            Text(title)
+            Text(title).foregroundColor(.primary)
             Spacer()
             Text(detailText).foregroundColor(.secondary)
         }
@@ -111,11 +110,26 @@ struct SettingsView: View {
 
 @available(iOS 13.0, *)
 private extension View {
-    func leadingIcon(_ systemName: String) -> some View {
+    func leadingIcon(_ systemName: String, imageScale: Image.Scale = .large, foregroundColor: Color = .primary) -> some View {
         // Label { self } icon: { icon } if #available(iOS 14.0, *)
         HStack {
-            Image(systemName: systemName).imageScale(.large)
+            Image(systemName: systemName).imageScale(imageScale).foregroundColor(foregroundColor)
             self
+        }
+    }
+
+    func trailingIcon(_ systemName: String, imageScale: Image.Scale = .small, foregroundColor: Color = .secondary) -> some View {
+        HStack {
+            self
+            Image(systemName: systemName).imageScale(imageScale).foregroundColor(foregroundColor)
+        }
+    }
+
+    func navigationFlow(action: @escaping () -> Void) -> some View {
+        Button {
+            action()
+        } label: {
+            self.trailingIcon("chevron.forward")
         }
     }
 }

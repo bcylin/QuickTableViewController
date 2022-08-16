@@ -42,6 +42,14 @@ final class SettingsViewModel: ObservableObject {
         tapAction?()
     }
 
+    // MARK: - Navigation
+
+    var navigationFlow: (() -> Void)?
+
+    func startNavigationFlow() {
+        navigationFlow?()
+    }
+
     // MARK: - Options
 
     enum Option: String, CaseIterable, Identifiable {

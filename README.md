@@ -55,6 +55,7 @@ var body: some View {
                 .leadingIcon("globe")
             value1CellStyle(title: "CellStyle", detailText: ".value1")
                 .leadingIcon("clock.arrow.circlepath")
+                .navigationFlow { viewModel.startNavigationFlow() }
         }
 
         Section(header: Text("Radio Button")) {

@@ -36,6 +36,10 @@ final class SettingsViewController: UIHostingController<SettingsView> {
         super.init(rootView: SettingsView(viewModel: settings))
         title = "Settings"
         observeChanges(in: settings)
+
+        settings.navigationFlow = { [weak self] in
+            self?.showDetail()
+        }
     }
 
     required dynamic init?(coder aDecoder: NSCoder) {
@@ -63,4 +67,12 @@ final class SettingsViewController: UIHostingController<SettingsView> {
             print("settings.selections = \(selections.map(\.title).sorted())")
         }.store(in: &observations)
     }
+
+    private func showDetail() {
+        let controller = UIViewController()
+        controller.view.backgroundColor = .white
+        controller.title = "CellStyle.value1"
+        navigationController?.pushViewController(controller, animated: true)
+    }
+
 }
