@@ -8,6 +8,7 @@ jobs:
     if: contains(github.event.head_commit.message, '[ci skip]') == false
     env:
       BUNDLE_PATH: vendor/bundle
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
