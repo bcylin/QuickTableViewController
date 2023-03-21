@@ -8,18 +8,18 @@ jobs:
     if: contains(github.event.head_commit.message, '[ci skip]') == false
     env:
       BUNDLE_PATH: vendor/bundle
-      DEVELOPER_DIR: /Applications/Xcode_12.5.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     steps:
-      - uses: actions/checkout@v2.3.3
-      - uses: actions/setup-ruby@v1.1.2
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6.x'
+          ruby-version: '3.2.1'
       - run: |
           ls -l /Applications | grep -i Xcode
 
       # Cache
       - name: Cache ${{ env.BUNDLE_PATH }}
-        uses: actions/cache@v2.1.1
+        uses: actions/cache@v2
         with:
           path: ${{ env.BUNDLE_PATH }}
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}

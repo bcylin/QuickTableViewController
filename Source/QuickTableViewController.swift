@@ -212,6 +212,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
 #if os(iOS)
 extension QuickTableViewController: SwitchCellDelegate {
 
+  @objc
   open func switchCell(_ cell: SwitchCell, didToggleSwitch isOn: Bool) {
     guard
       let indexPath = tableView.indexPath(for: cell),
